@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace AsusLaptop.Areas.Admin.Controllers
 {
-    public class DashboardController : Controller
+    public class HomeController : Controller
     {
         // GET: Admin/Dashboard
         public ActionResult Index()
