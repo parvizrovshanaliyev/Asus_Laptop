@@ -11,8 +11,8 @@ namespace AsusLaptop
             //bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
             //            "~/Scripts/jquery-{version}.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Public/Scripts/jquery.validate*"));
+            //bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+            //            "~/Public/Scripts/jquery.validate*"));
 
         //    // Use the development version of Modernizr to develop with and learn from. Then, when you're
         //    // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
@@ -25,6 +25,6 @@ namespace AsusLaptop
         //    bundles.Add(new StyleBundle("~/Content/css").Include(
         //              "~/Content/bootstrap.css",
         //              "~/Content/site.css"));
-        //}
+        }
     }
 }

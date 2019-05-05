@@ -206,8 +206,6 @@
     <Content Include="Public\assets\Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Public\assets\Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Public\assets\Scripts\modernizr-2.8.3.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Public\assets\fonts\fontawesome-webfont5b62.eot" />
     <Content Include="Public\assets\fonts\fontawesome-webfont5b62.ttf" />
     <Content Include="Public\assets\fonts\fontawesome-webfont5b62.woff" />
@@ -219,19 +217,6 @@
     <Content Include="Public\assets\fonts\themifyd41d.eot" />
     <Content Include="Public\assets\Scripts\jquery-3.4.1.min.map" />
     <Content Include="Public\assets\Scripts\jquery-3.4.1.slim.min.map" />
-    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.4.1.js" />
-    <Content Include="Scripts\jquery-3.4.1.min.js" />
-    <Content Include="Scripts\jquery-3.4.1.slim.js" />
-    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
-    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.4.1.min.map" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -243,9 +228,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
