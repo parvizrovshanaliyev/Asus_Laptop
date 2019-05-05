@@ -15,6 +15,7 @@ namespace AsusLaptop.Models
         [StringLength(50)]
         public string Fullname { get; set; }
 
-        public DateTime? CreateAt { get; set; }
+       
+        public string Token { get; set; }
     }
 }

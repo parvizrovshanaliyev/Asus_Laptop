@@ -1,0 +1,74 @@
+﻿@using AsusLaptop.Hepler;
+@model IEnumerable<AsusLaptop.Models.RoleApp>
+
+@{
+    ViewBag.Title = "Roles";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-12 mt-5">
+    <div class="card">
+        <div class="card-body">
+            <div class=" d-flex justify-content-between">
+                <h4 class="header-title">@ViewBag.Title</h4>
+                <p >
+                    <a href="@Url.Action("Create","Roles")" class="text-danger btn btn-dark">Create New Role</a>
+                </p>
+            </div>
+            
+            <div class="single-table">
+                <div class="table-responsive">
+                    <table class="table table-hover progress-table text-center">
+                        <thead class="text-uppercase">
+                            <tr>
+
+                                <th scope="col">Role Name</th>
+                                <th scope="col">Users</th>
+                                <th scope="col">action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Name)
+                                    </td>
+                                    <td>
+                                        @if (item.Users.Any())
+                                        {
+                                            <text>@string.Join(" ,", item.Users.Select(u => Helper.GetFullname(u.UserId)).ToArray())</text>
+
+                                        }
+                                        else
+                                        {
+                                             <p class="text-danger">There is no user for this Role</p>
+                                        }
+                                    </td>
+                                    <td>
+                                        <ul class="d-flex justify-content-center">
+                                            @*<li class="mr-3">
+                                               
+                                                <a href="@Url.Action("Edit","Roles",new {id=item.Id })" class="text-secondary"><i class="fa fa-edit"></i></a>
+                                            </li>*@
+                                            @if (!item.Users.Any())
+                                            {
+                                                <li>
+                                                    <a href="@Url.Action("Delete","Roles",new {id=item.Id })" class="text-danger delete"><i class="ti-trash"></i></a>
+                                                </li>
+
+                                            }
+                                        </ul>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

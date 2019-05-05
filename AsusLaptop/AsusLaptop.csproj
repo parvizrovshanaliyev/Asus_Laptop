@@ -154,15 +154,33 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\RolesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\RoleToUserController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DAL\AsusDbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Hepler\Helper.cs" />
+    <Compile Include="Migrations\201905051511105_InitialCreate.cs" />
+    <Compile Include="Migrations\201905051511105_InitialCreate.Designer.cs">
+      <DependentUpon>201905051511105_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905051916015_initialf.cs" />
+    <Compile Include="Migrations\201905051916015_initialf.Designer.cs">
+      <DependentUpon>201905051916015_initialf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\CustomUserValidator.cs" />
+    <Compile Include="Models\RoleApp.cs" />
+    <Compile Include="Models\RoleManagerApp.cs" />
     <Compile Include="Models\UserApp.cs" />
     <Compile Include="Models\UserManagerApp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Public\assets\js\Custom.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Areas\Admin\Public\assets\css\bootstrap.min.css" />
@@ -276,7 +294,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Roles\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Roles\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\RoleToUser\Index.cshtml" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201905051511105_InitialCreate.resx">
+      <DependentUpon>201905051511105_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905051916015_initialf.resx">
+      <DependentUpon>201905051916015_initialf.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

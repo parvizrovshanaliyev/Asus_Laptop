@@ -1,0 +1,73 @@
+﻿@using AsusLaptop.Hepler;
+@model IEnumerable<AsusLaptop.Models.UserApp>
+
+@{
+    ViewBag.Title = "Assign a role to a user";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-12 mt-5">
+    <div class="card">
+        <div class="card-body">
+            <div class=" d-flex justify-content-between">
+                <h4 class="header-title">@ViewBag.Title</h4>
+            </div>
+
+            <div class="single-table">
+                <div class="table-responsive">
+                    <table class="table table-hover progress-table text-center">
+                        <thead class="text-uppercase">
+                            <tr>
+
+                                <th  class="alert alert-dark" scope="col">Fullname</th>
+                                <th class="alert alert-dark" scope="col">Username</th>
+                                @foreach (var role in Helper.GetRoles())
+                                {
+                                    <th class="alert alert-danger">@role.Name</th>
+                                }
+                                <th class="alert alert-info" scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.AntiForgeryToken()
+                                    @Html.Hidden("userId", item.Id)
+                                    <td>
+                                        @if (!string.IsNullOrEmpty(item.Fullname))
+                                        {
+                                            @item.Fullname
+                                        }
+                                        else
+                                        {
+                                            @item.Email
+                                        }
+                                    </td>
+                                    <td>@item.UserName</td>
+                                    foreach (var role in Helper.GetRoles())
+                                    {
+                                    <td >
+                                        <input class="btn btn-block" type="checkbox" value="@role.Name" name="RoleNames" checked="@item.Roles.Any(r=>r.RoleId==role.Id)" />
+                                    </td>
+                                    }
+
+                                    <td>
+                                        <input class="btn btn-outline-danger" type="submit" name="name" value="Update" />
+                                    </td>
+                                }
+                            </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

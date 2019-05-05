@@ -12,7 +12,7 @@ namespace AsusLaptop
             //            "~/Scripts/jquery-{version}.js"));
 
             //bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-            //            "~/Public/Scripts/jquery.validate*"));
+            //            "~/Areas/Admin/Public/assets/Scripts/jquery.validate*"));
 
         //    // Use the development version of Modernizr to develop with and learn from. Then, when you're
         //    // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
