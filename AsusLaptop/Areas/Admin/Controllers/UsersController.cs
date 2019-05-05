@@ -5,6 +5,8 @@ using Microsoft.Owin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Helpers;
@@ -65,6 +67,7 @@ namespace AsusLaptop.Areas.Admin.Controllers
 
             if (result.Succeeded)
             {
+                SendConfirm(userdb.Email, userdb.Token);
                 return RedirectToAction("Index");
             }
             else
@@ -79,6 +82,47 @@ namespace AsusLaptop.Areas.Admin.Controllers
             }
 
            
+        }
+        #endregion
+
+        #region confirm user account
+        public ActionResult Confirm(string token)
+        {
+            UserApp userdb = UserManagerApp.Users.FirstOrDefault(u => u.Token == token);
+
+            if (userdb == null) return HttpNotFound("User not found ");
+            return View(model:userdb.Token);
+        }
+
+
+        #endregion
+        #region Send Confirm Email User
+
+        private void SendConfirm(string email, string token)
+        {
+
+            var body = "<h1>Invite to Asus.com</h1><h3>Message:</h3><h4 class='btn btn-primary'><a style='color:red' href='{0}'>Activate Asus.com Profile</a></h4>";
+            var message = new MailMessage();
+            message.To.Add(new MailAddress(email));  // replace with valid value 
+            message.From = new MailAddress("resetlifewithcode@gmail.com");  // replace with valid value
+            message.Subject = " Invite to Asus.com ";
+            message.Body = string.Format(body, "http://localhost:50007/Admin/Users/confirm?token=" + token);
+            message.IsBodyHtml = true;
+
+            using (var smtp = new SmtpClient())
+            {
+                var credential = new NetworkCredential
+                {
+                    UserName = "resetlifewithcode@gmail.com",  // replace with valid value
+                    Password = "varint=str321123"  // replace with valid value
+                };
+                smtp.Credentials = credential;
+                smtp.Host = "smtp.gmail.com";
+                smtp.Port = 587;
+                smtp.EnableSsl = true;
+                smtp.Send(message);
+            }
+
         }
         #endregion
     }
