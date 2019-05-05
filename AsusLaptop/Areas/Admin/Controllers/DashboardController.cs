@@ -4,15 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace AsusLaptop.Controllers
+namespace AsusLaptop.Areas.Admin.Controllers
 {
-    public class HomeController : Controller
+    public class DashboardController : Controller
     {
+        // GET: Admin/Dashboard
         public ActionResult Index()
         {
             return View();
         }
-
-        
     }
 }
