@@ -299,6 +299,7 @@
     <Content Include="Areas\Admin\Views\Users\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Users\Create.cshtml" />
     <Content Include="Areas\Admin\Views\RoleToUser\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Confirm.cshtml" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

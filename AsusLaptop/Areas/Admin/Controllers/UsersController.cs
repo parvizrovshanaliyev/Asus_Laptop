@@ -90,7 +90,7 @@ namespace AsusLaptop.Areas.Admin.Controllers
         {
             UserApp userdb = UserManagerApp.Users.FirstOrDefault(u => u.Token == token);
 
-            if (userdb == null) return HttpNotFound("User not found ");
+            if (userdb == null) return View();
             return View(model:userdb.Token);
         }
 
