@@ -1,4 +1,4 @@
-﻿
+﻿@model  AsusLaptop.Models.UserApp
 @{
     Layout = null;
 }
@@ -44,13 +44,15 @@
             <div class="login-box ptb--100">
                 <form action="@Url.Action("Confirm","Users")" method="post">
                     @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
                     <div class="login-form-head">
                         <h4>Sign up</h4>
                         <p>Hello there, Sign up and Join with Us</p>
                     </div>
                     <div class="login-form-body">
-                           @Html.ValidationSummary(false, "", new { @class = "text-danger mb-1" })
-                        <input type="hidden" name="Token" value="@Model" />
+                        <input type="hidden" name="id" value="@Model.Id" />
+                        @*<input type="hidden" name="Token" value="@Model.Token" />*@
                         <div class="form-gp">
                             <label for="exampleInputName1">Full Name</label>
                             <input type="text" required name="Fullname" id="exampleInputName1">
@@ -106,7 +108,7 @@
         gtag('config', 'UA-23581568-13');
     </script>
     <script src="~/Areas/Admin/Public/assets/js/rocket-loader.min.js" data-cf-settings="f3a596482111193119c7c90d-|49" defer=""></script>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
     <script>
         $(document).ready(function () {

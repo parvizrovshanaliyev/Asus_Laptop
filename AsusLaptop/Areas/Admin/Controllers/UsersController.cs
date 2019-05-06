@@ -1,4 +1,5 @@
-﻿using AsusLaptop.Models;
+﻿using AsusLaptop.DAL;
+using AsusLaptop.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
@@ -16,6 +17,12 @@ namespace AsusLaptop.Areas.Admin.Controllers
 {
     public class UsersController : Controller
     {
+        private readonly AsusDbContext _context;
+        public UsersController()
+        {
+            _context = new AsusDbContext();
+        }
+
         public UserManagerApp UserManagerApp
         {
             get
@@ -27,12 +34,14 @@ namespace AsusLaptop.Areas.Admin.Controllers
         }
 
         public RoleManagerApp RoleManagerApp { get { return HttpContext.GetOwinContext().GetUserManager<RoleManagerApp>(); } }
+
         // GET: Admin/Users
         public ActionResult Index()
         {
             return View(UserManagerApp.Users.ToList());
         }
 
+        
 
         #region Create User
         public ActionResult Create()
@@ -58,22 +67,93 @@ namespace AsusLaptop.Areas.Admin.Controllers
                 Email = user.Email,
                 UserName= user.Email,
                 Status = false,
-                Token =user.Id.ToString()
-
+                Token=user.Id
             };
-
+            _context.SaveChanges();
             IdentityResult result = await UserManagerApp.CreateAsync(userdb);
-
+            SendConfirm(userdb.Email, userdb.Token.ToString());
+            _context.SaveChanges();
             if (result.Succeeded)
             {
-                SendConfirm(userdb.Email, userdb.Token);
+               
                 return RedirectToAction("Index");
             }
             else
             {
                 foreach (var item in result.Errors.ToList())
                 {
-                    ModelState.AddModelError("Email", item);
+                    ModelState.AddModelError(" ", item);
+
+                }
+                return View(user);
+
+            }
+        }
+        #endregion
+
+        #region confirm user account
+        public  ActionResult Confirm(string token)
+        {
+            if (string.IsNullOrEmpty(token)) return HttpNotFound("id not found");
+            
+
+            UserApp user = UserManagerApp.Users.FirstOrDefault(u => u.Token == token);
+
+            if (user == null) return HttpNotFound("User not found");
+            return View(user);
+        }
+
+        [HttpPost,ValidateAntiForgeryToken]
+        public async Task<ActionResult> Confirm(string id , string Fullname,string UserName, string Password)
+        {
+
+            if (string.IsNullOrEmpty(id)) return HttpNotFound("id not found");
+           
+
+            UserApp user = await UserManagerApp.FindByIdAsync(id);
+            if (!ModelState.IsValid) return View(user);
+
+            if (user == null) return  HttpNotFound("User not found");
+
+            //if (string.IsNullOrEmpty(UserName))
+            //{
+            //    ModelState.AddModelError("Username", "UserName not null");
+            //    return View(user);
+            //}
+            if (string.IsNullOrEmpty(Fullname))
+            {
+                ModelState.AddModelError("Fullname", "Fullname not null");
+                return View(user);
+            }
+            if (UserManagerApp.Users.Any(u => u.UserName == UserName))
+            {
+                ModelState.AddModelError("UserName", "UserName is already taken");
+                return View(user);
+            }
+            if (string.IsNullOrEmpty(Password))
+            {
+                ModelState.AddModelError("Password", "Password not null");
+                return View(user);
+            }
+            user.Fullname = Fullname;
+            user.UserName = UserName;
+            user.PasswordHash = UserManagerApp.PasswordHasher.HashPassword(Password);
+            user.Token = null;
+            user.Status = true;
+            user.EmailConfirmed = true;
+            IdentityResult result = await UserManagerApp.UpdateAsync(user);
+            _context.SaveChanges();
+            if (result.Succeeded)
+            {
+               
+                return RedirectToAction("Index", "Users");
+
+            }
+            else
+            {
+                foreach (var item in result.Errors.ToList())
+                {
+                    ModelState.AddModelError(" ", item);
 
                 }
                 return View(user);
@@ -81,61 +161,6 @@ namespace AsusLaptop.Areas.Admin.Controllers
             }
 
            
-        }
-        #endregion
-
-        #region confirm user account
-        public ActionResult Confirm(string token)
-        {
-            UserApp userdb = UserManagerApp.Users.FirstOrDefault(user=>user.Id == token);
-
-           //var getUser = (from user in UserManagerApp.Users
-           //               where user.Id == token
-           //               select user).AsQueryable();
-
-              
-            if (userdb == null) return View();
-            return View(model:userdb.Token);
-        }
-
-        [HttpPost,ValidateAntiForgeryToken]
-        public async Task<ActionResult> Confirm(UserApp user, string Password)
-        {
-            if (!ModelState.IsValid) return View();
-
-            UserApp userdb =UserManagerApp.Users.FirstOrDefault(ue => ue.Id == user.Id);
-
-            if (userdb == null) return  HttpNotFound("User not found");
-
-            if (string.IsNullOrEmpty(user.UserName))
-            {
-                ModelState.AddModelError("Username", "UserName not null");
-                return View(user);
-            }
-            if (UserManagerApp.Users.Any(u => u.UserName == user.UserName))
-            {
-                ModelState.AddModelError("Username", "UserName is already taken");
-                return View();
-            }
-            if (string.IsNullOrEmpty(Password))
-            {
-                ModelState.AddModelError("Password", "Password not null");
-                return View();
-            }
-            userdb.Fullname = user.Fullname;
-            userdb.UserName = user.UserName;
-            userdb.PasswordHash = UserManagerApp.PasswordHasher.HashPassword(Password);
-            userdb.Token = null;
-            userdb.Status = true;
-            userdb.EmailConfirmed = true;
-            IdentityResult resulte = await UserManagerApp.UpdateAsync(userdb);
-
-            if (resulte.Succeeded) { return RedirectToAction("index"); } //logine gonder sonra
-
-            resulte.Errors.ToList().ForEach(e => ModelState.AddModelError("", e));
-
-            return View();
-            
         }
 
         #endregion
@@ -149,7 +174,7 @@ namespace AsusLaptop.Areas.Admin.Controllers
             message.To.Add(new MailAddress(email));  // replace with valid value 
             message.From = new MailAddress("resetlifewithcode@gmail.com");  // replace with valid value
             message.Subject = " Invite to Asus.com ";
-            message.Body = string.Format(body, "http://localhost:50007/Admin/Users/confirm?token=" + token);
+            message.Body = string.Format(body, "http://localhost:50007/Admin/Users/confirm?token="+token);
             message.IsBodyHtml = true;
 
             using (var smtp = new SmtpClient())
