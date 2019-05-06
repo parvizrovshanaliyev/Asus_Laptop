@@ -58,9 +58,8 @@ namespace AsusLaptop.Areas.Admin.Controllers
                 Email = user.Email,
                 UserName= user.Email,
                 Status = false,
-                Token = Crypto.Hash(user.Email + user.SecurityStamp).ToString()
+                Token =user.Id.ToString()
 
-                
             };
 
             IdentityResult result = await UserManagerApp.CreateAsync(userdb);
@@ -88,12 +87,56 @@ namespace AsusLaptop.Areas.Admin.Controllers
         #region confirm user account
         public ActionResult Confirm(string token)
         {
-            UserApp userdb = UserManagerApp.Users.FirstOrDefault(u => u.Token == token);
+            UserApp userdb = UserManagerApp.Users.FirstOrDefault(user=>user.Id == token);
 
+           //var getUser = (from user in UserManagerApp.Users
+           //               where user.Id == token
+           //               select user).AsQueryable();
+
+              
             if (userdb == null) return View();
             return View(model:userdb.Token);
         }
 
+        [HttpPost,ValidateAntiForgeryToken]
+        public async Task<ActionResult> Confirm(UserApp user, string Password)
+        {
+            if (!ModelState.IsValid) return View();
+
+            UserApp userdb =UserManagerApp.Users.FirstOrDefault(ue => ue.Id == user.Id);
+
+            if (userdb == null) return  HttpNotFound("User not found");
+
+            if (string.IsNullOrEmpty(user.UserName))
+            {
+                ModelState.AddModelError("Username", "UserName not null");
+                return View(user);
+            }
+            if (UserManagerApp.Users.Any(u => u.UserName == user.UserName))
+            {
+                ModelState.AddModelError("Username", "UserName is already taken");
+                return View();
+            }
+            if (string.IsNullOrEmpty(Password))
+            {
+                ModelState.AddModelError("Password", "Password not null");
+                return View();
+            }
+            userdb.Fullname = user.Fullname;
+            userdb.UserName = user.UserName;
+            userdb.PasswordHash = UserManagerApp.PasswordHasher.HashPassword(Password);
+            userdb.Token = null;
+            userdb.Status = true;
+            userdb.EmailConfirmed = true;
+            IdentityResult resulte = await UserManagerApp.UpdateAsync(userdb);
+
+            if (resulte.Succeeded) { return RedirectToAction("index"); } //logine gonder sonra
+
+            resulte.Errors.ToList().ForEach(e => ModelState.AddModelError("", e));
+
+            return View();
+            
+        }
 
         #endregion
         #region Send Confirm Email User
