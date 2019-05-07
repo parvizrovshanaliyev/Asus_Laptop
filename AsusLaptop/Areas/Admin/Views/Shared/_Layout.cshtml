@@ -52,21 +52,27 @@
                             <li class="active">
                                 <a href="@Url.Action("Index", "Home")" aria-expanded="true"><i class="ti-dashboard"></i><span>Home</span></a>
                                 @*<ul class="collapse">
-                                        <li class="active"><a href="index.html">ICO dashboard</a></li>
-                                        <li><a href="index2.html">Ecommerce dashboard</a></li>
-                                        <li><a href="index3.html">SEO dashboard</a></li>
-                                    </ul>*@
+                <li class="active"><a href="index.html">ICO dashboard</a></li>
+                <li><a href="index2.html">Ecommerce dashboard</a></li>
+                <li><a href="index3.html">SEO dashboard</a></li>
+            </ul>*@
                             </li>
 
                             @* account region *@
-                            <li class="active">
-                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i><span>Accounts</span></a>
-                                <ul class="collapse">
-                                    <li class="active"><a href="@Url.Action("Index", "Users")">Users</a></li>
-                                    <li><a href="@Url.Action("Index", "Roles")">Roles</a></li>
-                                    <li><a href="@Url.Action("Index", "RoleToUser")">Assign a role to user</a></li>
-                                </ul>
-                            </li>
+                            @if (Request.IsAuthenticated)
+                            {
+                                if (User.IsInRole("admin"))
+                                {
+                                    <li class="active">
+                                        <a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i><span>Accounts</span></a>
+                                        <ul class="collapse">
+                                            <li class="active"><a href="@Url.Action("Index", "Users")">Users</a></li>
+                                            <li><a href="@Url.Action("Index", "Roles")">Roles</a></li>
+                                            <li><a href="@Url.Action("Index", "RoleToUser")">Assign a role to user</a></li>
+                                        </ul>
+                                    </li>
+                                }
+                            }
 
                         </ul>
                     </nav>
