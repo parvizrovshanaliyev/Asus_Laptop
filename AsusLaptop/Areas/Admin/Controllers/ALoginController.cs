@@ -46,7 +46,8 @@ namespace AsusLaptop.Areas.Admin.Controllers
 
         [AllowAnonymous,HttpPost,ValidateAntiForgeryToken]
         public  async Task<ActionResult> Login(AdminLogin admin,  string returnURL)
-        {
+        
+{
             if (ModelState.IsValid)
             {
                 UserApp user = UserManagerApp.FindByEmail(admin.Email);
@@ -88,6 +89,16 @@ namespace AsusLaptop.Areas.Admin.Controllers
             }
             
            
+        }
+
+
+        ///logout
+        ///
+        [HttpPost, ValidateAntiForgeryToken, AllowAnonymous]
+        public ActionResult Logout()
+        {
+            HttpContext.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            return RedirectToAction("Login");
         }
     }
 }
