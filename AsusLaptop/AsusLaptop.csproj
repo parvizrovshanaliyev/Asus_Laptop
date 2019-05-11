@@ -166,13 +166,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Hepler\Helper.cs" />
-    <Compile Include="Migrations\201905051511105_InitialCreate.cs" />
-    <Compile Include="Migrations\201905051511105_InitialCreate.Designer.cs">
-      <DependentUpon>201905051511105_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905051916015_initialf.cs" />
-    <Compile Include="Migrations\201905051916015_initialf.Designer.cs">
-      <DependentUpon>201905051916015_initialf.cs</DependentUpon>
+    <Compile Include="Migrations\201905111310373_create.cs" />
+    <Compile Include="Migrations\201905111310373_create.Designer.cs">
+      <DependentUpon>201905111310373_create.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AspNetUserRole.cs" />
@@ -316,11 +312,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201905051511105_InitialCreate.resx">
-      <DependentUpon>201905051511105_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905051916015_initialf.resx">
-      <DependentUpon>201905051916015_initialf.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201905111310373_create.resx">
+      <DependentUpon>201905111310373_create.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -19,7 +19,7 @@ namespace AsusLaptop.Models
         public int Id { get; set; }
 
         [Required]
-        public int UserAppId { get; set; }
+        public string UserAppId { get; set; }
 
         public State Status { get; set; }
 
