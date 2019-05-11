@@ -34,28 +34,38 @@
                             {
                                 <tr>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.Name)
+                                        <h6> @Html.DisplayFor(modelItem => item.Name)</h6>
+                                        @if(item.Products.Count() != null)
+                                        {
+                                            <span class="badge badge-primary badge-pill">@item.Products.Count()</span>
+
+                                        }
+                                        else
+                                        {
+                                            <span class="badge badge-primary badge-pill">0</span>
+
+                                        }
                                     </td>
                                     <td>
                                         @if (item.Status)
                                         {
-                                            <span class="alert alert-success">Active</span>
+                                            <span class="alert alert-danger">Active</span>
                                         }
                                         else
                                         {
-                                            <span class="alert alert-info">Passive</span>
+                                            <span class="alert alert-dark">Passive</span>
                                         }
                                     </td>
                                     <td>
                                         <ul class="d-flex justify-content-center">
                                             <li class="mr-3">
-
                                                 <a href="@Url.Action("Edit","Categories",new {id=item.Id })" class="text-secondary"><i class="fa fa-edit"></i></a>
                                             </li>
-
+                                            @if (!item.Products.Any()){
                                             <li>
                                                 <a href="@Url.Action("Delete","Categories",new {id=item.Id })" class="text-danger delete"><i class="ti-trash"></i></a>
                                             </li>
+                                            }
                                         </ul>
                                     </td>
                                 </tr>

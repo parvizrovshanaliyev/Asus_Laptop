@@ -34,9 +34,7 @@ namespace AsusLaptop.Models
 
         public string Colors { get; set; }
 
-        [Required]
-        public int Count { get; set; }
-
+        
         [Required]
         public byte Discount { get; set; }
 

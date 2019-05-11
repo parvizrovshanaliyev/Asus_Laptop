@@ -171,6 +171,10 @@
     <Compile Include="Migrations\201905111310373_create.Designer.cs">
       <DependentUpon>201905111310373_create.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905111559359_product_dropcol.cs" />
+    <Compile Include="Migrations\201905111559359_product_dropcol.Designer.cs">
+      <DependentUpon>201905111559359_product_dropcol.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AspNetUserRole.cs" />
     <Compile Include="Models\Banner.cs" />
@@ -299,7 +303,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\AdminLogin\" />
-    <Folder Include="Areas\Admin\Views\Products\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
@@ -312,11 +315,17 @@
     <Content Include="Areas\Admin\Views\ALogin\Login.cshtml" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Categories\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Categories\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Categories\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Index.cshtml" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201905111310373_create.resx">
       <DependentUpon>201905111310373_create.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905111559359_product_dropcol.resx">
+      <DependentUpon>201905111559359_product_dropcol.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
