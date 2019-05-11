@@ -175,10 +175,17 @@
       <DependentUpon>201905051916015_initialf.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AspNetUserRole.cs" />
+    <Compile Include="Models\Banner.cs" />
+    <Compile Include="Models\Cart.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\CustomUserValidator.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\RoleApp.cs" />
     <Compile Include="Models\RoleManagerApp.cs" />
+    <Compile Include="Models\Slider.cs" />
     <Compile Include="Models\UserApp.cs" />
     <Compile Include="Models\UserManagerApp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

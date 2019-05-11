@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -9,6 +10,11 @@ namespace AsusLaptop.Models
 {
     public class Product
     {
+        public Product()
+        {
+            OrderItems = new HashSet<OrderItem>();
+            Carts = new HashSet<Cart>();
+        }
         public int Id { get; set; }
 
         public bool Status { get; set; }
@@ -19,7 +25,7 @@ namespace AsusLaptop.Models
         [StringLength(50), Required]
         public string Model { get; set; }
 
-
+        [DisplayName("Category")]
         public int CategoryId { get; set; }
 
         [Column(TypeName = "money")]
@@ -34,19 +40,48 @@ namespace AsusLaptop.Models
         [Required]
         public byte Discount { get; set; }
 
+        [Required,StringLength(100)]
+        [DisplayName("Operating System")]
+        public string OperatingSystem  { get; set; }
 
+        [Required,StringLength(100)]
+        public string Display { get; set; }
+
+        [Required,StringLength(100)]
+        public string Processor { get; set; }
+
+        [Required,StringLength(100)]
+        public string Memory { get; set; }
+
+        [Required,StringLength(100)]
+        public string Storage { get; set; }
+
+        [Required,StringLength(100)]
+        public string Wireless { get; set; }
+
+        [Required,StringLength(100)]
+        public string Dimensions { get; set; }
+
+        [Required,StringLength(100)]
+        public string Ports { get; set; }
+
+        [Required,StringLength(100)]
+        public string Weight { get; set; }
 
         [StringLength(300)]
+        [DisplayName("Image Large")]
         public string ImageL { get; set; }
 
-
         [StringLength(300)]
+        [DisplayName("Image Medium")]
         public string ImageM { get; set; }
 
         [StringLength(300)]
+        [DisplayName("Image Small")]
         public string ImageS { get; set; }
 
         public DateTime CreateAt { get; set; }
+
         public DateTime UpdateAt { get; set; }
 
         [NotMapped]
@@ -61,54 +96,11 @@ namespace AsusLaptop.Models
 
 
         public virtual Category Category { get; set; }
+        public virtual ICollection<OrderItem> OrderItems { get; set; }
+        public virtual ICollection<Cart> Carts { get; set; }
+
 
     }
 
-    public class Category
-    {
-        public Category()
-        {
-            Products = new HashSet<Product>();
-        }
-
-        public int Id { get; set; }
-
-        public bool Status { get; set; }
-
-        [StringLength(50), Required]
-        public string Name { get; set; }
-
-
-
-        public virtual ICollection<Product> Products { get; set; }
-
-    }
-
-    public class Slider
-    {
-        public int Id { get; set; }
-        
-        [StringLength(300)]
-        public string Title { get; set; }
-
-        [StringLength(300)]
-        public string Image { get; set; }
-
-        [NotMapped]
-        public HttpPostedFileBase Photo { get; set; }
-    }
-
-    public class Banner
-    {
-        public int Id { get; set; }
-        
-        [StringLength(300)]
-        public string Image { get; set; }
-
-        [NotMapped]
-        public HttpPostedFileBase Photo { get; set; }
-    }
-
-
-
+   
 }
