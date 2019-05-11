@@ -154,6 +154,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\ALoginController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoriesController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
     <Compile Include="Areas\Admin\Controllers\RolesController.cs" />
@@ -309,6 +310,8 @@
     <Content Include="Areas\Admin\Views\RoleToUser\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Users\Confirm.cshtml" />
     <Content Include="Areas\Admin\Views\ALogin\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Categories\Index.cshtml" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
