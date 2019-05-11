@@ -140,6 +140,7 @@ namespace AsusLaptop.Areas.Admin.Controllers
             user.PasswordHash = UserManagerApp.PasswordHasher.HashPassword(Password);
             user.Token = null;
             user.Status = true;
+            
             user.EmailConfirmed = true;
             IdentityResult result = await UserManagerApp.UpdateAsync(user);
             _context.SaveChanges();

@@ -155,6 +155,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\ALoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
     <Compile Include="Areas\Admin\Controllers\RolesController.cs" />
     <Compile Include="Areas\Admin\Controllers\RoleToUserController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
@@ -175,6 +176,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CustomUserValidator.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Models\RoleApp.cs" />
     <Compile Include="Models\RoleManagerApp.cs" />
     <Compile Include="Models\UserApp.cs" />
@@ -293,6 +295,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\AdminLogin\" />
+    <Folder Include="Areas\Admin\Views\Products\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />

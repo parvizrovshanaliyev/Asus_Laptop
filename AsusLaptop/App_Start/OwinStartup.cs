@@ -23,7 +23,8 @@ namespace AsusLaptop.App_Start
 
             app.UseCookieAuthentication(new Microsoft.Owin.Security.Cookies.CookieAuthenticationOptions()
             {
-                ExpireTimeSpan = TimeSpan.FromMinutes(1),
+                //ExpireTimeSpan =  TimeSpan.FromSeconds(10),
+                //SessionStore=
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
                 LoginPath = new PathString("/Admin/ALogin/Login"),
                 //Provider = new CookieAuthenticationProvider

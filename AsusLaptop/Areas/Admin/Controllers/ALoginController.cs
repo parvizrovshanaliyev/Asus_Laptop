@@ -8,6 +8,7 @@ using Microsoft.Owin.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
@@ -67,12 +68,20 @@ namespace AsusLaptop.Areas.Admin.Controllers
                 }
                 else
                 {
-                    ClaimsIdentity identity = await UserManagerApp.CreateIdentityAsync(currentUser, DefaultAuthenticationTypes.ApplicationCookie);
+                    
+                    ClaimsIdentity identity = await  UserManagerApp.CreateIdentityAsync(currentUser, DefaultAuthenticationTypes.ApplicationCookie);
                     HttpContext.GetOwinContext().Authentication.SignOut();
+
+                    
                     HttpContext.GetOwinContext().Authentication.SignIn(new AuthenticationProperties()
                     {
-                        IsPersistent = admin.RememberMe
+                        AllowRefresh=true,
+                        IsPersistent = true,
+                        ExpiresUtc = DateTime.UtcNow.AddHours(1)
                     }, identity);
+                    //RemoveLogin(admin.RememberMe);
+
+
                 }
                 if (!string.IsNullOrEmpty(returnURL))
                 {
@@ -91,7 +100,14 @@ namespace AsusLaptop.Areas.Admin.Controllers
            
         }
 
-
+        //private void RemoveLogin(bool RememberMe)
+        //{
+        //    if(RememberMe == false)
+        //    {
+               
+        //        HttpContext.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+        //    }
+        //}
         ///logout
         ///
         [HttpPost, ValidateAntiForgeryToken, AllowAnonymous]

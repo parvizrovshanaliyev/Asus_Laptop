@@ -9,6 +9,8 @@ namespace AsusLaptop.Models
 {
     public class UserApp:IdentityUser
     {
+        
+
         public bool Status { get; set; }
 
 
