@@ -53,7 +53,7 @@ namespace AsusLaptop.Areas.Admin.Controllers
         #endregion
 
         #region Edit categories
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
             if(id==null) return HttpNotFound("Id not null");
             var category = _context.Categories.Find(id);
@@ -80,16 +80,16 @@ namespace AsusLaptop.Areas.Admin.Controllers
         #endregion
 
         #region Delete categories
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
             if (id == null) return HttpNotFound("Id not null");
             var category = _context.Categories.Find(id);
             if (category == null) return HttpNotFound("This category not Exist");
-            if (category.Products.Any())
-            {
-                return HttpNotFound("this category has product");
+            //if (category.Products.Any())
+            //{
+            //    return HttpNotFound("this category has product");
 
-            }
+            //}
             _context.Categories.Remove(category);
             _context.SaveChanges();
             return RedirectToAction("Index");

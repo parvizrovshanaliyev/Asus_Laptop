@@ -163,17 +163,14 @@
     <Compile Include="Areas\Admin\Models\AdminLogin.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DAL\AsusDbContext.cs" />
+    <Compile Include="Extensions\FileExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Hepler\Helper.cs" />
-    <Compile Include="Migrations\201905111310373_create.cs" />
-    <Compile Include="Migrations\201905111310373_create.Designer.cs">
-      <DependentUpon>201905111310373_create.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905111559359_product_dropcol.cs" />
-    <Compile Include="Migrations\201905111559359_product_dropcol.Designer.cs">
-      <DependentUpon>201905111559359_product_dropcol.cs</DependentUpon>
+    <Compile Include="Migrations\201905122008360_initialcreatedb.cs" />
+    <Compile Include="Migrations\201905122008360_initialcreatedb.Designer.cs">
+      <DependentUpon>201905122008360_initialcreatedb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AspNetUserRole.cs" />
@@ -190,6 +187,7 @@
     <Compile Include="Models\UserApp.cs" />
     <Compile Include="Models\UserManagerApp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\Utilities.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Public\assets\js\Custom.js" />
@@ -197,6 +195,14 @@
     <Content Include="Areas\Admin\Public\assets\tagging\css\tagit.ui-zendesk.css" />
     <Content Include="Areas\Admin\Public\assets\tagging\js\tag-it.js" />
     <Content Include="Areas\Admin\Public\assets\tagging\js\tag-it.min.js" />
+    <Content Include="Areas\Admin\Public\assets\toggle-check\css\bootstrap-toggle.css" />
+    <Content Include="Areas\Admin\Public\assets\toggle-check\css\bootstrap-toggle.min.css" />
+    <Content Include="Areas\Admin\Public\assets\toggle-check\css\bootstrap2-toggle.css" />
+    <Content Include="Areas\Admin\Public\assets\toggle-check\css\bootstrap2-toggle.min.css" />
+    <Content Include="Areas\Admin\Public\assets\toggle-check\js\bootstrap-toggle.js" />
+    <Content Include="Areas\Admin\Public\assets\toggle-check\js\bootstrap-toggle.min.js" />
+    <Content Include="Areas\Admin\Public\assets\toggle-check\js\bootstrap2-toggle.js" />
+    <Content Include="Areas\Admin\Public\assets\toggle-check\js\bootstrap2-toggle.min.js" />
     <Content Include="Content\DataTables\css\autoFill.bootstrap.css" />
     <Content Include="Content\DataTables\css\autoFill.bootstrap.min.css" />
     <Content Include="Content\DataTables\css\autoFill.bootstrap4.css" />
@@ -540,6 +546,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\AdminLogin\" />
+    <Folder Include="Public\img\products\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
@@ -559,14 +566,13 @@
     <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\common.scss" />
     <Content Include="Areas\Admin\Views\Products\Create.cshtml" />
+    <Content Include="Areas\Admin\Public\assets\toggle-check\js\bootstrap-toggle.min.js.map" />
+    <Content Include="Areas\Admin\Public\assets\toggle-check\js\bootstrap2-toggle.min.js.map" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201905111310373_create.resx">
-      <DependentUpon>201905111310373_create.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905111559359_product_dropcol.resx">
-      <DependentUpon>201905111559359_product_dropcol.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201905122008360_initialcreatedb.resx">
+      <DependentUpon>201905122008360_initialcreatedb.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

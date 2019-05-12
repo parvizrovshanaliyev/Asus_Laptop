@@ -25,11 +25,12 @@
                             <tr>
                                 <th>Actions</th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.ImageS)
-                                </th>
-                                <th>
                                     @Html.DisplayNameFor(model => model.Status)
                                 </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.ImageS)
+                                </th>
+
                                 <th>
                                     @Html.DisplayNameFor(model => model.CategoryId)
                                 </th>
@@ -74,7 +75,7 @@
                                         </li>
                                         @if (!item.OrderItems.Any())
                                         {
-                                        <li>
+                                        <li class="mr-3">
                                             <a href="@Url.Action("Delete","Products",new {id=item.Id })" class="text-danger delete"><i class="ti-trash"></i></a>
                                         </li>
                                         }

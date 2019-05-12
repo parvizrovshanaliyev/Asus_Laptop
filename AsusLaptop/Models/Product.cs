@@ -19,13 +19,14 @@ namespace AsusLaptop.Models
 
         public bool Status { get; set; }
 
-        [StringLength(50), Required]
+        [StringLength(50)]
         public string Brand { get; set; }
 
         [StringLength(50), Required]
         public string Model { get; set; }
 
         [DisplayName("Category")]
+        [Required(ErrorMessage = "Select Category")]
         public int CategoryId { get; set; }
 
         [Column(TypeName = "money")]
@@ -35,35 +36,37 @@ namespace AsusLaptop.Models
         public string Colors { get; set; }
 
         
-        [Required]
         public byte Discount { get; set; }
 
-        [Required,StringLength(100)]
+        [ StringLength(100)]
         [DisplayName("Operating System")]
-        public string OperatingSystem  { get; set; }
+        public string OperatingSystem { get; set; }
 
-        [Required,StringLength(100)]
+        [Required(ErrorMessage = "Display required"), StringLength(100)]
         public string Display { get; set; }
 
-        [Required,StringLength(100)]
+        [Required(ErrorMessage = "Graphic required"), StringLength(100)]
+        public string Graphic { get; set; }
+
+        [Required(ErrorMessage = "Processor required"), StringLength(100)]
         public string Processor { get; set; }
 
-        [Required,StringLength(100)]
+        [Required(ErrorMessage = "Memory required"), StringLength(100)]
         public string Memory { get; set; }
 
-        [Required,StringLength(100)]
+        [Required(ErrorMessage = "Storage required"), StringLength(100)]
         public string Storage { get; set; }
 
-        [Required,StringLength(100)]
+        [Required(ErrorMessage = "Wireless required"), StringLength(100)]
         public string Wireless { get; set; }
 
-        [Required,StringLength(100)]
+        [Required(ErrorMessage = "Dimensions required"), StringLength(100)]
         public string Dimensions { get; set; }
 
-        [Required,StringLength(100)]
+        [Required(ErrorMessage = "Ports required"), StringLength(300)]
         public string Ports { get; set; }
 
-        [Required,StringLength(100)]
+        [Required(ErrorMessage = "Weight required"), StringLength(100)]
         public string Weight { get; set; }
 
         [StringLength(300)]
@@ -83,12 +86,15 @@ namespace AsusLaptop.Models
         public DateTime UpdateAt { get; set; }
 
         [NotMapped]
+        [DisplayName("Image Large")]
         public HttpPostedFileBase PhotoL { get; set; }
 
         [NotMapped]
+        [DisplayName("Image Medium")]
         public HttpPostedFileBase PhotoM { get; set; }
 
         [NotMapped]
+        [DisplayName("Image Small")]
         public HttpPostedFileBase PhotoS { get; set; }
 
 

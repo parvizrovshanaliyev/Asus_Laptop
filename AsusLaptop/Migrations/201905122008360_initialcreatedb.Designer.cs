@@ -6,14 +6,14 @@ namespace AsusLaptop.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class product_dropcol : IMigrationMetadata
+    [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
+    public sealed partial class initialcreatedb : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(product_dropcol));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initialcreatedb));
         
         string IMigrationMetadata.Id
         {
-            get { return "201905111559359_product_dropcol"; }
+            get { return "201905122008360_initialcreatedb"; }
         }
         
         string IMigrationMetadata.Source

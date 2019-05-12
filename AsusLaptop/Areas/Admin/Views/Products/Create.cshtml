@@ -1,4 +1,4 @@
-﻿@model AsusLaptop.Models.Product
+﻿@model  AsusLaptop.Models.Product
 
 @{
     ViewBag.Title = "Create";
@@ -12,25 +12,25 @@
                 <div class="card-body">
                     <h4 class="header-title">Create Product</h4>
                     <form action="@Url.Action("Create","Products")" method="post" enctype="multipart/form-data">
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
                         <div class="row">
                             <div class="col-6">
-                                <div class="form-group">
-                                    <label class="control-label col-md-2" for="Brand">Brand</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control text-box single-line" data-val="true" data-val-length="The field Brand must be a string with a maximum length of 50." data-val-length-max="50" data-val-required="The Brand field is required." disabled id="Brand" name="Brand" type="text" value="Asus">
-                                        <span class="field-validation-valid text-danger" data-valmsg-for="Brand" data-valmsg-replace="true"></span>
+                                <div class="form-group ">
+                                    <label class="control-label col-md-2" for="Status">Status</label>
+                                    <div>
+                                        <div class="checkbox">
+                                            <input class="check-box border-1" checked data-toggle="toggle" data-style="ios" data-val="true" data-val-required="The Status field is required." id="Status" name="Status" type="checkbox" value="true"><input name="Status" type="hidden" value="false">
+                                            <span class="field-validation-valid text-danger" data-valmsg-for="Status" data-valmsg-replace="true"></span>
+                                        </div>
                                     </div>
                                 </div>
+                                
                                 <div class="form-group">
-                                    <label class="control-label col-md-2" for="CategoryId">Category</label>
+                                    <label class="control-label col-md-2" for="categoryId">Category</label>
                                     <div class="col-md-10">
-                                        <select class="form-control" name="CategoryId" id="CategoryId">
-                                            <option>Select Category</option>
-                                            @foreach (var cat in ViewBag.Categories)
-                                            {
-                                                <option value="@cat.Id">@cat.Name</option>
-                                            }
-                                        </select>
+                                        @Html.DropDownListFor(m=>m.CategoryId,(List<SelectListItem>)ViewBag.Categories , "Select Category", new{ @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -63,8 +63,6 @@
                                         @Html.ValidationMessageFor(model => model.Dimensions, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
-
-
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.Weight, htmlAttributes: new { @class = "control-label col-md-2" })
                                     <div class="col-md-10">
@@ -72,25 +70,15 @@
                                         @Html.ValidationMessageFor(model => model.Weight, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
-
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 text-nowrap" for="OperatingSystem">Operating System</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control text-box single-line" data-val="true" data-val-length="The field Operating System must be a string with a maximum length of 100." data-val-length-max="100" data-val-required="The Operating System field is required." id="OperatingSystem" disabled name="OperatingSystem" type="text" value="Windows 10 Pro">
-                                        <span class="field-validation-valid text-danger" data-valmsg-for="OperatingSystem" data-valmsg-replace="true"></span>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
                                     @Html.LabelFor(model => model.Display, htmlAttributes: new { @class = "control-label col-md-2" })
                                     <div class="col-md-10">
-                                        @Html.EditorFor(model => model.Display, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.Display, new { htmlAttributes = new { @class = "form-control" ,required = "required" } })
                                         @Html.ValidationMessageFor(model => model.Display, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
-
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.Processor, htmlAttributes: new { @class = "control-label col-md-2" })
                                     <div class="col-md-10">
@@ -98,7 +86,6 @@
                                         @Html.ValidationMessageFor(model => model.Processor, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
-
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.Memory, htmlAttributes: new { @class = "control-label col-md-2" })
                                     <div class="col-md-10">
@@ -106,7 +93,6 @@
                                         @Html.ValidationMessageFor(model => model.Memory, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
-
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.Storage, htmlAttributes: new { @class = "control-label col-md-2" })
                                     <div class="col-md-10">
@@ -114,7 +100,6 @@
                                         @Html.ValidationMessageFor(model => model.Storage, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
-
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.Wireless, htmlAttributes: new { @class = "control-label col-md-2" })
                                     <div class="col-md-10">
@@ -122,7 +107,6 @@
                                         @Html.ValidationMessageFor(model => model.Wireless, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
-
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.Ports, htmlAttributes: new { @class = "control-label col-md-2" })
                                     <div class="col-md-10">
@@ -130,48 +114,43 @@
                                         @Html.ValidationMessageFor(model => model.Ports, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Colors, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Colors, new { htmlAttributes = new { @class = "form-control col-md-12" } })
+                                        @Html.ValidationMessageFor(model => model.Colors, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Graphic, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Graphic, new { htmlAttributes = new { @class = "form-control col-md-12" } })
+                                        @Html.ValidationMessageFor(model => model.Graphic, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                            </div>
+                        <div class="form-group ">
+                            @Html.LabelFor(t => t.PhotoL)
+                            @Html.TextBoxFor(t => t.PhotoL, new { @class = "form-control ", type = "file", accept = "image/*" })
+                            @Html.ValidationMessageFor(t => t.PhotoL, null, new { @class = "text-danger" })
                         </div>
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Colors, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.Colors, new { htmlAttributes = new { @class = "form-control col-md-12" } })
-                                @Html.ValidationMessageFor(model => model.Colors, "", new { @class = "text-danger" })
-                            </div>
+                        <div class="form-group ">
+                            @Html.LabelFor(t => t.PhotoM)
+                            @Html.TextBoxFor(t => t.PhotoM, new { @class = "form-control ", type = "file", accept = "image/*" })
+                            @Html.ValidationMessageFor(t => t.PhotoM, null, new { @class = "text-danger" })
                         </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Upload</span>
-                            </div>
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="inputGroupFile01">
-                                <label class="custom-file-label" for="inputGroupFile01">Choose file large</label>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Upload</span>
-                            </div>
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="inputGroupFile01">
-                                <label class="custom-file-label" for="inputGroupFile01">Choose file medium</label>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Upload</span>
-                            </div>
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="inputGroupFile01">
-                                <label class="custom-file-label" for="inputGroupFile01">Choose file small</label>
-                            </div>
+                        <div class="form-group ">
+                            @Html.LabelFor(t => t.PhotoS)
+                            @Html.TextBoxFor(t => t.PhotoS, new { @class = "form-control ", type = "file", accept = "image/*" })
+                            @Html.ValidationMessageFor(t => t.PhotoS, null, new { @class = "text-danger" })
                         </div>
                         <div class="form-group jumbotron d-flex justify-content-between">
                             <div>
                                 <a class="text-danger" href="@Url.Action("Index","Products")">Back to list</a>
                             </div>
-                            <div >
+                            <div>
                                 <input type="submit" value="Create" class="btn btn-dark" />
                             </div>
 
@@ -185,6 +164,18 @@
 @section styles{
     <link href="~/Areas/Admin/Public/assets/tagging/css/jquery.tagit.css" rel="stylesheet" />
     <link href="~/Areas/Admin/Public/assets/tagging/css/tagit.ui-zendesk.css" rel="stylesheet" />
+    <link href="~/Areas/Admin/Public/assets/toggle-check/css/bootstrap-toggle.min.css" rel="stylesheet" />
+    <style>
+        .toggle.ios, .toggle-on.ios, .toggle-off.ios {
+            border-radius: 20px;
+            border: 1px solid;
+            background: #dc3545;
+        }
+
+            .toggle.ios .toggle-handle {
+                border-radius: 20px;
+            }
+    </style>
 }
 
 @section scripts{
@@ -192,7 +183,7 @@
     <script src="~/Areas/Admin/Public/assets/Scripts/jquery.validate.unobtrusive.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="~/Areas/Admin/Public/assets/tagging/js/tag-it.min.js"></script>
-
+    <script src="~/Areas/Admin/Public/assets/toggle-check/js/bootstrap-toggle.min.js"></script>
     <script>
         $(document).ready(function () {
             $('input[name="Colors"]').tagit();
@@ -202,9 +193,40 @@
             $('input[name="Processor"]').tagit();
             $('input[name="Memory"]').tagit();
             $('input[name="Wireless"]').tagit();
+            $('input[name="Graphic"]').tagit();
         });
     </script>
 }
+
+
+
+@*<div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Upload</span>
+        </div>
+        <div class="custom-file">
+            <input type="file" required class="custom-file-input" id="inputGroupFile01">
+            <label class="custom-file-label" for="inputGroupFile01">Choose file large</label>
+        </div>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Upload</span>
+        </div>
+        <div class="custom-file">
+            <input type="file" required class="custom-file-input" id="inputGroupFile01">
+            <label class="custom-file-label" for="inputGroupFile01">Choose file medium</label>
+        </div>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Upload</span>
+        </div>
+        <div class="custom-file">
+            <input type="file" required class="custom-file-input" id="inputGroupFile01">
+            <label class="custom-file-label" for="inputGroupFile01">Choose file small</label>
+        </div>
+    </div>*@
 @*@using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()

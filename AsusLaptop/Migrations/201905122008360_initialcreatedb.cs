@@ -3,7 +3,7 @@ namespace AsusLaptop.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class create : DbMigration
+    public partial class initialcreatedb : DbMigration
     {
         public override void Up()
         {
@@ -43,21 +43,21 @@ namespace AsusLaptop.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Status = c.Boolean(nullable: false),
-                        Brand = c.String(nullable: false, maxLength: 50),
+                        Brand = c.String(maxLength: 50),
                         Model = c.String(nullable: false, maxLength: 50),
                         CategoryId = c.Int(nullable: false),
                         Price = c.Decimal(nullable: false, storeType: "money"),
                         Colors = c.String(),
-                        Count = c.Int(nullable: false),
                         Discount = c.Byte(nullable: false),
-                        OperatingSystem = c.String(nullable: false, maxLength: 100),
+                        OperatingSystem = c.String(maxLength: 100),
                         Display = c.String(nullable: false, maxLength: 100),
+                        Graphic = c.String(nullable: false, maxLength: 100),
                         Processor = c.String(nullable: false, maxLength: 100),
                         Memory = c.String(nullable: false, maxLength: 100),
                         Storage = c.String(nullable: false, maxLength: 100),
                         Wireless = c.String(nullable: false, maxLength: 100),
                         Dimensions = c.String(nullable: false, maxLength: 100),
-                        Ports = c.String(nullable: false, maxLength: 100),
+                        Ports = c.String(nullable: false, maxLength: 300),
                         Weight = c.String(nullable: false, maxLength: 100),
                         ImageL = c.String(maxLength: 300),
                         ImageM = c.String(maxLength: 300),
