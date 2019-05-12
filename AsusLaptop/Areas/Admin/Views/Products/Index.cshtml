@@ -1,153 +1,282 @@
 ﻿@model IEnumerable<AsusLaptop.Models.Product>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Products";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Status)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Brand)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Model)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CategoryId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Colors)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Discount)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OperatingSystem)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Display)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Processor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Memory)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Storage)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Wireless)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Dimensions)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Ports)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Weight)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ImageL)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ImageM)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ImageS)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreateAt)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UpdateAt)
-        </th>
-        <th></th>
-    </tr>
+<div class="col-12 mt-5">
+    <div class="card">
+        <div class="card-header">
+            <p>
+                <a href="@Url.Action("Create","Products")" class="text-danger btn btn-dark">Create New @ViewBag.Title</a>
+            </p>
+        </div>
+        <div class="card-body">
+            <div class=" d-flex justify-content-between">
+                <h4 class="header-title">@ViewBag.Title</h4>
+                
+            </div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Brand)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Model)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CategoryId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Colors)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Discount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OperatingSystem)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Display)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Processor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Memory)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Storage)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Wireless)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Dimensions)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ports)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Weight)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ImageL)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ImageM)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ImageS)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreateAt)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UpdateAt)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
+            <div class="single-table">
+                <div class="table-responsive">
+                    <table id="dataTable" class="table table-hover progress-table text-center">
+                        <thead class="text-uppercase">
+                            <tr>
+                                <th>Actions</th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.ImageS)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Status)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CategoryId)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Brand)
+                                    @Html.DisplayNameFor(model => model.Model)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Price)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Discount)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Processor)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Memory)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Storage)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Display)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CreateAt)
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+
+                                <td>
+                                    <ul class="d-flex justify-content-center">
+                                        <li class="mr-3">
+
+                                            <a href="@Url.Action("Edit","Products",new {id=item.Id })" class="text-secondary"><i class="fa fa-edit"></i></a>
+                                        </li>
+                                        @if (!item.OrderItems.Any())
+                                        {
+                                        <li>
+                                            <a href="@Url.Action("Delete","Products",new {id=item.Id })" class="text-danger delete"><i class="ti-trash"></i></a>
+                                        </li>
+                                        }
+                                        <li>
+                                            <a href="@Url.Action("Details","Products",new {id=item.Id })" class="text-danger "><i class="ti-eye"></i></a>
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    @if (item.Status)
+                                    {
+                                        <span class="alert alert-success">Active</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="alert alert-info">Passive</span>
+                                    }
+
+                                </td>
+                                <td>@item.ImageS</td>
+                                <td>@item.Category.Name</td>
+                                <td> @item.Brand . @item.Model</td>
+                                <td>@item.Price</td>
+                                <td>@item.Discount</td>
+                                <td>@item.Processor</td>
+                                <td>@item.Memory</td>
+                                <td>@item.Storage</td>
+                                <td>@item.Display</td>
+                                <td>@item.CreateAt</td>
+                            </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section styles{
+    <link href="~/Content/DataTables/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+
 }
+@section scripts{
+    <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/DataTables/dataTables.bootstrap4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            if ($('#dataTable').length) {
+                $('#dataTable').DataTable({
+                    responsive: true
+                });
+            }
+        });
+    </script>
+}
+@*<h2>Index</h2>
 
-</table>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Brand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Colors)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Discount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OperatingSystem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Display)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Processor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Memory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Storage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Wireless)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dimensions)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ports)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Weight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreateAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdateAt)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Colors)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Discount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OperatingSystem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Display)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Processor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Memory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Storage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Wireless)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dimensions)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ports)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Weight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdateAt)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+    }
+
+    </table>*@

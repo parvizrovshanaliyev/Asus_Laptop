@@ -19,12 +19,16 @@ namespace AsusLaptop.Areas.Admin.Controllers
         // GET: Admin/Products
         public ActionResult Index()
         {
-            var Product = _context.Products.Include("Category").OrderByDescending(c => c.CategoryId).ToList();
+            var Product = _context.Products.Include("OrderItems").Include("Category").OrderByDescending(c => c.CategoryId).ToList();
             return View(Product);
         }
 
         #region Products Create
-
+        public ActionResult Create()
+        {
+            ViewBag.Categories = _context.Categories.ToList();
+            return View();
+        }
         #endregion
 
         #region Products Edit
@@ -35,6 +39,6 @@ namespace AsusLaptop.Areas.Admin.Controllers
 
         #endregion
 
-        
+
     }
 }

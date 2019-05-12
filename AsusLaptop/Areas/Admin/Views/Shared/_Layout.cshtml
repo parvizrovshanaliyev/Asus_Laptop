@@ -18,11 +18,13 @@
     <link rel="stylesheet" href="~/Areas/Admin/Public/assets/css/slicknav.min.css">
     <!-- amchart css -->
     <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+
     <!-- others css -->
     <link rel="stylesheet" href="~/Areas/Admin/Public/assets/css/typography.css">
     <link rel="stylesheet" href="~/Areas/Admin/Public/assets/css/default-css.css">
     <link rel="stylesheet" href="~/Areas/Admin/Public/assets/css/styles.css">
     <link rel="stylesheet" href="~/Areas/Admin/Public/assets/css/responsive.css">
+    @RenderSection("styles", required: false)
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
     <!-- modernizr css -->
     <script src="~/Areas/Admin/Public/assets/js/vendor/modernizr-2.8.3.min.js" type="cff1c652e04bc587c2968792-text/javascript"></script>
@@ -52,10 +54,10 @@
                             <li class="active">
                                 <a href="@Url.Action("Index", "Home")" aria-expanded="true"><i class="ti-dashboard"></i><span>Home</span></a>
                                 @*<ul class="collapse">
-                <li class="active"><a href="index.html">ICO dashboard</a></li>
-                <li><a href="index2.html">Ecommerce dashboard</a></li>
-                <li><a href="index3.html">SEO dashboard</a></li>
-            </ul>*@
+                                        <li class="active"><a href="index.html">ICO dashboard</a></li>
+                                        <li><a href="index2.html">Ecommerce dashboard</a></li>
+                                        <li><a href="index3.html">SEO dashboard</a></li>
+                                    </ul>*@
                             </li>
 
                             @* account region *@
@@ -264,23 +266,23 @@
                     </div>
                     @if (Request.IsAuthenticated)
                     {
-                    <div class="col-sm-6 clearfix">
-                        <div class="user-profile pull-right">
-                            <img class="avatar user-thumb" src="~/Areas/Admin/Public/assets/images/author/avatar.png" alt="avatar">
-                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown">@User.Identity.GetUserName()<i class="fa fa-angle-down"></i></h4>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Message</a>
-                                <a class="dropdown-item" href="#">Settings</a>
-                                @using (Html.BeginForm("Logout", "ALogin", FormMethod.Post))
-                                {
-                                    @Html.AntiForgeryToken()
+                        <div class="col-sm-6 clearfix">
+                            <div class="user-profile pull-right">
+                                <img class="avatar user-thumb" src="~/Areas/Admin/Public/assets/images/author/avatar.png" alt="avatar">
+                                <h4 class="user-name dropdown-toggle" data-toggle="dropdown">@User.Identity.GetUserName()<i class="fa fa-angle-down"></i></h4>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Message</a>
+                                    <a class="dropdown-item" href="#">Settings</a>
+                                    @using (Html.BeginForm("Logout", "ALogin", FormMethod.Post))
+                                    {
+                                        @Html.AntiForgeryToken()
 
-                                    @*<a type="" class="dropdown-item" href="#">Log Out</a>*@
-                                    <input class="dropdown-item" type="submit" name="LogOut" value="LogOut" />
-                                }
+                                        @*<a type="" class="dropdown-item" href="#">Log Out</a>*@
+                                        <input class="dropdown-item" type="submit" name="LogOut" value="LogOut" />
+                                    }
+                                </div>
                             </div>
                         </div>
-                    </div>
                     }
                 </div>
             </div>
@@ -486,7 +488,8 @@
     </div>
     <!-- offset area end -->
     <!-- jquery latest version -->
-    <script src="~/Areas/Admin/Public/assets/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    @*<script src="~/Areas/Admin/Public/assets/Scripts/jquery-3.4.1.min.js"></script>*@
     @*<script src="~/Areas/Admin/Public/assets/js/vendor/jquery-2.2.4.min.js" type="07358c43f3bada22b561de57-text/javascript"></script>*@
     <!-- bootstrap 4 js -->
     <script src="~/Areas/Admin/Public/assets/js/popper.min.js" type="07358c43f3bada22b561de57-text/javascript"></script>
@@ -495,6 +498,7 @@
     <script src="~/Areas/Admin/Public/assets/js/metisMenu.min.js" type="07358c43f3bada22b561de57-text/javascript"></script>
     <script src="~/Areas/Admin/Public/assets/js/jquery.slimscroll.min.js" type="07358c43f3bada22b561de57-text/javascript"></script>
     <script src="~/Areas/Admin/Public/assets/js/jquery.slicknav.min.js" type="07358c43f3bada22b561de57-text/javascript"></script>
+
 
     <!-- others plugins -->
     <script src="~/Areas/Admin/Public/assets/js/plugins.js" type="07358c43f3bada22b561de57-text/javascript"></script>
