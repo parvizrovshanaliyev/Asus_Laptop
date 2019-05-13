@@ -145,16 +145,34 @@
                             @Html.LabelFor(t => t.PhotoL)
                             @Html.TextBoxFor(t => t.PhotoL, new { @class = "form-control  col-6", type = "file", accept = "image/*" })
                             @Html.ValidationMessageFor(t => t.PhotoL, null, new { @class = "text-danger" })
+                            <label style=" margin-left: 23%;">Current Image</label>
+                            <img src="~/Public/img/@Model.ImageL" style="height:100px;object-fit:contain" alt="Alternate Text" />
                         </div>
                         <div class="form-group ">
                             @Html.LabelFor(t => t.PhotoM)
                             @Html.TextBoxFor(t => t.PhotoM, new { @class = "form-control col-6", type = "file", accept = "image/*" })
                             @Html.ValidationMessageFor(t => t.PhotoM, null, new { @class = "text-danger" })
+                            <label style=" margin-left: 23%;">Current Image</label>
+                            <img src="~/Public/img/@Model.ImageM" style="height:100px;object-fit:contain" alt="Alternate Text" />
                         </div>
                         <div class="form-group ">
                             @Html.LabelFor(t => t.PhotoSmall)
                             @Html.TextBoxFor(t => t.PhotoSmall, new { @class = "form-control col-6", type = "file", accept = "image/*" })
                             @Html.ValidationMessageFor(t => t.PhotoSmall, null, new { @class = "text-danger" })
+                            <label style=" margin-left: 23%;">Current Image</label>
+                            <img src="~/Public/img/@Model.ImageS" style="height:100px;object-fit:contain" alt="Alternate Text" />
+                        </div>
+                        <div class="form-group ">
+                            @Html.LabelFor(t => t.ProductImages)
+                            @Html.TextBoxFor(t => t.ProductImages, new { @class = "form-control ", type = "file", accept = "image/*", multiple = "multiple" })
+                            @Html.ValidationMessageFor(t => t.ProductImages, null, new { @class = "text-danger" })
+
+                            @foreach (var item in Model.ProductImages)
+                            {
+                                <label style=" margin-left: 23%;">Current Image</label>
+                                <img src="~/Public/img/@item.Image" style="height:100px;object-fit:contain" alt="Alternate Text" />
+                                <a href="javascript:void(0);" data-id="@item.Id" class="deleteItem">X</a>
+                            }
                         </div>
                         <div class="form-group jumbotron d-flex justify-content-between">
                             <div>

@@ -3,6 +3,7 @@ using AsusLaptop.Extensions;
 using AsusLaptop.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -147,7 +148,7 @@ namespace AsusLaptop.Areas.Admin.Controllers
         }
 
         [HttpPost,ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = " Id ,Status , IsNew , Model , Price ,Discount, CategoryId, Dimensions , Weight , Display , Processor , Memory , Storage ,  Wireless , Ports , Colors , Graphic , PhotoL , PhotoM , PhotoSmall")]Product product)
+        public ActionResult Edit([Bind(Include = " Id ,Status , IsNew , Model , Price ,Discount, CategoryId, Dimensions , Weight , Display , Processor , Memory , Storage ,  Wireless , Ports , Colors , Graphic , PhotoL , PhotoM , PhotoSmall")]Product product, HttpPostedFileBase[] ProductImages)
         {
             List<SelectListItem> categories =
                (from cat in _context.Categories.ToList()
@@ -158,6 +159,7 @@ namespace AsusLaptop.Areas.Admin.Controllers
                 }).ToList();
             ViewBag.Categories = categories;
             if (!ModelState.IsValid) return View(product);
+            
             var category = _context.Categories.Where(p => p.Id == product.CategoryId).FirstOrDefault();
 
             if (product == null) return HttpNotFound("This product not exist");
@@ -167,7 +169,19 @@ namespace AsusLaptop.Areas.Admin.Controllers
                 ModelState.AddModelError("Model", "This Model already exist");
             }
             Product productdb = _context.Products.Find(product.Id);
+            foreach (HttpPostedFileBase photo in ProductImages)
+            {
+                
+                if (photo != null && photo.IsImage()){
 
+                    ProductImage productImage = new ProductImage
+                    {
+                        ProductId = productdb.Id,
+                        Image = photo.SavePhoto("Public/img", "productsMultiples")
+                    };
+                    _context.Entry(productImage).State = EntityState.Added;
+                }
+            }
             if (product.PhotoL !=null && product.PhotoL!=null && product.PhotoSmall != null)
             {
                 if (!product.PhotoL.IsImage() && product.PhotoM.IsImage() && product.PhotoSmall.IsImage())
@@ -205,8 +219,8 @@ namespace AsusLaptop.Areas.Admin.Controllers
             productdb.Colors = product.Colors;
             productdb.Ports = product.Ports;
             productdb.UpdateAt = DateTime.Now;
+            _context.Entry(productdb).State = EntityState.Modified;
             _context.SaveChanges();
-
             return RedirectToAction("Index");
         }
         #endregion

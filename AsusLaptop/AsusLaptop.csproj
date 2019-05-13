@@ -473,7 +473,6 @@
     <Content Include="Areas\Admin\Public\assets\fonts\themifyd41d.eot" />
     <Content Include="Areas\Admin\Public\assets\Scripts\jquery-3.4.1.min.map" />
     <Content Include="Areas\Admin\Public\assets\Scripts\jquery-3.4.1.slim.min.map" />
-    <Content Include="Public\img\productsMultiples\36209c11-a7f4-49d7-bc2b-0108148a9cb0205b60a74e1737ec7abafa1d7fd37dcc.jpg" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap4.js" />
@@ -567,6 +566,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\AdminLogin\" />
     <Folder Include="Public\img\multiple\" />
+    <Folder Include="Public\img\productsMultiples\" />
     <Folder Include="Public\img\products\" />
   </ItemGroup>
   <ItemGroup>
