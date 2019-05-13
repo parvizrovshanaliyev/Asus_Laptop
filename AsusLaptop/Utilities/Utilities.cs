@@ -8,7 +8,7 @@ namespace AsusLaptop.Utilities
 {
     public static class Utilities
     {
-        public static void RemoveImage(string mainFolder, string image)
+        public static void RemoveImg(string mainFolder, string image)
         {
             string path = Path.Combine(HttpContext.Current.Server.MapPath($"~/{mainFolder}"), image);
             if (File.Exists(path))

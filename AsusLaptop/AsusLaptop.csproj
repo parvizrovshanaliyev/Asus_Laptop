@@ -172,6 +172,10 @@
     <Compile Include="Migrations\201905122008360_initialcreatedb.Designer.cs">
       <DependentUpon>201905122008360_initialcreatedb.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905130622030_product_isnew_cilumn.cs" />
+    <Compile Include="Migrations\201905130622030_product_isnew_cilumn.Designer.cs">
+      <DependentUpon>201905130622030_product_isnew_cilumn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AspNetUserRole.cs" />
     <Compile Include="Models\Banner.cs" />
@@ -568,11 +572,16 @@
     <Content Include="Areas\Admin\Views\Products\Create.cshtml" />
     <Content Include="Areas\Admin\Public\assets\toggle-check\js\bootstrap-toggle.min.js.map" />
     <Content Include="Areas\Admin\Public\assets\toggle-check\js\bootstrap2-toggle.min.js.map" />
+    <Content Include="Areas\Admin\Views\Products\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Details.cshtml" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201905122008360_initialcreatedb.resx">
       <DependentUpon>201905122008360_initialcreatedb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905130622030_product_isnew_cilumn.resx">
+      <DependentUpon>201905130622030_product_isnew_cilumn.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

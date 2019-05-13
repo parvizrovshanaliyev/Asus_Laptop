@@ -1,0 +1,206 @@
+﻿@model AsusLaptop.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="mdl-grid">
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Brand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Brand)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CategoryId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategoryId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Colors)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Colors)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Discount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Discount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OperatingSystem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OperatingSystem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Display)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Display)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Graphic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Graphic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Processor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Processor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Memory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Memory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Storage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Storage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Wireless)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Wireless)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dimensions)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dimensions)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ports)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ports)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Weight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Weight)
+        </dd>
+        
+        <dl class="d-flex">
+            <dl>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ImageL)
+                </dt>
+
+                <dd>
+                    <img src="~/Public/img/@Model.ImageL" class="img-fluid">
+
+                </dd>
+            </dl>
+
+            <dl>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ImageM)
+                </dt>
+
+                <dd>
+                    <img src="~/Public/img/@Model.ImageM" class="img-fluid">
+
+                </dd>
+            </dl>
+
+
+            <dl>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ImageS)
+                </dt>
+
+                <dd>
+                    <img src="~/Public/img/@Model.ImageS" class="img-fluid">
+
+                </dd>
+            </dl>
+        </dl>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateAt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateAt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdateAt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdateAt)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

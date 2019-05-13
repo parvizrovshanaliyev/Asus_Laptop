@@ -28,6 +28,9 @@
                                     @Html.DisplayNameFor(model => model.Status)
                                 </th>
                                 <th>
+                                    @Html.DisplayNameFor(model => model.IsNew)
+                                </th>
+                                <th>
                                     @Html.DisplayNameFor(model => model.ImageS)
                                 </th>
 
@@ -75,9 +78,9 @@
                                         </li>
                                         @if (!item.OrderItems.Any())
                                         {
-                                        <li class="mr-3">
-                                            <a href="@Url.Action("Delete","Products",new {id=item.Id })" class="text-danger delete"><i class="ti-trash"></i></a>
-                                        </li>
+                                            <li class="mr-3">
+                                                <a href="@Url.Action("Delete","Products",new {id=item.Id })" class="text-danger delete"><i class="ti-trash"></i></a>
+                                            </li>
                                         }
                                         <li>
                                             <a href="@Url.Action("Details","Products",new {id=item.Id })" class="text-danger "><i class="ti-eye"></i></a>
@@ -95,7 +98,20 @@
                                     }
 
                                 </td>
-                                <td>@item.ImageS</td>
+                                <td>
+                                    @if (item.IsNew)
+                                    {
+                                    <span class="alert alert-success">IsNew</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="alert alert-info">Passive</span>
+                                    }
+
+                                </td>
+
+                                <td><img style="width:200px" src="~/Public/img/@item.ImageS" class="img-fluid"></td>
+                                @*<td>@item.ImageS</td>*@
                                 <td>@item.Category.Name</td>
                                 <td> @item.Brand . @item.Model</td>
                                 <td>@item.Price</td>

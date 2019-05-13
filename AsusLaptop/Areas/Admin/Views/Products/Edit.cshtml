@@ -1,8 +1,10 @@
-﻿@model  AsusLaptop.Models.Product
+﻿@model AsusLaptop.Models.Product
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Edit";
 }
+
+
 
 <div>
     <div class="row"></div>
@@ -10,29 +12,29 @@
         <div class="col-12">
             <div class="card mt-5">
                 <div class="card-body">
-                    <h4 class="header-title">Create Product</h4>
-                    <form action="@Url.Action("Create","Products")" method="post" enctype="multipart/form-data">
+                    <h4 class="header-title">Edit Product</h4>
+                    <form action="@Url.Action("Edit","Products")" method="post" enctype="multipart/form-data">
                         @Html.AntiForgeryToken()
                         @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.Id)
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-group d-flex">
                                     <label class="control-label col-md-2" for="Status">Status</label>
                                     <div>
                                         <div class="checkbox">
-                                            <input class="check-box border-1" checked data-toggle="toggle" data-style="ios" data-val="true" data-val-required="The Status field is required." id="Status" name="Status" type="checkbox" value="true"><input name="Status" type="hidden" value="false">
+                                            <input class="check-box border-1" checked="@Model.Status" data-toggle="toggle" data-style="ios" data-val="true" data-val-required="The Status field is required." id="Status" name="Status" type="checkbox" value="true"><input name="Status" type="hidden" value="false">
                                             <span class="field-validation-valid text-danger" data-valmsg-for="Status" data-valmsg-replace="true"></span>
                                         </div>
                                     </div>
                                     <label class="control-label col-md-2" for="IsNew">IsNew</label>
                                     <div>
                                         <div class="checkbox">
-                                            <input class="check-box border-1" checked data-toggle="toggle" data-style="ios" data-val="true" data-val-required="The IsNew field is required." id="Status" name="IsNew" type="checkbox" value="true"><input name="IsNew" type="hidden" value="false">
+                                            <input class="check-box border-1" checked="@Model.IsNew" data-toggle="toggle" data-style="ios" data-val="true" data-val-required="The IsNew field is required." id="Status" name="IsNew" type="checkbox" value="true"><input name="IsNew" type="hidden" value="false">
                                             <span class="field-validation-valid text-danger" data-valmsg-for="IsNew" data-valmsg-replace="true"></span>
                                         </div>
                                     </div>
                                 </div>
-                                
 
                                 <div class="form-group">
                                     <label class="control-label col-md-2" for="categoryId">Category</label>
@@ -83,7 +85,7 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.Display, htmlAttributes: new { @class = "control-label col-md-2" })
                                     <div class="col-md-10">
-                                        @Html.EditorFor(model => model.Display, new { htmlAttributes = new { @class = "form-control" ,required = "required" } })
+                                        @Html.EditorFor(model => model.Display, new { htmlAttributes = new { @class = "form-control", required = "required" } })
                                         @Html.ValidationMessageFor(model => model.Display, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -141,17 +143,17 @@
 
                         <div class="form-group ">
                             @Html.LabelFor(t => t.PhotoL)
-                            @Html.TextBoxFor(t => t.PhotoL, new { @class = "form-control ", type = "file", accept = "image/*" })
+                            @Html.TextBoxFor(t => t.PhotoL, new { @class = "form-control  col-6", type = "file", accept = "image/*" })
                             @Html.ValidationMessageFor(t => t.PhotoL, null, new { @class = "text-danger" })
                         </div>
                         <div class="form-group ">
                             @Html.LabelFor(t => t.PhotoM)
-                            @Html.TextBoxFor(t => t.PhotoM, new { @class = "form-control ", type = "file", accept = "image/*" })
+                            @Html.TextBoxFor(t => t.PhotoM, new { @class = "form-control col-6", type = "file", accept = "image/*" })
                             @Html.ValidationMessageFor(t => t.PhotoM, null, new { @class = "text-danger" })
                         </div>
                         <div class="form-group ">
                             @Html.LabelFor(t => t.PhotoS)
-                            @Html.TextBoxFor(t => t.PhotoS, new { @class = "form-control ", type = "file", accept = "image/*" })
+                            @Html.TextBoxFor(t => t.PhotoS, new { @class = "form-control col-6", type = "file", accept = "image/*" })
                             @Html.ValidationMessageFor(t => t.PhotoS, null, new { @class = "text-danger" })
                         </div>
                         <div class="form-group jumbotron d-flex justify-content-between">
@@ -205,36 +207,6 @@
         });
     </script>
 }
-
-
-
-@*<div class="input-group mb-3">
-        <div class="input-group-prepend">
-            <span class="input-group-text">Upload</span>
-        </div>
-        <div class="custom-file">
-            <input type="file" required class="custom-file-input" id="inputGroupFile01">
-            <label class="custom-file-label" for="inputGroupFile01">Choose file large</label>
-        </div>
-    </div>
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-            <span class="input-group-text">Upload</span>
-        </div>
-        <div class="custom-file">
-            <input type="file" required class="custom-file-input" id="inputGroupFile01">
-            <label class="custom-file-label" for="inputGroupFile01">Choose file medium</label>
-        </div>
-    </div>
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-            <span class="input-group-text">Upload</span>
-        </div>
-        <div class="custom-file">
-            <input type="file" required class="custom-file-input" id="inputGroupFile01">
-            <label class="custom-file-label" for="inputGroupFile01">Choose file small</label>
-        </div>
-    </div>*@
 @*@using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
@@ -243,6 +215,8 @@
             <h4>Product</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Id)
+
             <div class="form-group">
                 @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -314,6 +288,14 @@
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.Display, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Display, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Graphic, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Graphic, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Graphic, "", new { @class = "text-danger" })
                 </div>
             </div>
 
@@ -415,7 +397,7 @@
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
+                    <input type="submit" value="Save" class="btn btn-default" />
                 </div>
             </div>
         </div>

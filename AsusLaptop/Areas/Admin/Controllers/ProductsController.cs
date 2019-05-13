@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using static AsusLaptop.Utilities.Utilities;
 
 namespace AsusLaptop.Areas.Admin.Controllers
 {
@@ -39,7 +40,7 @@ namespace AsusLaptop.Areas.Admin.Controllers
         }
         //, PhotoL, PhotoM , PhotoS
         [HttpPost,ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Status , Model , Price ,Discount, CategoryId, Dimensions , Weight , Display , Processor , Memory , Storage ,  Wireless , Ports , Colors , Graphic , PhotoL , PhotoM , PhotoS")]Product product)
+        public ActionResult Create([Bind(Include = "Status , IsNew , Model , Price ,Discount, CategoryId, Dimensions , Weight , Display , Processor , Memory , Storage ,  Wireless , Ports , Colors , Graphic , PhotoL , PhotoM , PhotoS")]Product product)
         {
             List<SelectListItem> categories =
                (from cat in _context.Categories.ToList()
@@ -106,13 +107,110 @@ namespace AsusLaptop.Areas.Admin.Controllers
         #endregion
 
         #region Products Edit
+        public ActionResult Edit(int? id)
+        {
+            if (id == null) return HttpNotFound("Id null");
+            var product = _context.Products.Find(id);
+            if (product == null) return HttpNotFound("product null");
+            List<SelectListItem> categories =
+               (from cat in _context.Categories.ToList()
+                select new SelectListItem
+                {
+                    Text = cat.Name,
+                    Value = cat.Id.ToString()
+                }).ToList();
+            ViewBag.Categories = categories;
 
+            return View(product);
+        }
+
+        [HttpPost,ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = " Id ,Status , IsNew , Model , Price ,Discount, CategoryId, Dimensions , Weight , Display , Processor , Memory , Storage ,  Wireless , Ports , Colors , Graphic , PhotoL , PhotoM , PhotoS")]Product product)
+        {
+            List<SelectListItem> categories =
+               (from cat in _context.Categories.ToList()
+                select new SelectListItem
+                {
+                    Text = cat.Name,
+                    Value = cat.Id.ToString()
+                }).ToList();
+            ViewBag.Categories = categories;
+            if (!ModelState.IsValid) return View(product);
+            var category = _context.Categories.Where(p => p.Id == product.CategoryId).FirstOrDefault();
+
+            if (product == null) return HttpNotFound("This product not exist");
+
+            if (_context.Products.FirstOrDefault(p=>p.Model == product.Model && p.Id != product.Id) != null)
+            {
+                ModelState.AddModelError("Model", "This Model already exist");
+            }
+            Product productdb = _context.Products.Find(product.Id);
+
+            if (product.PhotoL !=null && product.PhotoL!=null && product.PhotoS != null)
+            {
+                if (!product.PhotoL.IsImage() && product.PhotoM.IsImage() && product.PhotoS.IsImage())
+                {
+                    ModelState.AddModelError("PhotoL", "image large type is not valid");
+                    ModelState.AddModelError("PhotoM", "image medium type is not valid");
+                    ModelState.AddModelError("PhotoS", "image small type is not valid");
+                    product.PhotoL = productdb.PhotoL;
+                    product.PhotoM = productdb.PhotoM;
+                    product.PhotoS = productdb.PhotoS;
+                    return View(product);
+                }
+                RemoveImg("Public/img", productdb.ImageL);
+                RemoveImg("Public/img", productdb.ImageM);
+                RemoveImg("Public/img", productdb.ImageS);
+                productdb.ImageL = product.PhotoL.SavePhoto("Public/img", "products");
+                productdb.ImageM = product.PhotoM.SavePhoto("Public/img", "products");
+                productdb.ImageS = product.PhotoS.SavePhoto("Public/img", "products");
+
+            }
+            product.CategoryId = category.Id;
+            productdb.Model = product.Model;
+            productdb.Status = product.Status;
+            productdb.IsNew = product.IsNew;
+            productdb.Processor = product.Processor;
+            productdb.Display = product.Display;
+            productdb.Graphic = product.Graphic;
+            productdb.Dimensions = product.Dimensions;
+            productdb.Memory = product.Memory;
+            productdb.Price = product.Price;
+            productdb.Discount = product.Discount;
+            productdb.Weight = product.Weight;
+            productdb.Storage = product.Storage;
+            productdb.Wireless = product.Wireless;
+            productdb.Colors = product.Colors;
+            productdb.Ports = product.Ports;
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
         #endregion
 
         #region Products Delete
 
         #endregion
 
+
+        #region details
+        public ActionResult Details(int? id)
+        {
+            if (id == null) return HttpNotFound("Id null");
+            var product = _context.Products.Find(id);
+            if (product == null) return HttpNotFound("Service Item yok la");
+            List<SelectListItem> categories =
+               (from cat in _context.Categories.ToList()
+                select new SelectListItem
+                {
+                    Text = cat.Name,
+                    Value = cat.Id.ToString()
+                }).ToList();
+            ViewBag.Categories = categories;
+
+            return View(product);
+        }
+        #endregion
 
     }
 }

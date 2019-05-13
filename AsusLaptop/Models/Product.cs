@@ -19,6 +19,8 @@ namespace AsusLaptop.Models
 
         public bool Status { get; set; }
 
+        public bool IsNew { get; set; }
+
         [StringLength(50)]
         public string Brand { get; set; }
 
