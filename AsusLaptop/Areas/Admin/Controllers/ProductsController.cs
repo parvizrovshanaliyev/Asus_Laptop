@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using static AsusLaptop.Utilities.Utilities;
@@ -176,6 +177,7 @@ namespace AsusLaptop.Areas.Admin.Controllers
 
                     ProductImage productImage = new ProductImage
                     {
+                        
                         ProductId = productdb.Id,
                         Image = photo.SavePhoto("Public/img", "productsMultiples")
                     };
@@ -260,6 +262,44 @@ namespace AsusLaptop.Areas.Admin.Controllers
             return View(product);
         }
         #endregion
+
+        [HttpPost]
+        public JsonResult DeleteFile(int? id)
+        {
+            if (id==null)
+            {
+                Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                return Json(new { Result = "Error" });
+            }
+            try
+            {
+                ProductImage productImage = _context.ProductImages.Find(id);
+                
+                if (productImage == null)
+                {
+                    Response.StatusCode = (int)HttpStatusCode.NotFound;
+                    return Json(new { Result = "Error" });
+                }
+
+                //Remove from database
+                _context.ProductImages.Remove(productImage);
+
+                _context.SaveChanges();
+
+                //Delete file from the file system
+                //var path = Path.Combine(Server.MapPath("~/App_Data/Upload/"), fileDetail.Id + fileDetail.Extension);
+                //if (System.IO.File.Exists(path))
+                //{
+                //    System.IO.File.Delete(path);
+                //}
+                RemoveImg("Public/img", productImage.Image);
+                return Json(new { Result = "OK" });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { Result = "ERROR", Message = ex.Message });
+            }
+        }
 
     }
 }
