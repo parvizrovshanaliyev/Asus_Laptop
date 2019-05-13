@@ -60,57 +60,13 @@ namespace AsusLaptop.Areas.Admin.Controllers
                
             }
            
-            return View();
-            
-            
-            //if (Photos == null)
-            //{
-            //    ModelState.AddModelError("Photos", "should be selected");
-            //    return View();
-            //}
-            //if (!ModelState.IsValid) return HttpNotFound("photo null");
-
-            //foreach (var image in Photos)
-            //{
-
-            //    //if (!image.IsImage())
-            //    //{
-            //    //    ModelState.AddModelError("Photos", "Photo type is not valid");
-
-            //    //}
-            //    Imgsmultiple imgsmultiple = new Imgsmultiple
-            //    {
-            //        Image = image.SavePhoto("Public/img", "multiple")
-            //    };
-            //    _context.Imgsmultiples.Add(imgsmultiple);
-            //    _context.SaveChanges();
-            //}
-            //return RedirectToAction("index");
-            //if (ModelState.IsValid)
-            //{
-            //    foreach (var image in Photos)
-            //    {
-            //        if (image==null)
-            //        {
-            //            ModelState.AddModelError("Photos", "should be selected");
-
-            //        }
-            //        if (!image.IsImage())
-            //        {
-            //            ModelState.AddModelError("Photos", "Photo type is not valid");
-
-            //        }
-            //        Imgsmultiple imgsmultiple = new Imgsmultiple
-            //        {
-            //            Image = image.SavePhoto("Public/img", "multiple")
-            //        };
-            //        _context.Imgsmultiples.Add(imgsmultiple);
-            //        _context.SaveChanges();
-            //    }
-            //    return RedirectToAction("index");
-            //}
-            //ModelState.AddModelError("Photos", "should be selected");
-            //return View();
+            return View(); 
         }
+
+
+        //public ActionResult Edit()
+        //{
+
+        //}
     }
 }

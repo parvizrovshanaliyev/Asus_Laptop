@@ -20,8 +20,8 @@ namespace AsusLaptop.Models
         public string Image { get; set; }
 
         [NotMapped]
-        [DisplayName("Product Image")]
-        public HttpPostedFileBase Photo { get; set; }
+        [DisplayName("Product Images")]
+        public HttpPostedFileBase[] ProductImages { get; set; }
 
         public virtual Product Product { get; set; }
     }

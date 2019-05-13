@@ -185,6 +185,10 @@
     <Compile Include="Migrations\201905130920341_imgtbl.Designer.cs">
       <DependentUpon>201905130920341_imgtbl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905131336182_productimage_table_alter1.cs" />
+    <Compile Include="Migrations\201905131336182_productimage_table_alter1.Designer.cs">
+      <DependentUpon>201905131336182_productimage_table_alter1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AspNetUserRole.cs" />
     <Compile Include="Models\Banner.cs" />
@@ -469,6 +473,7 @@
     <Content Include="Areas\Admin\Public\assets\fonts\themifyd41d.eot" />
     <Content Include="Areas\Admin\Public\assets\Scripts\jquery-3.4.1.min.map" />
     <Content Include="Areas\Admin\Public\assets\Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Public\img\productsMultiples\36209c11-a7f4-49d7-bc2b-0108148a9cb0205b60a74e1737ec7abafa1d7fd37dcc.jpg" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap4.js" />
@@ -602,6 +607,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905130920341_imgtbl.resx">
       <DependentUpon>201905130920341_imgtbl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905131336182_productimage_table_alter1.resx">
+      <DependentUpon>201905131336182_productimage_table_alter1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -32,7 +32,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
 
                                 <div class="form-group">
                                     <label class="control-label col-md-2" for="categoryId">Category</label>
@@ -83,7 +83,7 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.Display, htmlAttributes: new { @class = "control-label col-md-2" })
                                     <div class="col-md-10">
-                                        @Html.EditorFor(model => model.Display, new { htmlAttributes = new { @class = "form-control" ,required = "required" } })
+                                        @Html.EditorFor(model => model.Display, new { htmlAttributes = new { @class = "form-control", required = "required" } })
                                         @Html.ValidationMessageFor(model => model.Display, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -150,10 +150,20 @@
                             @Html.ValidationMessageFor(t => t.PhotoM, null, new { @class = "text-danger" })
                         </div>
                         <div class="form-group ">
-                            @Html.LabelFor(t => t.PhotoS)
-                            @Html.TextBoxFor(t => t.PhotoS, new { @class = "form-control ", type = "file", accept = "image/*" })
-                            @Html.ValidationMessageFor(t => t.PhotoS, null, new { @class = "text-danger" })
+                            @Html.LabelFor(t => t.PhotoSmall)
+                            @Html.TextBoxFor(t => t.PhotoSmall, new { @class = "form-control ", type = "file", accept = "image/*" })
+                            @Html.ValidationMessageFor(t => t.PhotoSmall, null, new { @class = "text-danger" })
                         </div>
+                        <div class="form-group ">
+                            @Html.LabelFor(t => t.ProductImages)
+                            @Html.TextBoxFor(t => t.ProductImages, new { @class = "form-control ", type = "file", accept = "image/*", multiple = "multiple" })
+                            @Html.ValidationMessageFor(t => t.ProductImages, null, new { @class = "text-danger" })
+                        </div>
+                        @*<div class="form-group ">
+                            <label for="ProductImages">ProductImages</label>
+                            <input accept="image/*" class="form-control " id="ProductImages" multiple="multiple" name="ProductImages" type="file" value="">
+                            <span class="field-validation-valid text-danger" data-valmsg-for="ProductImages" data-valmsg-replace="true"></span>
+                        </div>*@
                         <div class="form-group jumbotron d-flex justify-content-between">
                             <div>
                                 <a class="text-danger" href="@Url.Action("Index","Products")">Back to list</a>

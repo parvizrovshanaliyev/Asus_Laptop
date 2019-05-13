@@ -38,9 +38,9 @@ namespace AsusLaptop.Areas.Admin.Controllers
             ViewBag.Categories = categories;
             return View();
         }
-        //, PhotoL, PhotoM , PhotoS
+        //, PhotoL, PhotoM , PhotoSmall
         [HttpPost,ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Status , IsNew , Model , Price ,Discount, CategoryId, Dimensions , Weight , Display , Processor , Memory , Storage ,  Wireless , Ports , Colors , Graphic , PhotoL , PhotoM , PhotoS")]Product product)
+        public ActionResult Create([Bind(Include = "Status , IsNew , Model , Price ,Discount, CategoryId, Dimensions , Weight , Display , Processor , Memory , Storage ,  Wireless , Ports , Colors , Graphic , PhotoL , PhotoM, PhotoSmall")]Product product, HttpPostedFileBase[] ProductImages)
         {
             List<SelectListItem> categories =
                (from cat in _context.Categories.ToList()
@@ -53,6 +53,28 @@ namespace AsusLaptop.Areas.Admin.Controllers
 
             if (!ModelState.IsValid) return View(product);
 
+            List<ProductImage> productImages = new List<ProductImage>();
+
+            foreach (HttpPostedFileBase photo in ProductImages)
+            {
+                //Checking file is available to save.  
+                if (photo == null)
+                {
+                    ModelState.AddModelError("ProductImages", "ProductImages should be selected");
+                    return View(product);
+                }
+                if (!photo.IsImage())
+                {
+                    ModelState.AddModelError("PhotoSmall", "Photo type is not valid");
+                    return View(product);
+                }
+                ProductImage productImage = new ProductImage
+                {
+                    Image = photo.SavePhoto("Public/img", "productsMultiples")
+                };
+                productImages.Add(productImage);
+
+            }
             var category = _context.Categories.Where(p => p.Id == product.CategoryId).FirstOrDefault();
 
             if (product == null)
@@ -78,25 +100,25 @@ namespace AsusLaptop.Areas.Admin.Controllers
 
                 return View(product);
             }
-            if (product.PhotoS == null)
+            if (product.PhotoSmall == null)
             {
-                ModelState.AddModelError("PhotoS", "Image small  should be selected");
+                ModelState.AddModelError("PhotoSmall", "Image small  should be selected");
 
                 return View(product);
             }
-            if (!product.PhotoL.IsImage() && product.PhotoM.IsImage() && product.PhotoS.IsImage())
+            if (!product.PhotoL.IsImage() && product.PhotoM.IsImage() && product.PhotoSmall.IsImage())
             {
-                ModelState.AddModelError("PhotoM", "Photo type is not valid");
-                ModelState.AddModelError("PhotoL", "Photo type is not valid");
-                ModelState.AddModelError("PhotoS", "Photo type is not valid");
+                ModelState.AddModelError("PhotoM", "PhotoM type is not valid");
+                ModelState.AddModelError("PhotoL", "PhotoL type is not valid");
+                ModelState.AddModelError("PhotoSmall", "PhotoSmall type is not valid");
                 return View(product);
             }
-            
 
+            product.ProductImages = productImages;
             product.CategoryId = category.Id;
             product.ImageL = product.PhotoL.SavePhoto("Public/img", "products");
             product.ImageM = product.PhotoM.SavePhoto("Public/img", "products");
-            product.ImageS = product.PhotoS.SavePhoto("Public/img", "products");
+            product.ImageS = product.PhotoSmall.SavePhoto("Public/img", "products");
             product.CreateAt = product.UpdateAt = DateTime.Now;
             product.Brand = "Asus";
             product.OperatingSystem = "Windows 10 Pro";
@@ -125,7 +147,7 @@ namespace AsusLaptop.Areas.Admin.Controllers
         }
 
         [HttpPost,ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = " Id ,Status , IsNew , Model , Price ,Discount, CategoryId, Dimensions , Weight , Display , Processor , Memory , Storage ,  Wireless , Ports , Colors , Graphic , PhotoL , PhotoM , PhotoS")]Product product)
+        public ActionResult Edit([Bind(Include = " Id ,Status , IsNew , Model , Price ,Discount, CategoryId, Dimensions , Weight , Display , Processor , Memory , Storage ,  Wireless , Ports , Colors , Graphic , PhotoL , PhotoM , PhotoSmall")]Product product)
         {
             List<SelectListItem> categories =
                (from cat in _context.Categories.ToList()
@@ -146,16 +168,16 @@ namespace AsusLaptop.Areas.Admin.Controllers
             }
             Product productdb = _context.Products.Find(product.Id);
 
-            if (product.PhotoL !=null && product.PhotoL!=null && product.PhotoS != null)
+            if (product.PhotoL !=null && product.PhotoL!=null && product.PhotoSmall != null)
             {
-                if (!product.PhotoL.IsImage() && product.PhotoM.IsImage() && product.PhotoS.IsImage())
+                if (!product.PhotoL.IsImage() && product.PhotoM.IsImage() && product.PhotoSmall.IsImage())
                 {
                     ModelState.AddModelError("PhotoL", "image large type is not valid");
                     ModelState.AddModelError("PhotoM", "image medium type is not valid");
-                    ModelState.AddModelError("PhotoS", "image small type is not valid");
+                    ModelState.AddModelError("PhotoSmall", "image small type is not valid");
                     product.PhotoL = productdb.PhotoL;
                     product.PhotoM = productdb.PhotoM;
-                    product.PhotoS = productdb.PhotoS;
+                    product.PhotoSmall = productdb.PhotoSmall;
                     return View(product);
                 }
                 RemoveImg("Public/img", productdb.ImageL);
@@ -163,7 +185,7 @@ namespace AsusLaptop.Areas.Admin.Controllers
                 RemoveImg("Public/img", productdb.ImageS);
                 productdb.ImageL = product.PhotoL.SavePhoto("Public/img", "products");
                 productdb.ImageM = product.PhotoM.SavePhoto("Public/img", "products");
-                productdb.ImageS = product.PhotoS.SavePhoto("Public/img", "products");
+                productdb.ImageS = product.PhotoSmall.SavePhoto("Public/img", "products");
 
             }
             product.CategoryId = category.Id;

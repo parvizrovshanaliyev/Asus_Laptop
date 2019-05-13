@@ -98,7 +98,7 @@ namespace AsusLaptop.Models
 
         [NotMapped]
         [DisplayName("Image Small")]
-        public HttpPostedFileBase PhotoS { get; set; }
+        public HttpPostedFileBase PhotoSmall { get; set; }
 
 
 
