@@ -189,7 +189,19 @@ namespace AsusLaptop.Areas.Admin.Controllers
         #endregion
 
         #region Products Delete
+        public ActionResult Delete(int? id)
+        {
+            if (id == null) return HttpNotFound("id not null");
 
+            Product product = _context.Products.Include("OrderItems").FirstOrDefault(p => p.Id == id);
+
+            if (product == null) return HttpNotFound("product null");
+
+            if (product.OrderItems.Count() != 0) return HttpNotFound("this product have orders");
+            _context.Products.Remove(product);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
         #endregion
 
 
