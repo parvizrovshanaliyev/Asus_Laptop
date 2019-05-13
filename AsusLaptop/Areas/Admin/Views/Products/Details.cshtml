@@ -9,196 +9,221 @@
 <div>
     <h4>Product</h4>
     <hr />
-    <dl class="mdl-grid">
-        <dt>
-            @Html.DisplayNameFor(model => model.Status)
-        </dt>
+    <div class="d-flex row ">
+        <dl class="col-4 text-center">
+            <dt class="mb-4">
+                @Html.DisplayNameFor(model => model.ImageL)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Status)
-        </dd>
+            <dd>
+                <img src="~/Public/img/@Model.ImageL" class="img-fluid">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Brand)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Brand)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Model)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Model)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CategoryId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CategoryId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Colors)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Colors)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Discount)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Discount)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.OperatingSystem)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.OperatingSystem)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Display)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Display)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Graphic)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Graphic)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Processor)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Processor)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Memory)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Memory)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Storage)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Storage)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Wireless)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Wireless)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Dimensions)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Dimensions)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Ports)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Ports)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Weight)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Weight)
-        </dd>
-        
-        <dl class="d-flex">
-            <dl>
-                <dt>
-                    @Html.DisplayNameFor(model => model.ImageL)
-                </dt>
-
-                <dd>
-                    <img src="~/Public/img/@Model.ImageL" class="img-fluid">
-
-                </dd>
-            </dl>
-
-            <dl>
-                <dt>
-                    @Html.DisplayNameFor(model => model.ImageM)
-                </dt>
-
-                <dd>
-                    <img src="~/Public/img/@Model.ImageM" class="img-fluid">
-
-                </dd>
-            </dl>
-
-
-            <dl>
-                <dt>
-                    @Html.DisplayNameFor(model => model.ImageS)
-                </dt>
-
-                <dd>
-                    <img src="~/Public/img/@Model.ImageS" class="img-fluid">
-
-                </dd>
-            </dl>
+            </dd>
         </dl>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CreateAt)
-        </dt>
+        <dl class="col-4 text-center">
+            <dt class="mb-4">
+                @Html.DisplayNameFor(model => model.ImageM)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.CreateAt)
-        </dd>
+            <dd>
+                <img src="~/Public/img/@Model.ImageM" class="img-fluid">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.UpdateAt)
-        </dt>
+            </dd>
+        </dl>
 
-        <dd>
-            @Html.DisplayFor(model => model.UpdateAt)
-        </dd>
 
-    </dl>
+        <dl class="col-4 text-center">
+            <dt class="mb-4">
+                @Html.DisplayNameFor(model => model.ImageS)
+            </dt>
+
+            <dd>
+                <img src="~/Public/img/@Model.ImageS" class="img-fluid">
+            </dd>
+        </dl>
+    </div>
+    <div class="row">
+        <dl class="col-3">
+            <dt class="mb-3">
+                @Html.DisplayNameFor(model => model.Status)
+            </dt>
+
+            <dd>
+                @if (Model.Status)
+                {
+                    <span class="alert alert-success">Active</span>
+                }
+                else
+                {
+                    <span class="alert alert-info">Passive</span>
+                }
+            </dd>
+
+            <dt class="mb-3">
+                @Html.DisplayNameFor(model => model.IsNew)
+            </dt>
+
+            <dd >
+                @if (Model.IsNew)
+                {
+                    <span class="alert alert-success">IsNew</span>
+                }
+                else
+                {
+                    <span class="alert alert-info">Passive</span>
+                }
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Brand)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Brand)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Model)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Model)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CategoryId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Category.Name)
+            </dd>
+        </dl>
+        <dl class="col-3">
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Colors)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Colors)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Discount)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Discount)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.OperatingSystem)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.OperatingSystem)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Display)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Display)
+            </dd>
+        </dl>
+        <dl class="col-3">
+            <dt>
+                @Html.DisplayNameFor(model => model.Graphic)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Graphic)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Processor)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Processor)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Memory)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Memory)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Storage)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Storage)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Wireless)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Wireless)
+            </dd>
+        </dl>
+        <dl class="col-3">
+            <dt>
+                @Html.DisplayNameFor(model => model.Dimensions)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Dimensions)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Ports)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Ports)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Weight)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Weight)
+            </dd>
+
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CreateAt)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CreateAt)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UpdateAt)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UpdateAt)
+            </dd>
+        </dl>
+    </div>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |

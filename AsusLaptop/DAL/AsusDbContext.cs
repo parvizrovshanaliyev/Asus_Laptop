@@ -26,6 +26,8 @@ namespace AsusLaptop.DAL
         public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<Slider> Sliders { get; set; }
         public DbSet<Cart> Carts { get; set; }
+        public DbSet<ProductImage> ProductImages { get; set; }
+        public DbSet<Imgsmultiple> Imgsmultiples { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

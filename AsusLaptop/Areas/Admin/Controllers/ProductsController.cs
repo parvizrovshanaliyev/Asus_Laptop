@@ -182,6 +182,7 @@ namespace AsusLaptop.Areas.Admin.Controllers
             productdb.Wireless = product.Wireless;
             productdb.Colors = product.Colors;
             productdb.Ports = product.Ports;
+            productdb.UpdateAt = DateTime.Now;
             _context.SaveChanges();
 
             return RedirectToAction("Index");

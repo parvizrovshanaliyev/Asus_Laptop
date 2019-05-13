@@ -1,0 +1,39 @@
+﻿@model AsusLaptop.Models.Imgsmultiple
+
+@{
+    ViewBag.Title = "UploadFiles";
+}
+
+<h2>UploadFiles</h2>
+
+<form action="@Url.Action("UploadFiles","Imgsmultiples")" method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Imgsmultiple</h4>
+        <hr />
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+        <div class="form-group ">
+            @Html.LabelFor(t => t.Photos)
+            @Html.TextBoxFor(t => t.Photos, new { @class = "form-control ", type = "file", accept = "image/*", multiple = "multiple" })
+            @Html.ValidationMessageFor(t => t.Photos, null, new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10 text-success">
+                @ViewBag.UploadStatus
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+@section scripts{
+    <script src="~/Areas/Admin/Public/assets/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Areas/Admin/Public/assets/Scripts/jquery.validate.unobtrusive.min.js"></script>}

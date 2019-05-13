@@ -14,6 +14,7 @@ namespace AsusLaptop.Models
         {
             OrderItems = new HashSet<OrderItem>();
             Carts = new HashSet<Cart>();
+            ProductImages = new HashSet<ProductImage>();
         }
         public int Id { get; set; }
 
@@ -104,6 +105,7 @@ namespace AsusLaptop.Models
         public virtual Category Category { get; set; }
         public virtual ICollection<OrderItem> OrderItems { get; set; }
         public virtual ICollection<Cart> Carts { get; set; }
+        public virtual ICollection<ProductImage> ProductImages { get; set; }
 
 
     }

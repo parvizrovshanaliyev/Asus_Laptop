@@ -156,6 +156,7 @@
     <Compile Include="Areas\Admin\Controllers\ALoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoriesController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ImgsmultiplesController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
     <Compile Include="Areas\Admin\Controllers\RolesController.cs" />
     <Compile Include="Areas\Admin\Controllers\RoleToUserController.cs" />
@@ -176,15 +177,25 @@
     <Compile Include="Migrations\201905130622030_product_isnew_cilumn.Designer.cs">
       <DependentUpon>201905130622030_product_isnew_cilumn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905130903428_productimage_table.cs" />
+    <Compile Include="Migrations\201905130903428_productimage_table.Designer.cs">
+      <DependentUpon>201905130903428_productimage_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905130920341_imgtbl.cs" />
+    <Compile Include="Migrations\201905130920341_imgtbl.Designer.cs">
+      <DependentUpon>201905130920341_imgtbl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AspNetUserRole.cs" />
     <Compile Include="Models\Banner.cs" />
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\CustomUserValidator.cs" />
+    <Compile Include="Models\Imgsmultiple.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductImage.cs" />
     <Compile Include="Models\RoleApp.cs" />
     <Compile Include="Models\RoleManagerApp.cs" />
     <Compile Include="Models\Slider.cs" />
@@ -550,6 +561,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\AdminLogin\" />
+    <Folder Include="Public\img\multiple\" />
     <Folder Include="Public\img\products\" />
   </ItemGroup>
   <ItemGroup>
@@ -574,6 +586,8 @@
     <Content Include="Areas\Admin\Public\assets\toggle-check\js\bootstrap2-toggle.min.js.map" />
     <Content Include="Areas\Admin\Views\Products\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Products\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Imgsmultiples\UploadFiles.cshtml" />
+    <Content Include="Areas\Admin\Views\Imgsmultiples\Index.cshtml" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -582,6 +596,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905130622030_product_isnew_cilumn.resx">
       <DependentUpon>201905130622030_product_isnew_cilumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905130903428_productimage_table.resx">
+      <DependentUpon>201905130903428_productimage_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905130920341_imgtbl.resx">
+      <DependentUpon>201905130920341_imgtbl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
