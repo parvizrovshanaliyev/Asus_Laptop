@@ -248,7 +248,7 @@ namespace AsusLaptop.Areas.Admin.Controllers
         public ActionResult Details(int? id)
         {
             if (id == null) return HttpNotFound("Id null");
-            var product = _context.Products.Find(id);
+            var product = _context.Products.Include("ProductImages").SingleOrDefault(p=>p.Id==id);
             if (product == null) return HttpNotFound("Service Item yok la");
             List<SelectListItem> categories =
                (from cat in _context.Categories.ToList()
@@ -286,12 +286,6 @@ namespace AsusLaptop.Areas.Admin.Controllers
 
                 _context.SaveChanges();
 
-                //Delete file from the file system
-                //var path = Path.Combine(Server.MapPath("~/App_Data/Upload/"), fileDetail.Id + fileDetail.Extension);
-                //if (System.IO.File.Exists(path))
-                //{
-                //    System.IO.File.Delete(path);
-                //}
                 RemoveImg("Public/img", productImage.Image);
                 return Json(new { Result = "OK" });
             }

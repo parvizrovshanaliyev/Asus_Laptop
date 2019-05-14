@@ -9,9 +9,9 @@
 <div>
     <h4>Product</h4>
     <hr />
-    <div class="d-flex row ">
-        <dl class="col-4 text-center">
-            <dt class="mb-4">
+    <div class=" row ">
+        <dl class="col-4 text-center img-thumbnail">
+            <dt class="mb-4 ">
                 @Html.DisplayNameFor(model => model.ImageL)
             </dt>
 
@@ -21,7 +21,7 @@
             </dd>
         </dl>
 
-        <dl class="col-4 text-center">
+        <dl class="col-4 text-center img-thumbnail">
             <dt class="mb-4">
                 @Html.DisplayNameFor(model => model.ImageM)
             </dt>
@@ -33,7 +33,7 @@
         </dl>
 
 
-        <dl class="col-4 text-center">
+        <dl class="col-4 text-center img-thumbnail">
             <dt class="mb-4">
                 @Html.DisplayNameFor(model => model.ImageS)
             </dt>
@@ -43,7 +43,7 @@
             </dd>
         </dl>
     </div>
-    <div class="row">
+    <div class="row img-thumbnail">
         <dl class="col-3">
             <dt class="mb-3">
                 @Html.DisplayNameFor(model => model.Status)
@@ -64,7 +64,7 @@
                 @Html.DisplayNameFor(model => model.IsNew)
             </dt>
 
-            <dd >
+            <dd>
                 @if (Model.IsNew)
                 {
                     <span class="alert alert-success">IsNew</span>
@@ -224,8 +224,21 @@
             </dd>
         </dl>
     </div>
+    <h1>Product Images</h1>
+    <div class="row img-thumbnail">
+        
+        <div class="row d-flex">
+            @foreach (var item in Model.ProductImages)
+            {
+                <div class="img-thumbnail mb-3 ml-3">
+                    <img style="width:200px;" src="~/Public/img/@item.Image" alt="Alternate Text" />
+                </div>
+            }
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+<p class="jumbutron mt-5">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id },new { @class="btn btn-danger"}) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+
