@@ -16,6 +16,9 @@ namespace AsusLaptop.Models
 
         [NotMapped]
         public HttpPostedFileBase Photo { get; set; }
+
+        [NotMapped]
+        public HttpPostedFileBase[] Photos { get; set; }
     }
 
 
