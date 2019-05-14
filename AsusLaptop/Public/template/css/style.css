@@ -1,6 +1,7 @@
+
 @media (min-width: 992px) {
-  /* line 5, ../sass/partials/_header.scss */
-  header .d-lg-block {
+    /* line 5, ../sass/partials/_header.scss */
+    header .d-lg-block {
     display: block !important;
   }
 }
