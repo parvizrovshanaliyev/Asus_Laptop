@@ -1,0 +1,23 @@
+@mixin setTranstions($type,$sec){
+    -webkit-transition: $sec ;
+    -o-transition: $sec ;
+    transition: $sec ;
+}
+
+@mixin setTranstions($sec){
+    -webkit-transition: $sec ;
+    -o-transition: $sec ;
+    transition: $sec ;
+}
+
+@mixin imgBackround($type1,$type2,$type3){
+    background-size: $type1;
+    background-position: $type2;
+    background-repeat: $type3;
+}
+
+@mixin Transform($px){
+    -webkit-transform: translateY($px);
+    -ms-transform: translateY($px);
+    transform: translateY($px);
+}

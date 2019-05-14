@@ -1,0 +1,295 @@
+@import 'partials/_mixin';
+@import 'partials/_variables';
+
+
+/*------ compare modal ------*/
+
+
+.compareOpen {
+    position: fixed;
+    bottom: 0px;
+    right: 0;
+    color: white;
+    background-color: #555;
+    padding: 0.5% 1.5%;
+    border: 1px solid;
+    border-radius: 16%;
+    margin-right: 1%;
+    .tooltip-text {
+        position: absolute;
+        bottom: 53px;
+        left: -45px;
+        font-size: 16px;
+        background-color: #555;
+        padding: 20%;
+        border: 1px solid #555;
+        border-radius: 7px;
+        visibility: hidden;
+        &::after{
+
+            content: "";
+            position: absolute;
+            border: #555 transparent transparent transparent 5px;
+        }
+    }
+    &:hover .tooltip-text{
+        visibility: visible;
+    }
+}
+
+.compare {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    -webkit-transform: translate3d(0%, 0, 0);
+    -ms-transform: translate3d(0%, 0, 0);
+    -o-transform: translate3d(0%, 0, 0);
+    transform: translate3d(0%, 0, 0);
+    border-top: 1px solid #555; 
+
+}
+
+.compare.fade {
+    bottom: -150px;
+    -webkit-transition: opacity 0.5s linear, bottom 0.5s ease-out;
+    -moz-transition: opacity 0.5s linear, bottom 0.5s ease-out;
+    -o-transition: opacity 0.5s linear, bottom 0.5s ease-out;
+    transition: opacity 0.5s linear, bottom 0.5s ease-out;
+
+}
+
+.compare.fade.show {
+    bottom: 0;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: visible;
+    z-index: 99999999;
+    -webkit-animation: slideInUp 1s forwards;
+    animation: slideInUp 1s forwards;
+
+}
+
+.compare{
+    .modal-body{
+        .row{
+            .text{
+                h3 {
+                    font-size: 20px;
+                    margin-bottom: 10px;
+                    margin-top: 10px;
+                    color: #000;
+                }
+                p{
+                    line-height: 1;
+                }
+                a {
+                    color: #fff;
+                    font-size: 13px;
+                    display: block;
+                    font-weight: 500;
+                    line-height: 1;
+                    background-color: #242424;
+                    text-transform: uppercase;
+                    border-radius: 9px;
+                    text-align: center;
+                    padding: 3%;
+                    max-width: 112px;
+                    margin-top: 14px;
+                }
+
+                a:hover {
+                    background-color: #cc2121;
+                }
+            }
+            .product-det{
+
+                .col-3{
+                    display: flex;
+                }
+                .minicart-remove {
+                    max-width: 30px;
+                    -webkit-flex-basis: 30px;
+                    -ms-flex-preferred-size: 30px;
+                    flex-basis: 30px;
+                    text-align: center;
+                    font-size: 18px;
+                    line-height: 1;
+                    color: #242424;
+                    background: transparent;
+                    border: none;
+
+                    &:focus {
+                        outline: 0;
+                    }
+                }
+
+                .minicart-remove:hover {
+                    color: #cc2121;
+                }
+            }
+            
+               
+            
+        }
+    }
+}
+
+.btn-dark{
+    border: 1px solid #fff;
+   
+    
+    &:hover {
+        color: #cc2121;
+        border: 1px solid #cc2121;
+    }
+}
+
+.compareOpenM{
+   z-index: 10000;
+   position: fixed;
+   bottom: 0;
+   right: 0;
+}
+.compareMobile {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    -webkit-transform: translate3d(0%, 0, 0);
+    -ms-transform: translate3d(0%, 0, 0);
+    -o-transform: translate3d(0%, 0, 0);
+    transform: translate3d(0%, 0, 0);
+    border-top: 1px solid #555; 
+
+}
+.compareMobile.fade {
+    bottom: -150px;
+    -webkit-transition: opacity 0.5s linear, bottom 0.5s ease-out;
+    -moz-transition: opacity 0.5s linear, bottom 0.5s ease-out;
+    -o-transition: opacity 0.5s linear, bottom 0.5s ease-out;
+    transition: opacity 0.5s linear, bottom 0.5s ease-out;
+
+}
+
+.compareMobile.fade.show {
+    bottom: 0;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: visible;
+    z-index: 99999999;
+    -webkit-animation: slideInUp 1s forwards;
+    animation: slideInUp 1s forwards;
+
+}
+.compareMobile{
+    .modal-header{
+        .close:hover{
+            color: #cc2121;
+        }
+        .close:focus{
+            outline: none;
+        }
+    }
+    .modal-body{
+        .row{
+            
+            .product-det{
+
+                
+                .minicart-removeM {
+                    max-width: 30px;
+                    -webkit-flex-basis: 30px;
+                    -ms-flex-preferred-size: 30px;
+                    flex-basis: 30px;
+                    text-align: center;
+                    font-size: 18px;
+                    line-height: 1;
+                    color: #242424;
+                    background: transparent;
+                    border: none;
+
+                    &:focus {
+                        outline: 0;
+                    }
+                }
+
+                .minicart-removeM:hover {
+                    color: #cc2121;
+                }
+            }
+            
+               
+            
+        }
+    }
+
+    .modal-footer{
+        a:hover{
+            color: #cc2121;
+        }
+    }
+}
+
+
+
+// .modal.down {
+//     // background-color: rgba(0, 0, 0, 0);
+
+//     .modal-dialog {
+//         position: fixed;
+//         margin: auto;
+//         width: 100%;
+//         bottom: 0;
+//         height: 150px;
+//         -webkit-transform: translate3d(0%, 0, 0);
+//         -ms-transform: translate3d(0%, 0, 0);
+//         -o-transform: translate3d(0%, 0, 0);
+//         transform: translate3d(0%, 0, 0);
+
+//         background-color: rgba(0, 0, 0, 0);
+
+//         @include setTranstions(3s);
+
+//         .modal-content {
+//             // height: 150px;
+//             width: 100%;
+//             overflow-x: auto;
+
+//             .modal-body {
+//                 padding: 15px 15px 80px;
+//             }
+//         }
+//     }
+// }
+
+// .modal.down.fade {
+//     .modal-dialog {
+//         bottom: -150px;
+//         -webkit-transition: opacity 0.5s linear, bottom 0.5s ease-out;
+//         -moz-transition: opacity 0.5s linear, bottom 0.5s ease-out;
+//         -o-transition: opacity 0.5s linear, bottom 0.5s ease-out;
+//         transition: opacity 0.5s linear, bottom 0.5s ease-out;
+//     }
+// }
+
+// .modal.modal-backdrop.show{
+//     opacity:0;
+// }
+// // .modal-backdrop.show{
+// //     opacity:0;
+// // }
+// // .modal-backdrop.fade{
+// //     opacity:0;
+// // }
+// .modal.down.fade.show .modal-dialog {
+//     bottom: 0;
+//     opacity: 1;
+//     visibility: visible;
+//     // pointer-events: visible;
+//     // z-index: 99999999;
+//     -webkit-animation: slideInUp 1s forwards;
+//     animation: slideInUp 1s forwards;
+//     -ms-high-contrast-adjust: none;
+// }
+
+
+/*------ compare modal ------*/

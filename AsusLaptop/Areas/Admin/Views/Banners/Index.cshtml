@@ -11,11 +11,11 @@
                 <h4 class="header-title">@ViewBag.Title</h4>
                 @if (User.IsInRole("admin"))
                 {
-                    
-                }
                 <p>
                     <a href="@Url.Action("Create","Banners")" class="text-danger btn btn-dark">Create New Slider image</a>
-                </p>
+                </p> 
+                }
+                
             </div>
 
             <div class="single-table">

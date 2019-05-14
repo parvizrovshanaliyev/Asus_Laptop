@@ -4,5 +4,817 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<!--#region slider area start -->
+<section class="mt-5">
+    <div class="thing" id="wrapper">
+        <div><img src="~/Public/template/img/slider/slider1.jpg" alt="slider image"></div>
+        <div><img src="~/Public/template/img/slider/slider2.jpg" alt="slider image"></div>
+        <div><img src="~/Public/template/img/slider/slider1.jpg" alt="slider image"></div>
+    </div>
+</section>
+<!--#endregion slider area end -->
+<!-- region banner -->
+<section>
+    <div class="container-fluid">
+        <div class="row ">
+            <div class="col-md-6">
 
+                <div class="blog-post-item mb-30">
+                    <figure style="height:150px;" class="blog-thumb">
+                        <a href="products.html">
+                            <img src="~/Public/template/img/banner/b2.jpg" alt="blog image">
+                        </a>
+                    </figure>
+                </div>
+            </div>
+            <div class="col-md-6">
+
+                <div class="blog-post-item mb-30">
+                    <figure style="height:150px;" class="blog-thumb">
+                        <a href="products.html">
+                            <img src="~/Public/template/img/banner/b3.jpg" alt="blog image">
+                        </a>
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- endregion banner -->
+<!-- region tab section new trend sales -->
+<section class="section-space pb-0">
+    <div class="tabs js-tabs">
+        <div class="tabs-nav js-tabs-nav text-center" id="example">
+            <ul class="tabs-nav__list">
+                <li class="tabs-nav__item js-tabs-item active">
+                    <a class="tabs-nav__link js-tabs-link" href="#tab-1">Trend</a>
+                </li>
+                <li class="tabs-nav__item js-tabs-item">
+                    <a class="tabs-nav__link js-tabs-link" href="#tab-2">Sale</a>
+                </li>
+                <li class="tabs-nav__item js-tabs-item">
+                    <a class="tabs-nav__link js-tabs-link" href="#tab-3">New</a>
+                </li>
+            </ul>
+            <span class="tabs-nav__drag js-tabs-drag"></span>
+        </div>
+        <div class="tabs-content js-tabs-wrap">
+            <div class="tab js-tabs-content active" id="tab-1">
+                <!--#region trend trending product area start -->
+                <section>
+                    <div class="container cta-100 ">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="section-title text-center mb-5">
+                                        <h2>New Products</h2>
+                                        <p>Accumsan vitae pede lacus ut ullamcorper sollicitudin quisque libero</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row blog mb-4">
+                                <div class="col-md-12">
+                                    <div id="blogCarousel" class="carousel slide container-blog" data-ride="carousel">
+                                        <ol class="carousel-indicators">
+                                            <li data-target="#blogCarousel" data-slide-to="0" class="active"></li>
+                                            <li data-target="#blogCarousel" data-slide-to="1"></li>
+                                        </ol>
+                                        <!-- Carousel items -->
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <div class="row">
+                                                    <!-- #region product single  -->
+                                                    <div class="col-lg-4 col-md-6 mb-4">
+                                                        <div class="card h-100">
+                                                            <div class="card-header border-0 d-flex">
+                                                                <div class="product-label new mr-3">
+                                                                    <span>new</span>
+                                                                </div>
+                                                                <div class="product-label discount">
+                                                                    <span>10%</span>
+                                                                </div>
+                                                            </div>
+                                                            <a href="product-details">
+                                                                <img src="~/Public/template/img/product/large.jpg" alt="laptop" class="card-img-top">
+                                                            </a>
+                                                            <div class="card-body">
+                                                                <div class="product-caption card-text">
+                                                                    <p class="product-name font-weight-bold">
+                                                                        <a href="product-details.html">ASUS ZenBook 13 UX333FA-DH51</a>
+                                                                    </p>
+                                                                    <p class="product-name d-none  d-md-block">
+                                                                        Ultra-Slim Laptop 13.3" FHD WideView, 8th-Gen Intel Core i5-8265U
+                                                                        Processor, 8GB , 256GB PCIe SSD, Backlit KB, NumberPad, Windows 10 -
+                                                                        Royal Blue
+                                                                    </p>
+                                                                    <div class="price-box">
+                                                                        <span class="price-regular">$60.00</span>
+                                                                        <span class="price-old"><del>$70.00</del></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-footer">
+                                                                <div class="pro-btns d-flex justify-content-between">
+                                                                    <div class="d-flex">
+                                                                        <div class="wish ">
+                                                                            <a href="#"><i class="far  fa-heart"></i></a>
+                                                                        </div>
+                                                                        <div class="quickView d-none  d-md-block ml-3 ">
+                                                                            <a class="showModal open-qv" href="#" data-toggle="modal"
+                                                                               data-target=".quickViewModal"><i class="fas fa-search"></i></a>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="add-to-card">
+                                                                        <a href="#" data-toggle="modal" data-target="#MiniCard"
+                                                                           class="minicart-btn open-card btn btn-cart2">
+                                                                            <i class="fa fa-cart-arrow-down"></i>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- #endregion product single  -->
+                                                    <!-- #region product single  -->
+                                                    <div class="col-lg-4 col-md-6 mb-4">
+                                                        <div class="card h-100">
+                                                            <div class="card-header border-0 d-flex">
+                                                                <div class="product-label new mr-3">
+                                                                    <span>new</span>
+                                                                </div>
+                                                                <div class="product-label discount">
+                                                                    <span>10%</span>
+                                                                </div>
+                                                            </div>
+                                                            <a href="product-details">
+                                                                <img src="~/Public/template/img/product/large.jpg" alt="laptop" class="card-img-top">
+                                                            </a>
+                                                            <div class="card-body">
+                                                                <div class="product-caption card-text">
+                                                                    <p class="product-name font-weight-bold">
+                                                                        <a href="product-details.html">ASUS ZenBook 13 UX333FA-DH51</a>
+                                                                    </p>
+                                                                    <p class="product-name d-none  d-md-block">
+                                                                        Ultra-Slim Laptop 13.3" FHD WideView, 8th-Gen Intel Core i5-8265U
+                                                                        Processor, 8GB , 256GB PCIe SSD, Backlit KB, NumberPad, Windows 10 -
+                                                                        Royal Blue
+                                                                    </p>
+                                                                    <div class="price-box">
+                                                                        <span class="price-regular">$60.00</span>
+                                                                        <span class="price-old"><del>$70.00</del></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-footer">
+                                                                <div class="pro-btns d-flex justify-content-between">
+                                                                    <div class="d-flex">
+                                                                        <div class="wish ">
+                                                                            <a href="#"><i class="far  fa-heart"></i></a>
+                                                                        </div>
+                                                                        <div class="quickView d-none  d-md-block ml-3 ">
+                                                                            <a class="showModal open-qv" href="#" data-toggle="modal"
+                                                                               data-target=".quickViewModal"><i class="fas fa-search"></i></a>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="add-to-card">
+                                                                        <a href="#" data-toggle="modal" data-target="#MiniCard"
+                                                                           class="minicart-btn open-card btn btn-cart2">
+                                                                            <i class="fa fa-cart-arrow-down"></i>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- #endregion product single  -->
+                                                    <!-- #region product single  -->
+                                                    <div class="col-lg-4 col-md-6 mb-4">
+                                                        <div class="card h-100">
+                                                            <div class="card-header border-0 d-flex">
+                                                                <div class="product-label new mr-3">
+                                                                    <span>new</span>
+                                                                </div>
+                                                                <div class="product-label discount">
+                                                                    <span>10%</span>
+                                                                </div>
+                                                            </div>
+                                                            <a href="product-details">
+                                                                <img src="~/Public/template/img/product/large.jpg" alt="laptop" class="card-img-top">
+                                                            </a>
+                                                            <div class="card-body">
+                                                                <div class="product-caption card-text">
+                                                                    <p class="product-name font-weight-bold">
+                                                                        <a href="product-details.html">ASUS ZenBook 13 UX333FA-DH51</a>
+                                                                    </p>
+                                                                    <p class="product-name d-none  d-md-block">
+                                                                        Ultra-Slim Laptop 13.3" FHD WideView, 8th-Gen Intel Core i5-8265U
+                                                                        Processor, 8GB , 256GB PCIe SSD, Backlit KB, NumberPad, Windows 10 -
+                                                                        Royal Blue
+                                                                    </p>
+                                                                    <div class="price-box">
+                                                                        <span class="price-regular">$60.00</span>
+                                                                        <span class="price-old"><del>$70.00</del></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-footer">
+                                                                <div class="pro-btns d-flex justify-content-between">
+                                                                    <div class="d-flex">
+                                                                        <div class="wish ">
+                                                                            <a href="#"><i class="far  fa-heart"></i></a>
+                                                                        </div>
+                                                                        <div class="quickView d-none  d-md-block ml-3 ">
+                                                                            <a class="showModal open-qv" href="#" data-toggle="modal"
+                                                                               data-target=".quickViewModal"><i class="fas fa-search"></i></a>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="add-to-card">
+                                                                        <a href="#" data-toggle="modal" data-target="#MiniCard"
+                                                                           class="minicart-btn open-card btn btn-cart2">
+                                                                            <i class="fa fa-cart-arrow-down"></i>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- #endregion product single  -->
+                                                </div>
+                                                <!--.row-->
+                                            </div>
+                                            <!--.item-->
+                                            <div class="carousel-item ">
+                                                <div class="row">
+                                                    <!-- #region product single  -->
+                                                    <div class="col-lg-4 col-md-6 mb-4">
+                                                        <div class="card h-100">
+                                                            <div class="card-header border-0 d-flex">
+                                                                <div class="product-label new mr-3">
+                                                                    <span>new</span>
+                                                                </div>
+                                                                <div class="product-label discount">
+                                                                    <span>10%</span>
+                                                                </div>
+                                                            </div>
+                                                            <a href="product-details">
+                                                                <img src="~/Public/template/img/product/large.jpg" alt="laptop" class="card-img-top">
+                                                            </a>
+                                                            <div class="card-body">
+                                                                <div class="product-caption card-text">
+                                                                    <p class="product-name font-weight-bold">
+                                                                        <a href="product-details.html">ASUS ZenBook 13 UX333FA-DH51</a>
+                                                                    </p>
+                                                                    <p class="product-name d-none  d-md-block">
+                                                                        Ultra-Slim Laptop 13.3" FHD WideView, 8th-Gen Intel Core i5-8265U
+                                                                        Processor, 8GB , 256GB PCIe SSD, Backlit KB, NumberPad, Windows 10 -
+                                                                        Royal Blue
+                                                                    </p>
+                                                                    <div class="price-box">
+                                                                        <span class="price-regular">$60.00</span>
+                                                                        <span class="price-old"><del>$70.00</del></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-footer">
+                                                                <div class="pro-btns d-flex justify-content-between">
+                                                                    <div class="d-flex">
+                                                                        <div class="wish ">
+                                                                            <a href="#"><i class="far  fa-heart"></i></a>
+                                                                        </div>
+                                                                        <div class="quickView d-none  d-md-block ml-3 ">
+                                                                            <a class="showModal open-qv" href="#" data-toggle="modal"
+                                                                               data-target=".quickViewModal"><i class="fas fa-search"></i></a>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="add-to-card">
+                                                                        <a href="#" data-toggle="modal" data-target="#MiniCard"
+                                                                           class="minicart-btn open-card btn btn-cart2">
+                                                                            <i class="fa fa-cart-arrow-down"></i>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- #endregion product single  -->
+                                                    <!-- #region product single  -->
+                                                    <div class="col-lg-4 col-md-6 mb-4">
+                                                        <div class="card h-100">
+                                                            <div class="card-header border-0 d-flex">
+                                                                <div class="product-label new mr-3">
+                                                                    <span>new</span>
+                                                                </div>
+                                                                <div class="product-label discount">
+                                                                    <span>10%</span>
+                                                                </div>
+                                                            </div>
+                                                            <a href="product-details">
+                                                                <img src="~/Public/template/img/product/large.jpg" alt="laptop" class="card-img-top">
+                                                            </a>
+                                                            <div class="card-body">
+                                                                <div class="product-caption card-text">
+                                                                    <p class="product-name font-weight-bold">
+                                                                        <a href="product-details.html">ASUS ZenBook 13 UX333FA-DH51</a>
+                                                                    </p>
+                                                                    <p class="product-name d-none  d-md-block">
+                                                                        Ultra-Slim Laptop 13.3" FHD WideView, 8th-Gen Intel Core i5-8265U
+                                                                        Processor, 8GB , 256GB PCIe SSD, Backlit KB, NumberPad, Windows 10 -
+                                                                        Royal Blue
+                                                                    </p>
+                                                                    <div class="price-box">
+                                                                        <span class="price-regular">$60.00</span>
+                                                                        <span class="price-old"><del>$70.00</del></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-footer">
+                                                                <div class="pro-btns d-flex justify-content-between">
+                                                                    <div class="d-flex">
+                                                                        <div class="wish ">
+                                                                            <a href="#"><i class="far  fa-heart"></i></a>
+                                                                        </div>
+                                                                        <div class="quickView d-none  d-md-block ml-3 ">
+                                                                            <a class="showModal open-qv" href="#" data-toggle="modal"
+                                                                               data-target=".quickViewModal"><i class="fas fa-search"></i></a>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="add-to-card">
+                                                                        <a href="#" data-toggle="modal" data-target="#MiniCard"
+                                                                           class="minicart-btn open-card btn btn-cart2">
+                                                                            <i class="fa fa-cart-arrow-down"></i>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- #endregion product single  -->
+                                                    <!-- #region product single  -->
+                                                    <div class="col-lg-4 col-md-6 mb-4">
+                                                        <div class="card h-100">
+                                                            <div class="card-header border-0 d-flex">
+                                                                <div class="product-label new mr-3">
+                                                                    <span>new</span>
+                                                                </div>
+                                                                <div class="product-label discount">
+                                                                    <span>10%</span>
+                                                                </div>
+                                                            </div>
+                                                            <a href="product-details">
+                                                                <img src="~/Public/template/img/product/large.jpg" alt="laptop" class="card-img-top">
+                                                            </a>
+                                                            <div class="card-body">
+                                                                <div class="product-caption card-text">
+                                                                    <p class="product-name font-weight-bold">
+                                                                        <a href="product-details.html">ASUS ZenBook 13 UX333FA-DH51</a>
+                                                                    </p>
+                                                                    <p class="product-name d-none  d-md-block">
+                                                                        Ultra-Slim Laptop 13.3" FHD WideView, 8th-Gen Intel Core i5-8265U
+                                                                        Processor, 8GB , 256GB PCIe SSD, Backlit KB, NumberPad, Windows 10 -
+                                                                        Royal Blue
+                                                                    </p>
+                                                                    <div class="price-box">
+                                                                        <span class="price-regular">$60.00</span>
+                                                                        <span class="price-old"><del>$70.00</del></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-footer">
+                                                                <div class="pro-btns d-flex justify-content-between">
+                                                                    <div class="d-flex">
+                                                                        <div class="wish ">
+                                                                            <a href="#"><i class="far  fa-heart"></i></a>
+                                                                        </div>
+                                                                        <div class="quickView d-none  d-md-block ml-3 ">
+                                                                            <a class="showModal open-qv" href="#" data-toggle="modal"
+                                                                               data-target=".quickViewModal"><i class="fas fa-search"></i></a>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="add-to-card">
+                                                                        <a href="#" data-toggle="modal" data-target="#MiniCard"
+                                                                           class="minicart-btn open-card btn btn-cart2">
+                                                                            <i class="fa fa-cart-arrow-down"></i>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- #endregion product single  -->
+                                                </div>
+                                                <!--.row-->
+                                            </div>
+                                            <!--.item-->
+                                        </div>
+                                        <!--.carousel-inner-->
+                                    </div>
+                                    <!--.Carousel-->
+                                </div>
+                            </div>
+                            <div class="row justify-content-center  mb-5">
+                                <a href="products.html" class="btn-hero" tabindex="0">view more</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- #endregion trend  product area start -->
+            </div>
+            <div class="tab js-tabs-content" id="tab-2">
+                <!--#region SALE product area start -->
+                <section>
+                    <div class="container cta-100 ">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="section-title text-center mb-5">
+                                        <h2>New Products</h2>
+                                        <p>Accumsan vitae pede lacus ut ullamcorper sollicitudin quisque libero</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <!-- #region product single  -->
+                                <div class="col-lg-4 col-md-6 mb-4">
+                                    <div class="card h-100">
+                                        <div class="card-header border-0 d-flex">
+                                            <div class="product-label new mr-3">
+                                                <span>new</span>
+                                            </div>
+                                            <div class="product-label discount">
+                                                <span>10%</span>
+                                            </div>
+                                        </div>
+                                        <a href="product-details">
+                                            <img src="~/Public/template/img/product/large.jpg" alt="laptop" class="card-img-top">
+                                        </a>
+                                        <div class="card-body">
+                                            <div class="product-caption card-text">
+                                                <p class="product-name font-weight-bold">
+                                                    <a href="product-details.html">ASUS ZenBook 13 UX333FA-DH51</a>
+                                                </p>
+                                                <p class="product-name d-none  d-md-block">
+                                                    Ultra-Slim Laptop 13.3" FHD WideView, 8th-Gen Intel Core i5-8265U
+                                                    Processor, 8GB , 256GB PCIe SSD, Backlit KB, NumberPad, Windows 10 -
+                                                    Royal Blue
+                                                </p>
+                                                <div class="price-box">
+                                                    <span class="price-regular">$60.00</span>
+                                                    <span class="price-old"><del>$70.00</del></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <div class="pro-btns d-flex justify-content-between">
+                                                <div class="d-flex">
+                                                    <div class="wish ">
+                                                        <a href="#"><i class="far  fa-heart"></i></a>
+                                                    </div>
+                                                    <div class="quickView d-none  d-md-block ml-3 ">
+                                                        <a class="showModal open-qv" href="#" data-toggle="modal"
+                                                           data-target=".quickViewModal"><i class="fas fa-search"></i></a>
+                                                    </div>
+                                                </div>
+
+                                                <div class="add-to-card">
+                                                    <a href="#" data-toggle="modal" data-target="#MiniCard"
+                                                       class="minicart-btn open-card btn btn-cart2">
+                                                        <i class="fa fa-cart-arrow-down"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- #endregion product single  -->
+                                <!-- #region product single  -->
+                                <div class="col-lg-4 col-md-6 mb-4">
+                                    <div class="card h-100">
+                                        <div class="card-header border-0 d-flex">
+                                            <div class="product-label new mr-3">
+                                                <span>new</span>
+                                            </div>
+                                            <div class="product-label discount">
+                                                <span>10%</span>
+                                            </div>
+                                        </div>
+                                        <a href="product-details">
+                                            <img src="~/Public/template/img/product/large.jpg" alt="laptop" class="card-img-top">
+                                        </a>
+                                        <div class="card-body">
+                                            <div class="product-caption card-text">
+                                                <p class="product-name font-weight-bold">
+                                                    <a href="product-details.html">ASUS ZenBook 13 UX333FA-DH51</a>
+                                                </p>
+                                                <p class="product-name d-none  d-md-block">
+                                                    Ultra-Slim Laptop 13.3" FHD WideView, 8th-Gen Intel Core i5-8265U
+                                                    Processor, 8GB , 256GB PCIe SSD, Backlit KB, NumberPad, Windows 10 -
+                                                    Royal Blue
+                                                </p>
+                                                <div class="price-box">
+                                                    <span class="price-regular">$60.00</span>
+                                                    <span class="price-old"><del>$70.00</del></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <div class="pro-btns d-flex justify-content-between">
+                                                <div class="d-flex">
+                                                    <div class="wish ">
+                                                        <a href="#"><i class="far  fa-heart"></i></a>
+                                                    </div>
+                                                    <div class="quickView d-none  d-md-block ml-3 ">
+                                                        <a class="showModal open-qv" href="#" data-toggle="modal"
+                                                           data-target=".quickViewModal"><i class="fas fa-search"></i></a>
+                                                    </div>
+                                                </div>
+
+                                                <div class="add-to-card">
+                                                    <a href="#" data-toggle="modal" data-target="#MiniCard"
+                                                       class="minicart-btn open-card btn btn-cart2">
+                                                        <i class="fa fa-cart-arrow-down"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- #endregion product single  -->
+                                <!-- #region product single  -->
+                            </div>
+                            <div class="row justify-content-center mt-5  mb-5">
+                                <a href="products.html" class="btn-hero" tabindex="0">view more</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- #endregion SALE product area start -->
+            </div>
+            <div class="tab js-tabs-content" id="tab-3">
+                <!--#region NEW product area start -->
+                <section>
+                    <div class="container cta-100 ">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="section-title text-center mb-5">
+                                        <h2>New Products</h2>
+                                        <p>Accumsan vitae pede lacus ut ullamcorper sollicitudin quisque libero</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <!-- #region product single  -->
+                                <div class="col-lg-4 col-md-6 mb-4">
+                                    <div class="card h-100">
+                                        <div class="card-header border-0 d-flex">
+                                            <div class="product-label new mr-3">
+                                                <span>new</span>
+                                            </div>
+                                            <div class="product-label discount">
+                                                <span>10%</span>
+                                            </div>
+                                        </div>
+                                        <a href="product-details">
+                                            <img src="~/Public/template/img/product/large.jpg" alt="laptop" class="card-img-top">
+                                        </a>
+                                        <div class="card-body">
+                                            <div class="product-caption card-text">
+                                                <p class="product-name font-weight-bold">
+                                                    <a href="product-details.html">ASUS ZenBook 13 UX333FA-DH51</a>
+                                                </p>
+                                                <p class="product-name d-none  d-md-block">
+                                                    Ultra-Slim Laptop 13.3" FHD WideView, 8th-Gen Intel Core i5-8265U
+                                                    Processor, 8GB , 256GB PCIe SSD, Backlit KB, NumberPad, Windows 10 -
+                                                    Royal Blue
+                                                </p>
+                                                <div class="price-box">
+                                                    <span class="price-regular">$60.00</span>
+                                                    <span class="price-old"><del>$70.00</del></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <div class="pro-btns d-flex justify-content-between">
+                                                <div class="d-flex">
+                                                    <div class="wish ">
+                                                        <a href="#"><i class="far  fa-heart"></i></a>
+                                                    </div>
+                                                    <div class="quickView d-none  d-md-block ml-3 ">
+                                                        <a class="showModal open-qv" href="#" data-toggle="modal"
+                                                           data-target=".quickViewModal"><i class="fas fa-search"></i></a>
+                                                    </div>
+                                                </div>
+
+                                                <div class="add-to-card">
+                                                    <a href="#" data-toggle="modal" data-target="#MiniCard"
+                                                       class="minicart-btn open-card btn btn-cart2">
+                                                        <i class="fa fa-cart-arrow-down"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- #endregion product single  -->
+                                <!-- #region product single  -->
+                                <div class="col-lg-4 col-md-6 mb-4">
+                                    <div class="card h-100">
+                                        <div class="card-header border-0 d-flex">
+                                            <div class="product-label new mr-3">
+                                                <span>new</span>
+                                            </div>
+                                            <div class="product-label discount">
+                                                <span>10%</span>
+                                            </div>
+                                        </div>
+                                        <a href="product-details">
+                                            <img src="~/Public/template/img/product/large.jpg" alt="laptop" class="card-img-top">
+                                        </a>
+                                        <div class="card-body">
+                                            <div class="product-caption card-text">
+                                                <p class="product-name font-weight-bold">
+                                                    <a href="product-details.html">ASUS ZenBook 13 UX333FA-DH51</a>
+                                                </p>
+                                                <p class="product-name d-none  d-md-block">
+                                                    Ultra-Slim Laptop 13.3" FHD WideView, 8th-Gen Intel Core i5-8265U
+                                                    Processor, 8GB , 256GB PCIe SSD, Backlit KB, NumberPad, Windows 10 -
+                                                    Royal Blue
+                                                </p>
+                                                <div class="price-box">
+                                                    <span class="price-regular">$60.00</span>
+                                                    <span class="price-old"><del>$70.00</del></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <div class="pro-btns d-flex justify-content-between">
+                                                <div class="d-flex">
+                                                    <div class="wish ">
+                                                        <a href="#"><i class="far  fa-heart"></i></a>
+                                                    </div>
+                                                    <div class="quickView d-none  d-md-block ml-3 ">
+                                                        <a class="showModal open-qv" href="#" data-toggle="modal"
+                                                           data-target=".quickViewModal"><i class="fas fa-search"></i></a>
+                                                    </div>
+                                                </div>
+
+                                                <div class="add-to-card">
+                                                    <a href="#" data-toggle="modal" data-target="#MiniCard"
+                                                       class="minicart-btn open-card btn btn-cart2">
+                                                        <i class="fa fa-cart-arrow-down"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- #endregion product single  -->
+                                <!-- #region product single  -->
+                            </div>
+                            <div class="row justify-content-center mt-5  mb-5">
+                                <a href="products.html" class="btn-hero" tabindex="0">view more</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--#endregion NEW product area start -->
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="animated bounce delay-2s">Example</div> -->
+</section>
+<!-- #endregion tab section new trend sales -->
+<!-- #region service policy start -->
+<section class="service-policy-area section-space ">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <!-- start policy single item -->
+                <div class="service-policy-item">
+                    <div class="icons">
+                        <img src="~/Public/template/img/icon/free_shipping.png" alt="">
+                    </div>
+                    <h5>free shipping</h5>
+                    <p>Free shipping all order</p>
+                </div>
+                <!-- end policy single item -->
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <!-- start policy single item -->
+                <div class="service-policy-item">
+                    <div class="icons">
+                        <img src="~/Public/template/img/icon/money_back.png" alt="">
+                    </div>
+                    <h5>Money Return</h5>
+                    <p>30 days for free return</p>
+                </div>
+                <!-- end policy single item -->
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <!-- start policy single item -->
+                <div class="service-policy-item">
+                    <div class="icons">
+                        <img src="~/Public/template/img/icon/support247.png" alt="">
+                    </div>
+                    <h5>Online Support</h5>
+                    <p>Support 24 hours a day</p>
+                </div>
+                <!-- end policy single item -->
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <!-- start policy single item -->
+                <div class="service-policy-item">
+                    <div class="icons">
+                        <img src="~/Public/template/img/icon/promotions.png" alt="">
+                    </div>
+                    <h5>Deals & Promotions</h5>
+                    <p>Price savings, discounts</p>
+                </div>
+                <!-- end policy single item -->
+            </div>
+        </div>
+    </div>
+</section>
+<!--#endregion service policy end -->
+<!-- #region blog -->
+<section class="section-space">
+    <div class="container">
+        <!-- #region section title -->
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title text-center">
+                    <h2>From The Blog</h2>
+                    <p>Accumsan vitae pede lacus ut ullamcorper sollicitudin quisque libero</p>
+                </div>
+            </div>
+        </div>
+        <!-- #endregion section title -->
+        <!-- #region section content -->
+        <div class="row">
+            <div class="card-columns">
+                <!-- #region blog single card -->
+                <div class="card shadow border-0">
+                    <a href="blog-details.html">
+                        <img src="~/Public/template/img/product/ASUS_ZenBook_13_UX333/az133l.jpg" alt="Card image cap">
+                    </a>
+                    <div class="card-body">
+                        <a href="blog-details.html">
+                            <h5 class="card-title">Card Title</h5>
+                        </a>
+                        <p class="card-text">This card descriptions lorem ipsum sit amet dolar </p>
+                        <p class="card-text"><small class="text-muted">last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+                <!-- #endregion blog single card -->
+                <!-- #region blog single card -->
+                <div class="card shadow border-0">
+                    <a href="blog-details.html">
+
+                        <img src="~/Public/template/img/product/ASUS_ZenBook_13_UX333/az133l.jpg" alt="Card image cap">
+                    </a>
+                    <div class="card-body">
+                        <a href="blog-details.html">
+
+                            <h5 class="card-title">Card Title</h5>
+                        </a>
+                        <p class="card-text">This card descriptions lorem ipsum sit amet dolar </p>
+                        <p class="card-text"><small class="text-muted">last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+                <!-- #endregion blog single card -->
+                <!-- #region blog single card -->
+                <div class="card shadow border-0">
+                    <a href="blog-details.html">
+
+                        <img src="~/Public/template/img/product/ASUS_ZenBook_13_UX333/az133l.jpg" alt="Card image cap">
+                    </a>
+                    <div class="card-body">
+                        <a href="blog-details.html">
+
+                            <h5 class="card-title">Card Title</h5>
+                        </a>
+                        <p class="card-text">This card descriptions lorem ipsum sit amet dolar </p>
+                        <p class="card-text"><small class="text-muted">last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+                <!-- #endregion blog single card -->
+            </div>
+        </div>
+        <!-- #endregion section content -->
+        <!-- #region section button readmore -->
+        <div class="row justify-content-center mt-4 mb-5">
+            <a href="blog.html" class="btn-hero" tabindex="0">read more</a>
+        </div>
+        <!-- #endregion section button readmore -->
+
+    </div>
+</section>
+<!-- #endregion blog -->

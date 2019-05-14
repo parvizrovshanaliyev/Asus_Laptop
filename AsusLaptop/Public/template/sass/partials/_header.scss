@@ -1,0 +1,113 @@
+@import 'partials/_mixin';
+@import 'partials/_variables';
+
+header {
+    .d-lg-block {
+        @media (min-width: 992px) {
+            display: block !important;
+        }
+
+        .header-top {
+            padding: 10px 0;
+            border-bottom: 1px solid #ebebeb;
+
+            .welcome-message {
+                p {
+                    color: #555;
+                    font-size: 13px;
+                    line-height: 1;
+                }
+            }
+
+            .header-top-settings {
+                ul {
+                    li {
+                        color: $secondary-color;
+                        cursor: pointer;
+                        font-size: $font-size - 2px;
+                        position: relative;
+                        margin-left: 40px;
+                        position: relative;
+                        margin-left: 20px;
+                        padding-left: 20px;
+
+
+                        &:before {
+                            top: 50%;
+                            left: 0;
+                            width: 1px;
+                            height: 15px;
+                            content: "";
+                            position: absolute;
+                            background-color: #ebebeb;
+                            -webkit-transform: translateY(-50%);
+                            -ms-transform: translateY(-50%);
+                            transform: translateY(-50%);
+                        }
+
+                        &:hover .dropdown-list {
+                            opacity: 1;
+                            visibility: visible;
+                            pointer-events: visible;
+                            @include Transform(0);
+
+                        }
+
+                        span {
+                            cursor: auto;
+                            font-size: $font-size - 1px;
+                            text-transform: capitalize;
+                        }
+
+                        .dropdown-list {
+                            top: 100%;
+                            right: 0;
+                            position: absolute;
+                            opacity: 0;
+                            visibility: hidden;
+                            @include Transform(30px);
+                            @include setTranstions(0.4s);
+                            padding: 15px 15px 20px;
+                            width: 150px;
+                            z-index: 9;
+                            text-align: left;
+                            background-color: #fff;
+                            pointer-events: none;
+                            border: 1px solid #ebebeb;
+
+                            li {
+                                margin-left: 0;
+                                padding: 0;
+
+                                a {
+                                    color: $secondary-color;
+                                    font-size: $font-size - 1px;
+                                    display: block;
+                                    padding: 5px 0 3px;
+                                    text-transform: capitalize;
+
+                                    &:hover {
+                                        color: $fifth-color;
+                                    }
+
+                                    img {
+                                        vertical-align: inherit;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    li:first-child {
+                        padding-left: 0;
+                        margin-left: 0;
+                    }
+                    li:last-child li::before{
+                        display: none;
+                    }
+                }
+            }
+
+        }
+    }
+}

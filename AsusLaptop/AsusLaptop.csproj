@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -25,6 +26,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -228,6 +230,12 @@
     <Content Include="Areas\Admin\Public\assets\toggle-check\js\bootstrap-toggle.min.js" />
     <Content Include="Areas\Admin\Public\assets\toggle-check\js\bootstrap2-toggle.js" />
     <Content Include="Areas\Admin\Public\assets\toggle-check\js\bootstrap2-toggle.min.js" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\DataTables\css\autoFill.bootstrap.css" />
     <Content Include="Content\DataTables\css\autoFill.bootstrap.min.css" />
     <Content Include="Content\DataTables\css\autoFill.bootstrap4.css" />
@@ -479,6 +487,75 @@
     <Content Include="Areas\Admin\Public\assets\fonts\themifyd41d.eot" />
     <Content Include="Areas\Admin\Public\assets\Scripts\jquery-3.4.1.min.map" />
     <Content Include="Areas\Admin\Public\assets\Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Public\template\Animated-Tabs-anitabs\css\anitabs.css" />
+    <Content Include="Public\template\Animated-Tabs-anitabs\css\page.css" />
+    <Content Include="Public\template\Animated-Tabs-anitabs\index.html" />
+    <Content Include="Public\template\Animated-Tabs-anitabs\js\anitabs.js" />
+    <Content Include="Public\template\Animated-Tabs-anitabs\js\anitabs.min.js" />
+    <Content Include="Public\template\Animated-Tabs-anitabs\js\asustop.js" />
+    <Content Include="Public\template\css\animate.css" />
+    <Content Include="Public\template\css\b4productslide.css" />
+    <Content Include="Public\template\css\preloader.css" />
+    <Content Include="Public\template\css\style.css" />
+    <Content Include="Public\template\css\temp.css" />
+    <Content Include="Public\template\img\about\about.jpg" />
+    <Content Include="Public\template\img\about\avatar.jpg" />
+    <Content Include="Public\template\img\b1.jpg" />
+    <Content Include="Public\template\img\banner\b2.jpg" />
+    <Content Include="Public\template\img\banner\b3.jpg" />
+    <Content Include="Public\template\img\blog\blog-img1.jpg" />
+    <Content Include="Public\template\img\blog\comment-icon.png" />
+    <Content Include="Public\template\img\favicon.ico" />
+    <Content Include="Public\template\img\icon\cancel.png" />
+    <Content Include="Public\template\img\icon\en.png" />
+    <Content Include="Public\template\img\icon\fr.png" />
+    <Content Include="Public\template\img\icon\free_shipping.png" />
+    <Content Include="Public\template\img\icon\money_back.png" />
+    <Content Include="Public\template\img\icon\promotions.png" />
+    <Content Include="Public\template\img\icon\support247.png" />
+    <Content Include="Public\template\img\logo\logo.png" />
+    <Content Include="Public\template\img\payment.png" />
+    <Content Include="Public\template\img\paypal-card.jpg" />
+    <Content Include="Public\template\img\product\ASUS_ZenBook_13_UX333\az131.jpg" />
+    <Content Include="Public\template\img\product\ASUS_ZenBook_13_UX333\az132.jpg" />
+    <Content Include="Public\template\img\product\ASUS_ZenBook_13_UX333\az132l.jpg" />
+    <Content Include="Public\template\img\product\ASUS_ZenBook_13_UX333\az133.jpg" />
+    <Content Include="Public\template\img\product\ASUS_ZenBook_13_UX333\az133l.jpg" />
+    <Content Include="Public\template\img\product\ASUS_ZenBook_13_UX333\az134.jpg" />
+    <Content Include="Public\template\img\product\ASUS_ZenBook_13_UX333\az135.jpg" />
+    <Content Include="Public\template\img\product\ASUS_ZenBook_13_UX333\az136.jpg" />
+    <Content Include="Public\template\img\product\l4.jpg" />
+    <Content Include="Public\template\img\product\l6.jpg" />
+    <Content Include="Public\template\img\product\l7.jpg" />
+    <Content Include="Public\template\img\product\l9.jpg" />
+    <Content Include="Public\template\img\product\large.jpg" />
+    <Content Include="Public\template\img\product\middle.jpg" />
+    <Content Include="Public\template\img\product\mini.jpg" />
+    <Content Include="Public\template\img\slider\s23.jpg" />
+    <Content Include="Public\template\img\slider\s5.jpg" />
+    <Content Include="Public\template\img\slider\slider1.jpg" />
+    <Content Include="Public\template\img\slider\slider2.jpg" />
+    <Content Include="Public\template\img\slider\slider3.jpg" />
+    <Content Include="Public\template\img\slider\sr.jpg" />
+    <Content Include="Public\template\js\app.js" />
+    <Content Include="Public\template\js\preloader.js" />
+    <Content Include="Public\template\js\slick-custom.js" />
+    <Content Include="Public\template\plugin_product_slider\css\lightslider.css" />
+    <Content Include="Public\template\plugin_product_slider\css\lightslider.min.css" />
+    <Content Include="Public\template\plugin_product_slider\img\controls.png" />
+    <Content Include="Public\template\plugin_product_slider\img\next.png" />
+    <Content Include="Public\template\plugin_product_slider\img\prev.png" />
+    <Content Include="Public\template\plugin_product_slider\js\lightslider.js" />
+    <Content Include="Public\template\plugin_product_slider\js\lightslider.min.js" />
+    <Content Include="Public\template\slick-1.8.1\slick-1.8.1\index.html" />
+    <Content Include="Public\template\slick-1.8.1\slick-1.8.1\slick\ajax-loader.gif" />
+    <Content Include="Public\template\slick-1.8.1\slick-1.8.1\slick\fonts\slick.svg" />
+    <Content Include="Public\template\slick-1.8.1\slick-1.8.1\slick\slick-theme.css" />
+    <Content Include="Public\template\slick-1.8.1\slick-1.8.1\slick\slick.css" />
+    <Content Include="Public\template\slick-1.8.1\slick-1.8.1\slick\slick.js" />
+    <Content Include="Public\template\slick-1.8.1\slick-1.8.1\slick\slick.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap4.js" />
@@ -555,6 +632,14 @@
     <Content Include="Scripts\DataTables\responsive.jqueryui.min.js" />
     <Content Include="Scripts\DataTables\responsive.semanticui.js" />
     <Content Include="Scripts\DataTables\responsive.semanticui.min.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -567,6 +652,47 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Public\template\img\p1.jpg!t360x360" />
+    <Content Include="Public\template\sass\partials\shop\_banner.scss" />
+    <Content Include="Public\template\sass\partials\shop\_compareModal.scss" />
+    <Content Include="Public\template\sass\partials\shop\_Product_Categories.scss" />
+    <Content Include="Public\template\sass\partials\_blog.scss" />
+    <Content Include="Public\template\sass\partials\_header.scss" />
+    <Content Include="Public\template\sass\partials\_mixin.scss" />
+    <Content Include="Public\template\sass\partials\_navbar.scss" />
+    <Content Include="Public\template\sass\partials\_policy.scss" />
+    <Content Include="Public\template\sass\partials\_slider.scss" />
+    <Content Include="Public\template\sass\partials\_trending.scss" />
+    <Content Include="Public\template\sass\partials\_variables.scss" />
+    <Content Include="Public\template\sass\style.scss" />
+    <Content Include="Public\template\sass\_home.scss" />
+    <Content Include="Public\template\sass\_shop.scss" />
+    <Content Include="Public\template\slick-1.8.1\slick-1.8.1\.gitignore" />
+    <Content Include="Public\template\slick-1.8.1\slick-1.8.1\bower.json" />
+    <Content Include="Public\template\slick-1.8.1\slick-1.8.1\component.json" />
+    <Content Include="Public\template\slick-1.8.1\slick-1.8.1\CONTRIBUTING.markdown" />
+    <Content Include="Public\template\slick-1.8.1\slick-1.8.1\ISSUE_TEMPLATE.md" />
+    <Content Include="Public\template\slick-1.8.1\slick-1.8.1\LICENSE" />
+    <Content Include="Public\template\slick-1.8.1\slick-1.8.1\Makefile" />
+    <Content Include="Public\template\slick-1.8.1\slick-1.8.1\package.json" />
+    <Content Include="Public\template\slick-1.8.1\slick-1.8.1\README.markdown" />
+    <Content Include="Public\template\slick-1.8.1\slick-1.8.1\slick.jquery.json" />
+    <Content Include="Public\template\slick-1.8.1\slick-1.8.1\slick\config.rb" />
+    <Content Include="Public\template\slick-1.8.1\slick-1.8.1\slick\fonts\slick.eot" />
+    <Content Include="Public\template\slick-1.8.1\slick-1.8.1\slick\fonts\slick.ttf" />
+    <Content Include="Public\template\slick-1.8.1\slick-1.8.1\slick\fonts\slick.woff" />
+    <Content Include="Public\template\slick-1.8.1\slick-1.8.1\slick\slick-theme.less" />
+    <Content Include="Public\template\slick-1.8.1\slick-1.8.1\slick\slick-theme.scss" />
+    <Content Include="Public\template\slick-1.8.1\slick-1.8.1\slick\slick.less" />
+    <Content Include="Public\template\slick-1.8.1\slick-1.8.1\slick\slick.scss" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -576,6 +702,8 @@
     <Folder Include="Public\img\productsMultiples\" />
     <Folder Include="Public\img\products\" />
     <Folder Include="Public\img\slider\" />
+    <Folder Include="Public\template\img\cart\" />
+    <Folder Include="Public\template\sass\partials\product-details\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
@@ -607,6 +735,12 @@
     <Content Include="Areas\Admin\Views\Banners\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Banners\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Banners\Edit.cshtml" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -629,11 +763,15 @@
       <DependentUpon>201905141000037_banner_table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
