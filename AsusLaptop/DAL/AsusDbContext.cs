@@ -25,6 +25,7 @@ namespace AsusLaptop.DAL
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<Slider> Sliders { get; set; }
+        public DbSet<Banner> Banners { get; set; }
         public DbSet<Cart> Carts { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
         public DbSet<Imgsmultiple> Imgsmultiples { get; set; }

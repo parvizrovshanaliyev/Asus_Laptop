@@ -154,6 +154,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\ALoginController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BannersController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoriesController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\ImgsmultiplesController.cs" />
@@ -189,6 +190,10 @@
     <Compile Include="Migrations\201905131336182_productimage_table_alter1.cs" />
     <Compile Include="Migrations\201905131336182_productimage_table_alter1.Designer.cs">
       <DependentUpon>201905131336182_productimage_table_alter1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905141000037_banner_table.cs" />
+    <Compile Include="Migrations\201905141000037_banner_table.Designer.cs">
+      <DependentUpon>201905141000037_banner_table.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AspNetUserRole.cs" />
@@ -566,6 +571,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\AdminLogin\" />
+    <Folder Include="Public\img\banner\" />
     <Folder Include="Public\img\multiple\" />
     <Folder Include="Public\img\productsMultiples\" />
     <Folder Include="Public\img\products\" />
@@ -598,6 +604,9 @@
     <Content Include="Areas\Admin\Views\Sliders\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Sliders\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Sliders\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Banners\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Banners\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Banners\Edit.cshtml" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -615,6 +624,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905131336182_productimage_table_alter1.resx">
       <DependentUpon>201905131336182_productimage_table_alter1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905141000037_banner_table.resx">
+      <DependentUpon>201905141000037_banner_table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

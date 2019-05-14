@@ -1,0 +1,41 @@
+﻿@model AsusLaptop.Models.Banner
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<form action="@Url.Action("Create","Banners")" method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4 class="header-title mt-3">Create banner images</h4>
+        <hr />
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+        <div class="form-group ">
+
+            @Html.LabelFor(model => model.Photo)
+            @Html.TextBoxFor(model => model.Photo, new { @class = "form-control ", type = "file", accept = "image/*" })
+            @Html.ValidationMessageFor(model => model.Photo, null, new { @class = "text-danger" })
+        </div>
+
+        <text class="text-danger">multiple select exist</text>
+
+        <div class="form-group jumbotron d-flex justify-content-between">
+            <div>
+                <a class="text-danger" href="@Url.Action("Index","Banners")">Back to list</a>
+            </div>
+            <div>
+                <input type="submit" value="Create" class="btn btn-dark" />
+            </div>
+        </div>
+
+    </div>
+</form>
+
+
+@section scripts{
+    <script src="~/Areas/Admin/Public/assets/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Areas/Admin/Public/assets/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+}

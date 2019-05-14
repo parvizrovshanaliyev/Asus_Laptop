@@ -1,0 +1,69 @@
+﻿@model IEnumerable<AsusLaptop.Models.Banner>
+
+@{
+    ViewBag.Title = "Banner";
+}
+
+<div class="col-12 mt-5">
+    <div class="card">
+        <div class="card-body">
+            <div class=" d-flex justify-content-between">
+                <h4 class="header-title">@ViewBag.Title</h4>
+                @if (User.IsInRole("admin"))
+                {
+                    
+                }
+                <p>
+                    <a href="@Url.Action("Create","Banners")" class="text-danger btn btn-dark">Create New Slider image</a>
+                </p>
+            </div>
+
+            <div class="single-table">
+                <div class="table-responsive">
+                    <table class="table table-hover progress-table text-center">
+                        <thead class="text-uppercase">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Id)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Image)
+                                </th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Id)
+                                    </td>
+                                    <td>
+                                        <img src="~/Public/img/@item.Image" alt="Alternate Text" />
+                                    </td>
+                                    <td>
+                                        <ul class="d-flex justify-content-center">
+
+                                            <li class="mr-3">
+                                                <a href="@Url.Action("Edit","Banners",new {id=item.Id })" class="text-secondary"><i class="fa fa-edit"></i></a>
+                                            </li>
+                                            @if (User.IsInRole("admin"))
+                                            {
+                                                <li>
+                                                    <a href="@Url.Action("Delete","Banners",new {id=item.Id })" class="text-danger delete"><i class="ti-trash"></i></a>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
