@@ -35,12 +35,8 @@ namespace AsusLaptop.Controllers
 
         public RoleManagerApp RoleManagerApp { get { return HttpContext.GetOwinContext().GetUserManager<RoleManagerApp>(); } }
 
-        // GET: Admin/Users
-        public ActionResult Index()
-        {
-            return View(UserManagerApp.Users.ToList());
-        }
-        #region Create User
+        #region
+        [Route("Register/Register")]
         public ActionResult Register()
         {
             return View();

@@ -7,6 +7,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Net;
 using System.Security.Claims;
@@ -16,6 +17,7 @@ using System.Web.Mvc;
 
 namespace AsusLaptop.Areas.Admin.Controllers
 {
+    
     public class ALoginController : Controller
     {
         private readonly AsusDbContext _context;
@@ -37,6 +39,8 @@ namespace AsusLaptop.Areas.Admin.Controllers
         public RoleManagerApp RoleManagerApp { get { return HttpContext.GetOwinContext().GetUserManager<RoleManagerApp>(); } }
 
         // GET: Admin/AdminLogin
+
+        
         [AllowAnonymous]
         public ActionResult Login(string returnURL)
         {
