@@ -26,7 +26,7 @@ namespace AsusLaptop.App_Start
                 //ExpireTimeSpan =  TimeSpan.FromSeconds(10),
                 //SessionStore=
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-                LoginPath = new PathString("/Admin/ALogin/Login"),
+                LoginPath = new PathString("/Account/Login"),
                 //Provider = new CookieAuthenticationProvider
                 //{
                 //    // Enables the application to validate the security stamp when the user logs in.

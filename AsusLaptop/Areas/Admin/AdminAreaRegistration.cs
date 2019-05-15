@@ -14,6 +14,16 @@ namespace AsusLaptop.Areas.Admin
 
         public override void RegisterArea(AreaRegistrationContext context) 
         {
+                context.MapRoute(
+                name: "Account",
+                url: "Account/{action}/{id}",
+                defaults: new
+                {
+                    controller = "ALogin",
+                    action = "Login",
+                    id = UrlParameter.Optional
+                }
+                );
             context.MapRoute(
                 "Admin_default",
                 "Admin/{controller}/{action}/{id}",

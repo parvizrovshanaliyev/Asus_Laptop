@@ -1,4 +1,6 @@
-﻿<!doctype html>
+﻿@using Microsoft.AspNet.Identity
+
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -133,10 +135,27 @@
                                                 <i class="far fa-user"></i>
                                             </a>
                                             <ul class="dropdown-list">
-                                                <li><a href="login-register.html">login</a></li>
-                                                <li><a href="login-register.html">register</a></li>
-                                                <li><a href="my-account.html">my account</a></li>
+                                                @if (Request.IsAuthenticated)
+                                                {
+                                                    <li><a href="my-account.html">my account</a></li>
+                                                    <li><a href="my-account.html">@User.Identity.GetUserName()</a></li>
+                                                    <li>
+                                                        @using (Html.BeginForm("Logout", "ALogin",  new { Area = "Admin" },  FormMethod.Post))
+                                                        {
+                                                            @Html.AntiForgeryToken()
+                                                            <input class="dropdown-item" type="submit" name="LogOut" value="LogOut" />
+                                                        }
+                                                    </li>
+                                                }
+                                                else
+                                                {
+                                                    <li><a href="@Url.Action("Login","Account")">login</a></li>
+                                                    <li><a href="login-register.html">register</a></li>
+
+                                                }
+
                                             </ul>
+
                                         </li>
                                         <li>
                                             <a href="wishlist.html">
@@ -151,6 +170,30 @@
                                             </a>
                                         </li>
                                     </ul>
+                                    @*@if (Request.IsAuthenticated)
+                                        {
+                                            @if (!User.IsInRole("admin"))
+                                            {
+                                            <li><a href="my-account.html">my account</a></li>
+                                            <li><a href="#">@User.Identity.GetUserName()</a></li>
+                                            <li>
+                                                @using (Html.BeginForm("Logout", "ALogin", new { Area = "Admin" }, FormMethod.Post))
+                                                {
+                                                    @Html.AntiForgeryToken()
+
+
+                                                    <input class="dropdown-item" type="submit" name="LogOut" value="LogOut" />
+                                                }
+                                            </li>
+                                        }
+
+                                        }
+                                        else
+                                        {
+                                            <li><a href="@Url.Action("Login","Alogin",new {Area="Admin"})">login</a></li>
+                                            <li><a href="login-register.html">register</a></li>
+
+                                        }*@
                                 </div>
                             </div>
                         </div>
@@ -267,7 +310,6 @@
         <!-- #region Quick view modal start -->
         @Html.Partial("_QuickView")
         <!-- #endregion  Quick view modal end -->
-
         <!-- #region  _MiniCart modal end -->
         @Html.Partial("_MiniCart")
         <!-- #endregion  _MiniCart modal end -->

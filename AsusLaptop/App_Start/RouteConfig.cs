@@ -17,6 +17,17 @@ namespace AsusLaptop
             //    url: "Admin/{controller}/{action}/{id}",
             //    defaults: new { area = "Admin", controller = "Home", action = "Index", id = UrlParameter.Optional },
             //    namespaces: new string[] { "AsusLaptop.Areas.Admin.Controllers" });
+            //routes.MapRoute(
+            //    name: "Account",
+            //    url: "Account/{action}/{id}",
+            //    defaults: new
+            //    {
+            //        controller = "ALogin",
+            //        action = "Login",
+            //        id = UrlParameter.Optional
+            //    },
+            //     namespaces: new string[] { "AsusLaptop.Areas.Admin.Controller" }
+            //    );
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

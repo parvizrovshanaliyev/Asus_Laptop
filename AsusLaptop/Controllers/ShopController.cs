@@ -4,12 +4,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace AsusLaptop.Areas.Admin.Controllers
+namespace AsusLaptop.Controllers
 {
-    [Authorize(Roles ="admin")]
-    public class HomeController : Controller
+   
+    public class ShopController : Controller
     {
-        // GET: Admin/Dashboard
+        // GET: Shop
         public ActionResult Index()
         {
             return View();

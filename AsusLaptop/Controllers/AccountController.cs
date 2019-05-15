@@ -1,6 +1,5 @@
-﻿using AsusLaptop.Areas.Admin.Models;
+﻿using AsusLaptop.Models;
 using AsusLaptop.DAL;
-using AsusLaptop.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
@@ -14,12 +13,12 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
-namespace AsusLaptop.Areas.Admin.Controllers
+namespace AsusLaptop.Controllers
 {
-    public class ALoginController : Controller
+    public class AcoountController : Controller
     {
         private readonly AsusDbContext _context;
-        public ALoginController()
+        public AcoountController()
         {
             _context = new AsusDbContext();
         }
@@ -36,7 +35,7 @@ namespace AsusLaptop.Areas.Admin.Controllers
 
         public RoleManagerApp RoleManagerApp { get { return HttpContext.GetOwinContext().GetUserManager<RoleManagerApp>(); } }
 
-        // GET: Admin/AdminLogin
+        
         [AllowAnonymous]
         public ActionResult Login(string returnURL)
         {
@@ -46,7 +45,7 @@ namespace AsusLaptop.Areas.Admin.Controllers
 
 
         [AllowAnonymous,HttpPost,ValidateAntiForgeryToken]
-        public  async Task<ActionResult> Login(AdminLogin admin,  string returnURL)
+        public  async Task<ActionResult> Login(Login admin,  string returnURL)
         
 {
             if (ModelState.IsValid)
@@ -85,25 +84,11 @@ namespace AsusLaptop.Areas.Admin.Controllers
                 }
                 if (!string.IsNullOrEmpty(returnURL))
                 {
-
                     return Redirect(returnURL);
                 }
                 else
                 {
-                    if (UserManagerApp.IsInRole(currentUser.Id, "admin"))
-                    {
-                        return RedirectToAction("Index", "Home", new { Area = "Admin" });
-                    }
-
-                }
-                if (!string.IsNullOrEmpty(returnURL))
-                {
-
-                    return Redirect(returnURL);
-                }
-                else
-                {
-                    return RedirectToAction("Index", "Home", new { Area = "" });
+                    return RedirectToAction("Index", "Home",new { Area="Admin"});
                 }
             }
             else
@@ -125,39 +110,10 @@ namespace AsusLaptop.Areas.Admin.Controllers
         ///logout
         ///
         [HttpPost, ValidateAntiForgeryToken, AllowAnonymous]
-        public ActionResult Logout(string returnURL)
+        public ActionResult Logout()
         {
-            if (!string.IsNullOrEmpty(returnURL))
-            {
-                HttpContext.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-
-                return Redirect(returnURL);
-            }
-            else
-            {
-                var user = User.Identity.GetUserId();
-                if (UserManagerApp.IsInRole(user, "admin"))
-                {
-                    HttpContext.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-
-                    return RedirectToAction("Index", "Home", new { Area = "Admin" });
-                }
-
-            }
-            if (!string.IsNullOrEmpty(returnURL))
-            {
-                HttpContext.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-
-                return Redirect(returnURL);
-            }
-            else
-            {
-                HttpContext.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-
-                return RedirectToAction("Index", "Home", new { Area = "" });
-            }
-
-            //return RedirectToAction("Login");
+            HttpContext.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            return RedirectToAction("Login");
         }
     }
 }
