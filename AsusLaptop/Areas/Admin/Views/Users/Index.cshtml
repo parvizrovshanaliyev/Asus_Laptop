@@ -8,17 +8,22 @@
 
 <div class="col-12 mt-5">
     <div class="card">
+        <div class="card-header">
+            <p>
+                <a href="@Url.Action("Create","Users")" class="text-danger btn btn-dark">Create New @ViewBag.Title</a>
+            </p>
+        </div>
         <div class="card-body">
             <div class=" d-flex justify-content-between">
                 <h4 class="header-title">@ViewBag.Title</h4>
-                <p>
+                @*<p>
                     <a href="@Url.Action("Create","Users")" class="text-danger btn btn-dark">Create New User</a>
-                </p>
+                </p>*@
             </div>
 
             <div class="single-table">
                 <div class="table-responsive">
-                    <table class="table table-hover progress-table text-center">
+                    <table id="dataTable" class="table table-hover progress-table text-center">
                         <thead class="text-uppercase">
                             <tr>
 
@@ -33,56 +38,59 @@
 
                             @foreach (var item in Model)
                             {
-                            <tr>
-                                <td>
-                                    @if (!string.IsNullOrEmpty(item.Fullname))
-                                    {
-                                        @item.Fullname
-                                    }
-                                    else
-                                    {
-                                        @item.Email
-                                    }
-                                </td>
-                                <td>@item.UserName</td>
-                                <td>
-                                    @if (item.Roles.Any())
-                                    {
-                                        <text>@string.Join(" ,", item.Roles.Select(u => Helper.GetRoleName(u.RoleId)).ToArray())</text>
+                                <tr>
+                                    <td>
+                                        @if (!string.IsNullOrEmpty(item.Fullname))
+                                        {
+                                            @item.Fullname
+                                        }
+                                        else
+                                        {
+                                            @item.Email
+                                        }
+                                    </td>
+                                    <td>@item.UserName</td>
+                                    <td>
+                                        @if (item.Roles.Any())
+                                        {
+                                            <text>@string.Join(" ,", item.Roles.Select(u => Helper.GetRoleName(u.RoleId)).ToArray())</text>
 
-                                    }
-                                    else
-                                    {
-                                        <span class="text-danger alert alert-warning">There is no role for this User</span>
-                                    }
-                                </td>
-                                <td>
-                                    @if (item.Status)
-                                    {
-                                        <span class="alert alert-success">Active</span>
-                                    }
-                                    else
-                                    {
-                                        <span class="alert alert-info" >Passive</span>
-                                    }
-                                    @if (item.Token != null)
-                                    {
-                                        <span class="alert alert-danger">Invited, Not Approved</span>
-                                    }
-                                </td>
-                                <td>
-                                    <ul class="d-flex justify-content-center">
-                                        <li class="mr-3">
+                                        }
+                                        else
+                                        {
+                                            <span class="text-danger alert alert-warning">There is no role for this User</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (item.Status)
+                                        {
+                                            <span class="alert alert-success">Active</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="alert alert-info">Passive</span>
+                                        }
+                                        @if (item.Token != null)
+                                        {
+                                            <span class="alert alert-danger">Invited, Not Approved</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        <ul class="d-flex justify-content-center">
+                                            @if (User.IsInRole("admin"))
+                                            {
+                                                <li class="mr-3">
 
-                                            <a href="@Url.Action("Edit","Users",new {id=item.Id })" class="text-secondary"><i class="fa fa-edit"></i></a>
-                                        </li>
-                                       
-                                        <li>
-                                            <a href="@Url.Action("Delete","Users",new {id=item.Id })" class="text-danger delete"><i class="ti-trash"></i></a>
-                                        </li>
-                                    </ul>
-                                </td>
-                            </tr>
+                                                    <a href="@Url.Action("Edit","Users",new {id=item.Id })" class="text-secondary"><i class="fa fa-edit"></i></a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="@Url.Action("Delete","Users",new {id=item.Id })" class="text-danger delete"><i class="ti-trash"></i></a>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </td>
+                                </tr>
                             }
 
                         </tbody>
@@ -92,3 +100,20 @@
         </div>
     </div>
 </div>
+@section styles{
+    <link href="~/Content/DataTables/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+
+}
+@section scripts{
+    <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/DataTables/dataTables.bootstrap4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            if ($('#dataTable').length) {
+                $('#dataTable').DataTable({
+                    responsive: true
+                });
+            }
+        });
+    </script>
+}

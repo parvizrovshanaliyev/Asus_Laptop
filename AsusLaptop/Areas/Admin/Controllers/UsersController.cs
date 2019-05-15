@@ -38,7 +38,7 @@ namespace AsusLaptop.Areas.Admin.Controllers
         // GET: Admin/Users
         public ActionResult Index()
         {
-            return View(UserManagerApp.Users.ToList());
+            return View(UserManagerApp.Users.ToList()); 
         }
 
         
