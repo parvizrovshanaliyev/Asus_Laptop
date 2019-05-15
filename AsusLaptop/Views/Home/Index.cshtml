@@ -1,4 +1,5 @@
-﻿
+﻿@using AsusLaptop.Models;
+@model AsusLaptop.Models.ViewModel.HomeVM
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,9 +8,11 @@
 <!--#region slider area start -->
 <section class="mt-5">
     <div class="thing" id="wrapper">
-        <div><img src="~/Public/template/img/slider/slider1.jpg" alt="slider image"></div>
-        <div><img src="~/Public/template/img/slider/slider2.jpg" alt="slider image"></div>
-        <div><img src="~/Public/template/img/slider/slider1.jpg" alt="slider image"></div>
+        @foreach (var item in Model.Sliders)
+        {
+            <div><img src="~/Public/img/@item.Image" alt="slider image"></div>
+
+        }
     </div>
 </section>
 <!--#endregion slider area end -->
@@ -17,26 +20,19 @@
 <section>
     <div class="container-fluid">
         <div class="row ">
-            <div class="col-md-6">
+            @foreach (var item in Model.Banners)
+            {
+                <div class="col-md-6">
 
-                <div class="blog-post-item mb-30">
-                    <figure style="height:150px;" class="blog-thumb">
-                        <a href="products.html">
-                            <img src="~/Public/template/img/banner/b2.jpg" alt="blog image">
-                        </a>
-                    </figure>
+                    <div class="blog-post-item mb-30">
+                        <figure style="height:150px;" class="blog-thumb">
+                            <a href="products.html">
+                                <img src="~/Public/img/@item.Image" alt="blog image">
+                            </a>
+                        </figure>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-6">
-
-                <div class="blog-post-item mb-30">
-                    <figure style="height:150px;" class="blog-thumb">
-                        <a href="products.html">
-                            <img src="~/Public/template/img/banner/b3.jpg" alt="blog image">
-                        </a>
-                    </figure>
-                </div>
-            </div>
+            }
         </div>
     </div>
 
