@@ -46,16 +46,21 @@ namespace AsusLaptop.Controllers
         {
             if (!ModelState.IsValid) return View(user);
             if (user == null) return HttpNotFound("user null");
-            //if (UserManagerApp.Users.Any(u => u.Email == user.Email))
-            //{
-            //    ModelState.AddModelError("Email", "Email already taken");
-            //    return View(user);
-            //}
-            //if (UserManagerApp.Users.Any(u => u.UserName == user.UserName))
-            //{
-            //    ModelState.AddModelError("UserName", "UserName already taken");
-            //    return View(user);
-            //}
+            if (UserManagerApp.Users.Any(u => u.Email == user.Email))
+            {
+                ModelState.AddModelError("Email", "Email already taken");
+                return View(user);
+            }
+            if (user.UserName == null)
+            {
+                ModelState.AddModelError("UserName", "UserName Required !!! not null");
+                return View(user);
+            }
+            if (UserManagerApp.Users.Any(u => u.UserName == user.UserName))
+            {
+                ModelState.AddModelError("UserName", "UserName already taken");
+                return View(user);
+            }
             UserApp userdb = new UserApp()
             {
                 Fullname = user.Fullname,
@@ -64,14 +69,14 @@ namespace AsusLaptop.Controllers
                 Status = false
             };
             _context.SaveChanges();
-            //userdb.Token=userdb.Id;
+            userdb.Token = userdb.Id;
             IdentityResult result = await UserManagerApp.CreateAsync(userdb);
-            //SendConfirm(userdb.Email, userdb.Token.ToString());
+            SendConfirm(userdb.Email, userdb.Token.ToString());
             _context.SaveChanges();
             if (result.Succeeded)
             {
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Login","Account");
             }
             else
             {
@@ -88,7 +93,6 @@ namespace AsusLaptop.Controllers
 
 
         #region Send Confirm Email User
-
         private void SendConfirm(string email, string token)
         {
 
@@ -97,7 +101,7 @@ namespace AsusLaptop.Controllers
             message.To.Add(new MailAddress(email));  // replace with valid value 
             message.From = new MailAddress("resetlifewithcode@gmail.com");  // replace with valid value
             message.Subject = " Invite to Asus.com ";
-            message.Body = string.Format(body, "http://localhost:50007/Admin/Users/confirm?token=" + token);
+            message.Body = string.Format(body, "http://localhost:50007/Register/confirm?token=" + token);
             message.IsBodyHtml = true;
 
             using (var smtp = new SmtpClient())
@@ -116,5 +120,65 @@ namespace AsusLaptop.Controllers
 
         }
         #endregion
+
+        #region
+        public ActionResult Confirm(string token)
+        {
+            if (string.IsNullOrEmpty(token)) return HttpNotFound("id not found");
+
+
+            UserApp user = UserManagerApp.Users.FirstOrDefault(u => u.Token == token);
+
+            if (user == null) return HttpNotFound("User not found");
+            return View(user);
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<ActionResult> Confirm(string id,  string Password)
+        {
+
+            if (string.IsNullOrEmpty(id)) return HttpNotFound("id not found");
+
+
+            UserApp user = await UserManagerApp.FindByIdAsync(id);
+            if (!ModelState.IsValid) return View(user);
+
+            if (user == null) return HttpNotFound("User not found");
+            
+            if (string.IsNullOrEmpty(Password))
+            {
+                ModelState.AddModelError("Password", "Password not null");
+                return View(user);
+            }
+            
+            user.PasswordHash = UserManagerApp.PasswordHasher.HashPassword(Password);
+            user.Token = null;
+            user.Status = true;
+
+            user.EmailConfirmed = true;
+            UserManagerApp.AddToRole(user.Id, "member");
+            IdentityResult result = await UserManagerApp.UpdateAsync(user);
+            _context.SaveChanges();
+            if (result.Succeeded)
+            {
+
+                return RedirectToAction("Login", "Account");
+
+            }
+            else
+            {
+                foreach (var item in result.Errors.ToList())
+                {
+                    ModelState.AddModelError(" ", item);
+
+                }
+                return View(user);
+
+            }
+
+
+        }
+
+#endregion
     }
 }

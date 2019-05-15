@@ -699,6 +699,7 @@
     <Content Include="Views\Shared\_MiniCart.cshtml" />
     <Content Include="Views\Shared\_QuickView.cshtml" />
     <Content Include="Views\Members\Register.cshtml" />
+    <Content Include="Views\Members\Confirm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

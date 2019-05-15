@@ -20,17 +20,17 @@ namespace AsusLaptop
             //    url: "Admin/{controller}/{action}/{id}",
             //    defaults: new { area = "Admin", controller = "Home", action = "Index", id = UrlParameter.Optional },
             //    namespaces: new string[] { "AsusLaptop.Areas.Admin.Controllers" });
-            //routes.MapRoute(
-            //    name: "Register",
-            //    url: "Register/{action}/{id}",
-            //    defaults: new
-            //    {
-            //        controller = "Members",
-            //        action = "Register",
-            //        id = UrlParameter.Optional
-            //    },
-            //     namespaces: new string[] { "AsusLaptop.Controller" }
-            //    );
+            routes.MapRoute(
+                name: "Register",
+                url: "Register/{action}/{id}",
+                defaults: new
+                {
+                    controller = "Members",
+                    action = "Register",
+                    id = UrlParameter.Optional
+                },
+                 namespaces: new string[] { "AsusLaptop.Controller" }
+                );
 
             routes.MapRoute(
                 name: "Default",
