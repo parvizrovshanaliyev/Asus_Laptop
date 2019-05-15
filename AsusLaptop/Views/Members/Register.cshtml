@@ -1,0 +1,306 @@
+﻿@model AsusLaptop.Models.UserApp
+
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Sign up - Asus</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="~/Areas/Admin/Public/assets/images/icon/favicon.ico">
+    <link rel="stylesheet" href="~/Areas/Admin/Public/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Areas/Admin/Public/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Areas/Admin/Public/assets/css/themify-icons.css">
+    <link rel="stylesheet" href="~/Areas/Admin/Public/assets/css/metisMenu.css">
+    <link rel="stylesheet" href="~/Areas/Admin/Public/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Areas/Admin/Public/assets/css/slicknav.min.css">
+    <!-- amchart css -->
+    <link rel="stylesheet" href="~/Areas/Admin/Public/assets/js/plugins/export/export.css" type="text/css" media="all" />
+    <!-- others css -->
+    <link rel="stylesheet" href="~/Areas/Admin/Public/assets/css/typography.css">
+    <link rel="stylesheet" href="~/Areas/Admin/Public/assets/css/default-css.css">
+    <link rel="stylesheet" href="~/Areas/Admin/Public/assets/css/styles.css">
+    <link rel="stylesheet" href="~/Areas/Admin/Public/assets/css/responsive.css">
+    <!-- modernizr css -->
+    <script src="~/Areas/Admin/Public/assets/js/vendor/modernizr-2.8.3.min.js" type="f3a596482111193119c7c90d-text/javascript"></script>
+</head>
+<body>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <!-- preloader area start -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+    <!-- preloader area end -->
+    <!-- login area start -->
+    <div class="login-area login-s2">
+        <div class="container">
+            <div class="login-box ptb--100">
+                <form>
+                    <div class="login-form-head">
+                        <h4>Sign up</h4>
+                        <p>Hello there, Sign up and Join with Us</p>
+                    </div>
+                    <div class="login-form-body">
+                        <div class="form-gp">
+                            <label for="exampleInputName1">Full Name</label>
+                            <input type="text" id="exampleInputName1">
+                            <i class="ti-user"></i>
+                        </div>
+                        <div class="form-gp">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" id="exampleInputEmail1">
+                            <i class="ti-email"></i>
+                        </div>
+                        <div class="form-gp">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" id="exampleInputPassword1">
+                            <i class="ti-lock"></i>
+                        </div>
+                        <div class="form-gp">
+                            <label for="exampleInputPassword2">Confirm Password</label>
+                            <input type="password" id="exampleInputPassword2">
+                            <i class="ti-lock"></i>
+                        </div>
+                        <div class="submit-btn-area">
+                            <button id="form_submit" type="submit">Submit <i class="ti-arrow-right"></i></button>
+                            <div class="login-other row mt-4">
+                                <div class="col-6">
+                                    <a class="fb-login" href="#">Sign up with <i class="fa fa-facebook"></i></a>
+                                </div>
+                                <div class="col-6">
+                                    <a class="google-login" href="#">Sign up with <i class="fa fa-google"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-footer text-center mt-5">
+                            <p class="text-muted">Don't have an account? <a href="login.html">Sign in</a></p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- login area end -->
+    <!-- jquery latest version -->
+    <script src="~/Areas/Admin/Public/assets/Scripts/jquery-3.4.1.min.js"></script>
+    <!-- bootstrap 4 js -->
+    <script src="~/Areas/Admin/Public/assets/js/popper.min.js" type="f3a596482111193119c7c90d-text/javascript"></script>
+    <script src="~/Areas/Admin/Public/assets/js/bootstrap.min.js" type="f3a596482111193119c7c90d-text/javascript"></script>
+    <script src="~/Areas/Admin/Public/assets/js/owl.carousel.min.js" type="f3a596482111193119c7c90d-text/javascript"></script>
+    <script src="~/Areas/Admin/Public/assets/js/metisMenu.min.js" type="f3a596482111193119c7c90d-text/javascript"></script>
+    <script src="~/Areas/Admin/Public/assets/js/jquery.slimscroll.min.js" type="f3a596482111193119c7c90d-text/javascript"></script>
+    <script src="~/Areas/Admin/Public/assets/js/jquery.slicknav.min.js" type="f3a596482111193119c7c90d-text/javascript"></script>
+    <!-- others plugins -->
+    <script src="~/Areas/Admin/Public/assets/js/plugins.js" type="f3a596482111193119c7c90d-text/javascript"></script>
+    <script src="~/Areas/Admin/Public/assets/js/scripts.js" type="f3a596482111193119c7c90d-text/javascript"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13" type="f3a596482111193119c7c90d-text/javascript"></script>
+    <script type="f3a596482111193119c7c90d-text/javascript">
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+    </script>
+    <script src="~/Areas/Admin/Public/assets/js/rocket-loader.min.js" data-cf-settings="f3a596482111193119c7c90d-|49" defer=""></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.validate({
+                modules: 'security'
+            });
+        });
+    </script>
+</body>
+
+<!-- Mirrored from colorlib.com/polygon/srtdash/register2.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 02 May 2019 09:19:32 GMT -->
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<!DOCTYPE html>
+
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Register</title>
+    </head>
+    <body>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h4>UserApp</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Id, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Id, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.Status)
+                            @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Fullname, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Fullname, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Fullname, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Token, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Token, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Token, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.EmailConfirmed, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.EmailConfirmed)
+                            @Html.ValidationMessageFor(model => model.EmailConfirmed, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PasswordHash, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.PasswordHash, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PasswordHash, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SecurityStamp, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.SecurityStamp, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.SecurityStamp, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PhoneNumberConfirmed, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.PhoneNumberConfirmed)
+                            @Html.ValidationMessageFor(model => model.PhoneNumberConfirmed, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.TwoFactorEnabled, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.TwoFactorEnabled)
+                            @Html.ValidationMessageFor(model => model.TwoFactorEnabled, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LockoutEndDateUtc, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.LockoutEndDateUtc, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.LockoutEndDateUtc, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LockoutEnabled, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.LockoutEnabled)
+                            @Html.ValidationMessageFor(model => model.LockoutEnabled, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.AccessFailedCount, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.AccessFailedCount, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.AccessFailedCount, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    </body>
+    </html>*@

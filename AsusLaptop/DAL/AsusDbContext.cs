@@ -99,5 +99,7 @@ namespace AsusLaptop.DAL
                 base.Seed(context);
             }
         }
+
+        public System.Data.Entity.DbSet<AsusLaptop.Models.UserApp> UserApps { get; set; }
     }
 }
