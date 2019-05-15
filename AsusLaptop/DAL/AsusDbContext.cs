@@ -100,6 +100,6 @@ namespace AsusLaptop.DAL
             }
         }
 
-        public System.Data.Entity.DbSet<AsusLaptop.Models.UserApp> UserApps { get; set; }
+       
     }
 }

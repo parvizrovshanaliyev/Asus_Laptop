@@ -1,4 +1,4 @@
-﻿@model AsusLaptop.Models.UserApp
+﻿@model  AsusLaptop.Models.Register
 
 @{
     Layout = null;
@@ -42,7 +42,9 @@
     <div class="login-area login-s2">
         <div class="container">
             <div class="login-box ptb--100">
-                <form>
+                <form action="@Url.Action("Register","Members")" method="post">
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     <div class="login-form-head">
                         <h4>Sign up</h4>
                         <p>Hello there, Sign up and Join with Us</p>
@@ -50,8 +52,9 @@
                     <div class="login-form-body">
                         <div class="form-gp">
                             <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" id="exampleInputEmail1">
+                            <input type="email"name="Email" required id="exampleInputEmail1">
                             <i class="ti-email"></i>
+                            @Html.ValidationMessage("Email", "", new { @class = "text-danger mb-1" })
                         </div>
                         <div class="form-gp">
                             <label for="exampleInputName1">Full Name</label>
@@ -64,17 +67,6 @@
                             <input type="text" required name="UserName" id="exampleInputName2">
                             <i class="ti-user"></i>
                             @Html.ValidationMessage("UserName", "", new { @class = "text-danger mb-1" })
-                        </div>
-                        <div class="form-gp">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" required name="Password" data-validation="length" data-validation-length="min6" id="exampleInputPassword1">
-                            <i class="ti-lock"></i>
-                            @Html.ValidationMessage("Password", "", new { @class = "text-danger mb-1" })
-                        </div>
-                        <div class="form-gp">
-                            <label for="exampleInputPassword2">Confirm Password</label>
-                            <input type="password" name="repeat" required id="exampleInputPassword2" data-validation="confirmation" data-validation-confirm="Password">
-                            <i class="ti-lock"></i>
                         </div>
                         <div class="submit-btn-area">
                             <button id="form_submit" type="submit">Submit <i class="ti-arrow-right"></i></button>
@@ -111,14 +103,9 @@
     </script>
     <script src="~/Areas/Admin/Public/assets/js/rocket-loader.min.js" data-cf-settings="f3a596482111193119c7c90d-|49" defer=""></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $.validate({
-                modules: 'security'
-            });
-        });
-    </script>
+    <script src="~/Areas/Admin/Public/assets/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Areas/Admin/Public/assets/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
 </body>
 
 <!-- Mirrored from colorlib.com/polygon/srtdash/register2.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 02 May 2019 09:19:32 GMT -->

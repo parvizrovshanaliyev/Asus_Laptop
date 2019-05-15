@@ -209,6 +209,7 @@
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductImage.cs" />
+    <Compile Include="Models\Register.cs" />
     <Compile Include="Models\RoleApp.cs" />
     <Compile Include="Models\RoleManagerApp.cs" />
     <Compile Include="Models\Slider.cs" />
