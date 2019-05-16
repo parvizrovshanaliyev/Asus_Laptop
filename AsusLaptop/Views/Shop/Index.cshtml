@@ -63,8 +63,8 @@
                             <h3 class="title">Categories</h3>
                             <div class="sidebar-body">
                                 <ul class="shop-categories">
-                                   @*//partials*@
-                                    @Html.Action("Categories","Shop")
+                                    @*//partials*@
+                                    @Html.Action("Categories", "Shop")
                                 </ul>
                             </div>
                         </div>
@@ -291,7 +291,9 @@
     </div>
 </div>
 <!-- #endregion compare mobile -->
-
+<!-- #region Quick view modal start -->
+@Html.Partial("_QuickView")
+<!-- #endregion  Quick view modal end -->
 @section scripts{
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script type="text/javascript">
