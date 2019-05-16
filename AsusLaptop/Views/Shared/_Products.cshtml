@@ -17,6 +17,7 @@
          data-graphic="@item.Graphic"
          data-dimensions="@item.Dimensions"
          data-weight="@item.Weight"
+         data-discount="@item.Discount"
          data-system="@item.OperatingSystem"
          data-price="@item.Price.ToString("##.##")">
         <div class="card h-100">
@@ -27,8 +28,14 @@
                         <span>new</span>
                     </div>
                 }
-                <div class="product-label discount">
-                    <span>10%</span>
+                @if (item.Discount != 0)
+                {
+                    <div class="product-label discount">
+                        <span>@item.Discount %</span>
+                    </div>
+                }
+                <div class="product-label discount ml-3">
+                    <span>@item.Display</span>
                 </div>
             </div>
             <a href="/product/name-@item.Category.Name.Replace(" ","")-@item.Model.Replace(" ","")/@item.Id">
@@ -43,8 +50,16 @@
                         @item.Processor @item.Memory @item.Storage @item.OperatingSystem @item.Display
                     </p>
                     <div class="price-box">
-                        <span class="price-regular">$@item.Price.ToString("##.##")</span>
-                        <span class="price-old"><del>$70.00</del></span>
+
+                        @if (item.Discount != 0)
+                        {
+                            <span class="price-regular">$@((item.Price - (item.Price * item.Discount / 100)).ToString("##.###") )</span>
+                            <span class="price-old"><del>$@(item.Price.ToString("##.###"))</del></span>
+                        }
+                        else
+                        {
+                            <span class="price-regular">$@(item.Price.ToString("##.###"))</span>
+                        }
                     </div>
 
                 </div>

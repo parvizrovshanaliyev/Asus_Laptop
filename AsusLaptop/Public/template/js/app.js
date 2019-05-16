@@ -498,6 +498,12 @@ $(document).ready(function() {
           .parent()
           .parent();
       productImg = product.data("image");
+      pPrice = product.data("price");
+      
+      pdiscount = product.data("discount"); 
+      NewPrice = pPrice - (pPrice * pdiscount / 100);
+      
+      //NewPrice.parseFloat("##.###")
       //alert($("#ProductQV").find(".BrandModelCat").text());
       $("#ProductQV").find(".data-model").text(product.data("model"));
       $("#ProductQV").find(".data-display").text(product.data("display"));
@@ -505,10 +511,11 @@ $(document).ready(function() {
       $("#ProductQV").find(".data-system").text(product.data("system"));
       $("#ProductQV").find(".data-memory").text(product.data("memory"));
       $("#ProductQV").find(".data-storage").text(product.data("storage"));
-      $("#ProductQV").find(".data-price").text(product.data("price"));
+      $("#ProductQV").find(".data-price").text(`$ ${NewPrice}`);
       $("#ProductQV").find(".data-image").attr('src', productImg);
       $("#ProductQV").find(".data-graphic").text(product.data("graphic"));
       $("#ProductQV").find(".data-weight").text(product.data("weight"));
+      $("#ProductQV").find(".data-discount").text(`$ ${pPrice}`);
       $("#ProductQV").find(".data-dimensions").text(product.data("dimensions"));
 
     if (modalCompare.hasClass("show")) {
