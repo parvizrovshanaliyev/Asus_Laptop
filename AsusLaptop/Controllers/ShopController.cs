@@ -23,7 +23,7 @@ namespace AsusLaptop.Controllers
         public ActionResult Index()
         {
             ViewBag.TotalCount = _context.Products.Count();
-            return View(_context.Products.OrderByDescending(s => s.Id).Take(6).ToList());
+            return View(_context.Products.Include("ProductImages").OrderByDescending(s => s.Id).Take(6).ToList());
         }
 
         #region ScrollMore

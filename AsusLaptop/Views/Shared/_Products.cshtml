@@ -5,8 +5,20 @@
 @foreach (var item in Model)
 {
     <!-- region product single  -->
-    <div class="col-lg-4 col-md-6 mb-4 product-single" data-id="@item.Id"
-         data-photo="/Public/img/@item.ImageS" data-name="@item.Model">
+    <div class="col-lg-4 col-md-6 mb-4 product-single" 
+         data-id="@item.Id"
+         @*data-image="@item.ImageL"*@ 
+         data-image="/Public/img/@item.ImageL" 
+         data-model="@item.Brand  @item.Category.Name @item.Model" 
+         data-storage="@item.Storage" 
+         data-memory="@item.Memory" 
+         data-display="@item.Display"
+         data-processor="@item.Processor"
+         data-graphic="@item.Graphic"
+         data-dimensions="@item.Dimensions"
+         data-weight="@item.Weight"
+         data-system="@item.OperatingSystem"
+         data-price="@item.Price.ToString("##.##")">
         <div class="card h-100">
             <div class="card-header border-0 d-flex">
                 @if (item.IsNew)

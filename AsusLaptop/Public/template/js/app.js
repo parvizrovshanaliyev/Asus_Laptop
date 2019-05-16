@@ -353,7 +353,7 @@ $(document).ready(function() {
   // #endregion compare desktop ///////////////
 
 
-  // region mobile compare
+  // #region mobile compare
   openCompareM.on("click",function(e){
     modalCompareM.addClass("show");
   });
@@ -488,15 +488,35 @@ $(document).ready(function() {
   //   madalCard.removeClass("show");
   // });
 
-  //when quick view open close compare modal
+  // #region when quick view open close compare modal
   openQuickV.on("click", function(e) {
-    e.preventDefault();
+      e.preventDefault();
+      var product = $(this)
+          .parent()
+          .parent()
+          .parent()
+          .parent()
+          .parent();
+      productImg = product.data("image");
+      //alert($("#ProductQV").find(".BrandModelCat").text());
+      $("#ProductQV").find(".data-model").text(product.data("model"));
+      $("#ProductQV").find(".data-display").text(product.data("display"));
+      $("#ProductQV").find(".data-processor").text(product.data("processor"));
+      $("#ProductQV").find(".data-system").text(product.data("system"));
+      $("#ProductQV").find(".data-memory").text(product.data("memory"));
+      $("#ProductQV").find(".data-storage").text(product.data("storage"));
+      $("#ProductQV").find(".data-price").text(product.data("price"));
+      $("#ProductQV").find(".data-image").attr('src', productImg);
+      $("#ProductQV").find(".data-graphic").text(product.data("graphic"));
+      $("#ProductQV").find(".data-weight").text(product.data("weight"));
+      $("#ProductQV").find(".data-dimensions").text(product.data("dimensions"));
+
     if (modalCompare.hasClass("show")) {
       modalCompare.removeClass("show");
       
     }
   });
-
+  // #endregion when quick view open close compare modal
   // #endregion modals: compare , quick view , mini card
 
   // #region 6.quantity change js start ---------*/
