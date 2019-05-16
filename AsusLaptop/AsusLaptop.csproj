@@ -702,6 +702,7 @@
     <Content Include="Views\Members\Register.cshtml" />
     <Content Include="Views\Members\Confirm.cshtml" />
     <Content Include="Views\Shop\Index.cshtml" />
+    <Content Include="Views\Shared\_Products.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

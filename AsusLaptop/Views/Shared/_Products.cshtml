@@ -1,0 +1,433 @@
+﻿@model IEnumerable<AsusLaptop.Models.Product>
+
+
+
+@foreach (var item in Model)
+{
+    <!-- region product single  -->
+    <div class="col-lg-4 col-md-6 mb-4 product-single" data-id="@item.Id"
+         data-photo="/Public/img/@item.ImageS" data-name="@item.Model">
+        <div class="card h-100">
+            <div class="card-header border-0 d-flex">
+                @if (item.IsNew)
+                {
+                    <div class="product-label new mr-3">
+                        <span>new</span>
+                    </div>
+                }
+                <div class="product-label discount">
+                    <span>10%</span>
+                </div>
+            </div>
+            <a href="product-details">
+                <img src="~/Public/img/@item.ImageL" alt="laptop" class="card-img-top">
+            </a>
+            <div class="card-body">
+                <div class="product-caption card-text">
+                    <p class="product-name font-weight-bold">
+                        <a href="product-details.html">@item.Brand @item.Category.Name @item.Model</a>
+                    </p>
+                    <p class="product-name">
+                        @item.Processor @item.Memory @item.Storage @item.OperatingSystem @item.Display
+                    </p>
+                    <div class="price-box">
+                        <span class="price-regular">$@item.Price</span>
+                        <span class="price-old"><del>$70.00</del></span>
+                    </div>
+
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="pro-btns d-flex justify-content-around">
+                    <div class="wish mr-3">
+                        <a href="#"><i class="far  fa-heart"></i></a>
+                    </div>
+
+                    <!-- <div class="compare-prod mr-3">
+                        <a href="#" data-target=".compare" class="minicart-btn openBtn">
+                            <i class="fas fa-sync"></i>
+                        </a>
+                        <a href="#"></a>
+                    </div> -->
+                    <div class="quickView d-none  d-md-block mr-3">
+                        <a class="showModal open-qv" href="#" data-toggle="modal"
+                           data-target=".quickViewModal"><i class="fas fa-search"></i></a>
+                    </div>
+                    <div class="custom-control custom-checkbox mt-1">
+                        <input type="checkbox" name="cp" val="@item.Id" class="custom-control-input"
+                               data-id="@item.Id" id="@item.Id">
+                        <label class="custom-control-label" for="@item.Id">Compare</label>
+                    </div>
+                    <div class="add-to-card mr-1">
+                        <a href="#" data-toggle="modal" data-target="#MiniCard"
+                           class="minicart-btn open-card btn btn-cart2">
+                            <i class="fa fa-cart-arrow-down"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- #endregion product single  -->
+}
+
+@*@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            console.log("partials");
+        });
+    </script>
+}*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<!-- #region product single  -->
+    <div class="col-lg-4 col-md-6 mb-4 product-single" data-id="2"
+         data-photo="/Public/template/img/product/mini.jpg" data-name="ZenBook 13 UX333FA-DH51">
+        <div class="card h-100">
+            <div class="card-header border-0 d-flex">
+                <div class="product-label new mr-3">
+                    <span>new</span>
+                </div>
+                <div class="product-label discount">
+                    <span>10%</span>
+                </div>
+            </div>
+            <a href="product-details">
+                <img src="~/Public/template/img/product/large.jpg" alt="laptop" class="card-img-top">
+            </a>
+            <div class="card-body">
+                <div class="product-caption card-text">
+                    <p class="product-name font-weight-bold">
+                        <a href="product-details.html">ASUS ZenBook 13 UX333FA-DH51</a>
+                    </p>
+                    <p class="product-name">
+                        Ultra-Slim Laptop 13.3" FHD WideView, 8th-Gen Intel Core i5-8265U
+                        Processor, 8GB , 256GB PCIe SSD, Backlit KB, NumberPad, Windows 10 -
+                        Royal Blue
+                    </p>
+                    <div class="price-box">
+                        <span class="price-regular">$60.00</span>
+                        <span class="price-old"><del>$70.00</del></span>
+                    </div>
+
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="pro-btns d-flex justify-content-around">
+                    <div class="wish mr-3">
+                        <a href="#"><i class="far  fa-heart"></i></a>
+                    </div>
+
+                    <!-- <div class="compare-prod mr-3">
+                        <a href="#" data-target=".compare" class="minicart-btn openBtn">
+                            <i class="fas fa-sync"></i>
+                        </a>
+                        <a href="#"></a>
+                    </div> -->
+                    <div class="quickView d-none  d-md-block mr-3">
+                        <a class="showModal open-qv" href="#" data-toggle="modal"
+                           data-target=".quickViewModal"><i class="fas fa-search"></i></a>
+                    </div>
+                    <div class="custom-control custom-checkbox mt-1">
+                        <input type="checkbox" name="cp" val="2" class="custom-control-input"
+                               data-id="2" id="2">
+                        <label class="custom-control-label" for="2">Compare</label>
+                    </div>
+                    <div class="add-to-card mr-1">
+                        <a href="#" data-toggle="modal" data-target="#MiniCard"
+                           class="minicart-btn open-card btn btn-cart2">
+                            <i class="fa fa-cart-arrow-down"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- #endregion product single  -->
+    <!-- #region product single  -->
+    <div class="col-lg-4 col-md-6 mb-4 product-single" data-id="3"
+         data-photo="/Public/template/img/product/mini.jpg" data-name="ZenBook 12 UX333FA-DH51">
+        <div class="card h-100">
+            <div class="card-header border-0 d-flex">
+                <div class="product-label new mr-3">
+                    <span>new</span>
+                </div>
+                <div class="product-label discount">
+                    <span>10%</span>
+                </div>
+            </div>
+            <a href="product-details">
+                <img src="~/Public/template/img/product/large.jpg" alt="laptop" class="card-img-top">
+            </a>
+            <div class="card-body">
+                <div class="product-caption card-text">
+                    <p class="product-name font-weight-bold">
+                        <a href="product-details.html">ASUS ZenBook 13 UX333FA-DH51</a>
+                    </p>
+                    <p class="product-name">
+                        Ultra-Slim Laptop 13.3" FHD WideView, 8th-Gen Intel Core i5-8265U
+                        Processor, 8GB , 256GB PCIe SSD, Backlit KB, NumberPad, Windows 10 -
+                        Royal Blue
+                    </p>
+                    <div class="price-box">
+                        <span class="price-regular">$60.00</span>
+                        <span class="price-old"><del>$70.00</del></span>
+                    </div>
+
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="pro-btns d-flex justify-content-around">
+                    <div class="wish mr-3">
+                        <a href="#"><i class="far  fa-heart"></i></a>
+                    </div>
+
+                    <!-- <div class="compare-prod mr-3">
+                        <a href="#" data-target=".compare" class="minicart-btn openBtn">
+                            <i class="fas fa-sync"></i>
+                        </a>
+                        <a href="#"></a>
+                    </div> -->
+                    <div class="quickView d-none  d-md-block mr-3">
+                        <a class="showModal open-qv" href="#" data-toggle="modal"
+                           data-target=".quickViewModal"><i class="fas fa-search"></i></a>
+                    </div>
+                    <div class="custom-control custom-checkbox mt-1">
+                        <input type="checkbox" name="cp" val="3" class="custom-control-input"
+                               data-id="3" id="3">
+                        <label class="custom-control-label" for="3">Compare</label>
+                    </div>
+                    <div class="add-to-card mr-1">
+                        <a href="#" data-toggle="modal" data-target="#MiniCard"
+                           class="minicart-btn open-card btn btn-cart2">
+                            <i class="fa fa-cart-arrow-down"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- #endregion product single  -->
+    <!-- #region product single  -->
+    <div class="col-lg-4 col-md-6 mb-4 product-single" data-id="4"
+         data-photo="/Public/template/img/product/mini.jpg" data-name="ZenBook 11 UX333FA-DH51">
+        <div class="card h-100">
+            <div class="card-header border-0 d-flex">
+                <div class="product-label new mr-3">
+                    <span>new</span>
+                </div>
+                <div class="product-label discount">
+                    <span>10%</span>
+                </div>
+            </div>
+            <a href="product-details">
+                <img src="~/Public/template/img/product/large.jpg" alt="laptop" class="card-img-top">
+            </a>
+            <div class="card-body">
+                <div class="product-caption card-text">
+                    <p class="product-name font-weight-bold">
+                        <a href="product-details.html">ASUS ZenBook 13 UX333FA-DH51</a>
+                    </p>
+                    <p class="product-name">
+                        Ultra-Slim Laptop 13.3" FHD WideView, 8th-Gen Intel Core i5-8265U
+                        Processor, 8GB , 256GB PCIe SSD, Backlit KB, NumberPad, Windows 10 -
+                        Royal Blue
+                    </p>
+                    <div class="price-box">
+                        <span class="price-regular">$60.00</span>
+                        <span class="price-old"><del>$70.00</del></span>
+                    </div>
+
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="pro-btns d-flex justify-content-around">
+                    <div class="wish mr-3">
+                        <a href="#"><i class="far  fa-heart"></i></a>
+                    </div>
+
+                    <!-- <div class="compare-prod mr-3">
+                        <a href="#" data-target=".compare" class="minicart-btn openBtn">
+                            <i class="fas fa-sync"></i>
+                        </a>
+                        <a href="#"></a>
+                    </div> -->
+                    <div class="quickView d-none  d-md-block mr-3">
+                        <a class="showModal open-qv" href="#" data-toggle="modal"
+                           data-target=".quickViewModal"><i class="fas fa-search"></i></a>
+                    </div>
+                    <div class="custom-control custom-checkbox mt-1">
+                        <input type="checkbox" name="cp" val="4" class="custom-control-input"
+                               data-id="4" id="4">
+                        <label class="custom-control-label" for="4">Compare</label>
+                    </div>
+                    <div class="add-to-card mr-1">
+                        <a href="#" data-toggle="modal" data-target="#MiniCard"
+                           class="minicart-btn open-card btn btn-cart2">
+                            <i class="fa fa-cart-arrow-down"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- #endregion product single  -->
+    <!-- #region product single  -->
+    <div class="col-lg-4 col-md-6 mb-4 product-single" data-id="5"
+         data-photo="/Public/template/img/product/mini.jpg" data-name="ZenBook 10 UX333FA-DH51">
+        <div class="card h-100">
+            <div class="card-header border-0 d-flex">
+                <div class="product-label new mr-3">
+                    <span>new</span>
+                </div>
+                <div class="product-label discount">
+                    <span>10%</span>
+                </div>
+            </div>
+            <a href="product-details">
+                <img src="~/Public/template/img/product/large.jpg" alt="laptop" class="card-img-top">
+            </a>
+            <div class="card-body">
+                <div class="product-caption card-text">
+                    <p class="product-name font-weight-bold">
+                        <a href="product-details.html">ASUS ZenBook 13 UX333FA-DH51</a>
+                    </p>
+                    <p class="product-name">
+                        Ultra-Slim Laptop 13.3" FHD WideView, 8th-Gen Intel Core i5-8265U
+                        Processor, 8GB , 256GB PCIe SSD, Backlit KB, NumberPad, Windows 10 -
+                        Royal Blue
+                    </p>
+                    <div class="price-box">
+                        <span class="price-regular">$60.00</span>
+                        <span class="price-old"><del>$70.00</del></span>
+                    </div>
+
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="pro-btns d-flex justify-content-around">
+                    <div class="wish mr-3">
+                        <a href="#"><i class="far  fa-heart"></i></a>
+                    </div>
+
+                    <!-- <div class="compare-prod mr-3">
+                        <a href="#" data-target=".compare" class="minicart-btn openBtn">
+                            <i class="fas fa-sync"></i>
+                        </a>
+                        <a href="#"></a>
+                    </div> -->
+                    <div class="quickView d-none  d-md-block mr-3">
+                        <a class="showModal open-qv" href="#" data-toggle="modal"
+                           data-target=".quickViewModal"><i class="fas fa-search"></i></a>
+                    </div>
+                    <div class="custom-control custom-checkbox mt-1">
+                        <input type="checkbox" name="cp" val="5" class="custom-control-input"
+                               data-id="5" id="5">
+                        <label class="custom-control-label" for="5">Compare</label>
+                    </div>
+                    <div class="add-to-card mr-1">
+                        <a href="#" data-toggle="modal" data-target="#MiniCard"
+                           class="minicart-btn open-card btn btn-cart2">
+                            <i class="fa fa-cart-arrow-down"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- #endregion product single  -->
+    <!-- #region product single  -->
+    <div class="col-lg-4 col-md-6 mb-4 product-single" data-id="6"
+         data-photo="/Public/template/img/product/mini.jpg" data-name="ZenBook 9 UX333FA-DH51">
+        <div class="card h-100">
+            <div class="card-header border-0 d-flex">
+                <div class="product-label new mr-3">
+                    <span>new</span>
+                </div>
+                <div class="product-label discount">
+                    <span>10%</span>
+                </div>
+            </div>
+            <a href="product-details">
+                <img src="~/Public/template/img/product/large.jpg" alt="laptop" class="card-img-top">
+            </a>
+            <div class="card-body">
+                <div class="product-caption card-text">
+                    <p class="product-name font-weight-bold">
+                        <a href="product-details.html">ASUS ZenBook 13 UX333FA-DH51</a>
+                    </p>
+                    <p class="product-name">
+                        Ultra-Slim Laptop 13.3" FHD WideView, 8th-Gen Intel Core i5-8265U
+                        Processor, 8GB , 256GB PCIe SSD, Backlit KB, NumberPad, Windows 10 -
+                        Royal Blue
+                    </p>
+                    <div class="price-box">
+                        <span class="price-regular">$60.00</span>
+                        <span class="price-old"><del>$70.00</del></span>
+                    </div>
+
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="pro-btns d-flex justify-content-around">
+                    <div class="wish mr-3">
+                        <a href="#"><i class="far  fa-heart"></i></a>
+                    </div>
+
+                    <!-- <div class="compare-prod mr-3">
+                        <a href="#" data-target=".compare" class="minicart-btn openBtn">
+                            <i class="fas fa-sync"></i>
+                        </a>
+                        <a href="#"></a>
+                    </div> -->
+                    <div class="quickView d-none  d-md-block mr-3">
+                        <a class="showModal open-qv" href="#" data-toggle="modal"
+                           data-target=".quickViewModal"><i class="fas fa-search"></i></a>
+                    </div>
+                    <div class="custom-control custom-checkbox mt-1">
+                        <input type="checkbox" name="cp" val="6" class="custom-control-input"
+                               data-id="6" id="6">
+                        <label class="custom-control-label" for="6">Compare</label>
+                    </div>
+                    <div class="add-to-card mr-1">
+                        <a href="#" data-toggle="modal" data-target="#MiniCard"
+                           class="minicart-btn open-card btn btn-cart2">
+                            <i class="fa fa-cart-arrow-down"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- #endregion product single  -->*@
