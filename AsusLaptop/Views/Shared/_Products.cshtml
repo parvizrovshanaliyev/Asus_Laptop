@@ -19,13 +19,13 @@
                     <span>10%</span>
                 </div>
             </div>
-            <a href="product-details">
+            <a href="/product/name-@item.Category.Name.Replace(" ","")-@item.Model.Replace(" ","")/@item.Id">
                 <img src="~/Public/img/@item.ImageL" alt="laptop" class="card-img-top">
             </a>
             <div class="card-body">
                 <div class="product-caption card-text">
                     <p class="product-name font-weight-bold">
-                        <a href="product-details.html">@item.Brand @item.Category.Name @item.Model</a>
+                        <a href="/product/name-@item.Category.Name.Replace(" ","")-@item.Model.Replace(" ","")/@item.Id">@item.Brand @item.Category.Name @item.Model</a>
                     </p>
                     <p class="product-name">
                         @item.Processor @item.Memory @item.Storage @item.OperatingSystem @item.Display

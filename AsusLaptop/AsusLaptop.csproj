@@ -169,6 +169,7 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MembersController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="DAL\AsusDbContext.cs" />
     <Compile Include="Extensions\FileExtensions.cs" />
@@ -706,6 +707,7 @@
     <Content Include="Views\Shared\_Products.cshtml" />
     <Content Include="Views\Shop\Categories.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\Product\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -717,6 +719,7 @@
     <Folder Include="Public\img\slider\" />
     <Folder Include="Public\template\img\cart\" />
     <Folder Include="Public\template\sass\partials\product-details\" />
+    <Folder Include="Views\ProductDetails\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />

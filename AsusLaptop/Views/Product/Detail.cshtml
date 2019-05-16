@@ -1,0 +1,232 @@
+﻿@model AsusLaptop.Models.Product
+@{
+    ViewBag.Title = "Product Details";
+}
+
+<!-- #region static banner -->
+<section style=" background-color: rgb(15, 14, 14,0.1234);">
+    <div class="breadcrumb-area common-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb-wrap">
+                        <nav aria-label="breadcrumb">
+                            <h1>product details</h1>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="index.html"><i class="fa fa-home"></i></a>
+                                </li>
+                                <li class="breadcrumb-item active"><a href="shop.html">shop</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">product details</li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- #endregion banner-->
+<!-- region section details -->
+<section class="section-space">
+
+    <!-- #region product details -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <!-- Quick view product slider -->
+                        <div class="col-lg-6">
+                            <ul id="imageGallery">
+                                <li data-thumb="/Public/img/@Model.ImageS"
+                                    data-src="/Public/img/@Model.ImageL">
+                                    <img src="~/Public/img/@Model.ImageL" alt="laptop">
+                                </li>
+                                <li data-thumb="/Public/img/@Model.ImageS"
+                                    data-src="/Public/img/@Model.ImageL">
+                                    <img src="~/Public/img/@Model.ImageL" alt="laptop">
+                                </li>
+                                <li data-thumb="/Public/img/@Model.ImageS"
+                                    data-src="/Public/img/@Model.ImageL">
+                                    <img src="~/Public/img/@Model.ImageL" alt="laptop">
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Quick view product slider -->
+                        <!-- Quick view Product Details -->
+                        <div class="col-lg-5">
+                            <div class="product-details-des quick-details">
+                                
+                                <h3 class="product-name pt-3 pb-3">@Model.Brand @Model.Category.Name @Model.Model</h3>
+                                <h3 class="product-name pt-3 pb-3">
+                                    @Model.Processor,
+                                    @Model.Memory ,@Model.Storage,@Model.OperatingSystem
+
+                                </h3>
+                                <ul>
+
+                                    <li style="list-style: disc;">
+                                        <p class="pro-desc">
+                                            @Model.Display
+                                        </p>
+                                    </li>
+                                    <li style="list-style: disc;">
+                                        <p class="pro-desc">
+                                           @Model.Processor
+                                        </p>
+                                    </li>
+                                    <li style="list-style: disc;">
+                                        <p class="pro-desc">
+                                            @Model.Storage
+                                        </p>
+                                    </li>
+                                    <li style="list-style: disc;">
+                                        <p class="pro-desc">
+                                            @Model.Memory
+                                        </p>
+                                    </li>
+                                    @*<li style="list-style: disc;">
+                                        <p class="pro-desc">
+                                            Fast storage and memory featuring 256GB PCIe NVMe
+                                            SSD with 8GB LPDDR3 RAM
+                                        </p>
+                                    </li>
+                                    <li style="list-style: disc;">
+                                        <p class="pro-desc">
+                                            Built-in IR camera for facial recognition sign in
+                                            with Windows Hello
+                                        </p>
+                                    </li>
+                                    <li style="list-style: disc;">
+                                        <p class="pro-desc">
+                                            DMI/USB Type C, Gigabit-class 802.11ac Wi-Fi,
+                                            Bluetooth 5.0 and Micro SD card reader
+                                        </p>
+                                    </li>
+                                    <li style="list-style: disc;">
+                                        <p class="pro-desc">
+                                            Sleek and lightweight at 2.6 lbs for comfortable
+                                            portability
+                                        </p>
+                                    </li>
+                                    <li style="list-style: disc;">
+                                        <p class="pro-desc">
+                                            TPM Security and MIL-STD 810G military standard for
+                                            reliability and durability
+                                        </p>
+                                    </li>
+                                    <li style="list-style: disc;">
+                                        <p class="pro-desc">Carry sleeve and USB3.0 to RJ45 cable included</p>
+                                    </li>*@
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Quick view Product Details -->
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer border mb-4">
+                <div class="price-box">
+                    <span class="price-regular">$@Model.Price.ToString("##.##")</span>
+                    <span class="price-old"><del>$90.00</del></span>
+                </div>
+                <div class="quantity-cart-box d-flex align-items-center">
+                    <div class="action_link">
+                        
+                        <a href="#" data-toggle="modal" data-target="#MiniCard"
+                           class="minicart-btn open-card btn btn-cart2">
+                            Add to cart
+                        </a>
+                    </div>
+                </div>
+                <div class="useful-links">
+                    <a href="#" data-toggle="tooltip" title="" data-original-title="Wishlist">
+                        <i class="far fa-heart"></i>wishlist
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- #endregion product details -->
+    <!-- #region more details -->
+    <div class="row">
+        <!-- more details column -->
+        <div class="container d-flex">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="footer-widget-item mb-30">
+                    <div class="footer-widget-title">
+                        <h3 class="title-h3">Details</h3>
+                    </div>
+                    <ul class="footer-widget-body">
+                        <li>
+                            <div>
+                                <p>
+                                    <b>
+                                        @Model.Brand @Model.Category.Name @Model.Model  @Model.Processor,
+                                        @Model.Memory ,@Model.Storage,@Model.OperatingSystem
+                                    </b>
+                                </p>
+                            </div><br>
+                        </li>
+                        <hr>
+                        <li style="
+                                    display: flex;
+                                ">
+                            <p><b></b></p>Operating System<br>@Model.OperatingSystem<br><br>Display<br>@Model.Display<br><br>Processor<br>@Model.Processor<br><br>Graphics<br>@Model.Graphic<br><br>Memory<br>@Model.Memory<br><br>Storage<br>@Model.Storage<br><br>Wireless Data
+                            Network<br>@Model.Wireless<br>Ports<br>@Model.Ports<br>Dimensions<br>@Model.Dimensions<br><br>Weight<br>@Model.Weight<br><br>*All specifications are subject to change without notice. Please
+                            check with ASUS support for more detail.
+                        </li>
+                        <hr>
+                        <li>
+                            <div class="spec">
+                                <h3 class="title-h3">Return Policy</h3>
+                                Return for refund within 30 days <br><br>Restocking Fee: May apply&nbsp;if the
+                                product is in&nbsp;opened or missing accessory&nbsp;condition<br>
+                                <br>Please note that you may be charged a 15% Restocking Fee for non-defective
+                                returned items. <br><br>Prices Are Subjected to Change Without Prior
+                                Notice.&nbsp;<br><br>Asus provides a refund for eligible returns* that are
+                                requested within 30-calendar days of the order date. Returns may subject to a
+                                restocking fee at the sole discretion of ASUS Store. All eligible refunds will
+                                be for merchandise total and applicable sales tax per original order (minus
+                                restocking fee if any). Any returns received 31-calender days or more will be
+                                returned and no longer eligible for return. <br>
+                                <br>* Select items are not eligible for return <br>• Software, driver disc, or
+                                damaged items
+                            </div>
+                        </li>
+                        <!-- <li>Operating System : <a class="pl-3" href="#">  <br>Windows 10 (64bit)</a></li>
+                        <li>Display :<a class="pl-3" href="#">14" FHD (1920*1080), glossy, WV</a></li>
+                        <li>Processor :<a class="pl-3" href="#">Intel® Core™ i7-8565U 1.8GHz (Turbo up to
+                                4.6GHz)</a></li>
+                        <li>Graphics :<a class="pl-3" href="#">Intel HD</a></li>
+                        <li>Memory :<a class="pl-3" href="#">8GB LPDDR3 (On Board)</a></li>
+                        <li>Storage :<a class="pl-3" href="#">512GB PCIE G3x2 SSD</a></li>
+                        <li>Wireless Data Network :<a class="pl-3" href="#">802.11AC ,
+                                <br> Bluetooth 4.2</a></li>
+                        <li>Webcam :<a class="pl-3" href="#">HD Web Camera</a></li>
+
+                        <li>Ports :<a class="pl-3" href="#">1x Headphone-out & Audio-in Combo Jack
+                                <br> 1x HDMI
+                                <br> 1x USB 2.0
+                                <br> 1x USB3.1 Type A (Gen1)
+                                <br> 1x USB3.1 Type C (Gen 2)
+                                <br> 1x SD Card Reader</a></li>
+                        <li>Battery :<a class="pl-3" href="#">47WHrs, 2S1P, 2-cell Li-ion</a></li>
+                        <li>Dimensions :<a class="pl-3" href="#">12.7" x 8.3" x 0.6"</a></li>
+                        <li>Weight :<a class="pl-3" href="#">3.2 lbs</a></li>
+                        <li>Memory :<a class="pl-3" href="#">8GB LPDDR3 (On Board)</a></li>
+                        <li>Storage :<a class="pl-3" href="#">512GB PCIE G3x2 SSD</a></li>
+                        <li>Wireless Data Network :<a class="pl-3" href="#">802.11AC ,
+                                <br> Bluetooth 4.2</a></li>
+                        <li>Webcam :<a class="pl-3" href="#">HD Web Camera</a></li> -->
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <!-- more details column -->
+    </div>
+    <!-- #endregion more details -->
+</section>
+<!-- region section details -->
