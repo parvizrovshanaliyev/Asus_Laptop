@@ -37,6 +37,21 @@ namespace AsusLaptop.Controllers
             return PartialView("_Products", products);
         }
         #endregion
-       
+
+        #region Categories
+        public PartialViewResult Categories()
+        {
+            var categories = _context.Categories.Include("Products").ToList();
+            return PartialView(categories);
+        }
+        #endregion
+
+        //[Route("Category/{name}/{id}")]
+        //public ActionResult Category(string name, int id)
+        //{
+        //    var data = _context.Products.Where(p => p.Status == true && p.CategoryId == id).ToList();
+        //    return View(data);
+        //}
+
     }
 }

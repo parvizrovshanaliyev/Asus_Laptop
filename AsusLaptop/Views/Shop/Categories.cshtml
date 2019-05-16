@@ -1,0 +1,10 @@
+﻿@model IEnumerable<AsusLaptop.Models.Category>
+
+@foreach (var item in Model)
+{
+    if (item.Products.Count() != 0)
+    {
+        <li><a href="/Category/@item.Name.Replace(" ","-")/@item.Id">@item.Name<span>@item.Products.Count()</span></a></li>
+    }
+
+}

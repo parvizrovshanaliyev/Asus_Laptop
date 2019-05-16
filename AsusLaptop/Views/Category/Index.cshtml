@@ -1,9 +1,8 @@
 ﻿@model IEnumerable<AsusLaptop.Models.Product>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Category";
+    var category = (AsusLaptop.Models.Category)ViewBag.category;
 }
-
-
 
 <!-- #region static banner -->
 <section style="background:#f6f6f6;">
@@ -19,6 +18,7 @@
                                     <a href="index.html"><i class="fa fa-home"></i></a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">shop</li>
+                                <li class="breadcrumb-item active" aria-current="page">@category.Name</li>
                             </ul>
                         </nav>
                     </div>
@@ -63,8 +63,8 @@
                             <h3 class="title">Categories</h3>
                             <div class="sidebar-body">
                                 <ul class="shop-categories">
-                                   @*//partials*@
-                                    @Html.Action("Categories","Shop")
+                                    @*//partials*@
+                                    @Html.Action("Categories", "Shop")
                                 </ul>
                             </div>
                         </div>
@@ -299,38 +299,3 @@
     </div>
 </div>
 <!-- #endregion compare mobile -->
-
-@section scripts{
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-        var SkipProductCount =@Model.Count();
-        var totalCount =@ViewBag.TotalCount;
-        var sent = false;
-
-        var scrollMore = function () {
-            if (!sent) {
-                if ($(this.document).height() - $(this.document).scrollTop() - $(window).height() <= 100) {
-
-                    sent = true;
-                    $.ajax({
-                        url: "/Shop/ScrollMore",
-                        data: { skipCount: SkipProductCount },
-                        success: function (res) {
-                            $("#product-row").append(res);
-                            sent = false;
-                            SkipProductCount += 6;
-                            if (SkipProductCount >= totalCount) {
-                                $(window).off("scroll", scrollMore);
-                            }
-                            //console.log(res);
-                        }
-                    });
-                }
-            }
-
-        };
-        $(window).on("scroll", scrollMore);
-        });
-    </script>
-}
