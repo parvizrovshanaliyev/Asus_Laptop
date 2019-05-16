@@ -295,12 +295,12 @@ $(document).ready(function() {
                          <div id="${$(this).data("id")}" class="minicart-thumb">
                             <ul>            
                                <li>             
-                                  <a href="product-details.html">
+                                  <a href="#">
                                     <img id="p-img" src="${img}">                
                                   </a>                            
                                 </li>            
                                 <li>            
-                                  <a id="p-name" href="product-details.html">${name}</a>              
+                                  <a id="p-name" href="#">${name}</a>              
                                 </li>            
                             </ul>            
                           </div>          
@@ -378,12 +378,12 @@ $(document).ready(function() {
                   <div id="${$(this).data("id")}" class="minicart-thumb">
                       <ul>
                           <li>
-                              <a href="product-details.html">
+                              <a href="#">
                                   <img id="p-img" src="${img}">
                               </a>
                           </li>
                           <li>
-                              <a id="p-name" style="font-size: 12px;"  href="product-details.html">${name}</a>
+                              <a id="p-name" style="font-size: 12px;"  href="#">${name}</a>
                           </li>
                       </ul>
                   </div>
@@ -499,7 +499,12 @@ $(document).ready(function() {
           .parent();
       productImg = product.data("image");
       pPrice = product.data("price");
-      
+      function numberRounder(number, precision) {
+          precision = Math.pow(10, precision)
+          return Math.ceil(number * precision) / precision
+      }
+
+      alert(numberRounder(123.123, 2))
       pdiscount = product.data("discount"); 
       NewPrice = pPrice - (pPrice * pdiscount / 100);
       
@@ -511,7 +516,7 @@ $(document).ready(function() {
       $("#ProductQV").find(".data-system").text(product.data("system"));
       $("#ProductQV").find(".data-memory").text(product.data("memory"));
       $("#ProductQV").find(".data-storage").text(product.data("storage"));
-      $("#ProductQV").find(".data-price").text(`$ ${NewPrice}`);
+      $("#ProductQV").find(".data-price").text(`$ ${numberRounder(NewPrice, 2)}`);
       $("#ProductQV").find(".data-image").attr('src', productImg);
       $("#ProductQV").find(".data-graphic").text(product.data("graphic"));
       $("#ProductQV").find(".data-weight").text(product.data("weight"));

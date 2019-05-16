@@ -7,9 +7,10 @@
     <!-- region product single  -->
     <div class="col-lg-4 col-md-6 mb-4 product-single" 
          data-id="@item.Id"
-         @*data-image="@item.ImageL"*@ 
+         data-photo="/Public/img/@item.ImageS" 
          data-image="/Public/img/@item.ImageL" 
          data-model="@item.Brand  @item.Category.Name @item.Model" 
+         data-name="@item.Brand @item.Model" 
          data-storage="@item.Storage" 
          data-memory="@item.Memory" 
          data-display="@item.Display"
