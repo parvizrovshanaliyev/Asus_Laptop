@@ -168,6 +168,7 @@
     <Compile Include="Areas\Admin\Models\AdminLogin.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MembersController.cs" />
+    <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="DAL\AsusDbContext.cs" />
     <Compile Include="Extensions\FileExtensions.cs" />
     <Compile Include="Global.asax.cs">
@@ -700,6 +701,7 @@
     <Content Include="Views\Shared\_QuickView.cshtml" />
     <Content Include="Views\Members\Register.cshtml" />
     <Content Include="Views\Members\Confirm.cshtml" />
+    <Content Include="Views\Shop\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

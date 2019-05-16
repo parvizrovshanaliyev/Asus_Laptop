@@ -85,7 +85,7 @@
                         <!-- start logo area -->
                         <div class="col-lg-2">
                             <div class="logo">
-                                <a href="index.html">
+                                <a href="@Url.Action("Index","Home")">
                                     <img src="~/Public/template/img/logo/logo.png" alt="">
                                 </a>
                             </div>
@@ -100,7 +100,7 @@
                                     <nav class="desktop-menu">
                                         <ul>
                                             <li class="active animated bounce delay-1s">
-                                                <a href="index.html">
+                                                <a href="@Url.Action("Index","Home")">
                                                     Home <i class="fa fa-home"></i>
                                                 </a>
                                             </li>
@@ -112,7 +112,7 @@
                                                     <li><a href="wishlist.html">Wishlist</a></li>
                                                 </ul>
                                             </li>
-                                            <li class="static "><a href="products.html">Shop <i class="fas fa-shopping-bag"></i></a></li>
+                                            <li class="static "><a href="@Url.Action("Index","Shop")">Shop <i class="fas fa-shopping-bag"></i></a></li>
                                             <li class="static"><a href="blog.html">Blog <i class="fa fa-blog"></i></a></li>
                                             <li class="static"><a href="contact.html">Contact <i class="fas fa-address-book"></i></a></li>
 
@@ -211,9 +211,9 @@
             <!--mobile header top start -->
             <div class="row align-items-center">
                 <div class="col-12 col-sm-12 col-md-12">
-                    <div class="mobile-main-header">
+                    <div style="z-index: 10000;" class="mobile-main-header">
                         <div class="col-6 col-sm-6 col-md-6 mobile-logo">
-                            <a href="index.html">
+                            <a href="@Url.Action("Index","Home")">
                                 <img src="~/Public/template/img/logo/logo.png" alt="Brand Logo">
                             </a>
                         </div>
@@ -225,15 +225,15 @@
                                     <ul>
                                         <li class="active">
                                             <div class="row">
-                                                <div class="col-6 col-sm-6 col-md-6 text-right"><a href="index.html">Home</a></div>
-                                                <div class="col-6 col-sm-6 col-md-6"><a href="index.html"><i class="fa fa-home"></i></a></div>
+                                                <div class="col-6 col-sm-6 col-md-6 text-right"><a href="@Url.Action("Index","Home")">Home</a></div>
+                                                <div class="col-6 col-sm-6 col-md-6"><a href="@Url.Action("Index","Home")"><i class="fa fa-home"></i></a></div>
                                             </div>
                                         </li>
                                         <li class="static">
                                             <div class="row">
-                                                <div class="col-6 col-sm-6 col-md-6 text-right"><a href="products.html">Shop</a></div>
+                                                <div class="col-6 col-sm-6 col-md-6 text-right"><a href="@Url.Action("Index","Shop")">Shop</a></div>
                                                 <div class="col-6 col-sm-6 col-md-6">
-                                                    <a href="products.html">
+                                                    <a href="@Url.Action("Index","Shop")">
                                                         <i class="fas fa-shopping-bag"></i>
                                                     </a>
                                                 </div>
@@ -241,15 +241,15 @@
                                         </li>
                                         <li class="static">
                                             <div class="row">
-                                                <div class="col-6 col-sm-6 col-md-6 text-right"><a href="index.html">Blog</a></div>
-                                                <div class="col-6 col-sm-6 col-md-6"><a href="index.html"><i class="fa fa-blog"></i></a></div>
+                                                <div class="col-6 col-sm-6 col-md-6 text-right"><a href="@Url.Action("Index","Home")">Blog</a></div>
+                                                <div class="col-6 col-sm-6 col-md-6"><a href="@Url.Action("Index","Home")"><i class="fa fa-blog"></i></a></div>
                                             </div>
                                         </li>
                                         <li class="static">
                                             <div class="row">
-                                                <div class="col-6 col-sm-6 col-md-6 text-right"><a href="index.html">Contact</a></div>
+                                                <div class="col-6 col-sm-6 col-md-6 text-right"><a href="@Url.Action("Index","Home")">Contact</a></div>
                                                 <div class="col-6 col-sm-6 col-md-6">
-                                                    <a href="index.html">
+                                                    <a href="@Url.Action("Index","Home")">
                                                         <i class="fas fa-address-book"></i>
                                                     </a>
                                                 </div>
@@ -329,7 +329,7 @@
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="footer-widget-item mb-30">
                                 <div class="footer-widget-logo">
-                                    <a href="index.html">
+                                    <a href="@Url.Action("Index","Home")">
                                         <img src="~/Public/template/img/logo/logo.png" alt="">
                                     </a>
                                 </div>
@@ -458,7 +458,7 @@
 
     <!-- <script src="assets/plugin_product_slider/js/lightslider.min.js"></script> -->
     <script src="~/Public/template/js/slick-custom.js"></script>
-    <script src="~/Public/template/js/app.js"></script>>
+    <script src="~/Public/template/js/app.js"></script>
 </body>
 
 </html>
