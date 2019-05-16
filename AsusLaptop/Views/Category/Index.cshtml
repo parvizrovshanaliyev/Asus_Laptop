@@ -17,7 +17,7 @@
                                 <li class="breadcrumb-item">
                                     <a href="index.html"><i class="fa fa-home"></i></a>
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page">shop</li>
+                                <li class="breadcrumb-item " aria-current="page"><a href="@Url.Action("Index","Shop")">shop</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">@category.Name</li>
                             </ul>
                         </nav>
@@ -76,9 +76,9 @@
                             <h3 class="title">Price</h3>
                             <div class="sidebar-body">
                                 <ul class="shop-categories">
-                                    <li><a href="#">ASUSPRO B Series </a></li>
-                                    <li><a href="#">ASUSPRO P Series </a></li>
-                                    <li><a href="#">ASUS Chromebook </a></li>
+                                    <li><a href="#">high </a></li>
+                                    <li><a href="#">low</a></li>
+                                   
                                 </ul>
                             </div>
                         </div>
@@ -106,15 +106,7 @@
                                                     <h3 class="title">Categories</h3>
                                                     <div class="sidebar-body">
                                                         <ul class="shop-categories">
-                                                            <li>
-                                                                <a href="#">ASUSPRO B Series <span>10</span></a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="#">ASUSPRO P Series <span>5</span></a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="#">ASUS Chromebook <span>8</span></a>
-                                                            </li>
+                                                            @Html.Action("Categories", "Shop")
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -299,3 +291,6 @@
     </div>
 </div>
 <!-- #endregion compare mobile -->
+@section scripts{
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+}
