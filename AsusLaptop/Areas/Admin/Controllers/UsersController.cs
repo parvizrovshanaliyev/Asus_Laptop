@@ -1,4 +1,5 @@
 ﻿using AsusLaptop.DAL;
+using AsusLaptop.Hepler;
 using AsusLaptop.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
@@ -165,6 +166,7 @@ namespace AsusLaptop.Areas.Admin.Controllers
         }
 
         #endregion
+
         #region Send Confirm Email User
 
         private void SendConfirm(string email, string token)
@@ -192,6 +194,31 @@ namespace AsusLaptop.Areas.Admin.Controllers
                 smtp.Send(message);
             }
 
+        }
+        #endregion
+
+
+        #region delete user
+        public async Task<ActionResult> Delete(string id)
+        {
+            if (string.IsNullOrEmpty(id)) return HttpNotFound("Id gelmir");
+            UserApp userdb = await UserManagerApp.FindByIdAsync(id);
+            if (userdb == null) return HttpNotFound("bele bir user yoxdu");
+            if (userdb.Roles.Select(r=>Helper.GetRoleName(r.RoleId)).Contains("admin"))
+            {
+
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                IdentityResult result = await UserManagerApp.DeleteAsync(userdb);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+            
+            return View();
         }
         #endregion
     }

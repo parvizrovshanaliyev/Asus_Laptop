@@ -15,11 +15,11 @@
 
             <div class="single-table">
                 <div class="table-responsive">
-                    <table class="table table-hover progress-table text-center">
+                    <table id="dataTable" class="table table-hover progress-table text-center">
                         <thead class="text-uppercase">
                             <tr>
 
-                                <th  class="alert alert-dark" scope="col">Fullname</th>
+                                <th class="alert alert-dark" scope="col">Fullname</th>
                                 <th class="alert alert-dark" scope="col">Username</th>
                                 @foreach (var role in Helper.GetRoles())
                                 {
@@ -32,34 +32,34 @@
 
                             @foreach (var item in Model)
                             {
-                            <tr>
-                                @using (Html.BeginForm())
-                                {
-                                    @Html.AntiForgeryToken()
-                                    @Html.Hidden("userId", item.Id)
-                                    <td>
-                                        @if (!string.IsNullOrEmpty(item.Fullname))
-                                        {
-                                            @item.Fullname
-                                        }
-                                        else
-                                        {
-                                            @item.Email
-                                        }
-                                    </td>
-                                    <td>@item.UserName</td>
-                                    foreach (var role in Helper.GetRoles())
+                                <tr>
+                                    @using (Html.BeginForm())
                                     {
-                                    <td >
-                                        <input class="btn btn-block" type="checkbox" value="@role.Name" name="RoleNames" checked="@item.Roles.Any(r=>r.RoleId==role.Id)" />
-                                    </td>
-                                    }
+                                        @Html.AntiForgeryToken()
+                                        @Html.Hidden("userId", item.Id)
+                                        <td>
+                                            @if (!string.IsNullOrEmpty(item.Fullname))
+                                            {
+                                                @item.Fullname
+                                            }
+                                            else
+                                            {
+                                                @item.Email
+                                            }
+                                        </td>
+                                        <td>@item.UserName</td>
+                                        foreach (var role in Helper.GetRoles())
+                                        {
+                                            <td>
+                                                <input class="btn btn-block" type="checkbox" value="@role.Name" name="RoleNames" checked="@item.Roles.Any(r=>r.RoleId==role.Id)" />
+                                            </td>
+                                        }
 
-                                    <td>
-                                        <input class="btn btn-outline-danger" type="submit" name="name" value="Update" />
-                                    </td>
-                                }
-                            </tr>
+                                        <td>
+                                            <input class="btn btn-outline-danger" type="submit" name="name" value="Update" />
+                                        </td>
+                                    }
+                                </tr>
                             }
 
                         </tbody>
@@ -69,5 +69,21 @@
         </div>
     </div>
 </div>
+@section styles{
+    <link href="~/Content/DataTables/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
 
+}
+@section scripts{
+    <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/DataTables/dataTables.bootstrap4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            if ($('#dataTable').length) {
+                $('#dataTable').DataTable({
+                    responsive: true
+                });
+            }
+        });
+    </script>
+}
 

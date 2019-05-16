@@ -4,6 +4,7 @@
 @{
     ViewBag.Title = "Users";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    bool IsAdmin =User.IsInRole("admin");
 }
 
 <div class="col-12 mt-5">
@@ -79,14 +80,25 @@
                                         <ul class="d-flex justify-content-center">
                                             @if (User.IsInRole("admin"))
                                             {
-                                                <li class="mr-3">
+                                                if (item.Roles.Select(r => Helper.GetRoleName(r.RoleId)).Contains("admin"))
+                                                {
+                                                    <li class="mr-3">
 
-                                                    <a href="@Url.Action("Edit","Users",new {id=item.Id })" class="text-secondary"><i class="fa fa-edit"></i></a>
-                                                </li>
+                                                        <a href="@Url.Action("Edit","Users",new {id=item.Id })" class="text-secondary"><i class="fa fa-edit"></i></a>
+                                                    </li>
+                                                }
+                                                else
+                                                {
+                                                    <li class="mr-3">
 
-                                                <li>
-                                                    <a href="@Url.Action("Delete","Users",new {id=item.Id })" class="text-danger delete"><i class="ti-trash"></i></a>
-                                                </li>
+                                                        <a href="@Url.Action("Edit","Users",new {id=item.Id })" class="text-secondary"><i class="fa fa-edit"></i></a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="@Url.Action("Delete","Users",new {id=item.Id })" class="text-danger delete"><i class="ti-trash"></i></a>
+                                                    </li>
+                                                }
+
                                             }
                                         </ul>
                                     </td>
