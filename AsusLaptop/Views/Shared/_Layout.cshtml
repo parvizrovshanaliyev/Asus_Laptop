@@ -140,7 +140,7 @@
                                                     <li><a href="my-account.html">my account</a></li>
                                                     <li><a href="my-account.html">@User.Identity.GetUserName()</a></li>
                                                     <li>
-                                                        @using (Html.BeginForm("Logout", "ALogin",  new { Area = "Admin" },  FormMethod.Post))
+                                                        @using (Html.BeginForm("Logout", "ALogin", new { Area = "Admin" }, FormMethod.Post))
                                                         {
                                                             @Html.AntiForgeryToken()
                                                             <input class="dropdown-item" type="submit" name="LogOut" value="LogOut" />
@@ -455,7 +455,7 @@
     <script src="~/Public/template/slick-1.8.1/slick-1.8.1/slick/slick.js"></script>
     <script src="~/Public/template/plugin_product_slider/js/lightslider.js"></script>
     <script src="~/Public/template/Animated-Tabs-anitabs/js/anitabs.js"></script>
-
+    @RenderSection("scripts", required: false)
     <!-- <script src="assets/plugin_product_slider/js/lightslider.min.js"></script> -->
     <script src="~/Public/template/js/slick-custom.js"></script>
     <script src="~/Public/template/js/app.js"></script>
