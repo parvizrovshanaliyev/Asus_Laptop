@@ -23,6 +23,7 @@ namespace AsusLaptop.Controllers
             {
                 Sliders = _context.Sliders,
                 Banners = _context.Banners
+                Products = _context.Products.Where(s => s.IsNew == true && s.Discount != 0).OrderByDescending(t => t.Id).Take(3).ToList()
             };
             return View(vm);
         }
