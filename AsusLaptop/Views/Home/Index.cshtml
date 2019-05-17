@@ -122,13 +122,14 @@
                                                                 </a>
                                                                 <div class="card-body">
                                                                     <div class="product-caption card-text">
-                                                                        <p class="product-name font-weight-bold">
+                                                                        <p class="product-name font-weight-bold row">
                                                                             <a href="/product/name-@item.Category.Name.Replace(" ","")-@item.Model.Replace(" ","")/@item.Id">@item.Brand @item.Category.Name @item.Model</a>
                                                                         </p>
-                                                                        <p class="product-name">
+                                                                        <p class="product-name row">
                                                                             @item.Processor @item.Memory @item.Storage @item.OperatingSystem @item.Display
                                                                         </p>
-                                                                        <div class="price-box">
+
+                                                                        <div class="price-box row">
 
                                                                             @if (item.Discount != 0)
                                                                             {
@@ -140,7 +141,6 @@
                                                                                 <span class="price-regular">$@(item.Price.ToString("##.###"))</span>
                                                                             }
                                                                         </div>
-
                                                                     </div>
                                                                 </div>
                                                                 <div class="card-footer">
@@ -297,113 +297,98 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <!-- #region product single  -->
-                                <div class="col-lg-4 col-md-6 mb-4">
-                                    <div class="card h-100">
-                                        <div class="card-header border-0 d-flex">
-                                            <div class="product-label new mr-3">
-                                                <span>new</span>
-                                            </div>
-                                            <div class="product-label discount">
-                                                <span>10%</span>
-                                            </div>
-                                        </div>
-                                        <a href="product-details">
-                                            <img src="~/Public/template/img/product/large.jpg" alt="laptop" class="card-img-top">
-                                        </a>
-                                        <div class="card-body">
-                                            <div class="product-caption card-text">
-                                                <p class="product-name font-weight-bold">
-                                                    <a href="product-details.html">ASUS ZenBook 13 UX333FA-DH51</a>
-                                                </p>
-                                                <p class="product-name d-none  d-md-block">
-                                                    Ultra-Slim Laptop 13.3" FHD WideView, 8th-Gen Intel Core i5-8265U
-                                                    Processor, 8GB , 256GB PCIe SSD, Backlit KB, NumberPad, Windows 10 -
-                                                    Royal Blue
-                                                </p>
-                                                <div class="price-box">
-                                                    <span class="price-regular">$60.00</span>
-                                                    <span class="price-old"><del>$70.00</del></span>
+                                @foreach (var item in Model.ProductsDiscount)
+                                {
+                                    <!-- region product single  -->
+                                    <div class="col-lg-4 col-md-6 mb-4 product-single"
+                                         data-id="@item.Id"
+                                         data-photo="/Public/img/@item.ImageS"
+                                         data-image="/Public/img/@item.ImageL"
+                                         data-model="@item.Brand  @item.Category.Name @item.Model"
+                                         data-name="@item.Brand @item.Model"
+                                         data-storage="@item.Storage"
+                                         data-memory="@item.Memory"
+                                         data-display="@item.Display"
+                                         data-processor="@item.Processor"
+                                         data-graphic="@item.Graphic"
+                                         data-dimensions="@item.Dimensions"
+                                         data-weight="@item.Weight"
+                                         data-discount="@item.Discount"
+                                         data-system="@item.OperatingSystem"
+                                         data-price="@item.Price.ToString("##.##")">
+                                        <div class="card h-100">
+                                            <div class="card-header border-0 d-flex">
+                                                @if (item.IsNew)
+                                                {
+                                                    <div class="product-label new mr-3">
+                                                        <span>new</span>
+                                                    </div>
+                                                }
+                                                @if (item.Discount != 0)
+                                                {
+                                                    <div class="product-label discount">
+                                                        <span>@item.Discount %</span>
+                                                    </div>
+                                                }
+                                                <div class="product-label discount ml-3">
+                                                    <span>@item.Display</span>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="card-footer">
-                                            <div class="pro-btns d-flex justify-content-between">
-                                                <div class="d-flex">
-                                                    <div class="wish ">
+                                            <a href="/product/name-@item.Category.Name.Replace(" ","")-@item.Model.Replace(" ","")/@item.Id">
+                                                <img src="~/Public/img/@item.ImageL" alt="laptop" class="card-img-top">
+                                            </a>
+                                            <div class="card-body">
+                                                <div class="product-caption card-text">
+                                                    <p class="product-name font-weight-bold row">
+                                                        <a href="/product/name-@item.Category.Name.Replace(" ","")-@item.Model.Replace(" ","")/@item.Id">@item.Brand @item.Category.Name @item.Model</a>
+                                                    </p>
+                                                    <p class="product-name row">
+                                                        @item.Processor @item.Memory @item.Storage @item.OperatingSystem @item.Display
+                                                    </p>
+
+                                                    <div class="price-box row">
+
+                                                        @if (item.Discount != 0)
+                                                        {
+                                                            <span class="price-regular">$@((item.Price - (item.Price * item.Discount / 100)).ToString("##.###") )</span>
+                                                            <span class="price-old"><del>$@(item.Price.ToString("##.###"))</del></span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <span class="price-regular">$@(item.Price.ToString("##.###"))</span>
+                                                        }
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer">
+                                                <div class="pro-btns d-flex justify-content-around">
+                                                    <div class="wish mr-3">
                                                         <a href="#"><i class="far  fa-heart"></i></a>
                                                     </div>
-                                                    <div class="quickView d-none  d-md-block ml-3 ">
+
+                                                    <!-- <div class="compare-prod mr-3">
+                            <a href="#" data-target=".compare" class="minicart-btn openBtn">
+                                <i class="fas fa-sync"></i>
+                            </a>
+                            <a href="#"></a>
+                        </div> -->
+                                                    <div class="quickView d-none  d-md-block mr-3">
                                                         <a class="showModal open-qv" href="#" data-toggle="modal"
                                                            data-target=".quickViewModal"><i class="fas fa-search"></i></a>
                                                     </div>
-                                                </div>
 
-                                                <div class="add-to-card">
-                                                    <a href="#" data-toggle="modal" data-target="#MiniCard"
-                                                       class="minicart-btn open-card btn btn-cart2">
-                                                        <i class="fa fa-cart-arrow-down"></i>
-                                                    </a>
+                                                    <div class="add-to-card mr-1">
+                                                        <a href="#" data-toggle="modal" data-target="#MiniCard"
+                                                           class="minicart-btn open-card btn btn-cart2">
+                                                            <i class="fa fa-cart-arrow-down"></i>
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <!-- #endregion product single  -->
-                                <!-- #region product single  -->
-                                <div class="col-lg-4 col-md-6 mb-4">
-                                    <div class="card h-100">
-                                        <div class="card-header border-0 d-flex">
-                                            <div class="product-label new mr-3">
-                                                <span>new</span>
-                                            </div>
-                                            <div class="product-label discount">
-                                                <span>10%</span>
-                                            </div>
-                                        </div>
-                                        <a href="product-details">
-                                            <img src="~/Public/template/img/product/large.jpg" alt="laptop" class="card-img-top">
-                                        </a>
-                                        <div class="card-body">
-                                            <div class="product-caption card-text">
-                                                <p class="product-name font-weight-bold">
-                                                    <a href="product-details.html">ASUS ZenBook 13 UX333FA-DH51</a>
-                                                </p>
-                                                <p class="product-name d-none  d-md-block">
-                                                    Ultra-Slim Laptop 13.3" FHD WideView, 8th-Gen Intel Core i5-8265U
-                                                    Processor, 8GB , 256GB PCIe SSD, Backlit KB, NumberPad, Windows 10 -
-                                                    Royal Blue
-                                                </p>
-                                                <div class="price-box">
-                                                    <span class="price-regular">$60.00</span>
-                                                    <span class="price-old"><del>$70.00</del></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card-footer">
-                                            <div class="pro-btns d-flex justify-content-between">
-                                                <div class="d-flex">
-                                                    <div class="wish ">
-                                                        <a href="#"><i class="far  fa-heart"></i></a>
-                                                    </div>
-                                                    <div class="quickView d-none  d-md-block ml-3 ">
-                                                        <a class="showModal open-qv" href="#" data-toggle="modal"
-                                                           data-target=".quickViewModal"><i class="fas fa-search"></i></a>
-                                                    </div>
-                                                </div>
-
-                                                <div class="add-to-card">
-                                                    <a href="#" data-toggle="modal" data-target="#MiniCard"
-                                                       class="minicart-btn open-card btn btn-cart2">
-                                                        <i class="fa fa-cart-arrow-down"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- #endregion product single  -->
-                                <!-- #region product single  -->
+                                    <!-- #endregion product single  -->
+                                }
                             </div>
                             <div class="row justify-content-center mt-5  mb-5">
                                 <a href="@Url.Action("Index","Shop")" class="btn-hero" tabindex="0">view more</a>
@@ -427,113 +412,98 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <!-- #region product single  -->
-                                <div class="col-lg-4 col-md-6 mb-4">
-                                    <div class="card h-100">
-                                        <div class="card-header border-0 d-flex">
-                                            <div class="product-label new mr-3">
-                                                <span>new</span>
-                                            </div>
-                                            <div class="product-label discount">
-                                                <span>10%</span>
-                                            </div>
-                                        </div>
-                                        <a href="product-details">
-                                            <img src="~/Public/template/img/product/large.jpg" alt="laptop" class="card-img-top">
-                                        </a>
-                                        <div class="card-body">
-                                            <div class="product-caption card-text">
-                                                <p class="product-name font-weight-bold">
-                                                    <a href="product-details.html">ASUS ZenBook 13 UX333FA-DH51</a>
-                                                </p>
-                                                <p class="product-name d-none  d-md-block">
-                                                    Ultra-Slim Laptop 13.3" FHD WideView, 8th-Gen Intel Core i5-8265U
-                                                    Processor, 8GB , 256GB PCIe SSD, Backlit KB, NumberPad, Windows 10 -
-                                                    Royal Blue
-                                                </p>
-                                                <div class="price-box">
-                                                    <span class="price-regular">$60.00</span>
-                                                    <span class="price-old"><del>$70.00</del></span>
+                                @foreach (var item in Model.ProductsNews)
+                                {
+                                    <!-- region product single  -->
+                                    <div class="col-lg-4 col-md-6 mb-4 product-single"
+                                         data-id="@item.Id"
+                                         data-photo="/Public/img/@item.ImageS"
+                                         data-image="/Public/img/@item.ImageL"
+                                         data-model="@item.Brand  @item.Category.Name @item.Model"
+                                         data-name="@item.Brand @item.Model"
+                                         data-storage="@item.Storage"
+                                         data-memory="@item.Memory"
+                                         data-display="@item.Display"
+                                         data-processor="@item.Processor"
+                                         data-graphic="@item.Graphic"
+                                         data-dimensions="@item.Dimensions"
+                                         data-weight="@item.Weight"
+                                         data-discount="@item.Discount"
+                                         data-system="@item.OperatingSystem"
+                                         data-price="@item.Price.ToString("##.##")">
+                                        <div class="card h-100">
+                                            <div class="card-header border-0 d-flex">
+                                                @if (item.IsNew)
+                                                {
+                                                    <div class="product-label new mr-3">
+                                                        <span>new</span>
+                                                    </div>
+                                                }
+                                                @if (item.Discount != 0)
+                                                {
+                                                    <div class="product-label discount">
+                                                        <span>@item.Discount %</span>
+                                                    </div>
+                                                }
+                                                <div class="product-label discount ml-3">
+                                                    <span>@item.Display</span>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="card-footer">
-                                            <div class="pro-btns d-flex justify-content-between">
-                                                <div class="d-flex">
-                                                    <div class="wish ">
+                                            <a href="/product/name-@item.Category.Name.Replace(" ","")-@item.Model.Replace(" ","")/@item.Id">
+                                                <img src="~/Public/img/@item.ImageL" alt="laptop" class="card-img-top">
+                                            </a>
+                                            <div class="card-body">
+                                                <div class="product-caption card-text">
+                                                    <p class="product-name font-weight-bold row">
+                                                        <a href="/product/name-@item.Category.Name.Replace(" ","")-@item.Model.Replace(" ","")/@item.Id">@item.Brand @item.Category.Name @item.Model</a>
+                                                    </p>
+                                                    <p class="product-name row">
+                                                        @item.Processor @item.Memory @item.Storage @item.OperatingSystem @item.Display
+                                                    </p>
+
+                                                    <div class="price-box row">
+
+                                                        @if (item.Discount != 0)
+                                                        {
+                                                            <span class="price-regular">$@((item.Price - (item.Price * item.Discount / 100)).ToString("##.###") )</span>
+                                                            <span class="price-old"><del>$@(item.Price.ToString("##.###"))</del></span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <span class="price-regular">$@(item.Price.ToString("##.###"))</span>
+                                                        }
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer">
+                                                <div class="pro-btns d-flex justify-content-around">
+                                                    <div class="wish mr-3">
                                                         <a href="#"><i class="far  fa-heart"></i></a>
                                                     </div>
-                                                    <div class="quickView d-none  d-md-block ml-3 ">
+
+                                                    <!-- <div class="compare-prod mr-3">
+                            <a href="#" data-target=".compare" class="minicart-btn openBtn">
+                                <i class="fas fa-sync"></i>
+                            </a>
+                            <a href="#"></a>
+                        </div> -->
+                                                    <div class="quickView d-none  d-md-block mr-3">
                                                         <a class="showModal open-qv" href="#" data-toggle="modal"
                                                            data-target=".quickViewModal"><i class="fas fa-search"></i></a>
                                                     </div>
-                                                </div>
 
-                                                <div class="add-to-card">
-                                                    <a href="#" data-toggle="modal" data-target="#MiniCard"
-                                                       class="minicart-btn open-card btn btn-cart2">
-                                                        <i class="fa fa-cart-arrow-down"></i>
-                                                    </a>
+                                                    <div class="add-to-card mr-1">
+                                                        <a href="#" data-toggle="modal" data-target="#MiniCard"
+                                                           class="minicart-btn open-card btn btn-cart2">
+                                                            <i class="fa fa-cart-arrow-down"></i>
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <!-- #endregion product single  -->
-                                <!-- #region product single  -->
-                                <div class="col-lg-4 col-md-6 mb-4">
-                                    <div class="card h-100">
-                                        <div class="card-header border-0 d-flex">
-                                            <div class="product-label new mr-3">
-                                                <span>new</span>
-                                            </div>
-                                            <div class="product-label discount">
-                                                <span>10%</span>
-                                            </div>
-                                        </div>
-                                        <a href="product-details">
-                                            <img src="~/Public/template/img/product/large.jpg" alt="laptop" class="card-img-top">
-                                        </a>
-                                        <div class="card-body">
-                                            <div class="product-caption card-text">
-                                                <p class="product-name font-weight-bold">
-                                                    <a href="product-details.html">ASUS ZenBook 13 UX333FA-DH51</a>
-                                                </p>
-                                                <p class="product-name d-none  d-md-block">
-                                                    Ultra-Slim Laptop 13.3" FHD WideView, 8th-Gen Intel Core i5-8265U
-                                                    Processor, 8GB , 256GB PCIe SSD, Backlit KB, NumberPad, Windows 10 -
-                                                    Royal Blue
-                                                </p>
-                                                <div class="price-box">
-                                                    <span class="price-regular">$60.00</span>
-                                                    <span class="price-old"><del>$70.00</del></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card-footer">
-                                            <div class="pro-btns d-flex justify-content-between">
-                                                <div class="d-flex">
-                                                    <div class="wish ">
-                                                        <a href="#"><i class="far  fa-heart"></i></a>
-                                                    </div>
-                                                    <div class="quickView d-none  d-md-block ml-3 ">
-                                                        <a class="showModal open-qv" href="#" data-toggle="modal"
-                                                           data-target=".quickViewModal"><i class="fas fa-search"></i></a>
-                                                    </div>
-                                                </div>
-
-                                                <div class="add-to-card">
-                                                    <a href="#" data-toggle="modal" data-target="#MiniCard"
-                                                       class="minicart-btn open-card btn btn-cart2">
-                                                        <i class="fa fa-cart-arrow-down"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- #endregion product single  -->
-                                <!-- #region product single  -->
+                                    <!-- #endregion product single  -->
+                                }
                             </div>
                             <div class="row justify-content-center mt-5  mb-5">
                                 <a href="@Url.Action("Index","Shop")" class="btn-hero" tabindex="0">view more</a>

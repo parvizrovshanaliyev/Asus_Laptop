@@ -504,7 +504,7 @@ $(document).ready(function() {
           return Math.ceil(number * precision) / precision
       }
 
-      alert(numberRounder(123.123, 2))
+      //alert(numberRounder(123.123, 2))
       pdiscount = product.data("discount"); 
       NewPrice = pPrice - (pPrice * pdiscount / 100);
       
