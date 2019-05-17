@@ -107,8 +107,8 @@
                                             <li class="static ">
                                                 <a href="#">Pages <i class="fa fa-angle-down"></i></a>
                                                 <ul class="dropdown">
-                                                    <li><a href="cart.html">Cart</a></li>
-                                                    <li><a href="checkout.html">Checkout</a></li>
+                                                    <li><a href="@Url.Action("Index","Cart")">Cart</a></li>
+                                                    <li><a href="@Url.Action("Index","Checkout")">Checkout</a></li>
                                                     <li><a href="wishlist.html">Wishlist</a></li>
                                                 </ul>
                                             </li>
@@ -269,9 +269,24 @@
                                     <i class="far fa-user"></i>
                                 </a>
                                 <ul class="dropdown-list">
-                                    <li><a href="login-register.html">login</a></li>
-                                    <li><a href="login-register.html">register</a></li>
-                                    <li><a href="my-account.html">my account</a></li>
+                                    @if (Request.IsAuthenticated)
+                                    {
+                                        <li><a href="my-account.html">my account</a></li>
+                                        <li><a href="my-account.html">@User.Identity.GetUserName()</a></li>
+                                        <li>
+                                            @using (Html.BeginForm("Logout", "ALogin", new { Area = "Admin" }, FormMethod.Post))
+                                            {
+                                                @Html.AntiForgeryToken()
+                                                <input class="dropdown-item" type="submit" name="LogOut" value="LogOut" />
+                                            }
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li><a href="@Url.Action("Login","Account")">login</a></li>
+                                        <li><a href="@Url.Action("Register","Register")">register</a></li>
+
+                                    }
                                 </ul>
                             </div>
                             <div class="mini-cart-wrap">
@@ -281,7 +296,7 @@
                                 </a>
                             </div>
                             <div class="mini-cart-wrap">
-                                <a href="#" data-toggle="modal" data-target="#MiniCard" class="minicart-btn">
+                                <a href="@Url.Action("Index","Cart")" data-toggle="modal" data-target="#MiniCard" class="minicart-btn">
                                     <i class="fa fa-cart-arrow-down"></i>
                                     <div class="notification">2</div>
                                 </a>
