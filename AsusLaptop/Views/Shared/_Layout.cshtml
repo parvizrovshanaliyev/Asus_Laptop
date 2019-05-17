@@ -1,5 +1,31 @@
 ﻿@using Microsoft.AspNet.Identity
 
+@using AsusLaptop.DAL;
+@using AsusLaptop.Models;
+@{
+    AsusDbContext _context = new AsusDbContext();
+    List<Product> carts = new List<Product>();
+    int currentid = 0;
+    Product currentProduct = null;
+    bool isvalidId = false;
+    if (Request.Cookies["carts"] != null && Request.Cookies["carts"].Value != "")
+    {
+        string[] cartId = Request.Cookies["carts"].Value.Split('+');
+        foreach (string item in cartId)
+        {
+            isvalidId = int.TryParse(item, out currentid);
+            if (isvalidId)
+            {
+                currentProduct = _context.Products.FirstOrDefault(ad => ad.Id == currentid && ad.Status == true);
+                if (currentProduct != null)
+                {
+                    carts.Add(currentProduct);
+                }
+            }
+        }
+    }
+
+}
 <!doctype html>
 <html lang="en">
 
@@ -166,7 +192,7 @@
                                         <li>
                                             <a href="#" data-toggle="modal" data-target="#MiniCard" class="minicart-btn">
                                                 <i class="fa fa-cart-arrow-down"></i>
-                                                <div class="notification">2</div>
+                                                <div class="notification MiniCard-notification">@carts.Count</div>
                                             </a>
                                         </li>
                                     </ul>
@@ -339,24 +365,36 @@
                     <div class="modal-body pt-5 pr-4">
                         <div class="minicart-content-box">
                             <div class="minicart-item-wrapper">
-                                <ul>
-                                    <li class="minicart-item">
-                                        <div class="minicart-thumb">
-                                            <a href="product-details.html">
-                                                <img src="~/Public/template/img/product/mini.jpg" alt="product">
-                                            </a>
-                                        </div>
-                                        <div class="minicart-content">
-                                            <h3 class="product-name">
-                                                <a href="product-details.html">Dozen White Botanical </a>
-                                            </h3>
-                                            <p>
-                                                <span class="cart-quantity">1 <strong>×</strong></span>
-                                                <span class="cart-price">$100.00</span>
-                                            </p>
-                                        </div>
-                                        <button class="minicart-remove"><span aria-hidden="true">×</span></button>
-                                    </li>
+                                <ul class="mini-cart-items">
+                                    @if (carts.Count() > 0)
+                                    {
+                                        foreach (var item in carts)
+                                        {
+                                            <li class="minicart-item">
+                                                <div data-id="@item.Id" class="minicart-thumb">
+                                                    <a href="product-details.html">
+                                                        <img src="~/Public/img/@item.ImageS" alt="product">
+                                                    </a>
+                                                </div>
+                                                <div class="minicart-content">
+                                                    <h3 class="product-name">
+                                                        <a href="/product/name-@item.Category.Name.Replace(" ","")-@item.Model.Replace(" ","")/@item.Id">@item.Model</a>
+                                                    </h3>
+                                                    <p>
+                                                        <span class="cart-quantity">1 <strong>×</strong></span>
+                                                        <span class="cart-price">@item.Price.ToString("##.##")</span>
+                                                    </p>
+                                                </div>
+                                                <button class="minicart-remove"><span aria-hidden="true">×</span></button>
+                                            </li>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <li>
+                                            <p>İzləmə siyahısı boşdur.</p>
+                                        </li>
+                                    }
                                 </ul>
                             </div>
 

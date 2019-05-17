@@ -14,6 +14,58 @@ Table of content
 $(document).ready(function() {
   console.log("ssss");
 
+    $(".minicartBtn").click(function (e) {
+        e.preventDefault();
+        var id = $(this).data("id");
+        //alert(id);
+        $.ajax({
+            url: "/Cart/AddToCart",
+            data: { id: id },
+            type: "post",
+            datatype: "json",
+            success: function (res) {
+                if (res.status == 200) {
+                    alert("success");
+                    var count = parseInt($('.MiniCard-notification').html())
+                    if (count == 0) {
+                        $(".mini-cart-items").html("");
+                    }
+                    count++;
+                    $(".mini-cart-items").append(` <li class="minicart-item">
+                                                        <div data-id="${id}" class="minicart-thumb">
+                                                            <a href="/product/name-${res.category}-${res.name}/${id}">
+                                                                <img src="/Public/img/${res.image}" alt="product">
+                                                            </a>
+                                                        </div>
+                                                        <div class="minicart-content">
+                                                            <h3 class="product-name">
+                                                                <a href="/product/name-${res.category}-${res.name}/${id}">${res.name}"</a>
+                                                            </h3>
+                                                            <p>
+                                                                <span class="cart-quantity">1 <strong>×</strong></span>
+                                                                <span class="cart-price">${res.price}</span>
+                                                            </p>
+                                                        </div>
+                                                        <button data-id="${id}" class="minicart-remove"><span aria-hidden="true">×</span></button>
+                                                    </li>`)
+                    $('.MiniCard-notification').text(count);
+                } else {
+
+                    alert("error");
+                }// if (res.status == 204) {
+                //    alert("artiq var");
+                //}
+            }
+
+
+        });
+    })
+
+
+
+
+
+
   //  #region 1. Navbar window scroll Sticky menu start
   var $window = $(window);
   $window.on("scroll", function() {
