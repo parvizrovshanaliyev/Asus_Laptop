@@ -17,7 +17,7 @@ $(document).ready(function() {
     $(".minicartBtn").click(function (e) {
         e.preventDefault();
         var id = $(this).data("id");
-        //alert(id);
+        alert(id);
         $.ajax({
             url: "/Cart/AddToCart",
             data: { id: id },

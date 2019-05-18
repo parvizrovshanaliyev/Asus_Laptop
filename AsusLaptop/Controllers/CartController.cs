@@ -1,5 +1,6 @@
 ﻿using AsusLaptop.DAL;
 using AsusLaptop.Models;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,20 +26,36 @@ namespace AsusLaptop.Controllers
         //[Authorize]
         public ActionResult AddToCart(int? id )
         {
+
             if (id == null)
             {
                 return RedirectToAction("Index", "Home");
             }
+            Product product = _context.Products.FirstOrDefault(p => p.Id == id);
+
+
+
+
+
             //if (quantity == null)
             //{
 
             //    return RedirectToAction("Index", "Home");
             //}
-            Product product = _context.Products.FirstOrDefault(p => p.Id == id);
             
             if(product != null)
             {
-                if(Request.Cookies["carts"] == null)
+                if (User.Identity.IsAuthenticated)
+                {
+                    _context.Carts.Add(new Cart
+                    {
+                        ProductId = (int)id,
+                        UserAppId = User.Identity.GetUserId()
+                    });
+                    _context.SaveChanges();
+                }
+
+                if (Request.Cookies["carts"] == null)
                 {
                     HttpCookie cookie = new HttpCookie("carts")
                     {
@@ -50,7 +67,7 @@ namespace AsusLaptop.Controllers
                 }
                 else
                 {
-                    if(Request.Cookies["carts"].Value.Contains("+" + id.ToString() + "+"))
+                    if(!Request.Cookies["carts"].Value.Contains("+" + id.ToString() + "+"))
                     {
                         Request.Cookies["carts"].Value += id.ToString() + "+";
                        
