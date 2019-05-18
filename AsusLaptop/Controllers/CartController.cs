@@ -28,7 +28,6 @@ namespace AsusLaptop.Controllers
         {
             if (id == null)
             {
-                
                 return RedirectToAction("Index", "Home");
             }
             //if (quantity == null)
