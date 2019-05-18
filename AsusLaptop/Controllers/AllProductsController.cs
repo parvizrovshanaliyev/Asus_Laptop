@@ -27,14 +27,13 @@ namespace AsusLaptop.Controllers
                 if (orderBy == "cheap")
                 {
                     products = products.OrderBy(x => x.Price).ToList();
-                    ViewBag.sort = 2;
+                    //ViewBag.sort = 2;
 
                 }
                 else if (orderBy == "exp")
                 {
                     products = products.OrderByDescending(x => x.Price).ToList();
-                    ViewBag.sort = 3;
-
+                    //ViewBag.sort = 3;
                 }
             }
             return View(products.ToList());
