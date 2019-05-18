@@ -157,6 +157,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\ALoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\BannersController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BlogsController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoriesController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
@@ -728,6 +729,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\AdminLogin\" />
     <Folder Include="Public\img\banner\" />
+    <Folder Include="Public\img\blog\" />
     <Folder Include="Public\img\multiple\" />
     <Folder Include="Public\img\productsMultiples\" />
     <Folder Include="Public\img\products\" />
@@ -770,6 +772,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Areas\Admin\Views\Blogs\Index.cshtml" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

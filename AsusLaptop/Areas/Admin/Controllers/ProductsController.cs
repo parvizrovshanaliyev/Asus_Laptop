@@ -40,8 +40,9 @@ namespace AsusLaptop.Areas.Admin.Controllers
             ViewBag.Categories = categories;
             return View();
         }
+
         //, PhotoL, PhotoM , PhotoSmall
-        [HttpPost,ValidateAntiForgeryToken]
+        [HttpPost, ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Status , IsNew , Model , Price ,Discount, CategoryId, Dimensions , Weight , Display , Processor , Memory , Storage ,  Wireless , Ports , Colors , Graphic , PhotoL , PhotoM, PhotoSmall")]Product product, HttpPostedFileBase[] ProductImages)
         {
             List<SelectListItem> categories =
@@ -87,7 +88,7 @@ namespace AsusLaptop.Areas.Admin.Controllers
             if (_context.Products.Any(p => p.Model == product.Model))
             {
                 ModelState.AddModelError("Model", "This Model already exist");
-               
+
                 return View(product);
             }
             if (product.PhotoL == null)
@@ -126,7 +127,7 @@ namespace AsusLaptop.Areas.Admin.Controllers
             product.OperatingSystem = "Windows 10 Pro";
             _context.Products.Add(product);
             _context.SaveChanges();
-            return RedirectToAction("Index"); 
+            return RedirectToAction("Index");
         }
         #endregion
 
@@ -184,7 +185,7 @@ namespace AsusLaptop.Areas.Admin.Controllers
                     _context.Entry(productImage).State = EntityState.Added;
                 }
             }
-            if (product.PhotoL !=null && product.PhotoL!=null && product.PhotoSmall != null)
+            if (product.PhotoL !=null && product.PhotoM!=null && product.PhotoSmall != null)
             {
                 if (!product.PhotoL.IsImage() && product.PhotoM.IsImage() && product.PhotoSmall.IsImage())
                 {
