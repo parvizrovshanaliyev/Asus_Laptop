@@ -166,6 +166,7 @@
     <Compile Include="Areas\Admin\Controllers\SlidersController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Areas\Admin\Models\AdminLogin.cs" />
+    <Compile Include="Controllers\AllProductsController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\BlogDetailsController.cs" />
     <Compile Include="Controllers\CartController.cs" />
@@ -718,6 +719,7 @@
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Blog\Index.cshtml" />
     <Content Include="Views\BlogDetails\Index.cshtml" />
+    <Content Include="Views\AllProducts\Filter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
