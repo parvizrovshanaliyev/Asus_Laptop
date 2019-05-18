@@ -35,6 +35,41 @@ namespace AsusLaptop.Controllers
                     products = products.OrderByDescending(x => x.Price).ToList();
                     //ViewBag.sort = 3;
                 }
+                else if (orderBy == "4GB")
+                {
+                    products = products.Where(x => x.Memory.Contains("4GB")).ToList();
+                    //ViewBag.sort = 3;
+                }
+                else if (orderBy == "8GB")
+                {
+                    products = products.Where(x => x.Memory.Contains("8GB")).ToList();
+                    //ViewBag.sort = 3;
+                }
+                else if (orderBy == "16GB")
+                {
+                    products = products.Where(x => x.Memory.Contains("8GB")).ToList();
+                    //ViewBag.sort = 3;
+                }
+                else if (orderBy == "32GB")
+                {
+                    products = products.Where(x => x.Memory.Contains("8GB")).ToList();
+                    //ViewBag.sort = 3;
+                }
+                else if (orderBy == "256GB")
+                {
+                    products = products.Where(x => x.Storage.Contains("256GB")).ToList();
+                    //ViewBag.sort = 3;
+                }
+                else if (orderBy == "512GB")
+                {
+                    products = products.Where(x => x.Storage.Contains("512GB")).ToList();
+                    //ViewBag.sort = 3;
+                }
+                else if (orderBy == "1TB")
+                {
+                    products = products.Where(x => x.Storage.Contains("1TB")).ToList();
+                    //ViewBag.sort = 3;
+                }
             }
             return View(products.ToList());
         }

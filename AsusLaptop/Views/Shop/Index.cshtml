@@ -84,6 +84,39 @@
 
                     </div>
                     <!-- single sidebar end -->
+                    <!-- single sidebar start memory -->
+                    <div class="sidebar-single d-none  d-lg-block">
+                        <div class="blog-sidebar">
+                            <h3 class="title">Memory</h3>
+                            <div class="sidebar-body">
+                                <ul class="shop-categories">
+                                    <li><a href="/AllProducts/Filter?orderBy=4GB">4GB</a></li>
+                                    <li><a href="/AllProducts/Filter?orderBy=8GB">8GB</a></li>
+                                    <li><a href="/AllProducts/Filter?orderBy=16GB">16GB</a></li>
+                                    <li><a href="/AllProducts/Filter?orderBy=32GB">32GB</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- single sidebar end -->
+                    
+                    <!-- single sidebar start storage -->
+                    <div class="sidebar-single d-none  d-lg-block">
+                        <div class="blog-sidebar">
+                            <h3 class="title">Storage</h3>
+                            <div class="sidebar-body">
+                                <ul class="shop-categories">
+                                    <li><a href="/AllProducts/Filter?orderBy=256GB">256GB</a></li>
+                                    <li><a href="/AllProducts/Filter?orderBy=512GB">512GB</a></li>
+                                    <li><a href="/AllProducts/Filter?orderBy=1TB">1TB</a></li>
+                                    @*<li><a href="/AllProducts/Filter?orderBy=32GB">32GB</a></li>*@
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- single sidebar end -->
                     <!-- mobile categories -->
                     <div class="row d-lg-none  d-md-block">
                         <div class="col-12">
@@ -117,9 +150,8 @@
 
                                 <div class="card">
                                     <h3>
-                                        Price <span data-toggle="collapse" data-target="#couponaccordion">
-                                            Click
-                                            Price filter
+                                        Filter <span data-toggle="collapse" data-target="#couponaccordion">
+                                            Click Filter
                                         </span>
                                     </h3>
                                     <div id="couponaccordion" class="collapse" data-parent="#checkOutAccordion">
@@ -131,37 +163,40 @@
                                                         <h3 class="title">Price</h3>
                                                         <div class="sidebar-body">
                                                             <ul class="checkbox-container categories-list">
-                                                                <li>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input type="checkbox"
-                                                                               class="custom-control-input"
-                                                                               id="customCheck2">
-                                                                        <label class="custom-control-label"
-                                                                               for="customCheck2">100$</label>
-                                                                    </div>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input type="checkbox"
-                                                                               class="custom-control-input"
-                                                                               id="customCheck3">
-                                                                        <label class="custom-control-label"
-                                                                               for="customCheck3">
-                                                                            200
-                                                                            <script defer
-                                                                                    src=""></script>
-                                                                        </label>
-                                                                    </div>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input type="checkbox"
-                                                                               class="custom-control-input"
-                                                                               id="customCheck4">
-                                                                        <label class="custom-control-label"
-                                                                               for="customCheck4">1000$</label>
-                                                                    </div>
-                                                                </li>
+                                                                <li><a href="/AllProducts/Filter?orderBy=exp">Price high to low</a></li>
+                                                                <li><a href="/AllProducts/Filter?orderBy=cheap">Price low to high</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <!-- single sidebar end -->
+                                                <!-- single sidebar start memory -->
+                                                <div class="sidebar-single">
+                                                    <div class="blog-sidebar">
+                                                        <h3 class="title">Memory</h3>
+                                                        <div class="sidebar-body">
+                                                            <ul class="shop-categories">
+                                                                <li><a href="/AllProducts/Filter?orderBy=4GB">4GB</a></li>
+                                                                <li><a href="/AllProducts/Filter?orderBy=8GB">8GB</a></li>
+                                                                <li><a href="/AllProducts/Filter?orderBy=16GB">16GB</a></li>
+                                                                <li><a href="/AllProducts/Filter?orderBy=32GB">32GB</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <!-- single sidebar end -->
+                                                <!-- single sidebar start storage -->
+                                                <div class="sidebar-single">
+                                                    <div class="blog-sidebar">
+                                                        <h3 class="title">Storage</h3>
+                                                        <div class="sidebar-body">
+                                                            <ul class="shop-categories">
+                                                                <li><a href="/AllProducts/Filter?orderBy=256GB">256GB</a></li>
+                                                                <li><a href="/AllProducts/Filter?orderBy=512GB">512GB</a></li>
+                                                                <li><a href="/AllProducts/Filter?orderBy=1TB">1TB</a></li>
+                                                                @*<li><a href="/AllProducts/Filter?orderBy=32GB">32GB</a></li>*@
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -295,7 +330,7 @@
 <!-- #endregion  Quick view modal end -->
 @section scripts{
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    
+
     <script type="text/javascript">
         $(document).ready(function () {
         var SkipProductCount =@Model.Count();
