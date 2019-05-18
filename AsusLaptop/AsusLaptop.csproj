@@ -773,6 +773,9 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Areas\Admin\Views\Blogs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Blogs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Blogs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Blogs\Details.cshtml" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

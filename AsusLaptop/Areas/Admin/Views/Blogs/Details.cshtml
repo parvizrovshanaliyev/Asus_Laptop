@@ -1,0 +1,83 @@
+﻿@model AsusLaptop.Models.Blog
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Blog</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageL)
+        </dt>
+
+        <dd>
+            <img src="~/Public/img/@Model.ImageL"  alt="Alternate Text" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageS)
+        </dt>
+
+        <dd>
+            <img src="~/Public/img/@Model.ImageS"  alt="Alternate Text" />
+
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateAt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateAt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdateAt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdateAt)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
