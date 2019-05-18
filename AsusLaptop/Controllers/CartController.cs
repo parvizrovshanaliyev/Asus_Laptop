@@ -17,7 +17,6 @@ namespace AsusLaptop.Controllers
         {
             _context = new AsusDbContext();
         }
-
         public ActionResult Index()
         {
             return View();
