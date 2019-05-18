@@ -23,7 +23,6 @@ namespace AsusLaptop.Controllers
 
             if (!string.IsNullOrEmpty(orderBy))
             {
-                
                 if (orderBy == "cheap")
                 {
                     products = products.OrderBy(x => x.Price).ToList();
