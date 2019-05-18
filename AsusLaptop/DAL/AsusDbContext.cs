@@ -28,7 +28,8 @@ namespace AsusLaptop.DAL
         public DbSet<Banner> Banners { get; set; }
         public DbSet<Cart> Carts { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
-        public DbSet<Imgsmultiple> Imgsmultiples { get; set; }
+        
+        public DbSet<Blog> Blogs { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
