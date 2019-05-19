@@ -72,7 +72,8 @@ namespace AsusLaptop.Controllers
                     {
                         return Json(new
                         {
-                            status = 204
+                            status = 204,
+                            message = "This Product Exists"
                         });
                     }
                 }
@@ -99,14 +100,14 @@ namespace AsusLaptop.Controllers
             }
         }
 
-        public ActionResult DeleteToCart(int? id)
+        public ActionResult DeleteFromCart(int? id)
         {
             if (id == null)
             {
                 return Json(new
                 {
                     status = 404,
-                    message = "not found"
+                    message = "id not found"
                 },JsonRequestBehavior.AllowGet);
             }
             Product product = _context.Products.FirstOrDefault(p => p.Id == id);
@@ -140,14 +141,15 @@ namespace AsusLaptop.Controllers
                 {
                     return Json(new
                     {
-                        status = 204
+                        status = 204,
+                        message = "oops"
                     },JsonRequestBehavior.AllowGet);
                 }
             }
             return Json(new
             {
                 status = 404,
-                message = "not found"
+                message = "product not found"
             });
         }
     }

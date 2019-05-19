@@ -357,7 +357,7 @@
                 <div class="modal-content">
 
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close " data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -365,7 +365,7 @@
                     <div class="modal-body pt-5 pr-4">
                         <div class="minicart-content-box">
                             <div class="minicart-item-wrapper">
-                                <ul class="mini-cart-items">
+                                <ul class="mini-cart-items mCartItems">
                                     @if (carts.Count() > 0)
                                     {
                                         foreach (var item in carts)
@@ -577,6 +577,7 @@
     <script src="~/Public/template/plugin_product_slider/js/lightslider.js"></script>
     <script src="~/Public/template/Animated-Tabs-anitabs/js/anitabs.js"></script>
     <!-- <script src="assets/plugin_product_slider/js/lightslider.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script src="~/Public/template/js/slick-custom.js"></script>
     @RenderSection("scripts", required: false)
     <script src="~/Public/template/js/app.js"></script>

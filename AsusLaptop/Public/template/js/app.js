@@ -17,7 +17,7 @@ $(document).ready(function() {
     $(document).on("click", ".minicartBtn",function (e) {
         e.preventDefault();
         var id = $(this).data("id");
-        alert(id);
+        
         $.ajax({
             url: "/Cart/AddToCart",
             data: { id: id },
@@ -25,7 +25,13 @@ $(document).ready(function() {
             datatype: "json",
             success: function (res) {
                 if (res.status == 200) {
-                    alert("success");
+                    Swal.fire({
+                        
+                        type: 'success',
+                        title: 'Your Product Added to MiniCart',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
                     var count = parseInt($('.MiniCard-notification').html())
                     if (count == 0) {
                         $(".mini-cart-items").html("");
@@ -49,12 +55,17 @@ $(document).ready(function() {
                                                     </li>`)
                     $('.MiniCard-notification').text(count);
                     updatetotal();
-                } else {
+                }
+                else if (res.status == 204) {
 
-                    alert("error");
-                }// if (res.status == 204) {
-                //    alert("artiq var");
-                //}
+                    Swal.fire({
+
+                        type: 'error',
+                        title: res.message,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
             }
 
 
@@ -67,20 +78,48 @@ $(document).ready(function() {
         
         var productId = $(this).parent().data("id");
         var element = $(this).parent();
-        console.log(element);
+        //console.log(element);
         $.ajax({
 
-            url: "/Cart/DeleteToCart",
+            url: "/Cart/DeleteFromCart",
             data: { id: productId },
             type: "post",
             datatype: "json",
             success: function (res) {
                 if (res.status == 200) {
-                    alert("success");
+                    Swal.fire({
+
+                        type: 'success',
+                        title: 'Your Product Remove from MiniCart',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
                     $(element).remove();
+                    
                     updatetotal();
-                } else {
-                    alert("error");
+
+                    //if ($(".mCartItems").html("")) {
+                    //    $(".modal-header .close").trigger("click");
+                    //}
+                } else if (res.status == 204) {
+
+                    Swal.fire({
+
+                        type: 'error',
+                        title: res.message,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+                else if (res.status == 404) {
+
+                    Swal.fire({
+
+                        type: 'error',
+                        title: res.message,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
                 }
 
             }
@@ -360,7 +399,7 @@ $(document).ready(function() {
 
   // #region compare desktop modal 
   var compareingcount = 0;
-  $("input:checkbox[name=cp]").on("change", function() {
+    $(document).on("change", "input:checkbox[name=cp]", function() {
     
     var line = $("#line");
     if ($(this).is(":checked")) {
