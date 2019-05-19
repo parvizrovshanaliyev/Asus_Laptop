@@ -45,7 +45,7 @@ $(document).ready(function() {
                                                         </div>
                                                         <div class="minicart-content">
                                                             <h3 class="product-name">
-                                                                <a href="/product/name-${res.category}-${res.name}/${id}">${res.name}"</a>
+                                                                <a href="/product/name-${res.category}-${res.name}/${id}">${res.category}<br />${res.name}"</a>
                                                             </h3>
                                                             <p>
                                                                 <span class="cart-price">${Number(res.price) - (Number(res.price) * Number(res.discount) / 100)}</span>
