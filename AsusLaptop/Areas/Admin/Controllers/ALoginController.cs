@@ -87,28 +87,48 @@ namespace AsusLaptop.Areas.Admin.Controllers
 
 
                 }
-                if (!string.IsNullOrEmpty(returnURL))
+                if (UserManagerApp.IsInRole(currentUser.Id, "admin"))
                 {
-
-                    return Redirect(returnURL);
-                }
-                else
-                {
-                    if (UserManagerApp.IsInRole(currentUser.Id, "admin"))
+                    if (!string.IsNullOrEmpty(returnURL))
                     {
-                        return RedirectToAction("Index", "Home", new { Area = "Admin" });
+                        return Redirect(returnURL);
                     }
-
+                    return RedirectToAction("Index", "Home", new { Area = "Admin" });
                 }
+
+                if (_context.Carts.Any(x=>x.UserAppId == currentUser.Id))
+                {
+                    foreach (var item in _context.Carts.Where(x => x.UserAppId == currentUser.Id))
+                    {
+                        if (Request.Cookies["carts"] == null)
+                        {
+                            HttpCookie cookie = new HttpCookie("carts")
+                            {
+                                Value = "+" + item.ProductId.ToString() + "+",
+                                Expires = DateTime.Now.AddDays(10)
+                            };
+
+                            Response.Cookies.Add(cookie);
+                        }
+                        else
+                        {
+                            if (!Request.Cookies["carts"].Value.Contains("+" + item.ProductId.ToString() + "+"))
+                            {
+                                Request.Cookies["carts"].Value += item.ProductId.ToString() + "+";
+
+                                Response.Cookies.Add(Request.Cookies["carts"]);
+                            }
+                        }
+                    }
+                }
+
                 if (!string.IsNullOrEmpty(returnURL))
                 {
-
                     return Redirect(returnURL);
                 }
-                else
-                {
-                    return RedirectToAction("Index", "Home", new { Area = "" });
-                }
+                return RedirectToAction("Index", "Home", new { Area = "" });
+
+                
             }
             else
             {

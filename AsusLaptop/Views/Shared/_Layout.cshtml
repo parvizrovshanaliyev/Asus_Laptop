@@ -370,7 +370,7 @@
                                     {
                                         foreach (var item in carts)
                                         {
-                                            <li class="minicart-item">
+                                            <li data-id="@item.Id" data-price="@((item.Price - (item.Price * item.Discount / 100)).ToString("##.###") )" class="minicart-item mini-product-cart">
                                                 <div data-id="@item.Id" class="minicart-thumb">
                                                     <a href="product-details.html">
                                                         <img src="~/Public/img/@item.ImageS" alt="product">
@@ -378,14 +378,17 @@
                                                 </div>
                                                 <div class="minicart-content">
                                                     <h3 class="product-name">
-                                                        <a href="/product/name-@item.Category.Name.Replace(" ","")-@item.Model.Replace(" ","")/@item.Id">@item.Model</a>
+                                                        <a href="/product/name-@item.Category.Name.Replace(" ", "")-@item.Model.Replace(" ", "")/@item.Id">@item.Model</a>
                                                     </h3>
                                                     <p>
-                                                        <span class="cart-quantity">1 <strong>×</strong></span>
-                                                        <span class="cart-price">@item.Price.ToString("##.##")</span>
+                                                        @* <span class="cart-quantity">1 <strong>×</strong></span>*@
+                                                        <span class="cart-price">@((item.Price - (item.Price * item.Discount / 100)).ToString("##.###") )</span>
+
                                                     </p>
+
                                                 </div>
-                                                <button class="minicart-remove"><span aria-hidden="true">×</span></button>
+
+                                                <button class="minicart-remove mcremove"><span aria-hidden="true">×</span></button>
                                             </li>
                                         }
                                     }
@@ -400,21 +403,22 @@
 
                             <div class="minicart-pricing-box">
                                 <ul>
-                                    <li>
-                                        <span>sub-total</span>
-                                        <span><strong>$300.00</strong></span>
-                                    </li>
-                                    <li>
-                                        <span>Eco Tax (-2.00)</span>
-                                        <span><strong>$10.00</strong></span>
-                                    </li>
-                                    <li>
-                                        <span>VAT (20%)</span>
-                                        <span><strong>$60.00</strong></span>
-                                    </li>
+                                    @*<li>
+                                            <span>sub-total</span>
+                                            <span><strong>$300.00</strong></span>
+                                        </li>
+                                        <li>
+                                            <span>Eco Tax (-2.00)</span>
+                                            <span><strong>$10.00</strong></span>
+                                        </li>
+                                        <li>
+                                            <span>VAT (20%)</span>
+                                            <span><strong>$60.00</strong></span>
+                                        </li>*@
+
                                     <li class="total">
                                         <span>total</span>
-                                        <span><strong>$370.00</strong></span>
+                                        <span><strong id="totalMCart"></strong></span>
                                     </li>
                                 </ul>
                             </div>

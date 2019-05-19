@@ -13,8 +13,8 @@ Table of content
 // $('.container').loader('show','<img src="loader.gif">');
 $(document).ready(function() {
   console.log("ssss");
-
-    $(".minicartBtn").click(function (e) {
+    updatetotal();
+    $(document).on("click", ".minicartBtn",function (e) {
         e.preventDefault();
         var id = $(this).data("id");
         alert(id);
@@ -31,7 +31,7 @@ $(document).ready(function() {
                         $(".mini-cart-items").html("");
                     }
                     count++;
-                    $(".mini-cart-items").append(` <li class="minicart-item">
+                    $(".mini-cart-items").append(` <li data-price="${Number(res.price) - (Number(res.price) * Number(res.discount) / 100)}" data-id="${id}" class="minicart-item mini-product-cart">
                                                         <div data-id="${id}" class="minicart-thumb">
                                                             <a href="/product/name-${res.category}-${res.name}/${id}">
                                                                 <img src="/Public/img/${res.image}" alt="product">
@@ -42,13 +42,13 @@ $(document).ready(function() {
                                                                 <a href="/product/name-${res.category}-${res.name}/${id}">${res.name}"</a>
                                                             </h3>
                                                             <p>
-                                                                <span class="cart-quantity">1 <strong>×</strong></span>
-                                                                <span class="cart-price">${res.price}</span>
+                                                                <span class="cart-price">${Number(res.price) - (Number(res.price) * Number(res.discount) / 100)}</span>
                                                             </p>
                                                         </div>
-                                                        <button data-id="${id}" class="minicart-remove"><span aria-hidden="true">×</span></button>
+                                                        <button data-id="${id}" class="minicart-remove mcremove"><span aria-hidden="true">×</span></button>
                                                     </li>`)
                     $('.MiniCard-notification').text(count);
+                    updatetotal();
                 } else {
 
                     alert("error");
@@ -61,8 +61,41 @@ $(document).ready(function() {
         });
     })
 
+    //delete mini cart item 
 
+    $(document).on("click", ".mcremove", function () {
+        
+        var productId = $(this).parent().data("id");
+        var element = $(this).parent();
+        console.log(element);
+        $.ajax({
 
+            url: "/Cart/DeleteToCart",
+            data: { id: productId },
+            type: "post",
+            datatype: "json",
+            success: function (res) {
+                if (res.status == 200) {
+                    alert("success");
+                    $(element).remove();
+                    updatetotal();
+                } else {
+                    alert("error");
+                }
+
+            }
+
+        });
+    });
+
+    function updatetotal () {
+        var cps = $('.mini-product-cart');
+        var total = 0;
+        for (var i = 0; i < cps.length; i++) {
+            total += $(cps[i]).data("price");
+        }
+        $("#totalMCart").text(total);
+    }
 
 
 

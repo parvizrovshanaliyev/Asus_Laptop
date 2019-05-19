@@ -32,16 +32,7 @@ namespace AsusLaptop.Controllers
                 return RedirectToAction("Index", "Home");
             }
             Product product = _context.Products.FirstOrDefault(p => p.Id == id);
-
-
-
-
-
-            //if (quantity == null)
-            //{
-
-            //    return RedirectToAction("Index", "Home");
-            //}
+            
             
             if(product != null)
             {
@@ -91,6 +82,7 @@ namespace AsusLaptop.Controllers
                     category = product.Category.Name.Replace(" ", "-"),
                     image = product.ImageS,
                     price = product.Price.ToString("##.##"),
+                    discount = product.Discount,
                     status = 200
 
                 });
@@ -105,6 +97,58 @@ namespace AsusLaptop.Controllers
 
                 });
             }
+        }
+
+        public ActionResult DeleteToCart(int? id)
+        {
+            if (id == null)
+            {
+                return Json(new
+                {
+                    status = 404,
+                    message = "not found"
+                },JsonRequestBehavior.AllowGet);
+            }
+            Product product = _context.Products.FirstOrDefault(p => p.Id == id);
+
+            if(product != null)
+            {
+                if (User.Identity.IsAuthenticated)
+                {
+                    var usid = User.Identity.GetUserId();
+                    var productCart=_context.Carts.FirstOrDefault(p => p.ProductId == id&&p.UserAppId == usid);
+                    if (productCart!=null)
+                    {
+                        _context.Carts.Remove(productCart);
+                        _context.SaveChanges();
+                    }
+                }
+
+                if (Request.Cookies["carts"].Value.Contains("+" + id.ToString() + "+"))
+                {
+                    var cookie = Request.Cookies["carts"].Value;
+                    Request.Cookies["carts"].Value=cookie.Replace(id+"+","");
+
+                    Response.Cookies.Add(Request.Cookies["carts"]);
+                    return Json(new
+                    {
+                        status = 200,
+                        message="success"
+                    },JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    return Json(new
+                    {
+                        status = 204
+                    },JsonRequestBehavior.AllowGet);
+                }
+            }
+            return Json(new
+            {
+                status = 404,
+                message = "not found"
+            });
         }
     }
 }
