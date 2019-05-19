@@ -7,6 +7,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Net;
@@ -138,50 +139,22 @@ namespace AsusLaptop.Areas.Admin.Controllers
            
         }
 
-        //private void RemoveLogin(bool RememberMe)
-        //{
-        //    if(RememberMe == false)
-        //    {
-               
-        //        HttpContext.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-        //    }
-        //}
-        ///logout
-        ///
+        
+
+
         [HttpPost, ValidateAntiForgeryToken, AllowAnonymous]
-        public ActionResult Logout(string returnURL)
+        public ActionResult Logout()
         {
-            //if (!string.IsNullOrEmpty(returnURL))
-            //{
-            //    HttpContext.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-
-            //    return Redirect(returnURL);
-            //}
-            //else
-            //{
-            //    var user = User.Identity.GetUserId();
-            //    if (UserManagerApp.IsInRole(user, "admin"))
-            //    {
-            //        HttpContext.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-
-            //        return RedirectToAction("Index", "Home", new { Area = "Admin" });
-            //    }
-
-            //}
-            //if (!string.IsNullOrEmpty(returnURL))
-            //{
-            //    HttpContext.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-
-            //    return Redirect(returnURL);
-            //}
-            //else
-            //{
-            //    HttpContext.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-
-            //    return RedirectToAction("Index", "Home", new { Area = "" });
-            //}
+            var user = User.Identity.GetUserId();
+            if (UserManagerApp.IsInRole(user, "admin"))
+            {
+                HttpContext.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+                return RedirectToAction("Login");
+            }
             HttpContext.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Login");
+            return RedirectToAction("Index", "Home", new { Area = "" });
+            
         }
+       
     }
 }
