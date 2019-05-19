@@ -150,7 +150,7 @@ namespace AsusLaptop.Controllers
             {
                 status = 404,
                 message = "product not found"
-            });
+            }, JsonRequestBehavior.AllowGet);
         }
     }
 }
