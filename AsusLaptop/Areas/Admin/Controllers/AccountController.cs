@@ -19,10 +19,10 @@ using System.Web.Mvc;
 namespace AsusLaptop.Areas.Admin.Controllers
 {
     
-    public class ALoginController : Controller
+    public class AccountController : Controller
     {
         private readonly AsusDbContext _context;
-        public ALoginController()
+        public AccountController()
         {
             _context = new AsusDbContext();
         }
@@ -138,7 +138,6 @@ namespace AsusLaptop.Areas.Admin.Controllers
             
            
         }
-
         
 
         [HttpPost, ValidateAntiForgeryToken, AllowAnonymous]

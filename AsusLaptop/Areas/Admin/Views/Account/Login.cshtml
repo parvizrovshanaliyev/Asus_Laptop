@@ -41,7 +41,7 @@
     <div class="login-area login-s2">
         <div class="container">
             <div class="login-box ptb--100">
-                <form action="@Url.Action("Login","ALogin")" method="post">
+                <form action="@Url.Action("Login","Account")" method="post">
                     @Html.AntiForgeryToken()
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     <div class="login-form-head">
@@ -62,14 +62,14 @@
                             <i class="ti-lock"></i>
                             @Html.ValidationMessage("Password", "", new { @class = "text-danger" })
                         </div>
-                        <div class="row mb-4 rmber-area">
+                        @*<div class="row mb-4 rmber-area">
                             <div class="col-6">
                                 <div class="custom-control custom-checkbox mr-sm-2">
-                                    @Html.CheckBoxFor(m => m.RememberMe ,new { @class="custom-control-input"})
-                                    @Html.LabelFor(m => m.RememberMe,new { @class="custom-control-label"})
+                                    @Html.CheckBoxFor(m => m.RememberMe, new { @class = "custom-control-input" })
+                                    @Html.LabelFor(m => m.RememberMe, new { @class = "custom-control-label" })
                                 </div>
                             </div>
-                        </div>
+                        </div>*@
                         <div class="submit-btn-area">
                             <button id="form_submit" type="submit">Submit <i class="ti-arrow-right"></i></button>
                         </div>
@@ -111,61 +111,7 @@
     </script>
 </body>
 
-<!-- Mirrored from colorlib.com/polygon/srtdash/login2.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 02 May 2019 09:19:32 GMT -->
+
 </html>
 
-@*<!DOCTYPE html>
 
-    <html>
-    <head>
-        <meta name="viewport" content="width=device-width" />
-        <title>Login</title>
-    </head>
-    <body>
-        @using (Html.BeginForm())
-        {
-            @Html.AntiForgeryToken()
-
-            <div class="form-horizontal">
-                <h4>AdminLogin</h4>
-                <hr />
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.RemmemberMe, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        <div class="checkbox">
-                            @Html.EditorFor(model => model.RemmemberMe)
-                            @Html.ValidationMessageFor(model => model.RemmemberMe, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Create" class="btn btn-default" />
-                    </div>
-                </div>
-            </div>
-        }
-
-        <div>
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    </body>
-    </html>*@

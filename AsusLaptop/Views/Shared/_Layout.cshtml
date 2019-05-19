@@ -166,7 +166,7 @@
                                                     <li><a href="my-account.html">my account</a></li>
                                                     <li><a href="my-account.html">@User.Identity.GetUserName()</a></li>
                                                     <li>
-                                                        @using (Html.BeginForm("Logout", "ALogin", new { Area = "Admin" }, FormMethod.Post))
+                                                        @using (Html.BeginForm("Logout", "Account", new { Area = "Admin" }, FormMethod.Post))
                                                         {
                                                             @Html.AntiForgeryToken()
                                                             <input class="dropdown-item" type="submit" name="LogOut" value="LogOut" />

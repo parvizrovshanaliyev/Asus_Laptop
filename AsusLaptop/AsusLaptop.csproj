@@ -155,7 +155,7 @@
     <Compile Include="App_Start\OwinStartup.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\ALoginController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\BannersController.cs" />
     <Compile Include="Areas\Admin\Controllers\BlogsController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoriesController.cs" />
@@ -746,7 +746,6 @@
     <Content Include="Areas\Admin\Views\Users\Create.cshtml" />
     <Content Include="Areas\Admin\Views\RoleToUser\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Users\Confirm.cshtml" />
-    <Content Include="Areas\Admin\Views\ALogin\Login.cshtml" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Categories\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Categories\Create.cshtml" />
@@ -776,6 +775,7 @@
     <Content Include="Areas\Admin\Views\Blogs\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Blogs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Blogs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\Login.cshtml" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

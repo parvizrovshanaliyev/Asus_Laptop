@@ -22,7 +22,7 @@ namespace AsusLaptop.Areas.Admin
                 url: "Account/{action}/{id}",
                 defaults: new
                 {
-                    controller = "ALogin",
+                    controller = "Account",
                     action = "Login",
                     id = UrlParameter.Optional
                 },

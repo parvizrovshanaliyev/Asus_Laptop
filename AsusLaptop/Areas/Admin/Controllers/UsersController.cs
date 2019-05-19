@@ -148,7 +148,7 @@ namespace AsusLaptop.Areas.Admin.Controllers
             if (result.Succeeded)
             {
                
-                return RedirectToAction("Login", "ALogin");
+                return RedirectToAction("Login", "Account");
 
             }
             else

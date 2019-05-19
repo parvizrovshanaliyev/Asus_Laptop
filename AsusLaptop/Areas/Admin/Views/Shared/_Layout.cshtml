@@ -281,7 +281,7 @@
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="#">Message</a>
                                     <a class="dropdown-item" href="#">Settings</a>
-                                    @using (Html.BeginForm("Logout", "ALogin", FormMethod.Post))
+                                    @using (Html.BeginForm("Logout", "Account", FormMethod.Post))
                                     {
                                         @Html.AntiForgeryToken()
 
