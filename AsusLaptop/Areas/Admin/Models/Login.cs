@@ -6,7 +6,7 @@ using System.Web;
 
 namespace AsusLaptop.Areas.Admin.Models
 {
-    public class AdminLogin
+    public class Login
     {
         [StringLength(100), EmailAddress, Required]
         public string Email { get; set; }

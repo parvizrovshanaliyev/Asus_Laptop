@@ -165,7 +165,7 @@
     <Compile Include="Areas\Admin\Controllers\RoleToUserController.cs" />
     <Compile Include="Areas\Admin\Controllers\SlidersController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
-    <Compile Include="Areas\Admin\Models\AdminLogin.cs" />
+    <Compile Include="Areas\Admin\Models\Login.cs" />
     <Compile Include="Controllers\AllProductsController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\BlogDetailsController.cs" />

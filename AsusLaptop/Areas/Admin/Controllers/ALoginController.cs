@@ -51,25 +51,25 @@ namespace AsusLaptop.Areas.Admin.Controllers
 
 
         [AllowAnonymous,HttpPost,ValidateAntiForgeryToken]
-        public  async Task<ActionResult> Login(AdminLogin admin,  string returnURL)
+        public  async Task<ActionResult> Login(Login userI,  string returnURL)
         
 {
             if (ModelState.IsValid)
             {
-                UserApp user = UserManagerApp.FindByEmail(admin.Email);
+                UserApp user = UserManagerApp.FindByEmail(userI.Email);
 
                 if (user == null)
                 {
                     ModelState.AddModelError("Email", "Email incorrect");
-                    return View(admin);
+                    return View(userI);
                 }
 
-                UserApp currentUser = await UserManagerApp.FindAsync(user.UserName, admin.Password);
+                UserApp currentUser = await UserManagerApp.FindAsync(user.UserName, userI.Password);
 
                 if (currentUser == null)
                 {
                     ModelState.AddModelError("Password", "Password incorrect");
-                    return View(admin);
+                    return View(userI);
                 }
                 else
                 {
@@ -133,7 +133,7 @@ namespace AsusLaptop.Areas.Admin.Controllers
             }
             else
             {
-                return View(admin);
+                return View(userI);
             }
             
            
