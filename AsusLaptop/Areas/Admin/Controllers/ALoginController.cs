@@ -141,7 +141,6 @@ namespace AsusLaptop.Areas.Admin.Controllers
 
         
 
-
         [HttpPost, ValidateAntiForgeryToken, AllowAnonymous]
         public ActionResult Logout()
         {
