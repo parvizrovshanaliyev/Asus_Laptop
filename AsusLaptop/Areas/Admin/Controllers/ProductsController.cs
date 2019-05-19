@@ -12,6 +12,7 @@ using static AsusLaptop.Utilities.Utilities;
 
 namespace AsusLaptop.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class ProductsController : Controller
     {
         private readonly AsusDbContext _context;

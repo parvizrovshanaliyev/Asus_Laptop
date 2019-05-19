@@ -13,6 +13,7 @@ using System.Web.Mvc;
 
 namespace AsusLaptop.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class RoleToUserController : Controller
     {
         public UserManagerApp UserManagerApp

@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace AsusLaptop.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class CategoriesController : Controller
     {
         private readonly AsusDbContext _context;

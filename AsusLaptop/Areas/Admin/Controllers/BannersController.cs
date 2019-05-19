@@ -10,6 +10,7 @@ using static AsusLaptop.Utilities.Utilities;
 
 namespace AsusLaptop.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class BannersController : Controller
     {
         private readonly AsusDbContext _context;
