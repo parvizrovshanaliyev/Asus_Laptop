@@ -5,6 +5,7 @@ namespace AsusLaptop.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using System.Web.Helpers;
 
     internal sealed class Configuration : DbMigrationsConfiguration<AsusLaptop.DAL.AsusDbContext>
     {
@@ -15,6 +16,26 @@ namespace AsusLaptop.Migrations
 
         protected override void Seed(AsusLaptop.DAL.AsusDbContext context)
         {
+            context.Roles.AddOrUpdate(r => new { r.Name }, new RoleApp { Name = "admin" }, new RoleApp { Name = "member" });
+
+            context.Users.AddOrUpdate(u => new { u.Email, u.UserName },
+
+               new Models.UserApp
+               {
+
+                   Email = "parviz@gmail.com",
+                   UserName = "parvizra",
+                   Fullname="ParvizRA",
+                   Status = true,
+                   PasswordHash = Crypto.HashPassword("parviz123"),
+                   SecurityStamp = Crypto.Hash(DateTime.Now.ToString("yyyyMMddHHmmssfff")),
+               });
+
+            context.AspNetUserRoles.Add(new AspNetUserRole
+            {
+                UserId = "44b8d597-3913-4d59-bb43-a9faad0c48ed",
+                RoleId = "fdea3a88-9798-47fa-9ae6-3cd6560d1409",
+            });
 
             context.Products.AddOrUpdate(p => new { p.Model },
                 
