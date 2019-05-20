@@ -79,6 +79,7 @@ $(document).ready(function() {
     $(document).on("click", ".mcremove", function () {
         
         var productId = $(this).parent().data("id");
+        //var checkProductId = $(this).parent();
         var element = $(this).parent();
         var elementCheck = $(".Checkelement").data("id");
         var elemCheck = $(".Checkelement");
@@ -101,12 +102,11 @@ $(document).ready(function() {
                     })
                     $(element).remove();
                     $(".Checkelement[id=" + elementCheck + "]").remove();
-                    
                     updatetotal();
                     var notificationCount = parseInt($('.MiniCard-notification').html());
-                    console.log(notificationCount)
+                    //console.log(notificationCount)
                     notificationCount = notificationCount - 1;
-                    console.log(notificationCount)
+                    //console.log(notificationCount)
                     $('.MiniCard-notification').text(notificationCount);
                     
                 } else if (res.status == 204) {
