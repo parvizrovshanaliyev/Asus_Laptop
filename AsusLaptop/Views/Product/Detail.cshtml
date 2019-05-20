@@ -14,9 +14,9 @@
                             <h1>product details</h1>
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item">
-                                    <a href="index.html"><i class="fa fa-home"></i></a>
+                                    <a href="@Url.Action("Index","Home")"><i class="fa fa-home"></i></a>
                                 </li>
-                                <li class="breadcrumb-item active"><a href="shop.html">shop</a></li>
+                                <li class="breadcrumb-item active"><a href="@Url.Action("Index","Shop")">shop</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">product details</li>
                             </ul>
                         </nav>
@@ -39,18 +39,13 @@
                         <!-- Quick view product slider -->
                         <div class="col-lg-6">
                             <ul id="imageGallery">
-                                <li data-thumb="/Public/img/@Model.ImageS"
-                                    data-src="/Public/img/@Model.ImageL">
-                                    <img src="~/Public/img/@Model.ImageL" alt="laptop">
-                                </li>
-                                <li data-thumb="/Public/img/@Model.ImageS"
-                                    data-src="/Public/img/@Model.ImageL">
-                                    <img src="~/Public/img/@Model.ImageL" alt="laptop">
-                                </li>
-                                <li data-thumb="/Public/img/@Model.ImageS"
-                                    data-src="/Public/img/@Model.ImageL">
-                                    <img src="~/Public/img/@Model.ImageL" alt="laptop">
-                                </li>
+                                @for (int i = 0; i < Model.ProductImages.Count(); i++)
+                                {
+                                    <li data-thumb="/Public/img/@Model.ProductImages.ElementAt(i).Image"
+                                        data-src="/Public/img/@Model.ProductImages.ElementAt(i).Image">
+                                        <img src="~/Public/img/@Model.ProductImages.ElementAt(i).Image" alt="laptop">
+                                    </li>
+                                }
                             </ul>
                         </div>
                         <!-- Quick view product slider -->
