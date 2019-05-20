@@ -96,6 +96,41 @@ namespace AsusLaptop.Controllers
         {
             return View();
         }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<ActionResult> ForgotPassword(ForgotPass user)
+        {
+            if(user == null)
+            {
+                ModelState.AddModelError("Email", "Email required");
+                return View(user);
+            }
+            UserApp userDb = UserManagerApp.FindByEmail(user.Email);
+            if(userDb == null)
+            {
+                ModelState.AddModelError("Email", "Email not exist");
+                return View(user);
+            }
+            userDb.Token = userDb.Id;
+            IdentityResult result = await UserManagerApp.UpdateAsync(userDb);
+            SendConfirm(userDb.Email, userDb.Token.ToString());
+            await _context.SaveChangesAsync();
+            if (result.Succeeded)
+            {
+
+                return RedirectToAction("Login", "MemberAccount");
+            }
+            else
+            {
+                foreach (var item in result.Errors.ToList())
+                {
+                    ModelState.AddModelError(" ", item);
+
+                }
+                return View(user);
+
+            }
+        }
         #endregion 
 
         #region Send Confirm Email User
