@@ -48,7 +48,8 @@ $(document).ready(function() {
                                                                 <a href="/product/name-${res.category}-${res.name}/${id}">${res.category}<br />${res.name}"</a>
                                                             </h3>
                                                             <p>
-                                                                <span class="cart-price">${Number(res.price) - (Number(res.price) * Number(res.discount) / 100)}</span>
+                                                                <span class="cart-price">$${Number(res.price) - (Number(res.price) * Number(res.discount) / 100)}</span>
+                                                                <span class="price-old"><del>$${Number(res.price)}</del></span>
                                                             </p>
                                                         </div>
                                                         <button data-id="${id}" class="minicart-remove mcremove"><span aria-hidden="true">×</span></button>
@@ -100,10 +101,14 @@ $(document).ready(function() {
                     })
                     $(element).remove();
                     $(".Checkelement[id=" + elementCheck + "]").remove();
-                    //console.log(elementCheck)
-                    updatetotal();
                     
-                    //updateNotificationCount();
+                    updatetotal();
+                    var notificationCount = parseInt($('.MiniCard-notification').html());
+                    console.log(notificationCount)
+                    notificationCount = notificationCount - 1;
+                    console.log(notificationCount)
+                    $('.MiniCard-notification').text(notificationCount);
+                    
                 } else if (res.status == 204) {
 
                     Swal.fire({
@@ -133,25 +138,27 @@ $(document).ready(function() {
     function updatetotal () {
         var cps = $('.mini-product-cart');
         var total = 0;
+        
         for (var i = 0; i < cps.length; i++) {
             total += $(cps[i]).data("price");
         }
-        $("#totalMCart").text(total);
-        $("#SubTotalCheck").text(total);
+       
+        $("#totalMCart").text(`$${total}`);
+        $("#SubTotalCheck").text(`$${ total }`);
     }
     
-    function updateNotificationCount() {
-        var MinicartItems = $('.mini-product-cart');
-        var notificationCount = parseInt($('.MiniCard-notification').html());
-        for (var i = 0; i < MinicartItems.length; i++) {
+    //function updateNotificationCount() {
+    //    var MinicartItems = $('.mini-product-cart');
+    //    var notificationCount = parseInt($('.MiniCard-notification').html());
+    //    for (var i = 0; i < MinicartItems.length; i++) {
             
-            notificationCount -= notificationCount
-        }
-        //notificationCount - 1;
-        $('.MiniCard-notification').text(notificationCount);
-        console.log($(MinicartItems))
-        console.log(notificationCount)
-    }
+           
+    //    }
+    //    notificationCount -= notificationCount;
+    //    $('.MiniCard-notification').text(notificationCount);
+    //    console.log($(MinicartItems))
+    //    console.log(notificationCount)
+    //}
    
 
 

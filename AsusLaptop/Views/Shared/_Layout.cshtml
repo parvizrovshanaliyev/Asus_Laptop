@@ -371,7 +371,7 @@
                                     {
                                         foreach (var item in carts)
                                         {
-                                            <li data-id="@item.Id" data-count="@carts.Count()" data-price="@((item.Price - (item.Price * item.Discount / 100)).ToString("##.###") )" class="minicart-item mini-product-cart">
+                                            <li data-id="@item.Id" data-price="@((item.Price - (item.Price * item.Discount / 100)).ToString("##.###") )" class="minicart-item mini-product-cart">
                                                 <div data-id="@item.Id" class="minicart-thumb">
                                                     <a href="product-details.html">
                                                         <img src="~/Public/img/@item.ImageS" alt="product">
@@ -383,8 +383,8 @@
                                                     </h3>
                                                     <p>
                                                         @* <span class="cart-quantity">1 <strong>×</strong></span>*@
-                                                        <span class="cart-price">@((item.Price - (item.Price * item.Discount / 100)).ToString("##.###") )</span>
-
+                                                        <span class="cart-price">$@((item.Price - (item.Price * item.Discount / 100)).ToString("##.###") )</span>
+                                                        <span class="price-old"><del>$@(item.Price.ToString("##.###"))</del></span>
                                                     </p>
 
                                                 </div>
@@ -419,7 +419,7 @@
 
                                     <li class="total">
                                         <span>total</span>
-                                        <span><strong id="totalMCart"></strong></span>
+                                        <span><strong id="totalMCart">$</strong></span>
                                     </li>
                                 </ul>
                             </div>

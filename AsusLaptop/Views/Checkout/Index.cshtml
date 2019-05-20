@@ -65,14 +65,26 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td>@((item.Price - (item.Price * item.Discount / 100)).ToString("##.###") )</td>
+                                            <td>
+                                                @if (item.Discount != 0)
+                                                {
+                                                    <span class="price-regular">$@((item.Price - (item.Price * item.Discount / 100)).ToString("##.###") )</span>
+                                                    <span class="price-old"><del>$@(item.Price.ToString("##.###"))</del></span>
+                                                    // <span class="price-old"><del>$@(item.Price.ToString("##.###"))</del></span> @((item.Price - (item.Price * item.Discount / 100)).ToString("##.###") )
+                                                }
+                                                else
+                                                {
+                                                    <span class="price-regular">$@(item.Price.ToString("##.###"))</span>
+
+                                                }
+                                            </td>
                                         </tr>
                                     }
                                 </tbody>
                                 <tfoot>
                                     <tr>
                                         <td>Sub Total</td>
-                                        <td id="SubTotalCheck"></td>
+                                        <td class="price-regular" id="SubTotalCheck">$</td>
                                     </tr>
                                    
                                 </tfoot>
