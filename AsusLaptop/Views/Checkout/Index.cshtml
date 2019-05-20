@@ -30,7 +30,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                
+
             </div>
         </div>
         <div class="row">
@@ -46,7 +46,7 @@
                                     <tr>
                                         <th>Products</th>
                                         <th>Total</th>
-                                       @* <th>Action</th>*@
+                                        @* <th>Action</th>*@
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -79,7 +79,7 @@
 
                                                 }
                                             </td>
-                                            
+
                                             @*<td class="minicart-remove mcremove"><span style="font-size: 33px;" aria-hidden="true">×</span></td>*@
                                         </tr>
                                     }
@@ -89,11 +89,11 @@
                                         <td>Sub Total</td>
                                         <td colspan="2" class="price-regular" id="SubTotalCheck">$</td>
                                     </tr>
-                                   
+
                                 </tfoot>
                             </table>
                         </div>
-                        
+
                     </div>
                 </div>
                 <div class="row justify-content-around mt-5 mr-3">
@@ -103,8 +103,8 @@
                     <div style="width: 25%;" data-toggle="modal" data-target="#MiniCard" class="minicart-button ">
                         <a href="#"><i class="fa fa-cart-arrow-down"></i>View Cart</a>
                     </div>
-                    <div style="width: 25%;" class="minicart-button ">
-                        <a href="/Checkout"><i class="fa fa-share"></i> Confirm Orders</a>
+                    <div style="width: 25%;" class="minicart-button " data-toggle="modal" data-target="#OrderConfirm">
+                        <a href="#"><i class="fa fa-share"></i> Confirm Orders</a>
                     </div>
                 </div>
             </div>
@@ -112,24 +112,65 @@
     </div>
 </div>
 <!-- checkout main wrapper end -->
+<!-- confirm order  -->
+<div class="modal fade" id="OrderConfirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title mt-3 mb-3" id="exampleModalLabel">Order Confirm Dialog</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <blockquote class="m-0">
+                    <p>
+                        Quisque semper nunc vitae erat pellentesque, ac placerat arcu consectetur.
+                        In
+                        venenatis elit ac ultrices convallis. Duis est nisi, tincidunt ac urna sed,
+                        cursus blandit lectus. In ullamcorper sit amet ligula ut eleifend. Proin
+                        dictum
+                        tempor ligula, ac feugiat metus. Sed finibus tortor eu scelerisque
+                        scelerisque.
+                    </p>
+                </blockquote>
+                <form method="post">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Recipient:</label>
+                        <input type="text" class="form-control" id="recipient-name">
+                    </div>
+                    <div class="form-group text-right">
+                        
+                        <button style="border-color: #fff; color: #fff;font-size: 13px; line-height: 1; padding:17px 26px; text-transform: uppercase;text-align: center;margin-bottom: 10px;border-radius: 11px;  background-color: #242424;" type="submit" class="minicart-button">Confirm</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- confirm order wrapper end -->
+
 @section styles{
-<style>
-    .minicart-button a {
-        color: #fff;
-        font-size: 13px;
-        display: block;
-        font-weight: 500;
-        line-height: 1;
-        padding: 17px 0;
-        background-color: #242424;
-        text-transform: uppercase;
-        border-radius: 40px;
-        text-align: center;
-        margin-bottom: 10px;
-    }
-        .minicart-button a:hover {
-            background-color: #cc2121;
+    <style>
+        .minicart-button a {
             color: #fff;
+            font-size: 13px;
+            display: block;
+            font-weight: 500;
+            line-height: 1;
+            padding: 17px 0;
+            background-color: #242424;
+            text-transform: uppercase;
+            border-radius: 40px;
+            text-align: center;
+            margin-bottom: 10px;
         }
+
+            .minicart-button a:hover {
+                background-color: #cc2121;
+                color: #fff;
+            }
+
+        
     </style>
-    }
+}
