@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Login Dashboard</title>
+    <title>Login User</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="~/Areas/Admin/Public/assets/images/icon/favicon.ico">
     <link rel="stylesheet" href="~/Areas/Admin/Public/assets/css/bootstrap.min.css">
@@ -46,8 +46,8 @@
                     @Html.AntiForgeryToken()
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     <div class="login-form-head">
-                        <h4>Sign In Admin</h4>
-                        <p>Hello there, Sign in and start managing your Admin Template</p>
+                        <h4>Sign In User</h4>
+                        <p>Hello there, Sign in</p>
                     </div>
                     <div class="login-form-body">
 
@@ -64,19 +64,19 @@
                             @Html.ValidationMessage("Password", "", new { @class = "text-danger" })
                         </div>
                         @*<div class="row mb-4 rmber-area">
-                    <div class="col-6">
-                        <div class="custom-control custom-checkbox mr-sm-2">
-                            @Html.CheckBoxFor(m => m.RememberMe, new { @class = "custom-control-input" })
-                            @Html.LabelFor(m => m.RememberMe, new { @class = "custom-control-label" })
-                        </div>
-                    </div>
-                </div>*@
+                                <div class="col-6">
+                                    <div class="custom-control custom-checkbox mr-sm-2">
+                                        @Html.CheckBoxFor(m => m.RememberMe, new { @class = "custom-control-input" })
+                                        @Html.LabelFor(m => m.RememberMe, new { @class = "custom-control-label" })
+                                    </div>
+                                </div>
+                            </div>*@
                         <div class="submit-btn-area">
                             <button id="form_submit" type="submit">Submit <i class="ti-arrow-right"></i></button>
                         </div>
                     </div>
                 }
-                </div>
+            </div>
         </div>
     </div>
     <!-- login area end -->
@@ -114,5 +114,7 @@
 
 
 </html>
+
+
 
 

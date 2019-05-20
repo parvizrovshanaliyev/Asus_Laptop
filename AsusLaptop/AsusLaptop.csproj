@@ -174,11 +174,13 @@
     <Compile Include="Controllers\CheckoutController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MemberAccountController.cs" />
     <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="DAL\AsusDbContext.cs" />
     <Compile Include="Extensions\FileExtensions.cs" />
+    <Compile Include="filterauth\RedirectLoginFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -218,6 +220,7 @@
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\CustomUserValidator.cs" />
+    <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\Product.cs" />
@@ -723,6 +726,7 @@
     <Content Include="Views\Blog\Index.cshtml" />
     <Content Include="Views\BlogDetails\Index.cshtml" />
     <Content Include="Views\AllProducts\Filter.cshtml" />
+    <Content Include="Views\MemberAccount\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
