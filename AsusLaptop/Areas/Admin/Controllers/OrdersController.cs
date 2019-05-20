@@ -11,6 +11,7 @@ using System.Web.Mvc;
 
 namespace AsusLaptop.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class OrdersController : Controller
     {
         private readonly AsusDbContext _context;

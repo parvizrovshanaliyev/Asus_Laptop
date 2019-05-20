@@ -177,6 +177,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MemberAccountController.cs" />
     <Compile Include="Controllers\MembersController.cs" />
+    <Compile Include="Controllers\MyAccountController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="DAL\AsusDbContext.cs" />
@@ -740,6 +741,7 @@
     <Content Include="Views\BlogDetails\Index.cshtml" />
     <Content Include="Views\AllProducts\Filter.cshtml" />
     <Content Include="Views\MemberAccount\Login.cshtml" />
+    <Content Include="Views\MyAccount\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

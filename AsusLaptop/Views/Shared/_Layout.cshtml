@@ -131,15 +131,19 @@
                                                     Home <i class="fa fa-home"></i>
                                                 </a>
                                             </li>
-                                            <li class="static ">
-                                                <a href="#">Pages <i class="fa fa-angle-down"></i></a>
-                                                <ul class="dropdown">
-                                                    @*<li><a href="@Url.Action("Index","Cart")">Cart</a></li>*@
-                                                    <li><a href="/Checkout/Index">Checkout</a></li>
-                                                    @*?ReturnUrl=%2FAdmin%2FHome%2FIndex#*@
-                                                    @*<li><a href="wishlist.html">Wishlist</a></li>*@
-                                                </ul>
-                                            </li>
+                                            @if (User.Identity.IsAuthenticated)
+                                            {
+                                                <li class="static ">
+                                                    <a href="#">Pages <i class="fa fa-angle-down"></i></a>
+                                                    <ul class="dropdown">
+                                                        @*<li><a href="@Url.Action("Index","Cart")">Cart</a></li>*@
+                                                        <li><a href="/Checkout/Index">Checkout</a></li>
+                                                        <li><a href="@Url.Action("Index","MyAccount")">my account</a></li>
+                                                        @*?ReturnUrl=%2FAdmin%2FHome%2FIndex#*@
+                                                        @*<li><a href="wishlist.html">Wishlist</a></li>*@
+                                                    </ul>
+                                                </li>
+                                            }
                                             <li class="static "><a href="@Url.Action("Index","Shop")">Shop <i class="fas fa-shopping-bag"></i></a></li>
                                             <li class="static"><a href="@Url.Action("Index","Blog")">Blog <i class="fa fa-blog"></i></a></li>
                                             <li class="static"><a href="@Url.Action("Index","Contact")">Contact <i class="fas fa-address-book"></i></a></li>
@@ -164,8 +168,8 @@
                                             <ul class="dropdown-list">
                                                 @if (Request.IsAuthenticated)
                                                 {
-                                                    <li><a href="my-account.html">my account</a></li>
-                                                    <li><a href="my-account.html">@User.Identity.GetUserName()</a></li>
+                                                    <li><a href="@Url.Action("Index","MyAccount")">my account</a></li>
+                                                    <li><a href="#">@User.Identity.GetUserName()</a></li>
                                                     <li>
                                                         @using (Html.BeginForm("Logout", "Account", new { Area = "Admin" }, FormMethod.Post))
                                                         {
@@ -184,12 +188,12 @@
                                             </ul>
 
                                         </li>
-                                        <li>
+                                        @*<li>
                                             <a href="wishlist.html">
                                                 <i class="far fa-heart"></i>
                                                 <div class="notification">0</div>
                                             </a>
-                                        </li>
+                                        </li>*@
                                         <li>
                                             <a href="#" data-toggle="modal" data-target="#MiniCard" class="minicart-btn">
                                                 <i class="fa fa-cart-arrow-down"></i>
@@ -298,8 +302,8 @@
                                 <ul class="dropdown-list">
                                     @if (Request.IsAuthenticated)
                                     {
-                                        <li><a href="my-account.html">my account</a></li>
-                                        <li><a href="my-account.html">@User.Identity.GetUserName()</a></li>
+                                        <li><a href="@Url.Action("Index","MyAccount")">my account</a></li>
+                                        <li><a href="#">@User.Identity.GetUserName()</a></li>
                                         <li>
                                             @using (Html.BeginForm("Logout", "ALogin", new { Area = "Admin" }, FormMethod.Post))
                                             {
@@ -316,16 +320,16 @@
                                     }
                                 </ul>
                             </div>
-                            <div class="mini-cart-wrap">
+                            @*<div class="mini-cart-wrap">
                                 <a href="wishlist.html">
                                     <i class="far fa-heart"></i>
                                     <div class="notification">0</div>
                                 </a>
-                            </div>
+                            </div>*@
                             <div class="mini-cart-wrap">
                                 <a href="@Url.Action("Index","Cart")" data-toggle="modal" data-target="#MiniCard" class="minicart-btn">
                                     <i class="fa fa-cart-arrow-down"></i>
-                                    <div class="notification">2</div>
+                                    <div class="notification MiniCard-notification">@carts.Count</div>
                                 </a>
                             </div>
                             <div class="mobile-menu-btn">
