@@ -1,4 +1,4 @@
-﻿
+﻿@model AsusLaptop.Models.ViewModel.BlogVM
 @{
     ViewBag.Title = "Blog Details";
 }
@@ -36,45 +36,22 @@
                     <div class="blog-sidebar">
                         <h3 class="title">recent post</h3>
                         <div class="recent-post">
-                            <div class="recent-post-item">
-                                <figure class="product-thumb">
-                                    <a href="blog-details.html">
-                                        <img src="~/Public/template/img/blog/blog-img1.jpg" alt="blog image">
-                                    </a>
-                                </figure>
-                                <div class="recent-post-description">
-                                    <div class="product-name">
-                                        <h4><a href="blog-details.html">ASUS ZenBook 13 UX333FA-DH51</a></h4>
-                                        <p>march 10 2019</p>
+                            @foreach (var item in Model.BlogDesc)
+                            {
+                                <div class="recent-post-item">
+                                    <figure class="product-thumb">
+                                        <a href="#">
+                                            <img src="~/Public/img/@Model.Blog.ImageL" alt="blog image">
+                                        </a>
+                                    </figure>
+                                    <div class="recent-post-description">
+                                        <div class="product-name">
+                                            <h4><a href="#">@Model.Blog.Name</a></h4>
+                                            <p>march 10 2019</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="recent-post-item">
-                                <figure class="product-thumb">
-                                    <a href="blog-details.html">
-                                        <img src="~/Public/template/img/blog/blog-img1.jpg" alt="blog image">
-                                    </a>
-                                </figure>
-                                <div class="recent-post-description">
-                                    <div class="product-name">
-                                        <h4><a href="blog-details.html">ASUS ZenBook 13 UX333FA-DH51</a></h4>
-                                        <p>march 18 2019</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="recent-post-item">
-                                <figure class="product-thumb">
-                                    <a href="blog-details.html">
-                                        <img src="~/Public/template/img/blog/blog-img1.jpg" alt="blog image">
-                                    </a>
-                                </figure>
-                                <div class="recent-post-description">
-                                    <div class="product-name">
-                                        <h4><a href="blog-details.html">ASUS ZenBook 13 UX333FA-DH51</a></h4>
-                                        <p>march 14 2019</p>
-                                    </div>
-                                </div>
-                            </div>
+                            }
                         </div>
                     </div>
                     <!-- single sidebar end -->
@@ -87,50 +64,23 @@
                     <div class="blog-post-item blog-details-post">
                         <figure class="blog-thumb">
                             <a href="blog-details.html">
-                                <img src="~/Public/template/img/blog/blog-img1.jpg" alt="blog image">
+                                <img src="~/Public/img/@Model.Blog.ImageL" alt="blog image">
                             </a>
                         </figure>
                         <div class="blog-content">
                             <h3 class="blog-title blog-title-large">
-                                Celebrity Daughter Opens Up About Having Her Eye Color Changed
+                               @Model.Blog.Title
                             </h3>
                             <div class="blog-meta">
-                                <p>25/03/2019 | Debaco</p>
+                                <p>@Model.Blog.CreateAt | Asus</p>
                             </div>
                             <div class="entry-summary">
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate perferendis
-                                    consequuntur illo aliquid nihil ad neque, debitis praesentium libero ullam
-                                    asperiores exercitationem deserunt inventore facilis, officiis,
-                                </p>
+                                
                                 <blockquote>
                                     <p>
-                                        Quisque semper nunc vitae erat pellentesque, ac placerat arcu consectetur.
-                                        In
-                                        venenatis elit ac ultrices convallis. Duis est nisi, tincidunt ac urna sed,
-                                        cursus blandit lectus. In ullamcorper sit amet ligula ut eleifend. Proin
-                                        dictum
-                                        tempor ligula, ac feugiat metus. Sed finibus tortor eu scelerisque
-                                        scelerisque.
+                                        @Model.Blog.Description
                                     </p>
                                 </blockquote>
-                                <p>
-                                    aliquam maiores asperiores recusandae commodi blanditiis ipsum tempora culpa
-                                    possimus assumenda ab quidem a voluptatum quia natus? Ex neque, saepe
-                                    reiciendis
-                                    quasi velit perspiciatis error vel quas quibusdam autem nesciunt voluptas odit
-                                    quis
-                                    dignissimos eos aspernatur voluptatum est repellat. Pariatur praesentium,
-                                    corrupti
-                                    deserunt ducimus quo doloremque nostrum aspernatur saepe cupiditate sit autem
-                                    exercitationem debitis, maiores vitae perferendis nemo? Voluptas illo, animi
-                                    temporibus quod earum molestias eaque, iure rem amet autem dignissimos officia
-                                    dolores numquam distinctio esse voluptates optio pariatur aspernatur omnis?
-                                    Ipsam
-                                    qui commodi velit natus reiciendis quod quibusdam nemo eveniet similique animi!
-                                </p>
-
-
                             </div>
                         </div>
                     </div>

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using AsusLaptop.DAL;
+using AsusLaptop.Models;
+using AsusLaptop.Models.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +11,28 @@ namespace AsusLaptop.Controllers
 {
     public class BlogDetailsController : Controller
     {
-        // GET: BlogDetails
-        public ActionResult Index()
+        private readonly AsusDbContext _context;
+
+        public BlogDetailsController()
         {
-            return View();
+            _context = new AsusDbContext();
+        }
+        // GET: BlogDetails
+        public ActionResult Index(int? id)
+        {
+            if (id == null) RedirectToAction("Index", "Home");
+
+            Blog blog = _context.Blogs.Find(id);
+
+            if (blog == null) RedirectToAction("Index", "Home");
+
+            var vm = new BlogVM()
+            {
+                Blog = blog,
+                BlogDesc = _context.Blogs.Where(p => p.Status == true).OrderByDescending(b => b.CreateAt).Take(3).ToList()
+            };
+
+            return View(vm);
         }
     }
 }

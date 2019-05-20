@@ -606,52 +606,23 @@
         <!-- #region section content -->
         <div class="row">
             <div class="card-columns">
-                <!-- #region blog single card -->
-                <div class="card shadow border-0">
-                    <a href="blog-details.html">
-                        <img src="~/Public/template/img/product/ASUS_ZenBook_13_UX333/az133l.jpg" alt="Card image cap">
-                    </a>
-                    <div class="card-body">
+                @foreach (var item in Model.Blogs)
+                {
+                    <!-- #region blog single card -->
+                    <div class="card shadow border-0">
                         <a href="blog-details.html">
-                            <h5 class="card-title">Card Title</h5>
+                            <img src="~/Public/img/@item.ImageL" alt="Card image cap">
                         </a>
-                        <p class="card-text">This card descriptions lorem ipsum sit amet dolar </p>
-                        <p class="card-text"><small class="text-muted">last updated 3 mins ago</small></p>
+                        <div class="card-body">
+                            <a href="/BlogDetails/Index/@item.Id">
+                                <h5 class="card-title">@item.Name</h5>
+                            </a>
+                            <p class="card-text">@item.Title</p>
+                            <p class="card-text"><small class="text-muted">@item.CreateAt</small></p>
+                        </div>
                     </div>
-                </div>
-                <!-- #endregion blog single card -->
-                <!-- #region blog single card -->
-                <div class="card shadow border-0">
-                    <a href="blog-details.html">
-
-                        <img src="~/Public/template/img/product/ASUS_ZenBook_13_UX333/az133l.jpg" alt="Card image cap">
-                    </a>
-                    <div class="card-body">
-                        <a href="blog-details.html">
-
-                            <h5 class="card-title">Card Title</h5>
-                        </a>
-                        <p class="card-text">This card descriptions lorem ipsum sit amet dolar </p>
-                        <p class="card-text"><small class="text-muted">last updated 3 mins ago</small></p>
-                    </div>
-                </div>
-                <!-- #endregion blog single card -->
-                <!-- #region blog single card -->
-                <div class="card shadow border-0">
-                    <a href="blog-details.html">
-
-                        <img src="~/Public/template/img/product/ASUS_ZenBook_13_UX333/az133l.jpg" alt="Card image cap">
-                    </a>
-                    <div class="card-body">
-                        <a href="blog-details.html">
-
-                            <h5 class="card-title">Card Title</h5>
-                        </a>
-                        <p class="card-text">This card descriptions lorem ipsum sit amet dolar </p>
-                        <p class="card-text"><small class="text-muted">last updated 3 mins ago</small></p>
-                    </div>
-                </div>
-                <!-- #endregion blog single card -->
+                    <!-- #endregion blog single card -->
+                }
             </div>
         </div>
         <!-- #endregion section content -->

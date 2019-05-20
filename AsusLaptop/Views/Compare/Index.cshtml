@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<AsusLaptop.Models.Product>
 @{
     ViewBag.Title = "Index";
 }
@@ -41,176 +41,134 @@
                                     <!-- first line product images name -->
                                     <tr>
                                         <td class="first-column">Product</td>
-                                        <td class="product-image-title">
-                                            <a href="product-details.html" class="image">
-                                                <img class="img-fluid" src="assets/img/product/middle.jpg"
-                                                     alt="Compare Product">
-                                            </a>
-                                            <a href="#" class="category">ZenBook 14</a>
-                                            <a href="product-details.html" class="title">UX333FA-DH51</a>
-                                        </td>
+                                        @foreach (var item in Model)
+                                        {
+                                            <td class="product-image-title">
+                                                <a href="product-details.html" class="image">
+                                                    <img class="img-fluid" src="~/Public/img/@item.ImageS"
+                                                         alt="Compare Product">
+                                                </a>
+                                                <a href="#" class="category">@item.Category.Name </a>
+                                                <a href="product-details.html" class="title">@item.Model</a>
+                                            </td>
+                                        }
                                     </tr>
                                     <!-- first line product images name -->
-                                    <!-- second line description -->
-                                    <tr>
-                                        <td class="first-column"><b>Description</b> </td>
-                                        <td class="pro-desc">
-                                            <p>
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                Provident
-                                                nulla, explicabo iste a rerum pariatur.
-                                            </p>
-                                        </td>
-                                    </tr>
-
-                                    <!-- second line description -->
                                     <!-- third line price -->
                                     <tr>
                                         <td class="first-column"><b>Price</b> </td>
-                                        <td class="pro-price">$295</td>
+                                        @foreach (var item in Model)
+                                        {
+                                            if (item.Discount != 0)
+                                            {
+                                                <td>
+                                                    <span class="price-regular">$@((item.Price - (item.Price * item.Discount / 100)).ToString("##.###") )</span>
+                                                    <span class="price-old"><del>$@(item.Price.ToString("##.###"))</del></span>
+                                                </td>
+                                            }
+                                            else
+                                            {
+                                                <td> <span class="price-regular">$@(item.Price.ToString("##.###"))</span></td>
+                                            }
+                                        }
                                     </tr>
                                     <!-- third line price -->
                                     <tr>
                                         <td class="first-column"><b>Processor</b> </td>
-                                        <td class="pro-color">
-                                            Intel® Core™ i7 8550U Processor,
-                                            <br> Intel® Core™ i5 8250U Processor,
-                                            <br> Intel® Core™ i3 8130U Processor,
-                                        </td>
+                                        @foreach (var item in Model)
+                                        {
+                                            <td class="pro-color">
+                                                @item.Processor
+                                            </td>
+                                        }
                                     </tr>
                                     <tr>
                                         <td class="first-column"><b>Operating System</b> </td>
-                                        <td class="pro-color">
-                                            Windows 10 Pro - ASUS recommends Windows 10 Pro.,
-                                            <br>Windows 10 Home - ASUS recommends Windows 10 Pro.
-                                        </td>
+                                        @foreach (var item in Model)
+                                        {
+                                            <td class="pro-color">
+                                                @item.OperatingSystem
+                                            </td>
+                                        }
                                     </tr>
                                     <tr>
-                                        <td class="first-column"><b>Chipset</b> </td>
-                                        <td class="pro-price">
-                                            4 GB Onboard Memory, 1 x SO-DIMM socket for
-                                            expansion, up to 12 GB SDRAM
-                                            8 GB Onboard Memory, 1 x SO-DIMM socket for expansion, up to 16 GB
-                                            SDRAM
-                                        </td>
+                                        <td class="first-column"><b>Memory</b> </td>
+                                        @foreach (var item in Model)
+                                        {
+                                            <td class="pro-color">
+                                                @item.Memory
+                                            </td>
+                                        }
+
                                     </tr>
                                     <tr>
                                         <td class="first-column"><b>Graphic</b> </td>
-                                        <td class="pro-price">
-                                            Integrated Intel UHD Graphics 620
-                                            NVIDIA GeForce MX130 , with 2GB GDDR5 VRAM
-                                        </td>
+                                        @foreach (var item in Model)
+                                        {
+                                            <td class="pro-color">
+                                                @item.Graphic
+                                            </td>
+                                        }
+
                                     </tr>
                                     <tr>
                                         <td class="first-column"><b>Display</b> </td>
-                                        <td class="pro-price">
-                                            14.0" (16:9) LED backlit HD (1366x768) 60Hz
-                                            Anti-Glare Panel with 45% NTSC
-                                            14.0" (16:9) LED backlit FHD (1920x1080) 60Hz Anti-Glare Panel with
-                                            72% NTSC with 178˚ wide-viewing angle display
-                                        </td>
+                                        @foreach (var item in Model)
+                                        {
+                                            <td class="pro-color">
+                                                @item.Display
+                                            </td>
+                                        }
+
                                     </tr>
                                     <tr>
                                         <td class="first-column"><b>Storage</b> </td>
-                                        <td class="pro-price">
-                                            <b>Hdd</b> 500GB 5400RPM SATA HDD 1TB 5400RPM
-                                            SATA HDD
-                                            <br> <b>SDD</b> 128GB/256GB/512GB SATA3 M.2 SSD
-                                        </td>
+                                        @foreach (var item in Model)
+                                        {
+                                            <td class="pro-color">
+                                                @item.Storage
+                                            </td>
+                                        }
+
                                     </tr>
-                                    <tr>
-                                        <td class="first-column"><b>Keyboard</b> </td>
-                                        <td class="pro-price">Illuminated Chiclet Keyboard</td>
-                                    </tr>
+
                                     <tr>
                                         <td class="first-column"><b>Weight</b></td>
-                                        <td class="pro-price">
-                                            NB:
-                                            1.23  kg ~   kg with Battery
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="first-column"><b>Card Reader</b> </td>
-                                        <td class="pro-price">Multi-format card reader (SD/SDHC/SDXC)</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="first-column"><b>WebCam</b> </td>
-                                        <td class="pro-price">HD Web Camera</td>
+                                        @foreach (var item in Model)
+                                        {
+                                            <td class="pro-color">
+                                                @item.Weight
+                                            </td>
+                                        }
                                     </tr>
                                     <tr>
                                         <td class="first-column"><b>Networking</b> </td>
-                                        <td class="pro-price">
-                                            <b> Wi-Fi</b>
-                                            Integrated 802.11 AC
-                                            Integrated 802.11 AC (2x2)
-                                            <br> <b>Bluetooth</b>
-                                            Built-in Bluetooth V4.2
-                                        </td>
+                                        @foreach (var item in Model)
+                                        {
+                                            <td class="pro-color">
+                                                @item.Wireless
+                                            </td>
+                                        }
                                     </tr>
                                     <tr>
-                                        <td class="first-column"><b>Interface</b> </td>
-                                        <td class="pro-price">
-                                            1 x Microphone-in/Headphone-out jack
-                                            ,1 x Type C USB3.0 (USB3.1 GEN1) support display & support power
-                                            delivery
-                                            ,2 x Type A USB3.0 (USB3.1 GEN1)
-                                            ,1 x HDMI
-                                            ,1 x Fingerprint
-                                            ,1 x AC adapter plug
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="first-column"><b>Audio</b> </td>
-                                        <td class="pro-price">
-                                            Built-in Stereo 2 W Speakers And Array Microphone
-                                            Support Windows 10 Cortana
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="first-column"><b>Battery</b> </td>
-                                        <td class="pro-price">3 Cells 50 Whrs Polymer Battery</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="first-column"><b>Security</b></td>
-                                        <td class="pro-price">
-                                            BIOS Booting User Password Protection
-                                            HDD User Password Protection and Security
-                                            TPM (Trusted Platform Module)
-                                            Finger Print Reader
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="first-column"><b>Power Adapter</b> </td>
-                                        <td class="pro-price">
-                                            Plug Type :ø4.5 (mm)
-                                            Output :
-                                            19 V DC, A, 65 W
-                                            Input :
-                                            100 -240 V AC, 50/60 Hz universal
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="first-column"><b>Manufacturer Warranty</b> </td>
-                                        <td class="pro-price">
-                                            3-year limited International hardware warranty.
-                                            *different by country
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="first-column"><b>Optical Drive</b> </td>
-                                        <td class="pro-price">Super-Multi DVD (Optional)</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="first-column"><b>Add to cart</b> </td>
-                                        <td><a href="cart.html" class="btn btn__bg">Add to Cart</a></td>
+                                        <td class="first-column"><b>Ports</b> </td>
+                                        @foreach (var item in Model)
+                                        {
+                                            <td class="pro-color">
+                                                @item.Ports
+                                            </td>
+                                        }
 
                                     </tr>
 
                                     <tr>
-                                        <td class="first-column"><b>Remove</b> </td>
-                                        <td class="pro-remove">
-                                            <button><i class="fas fa-trash"></i></button>
-                                        </td>
+                                        <td class="first-column"><b>Dimensions</b> </td>
+                                        @foreach (var item in Model)
+                                        {
+                                            <td class="pro-color">
+                                                @item.Dimensions
+                                            </td>
+                                        }
 
                                     </tr>
                                 </tbody>

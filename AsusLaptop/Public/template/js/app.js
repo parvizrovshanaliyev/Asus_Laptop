@@ -8,11 +8,61 @@ Table of content
 5.  modals: compare , quick view , mini card
 6.  quantity -1+
 7.  scroll top page
-
+8. minicart added product delete from cart
+9. compare product
 -------------------------------------------------------------------*/
 // $('.container').loader('show','<img src="loader.gif">');
 $(document).ready(function() {
-  console.log("ssss");
+    console.log("ssss");
+    //  #region 9. compare product
+    $("#CompareproductBtn").on("click",function (e) {
+        e.preventDefault();
+        var id=","; //toString().split(",")
+        productCompares = $("#line .compare-product");
+        
+        for (var i = 0; i < productCompares.length; i++) {
+            id += ($(productCompares[i]).data("id")) + ",";
+        }
+        window.location.href = `/Compare/Index?id=${id}`
+        //console.log(id);
+        //console.log(productCompares);
+        //$.ajax({
+        //    url: "/Compare/AddCompare",
+        //    data: { id: id },
+        //    type: "post",
+        //    datatype: "json",
+        //    success: function (res) {
+        //        if (res.status == 200) {
+        //            Swal.fire({
+
+        //                type: 'success',
+        //                title: 'Your Product Added to MiniCart',
+        //                showConfirmButton: false,
+        //                timer: 1500
+        //            })
+        //        } else if (res.status == 204) {
+
+        //            Swal.fire({
+
+        //                type: 'error',
+        //                title: res.message,
+        //                showConfirmButton: false,
+        //                timer: 1500
+        //            })
+        //        }
+        //    }
+        //});
+    })
+
+
+
+
+
+
+    //  #endregion 9. compare product
+
+
+ //  #region 8. minicart added product delete from cart
     updatetotal();
     $(document).on("click", ".minicartBtn",function (e) {
         e.preventDefault();
@@ -160,7 +210,7 @@ $(document).ready(function() {
     //    console.log(notificationCount)
     //}
    
-
+  //  #endregion end. minicart added product delete from cart
 
 
   //  #region 1. Navbar window scroll Sticky menu start
@@ -467,9 +517,7 @@ $(document).ready(function() {
       } else {
         line.append(col_3);
         compareingcount++;
-        // console.log(compareingcount)   
-
-       
+        // console.log(compareingcount)  
       }
       
     } else {

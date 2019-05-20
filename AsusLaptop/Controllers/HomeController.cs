@@ -23,9 +23,10 @@ namespace AsusLaptop.Controllers
             {
                 Sliders = _context.Sliders,
                 Banners = _context.Banners,
-                Products = _context.Products.Where(s => s.IsNew == true && s.Discount != 0).OrderByDescending(t => t.Id).Take(3).ToList(),
-                ProductsNews = _context.Products.Where(s => s.IsNew && s.Discount == 0).OrderByDescending(t => t.Id).Take(3).ToList(),
-                ProductsDiscount = _context.Products.Where(s => s.Discount != 0 && s.IsNew == false).OrderByDescending(t => t.Id).Take(3).ToList(),
+                Blogs = _context.Blogs.Where(p=>p.Status==true).OrderByDescending(b=>b.CreateAt).Take(3).ToList(),
+                Products = _context.Products.Where(s => s.IsNew == true && s.Discount != 0 && s.Status==true).OrderByDescending(t => t.Id).Take(3).ToList(),
+                ProductsNews = _context.Products.Where(s => s.IsNew && s.Discount == 0 && s.Status == true).OrderByDescending(t => t.Id).Take(3).ToList(),
+                ProductsDiscount = _context.Products.Where(s => s.Discount != 0 && s.IsNew == false && s.Status == true).OrderByDescending(t => t.Id).Take(3).ToList(),
             };
             return View(vm);
         }
