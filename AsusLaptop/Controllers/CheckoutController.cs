@@ -72,6 +72,7 @@ namespace AsusLaptop.Controllers
             if (!ModelState.IsValid) return View(PhoneNumber);
             if (string.IsNullOrEmpty(PhoneNumber))
             {
+                ModelState.AddModelError("PhoneNumber", "Phonenumber required");
                 return RedirectToAction("Index");
             }
 
@@ -79,7 +80,7 @@ namespace AsusLaptop.Controllers
             {
                 UserApp user = await UserManagerApp.FindByIdAsync(User.Identity.GetUserId());
                 user.PhoneNumber = PhoneNumber;
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
                 Order order = new Order()
                 {
                     UserAppId = user.Id,
@@ -88,8 +89,8 @@ namespace AsusLaptop.Controllers
                     AcceptedDate = DateTime.Now
                 };
                 _context.Orders.Add(order);
-                _context.SaveChanges();
-                if(user.Carts.Count() != 0)
+                await _context.SaveChangesAsync();
+                if (user.Carts.Count() != 0)
                 {
                     var products = _context.Carts.Where(p => p.UserAppId == user.Id);
 
@@ -100,11 +101,12 @@ namespace AsusLaptop.Controllers
                             OrderId = order.Id,
                             ProductId =item.ProductId,
                             Discount=item.Product.Discount,
-                            Price=item.Product.Price,
-                            ImageS=item.Product.ImageS
+                            Price=(item.Product.Price - (item.Product.Price * item.Product.Discount / 100)),
+                            ImageS =item.Product.ImageS
                         });
-                        _context.SaveChanges();
+                      
                     }
+                    await _context.SaveChangesAsync();
                     return RedirectToAction("Index");
                 }
             }

@@ -218,6 +218,10 @@
     <Compile Include="Migrations\201905200751111_ordersmodel.Designer.cs">
       <DependentUpon>201905200751111_ordersmodel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905200857133_images.cs" />
+    <Compile Include="Migrations\201905200857133_images.Designer.cs">
+      <DependentUpon>201905200857133_images.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AspNetUserRole.cs" />
     <Compile Include="Models\Banner.cs" />
@@ -811,6 +815,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905200751111_ordersmodel.resx">
       <DependentUpon>201905200751111_ordersmodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905200857133_images.resx">
+      <DependentUpon>201905200857133_images.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

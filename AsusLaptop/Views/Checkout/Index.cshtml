@@ -134,13 +134,16 @@
                         scelerisque.
                     </p>
                 </blockquote>
-                <form @Url.Action() method="post">
+                <form action="@Url.Action("CreateOrder","Checkout")" method="post">
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Recipient:</label>
-                        <input type="text" name="PhoneNumber" class="form-control" id="recipient-name">
+                        <label for="PhoneNumber" class="col-form-label">Phone:</label>
+                        <input type="text" name="PhoneNumber" class="form-control" id="PhoneNumber">
+                        @Html.ValidationMessage("PhoneNumber", "", new { @class = "text-danger mb-1" })
                     </div>
                     <div class="form-group text-right">
-                        
+
                         <button style="border-color: #fff; color: #fff;font-size: 13px; line-height: 1; padding:17px 26px; text-transform: uppercase;text-align: center;margin-bottom: 10px;border-radius: 11px;  background-color: #242424;" type="submit" class="minicart-button">Confirm</button>
                     </div>
                 </form>
