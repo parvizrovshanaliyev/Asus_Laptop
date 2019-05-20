@@ -1,0 +1,98 @@
+﻿@model AsusLaptop.Models.Order
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Order</h4>
+    <hr />
+    
+
+    <div class="row">
+        <div class="single-table">
+            <div class="table-responsive">
+                <table id="dataTable" class="table table-hover progress-table text-center">
+                    <thead class="text-uppercase">
+                        <tr>
+                            <th>
+                                Order Item Id
+                            </th>
+                            @*<th>Actions</th>*@
+                            <th>
+                                @Html.DisplayNameFor(model => model.Status)
+                            </th>
+                            <th>
+                                Order ID
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.UserApp.Fullname)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.UserApp.PhoneNumber)
+                            </th>
+                            <th>
+                                Category.Name
+                                <br />
+                                Product.Model
+                            </th>
+                            <th>
+                                Price
+                            </th>
+                            <th>
+                                Discount
+                            </th>
+                            <th>
+                                Image
+                            </th>
+                            <th>
+                                CreateAt Order
+                            </th>
+                            <th>
+                                Confirmed Order
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @for (int i = 0; i < Model.OrderItems.Count(); i++)
+                       
+                        {
+                        <tr>
+                            <td>@Model.OrderItems.ElementAt(i).Id</td>
+
+                            <td>
+                                @if (Model.Status)
+                                {
+                                    <span class="alert alert-success">Accepted</span>
+                                }
+                                else
+                                {
+                                    <span class="alert alert-info">Pending</span>
+                                }
+
+                            </td>
+                            <td>@Model.OrderItems.ElementAt(i).Product.Category.Name <br /> @Model.OrderItems.ElementAt(i).Product.Model</td>
+                            <td>@Model.UserApp.Fullname</td>
+                            <td>@Model.UserApp.PhoneNumber</td>
+                            <td>@Model.UserApp.Adress</td>
+                            <td>@Model.OrderItems.ElementAt(i).Product.Price</td>
+                            <td>@Model.OrderItems.ElementAt(i).Product.Discount</td>
+                            <td><img style="width:80px" src="~/Public/img/@Model.OrderItems.ElementAt(i).Product.ImageS" class="img-fluid"></td>
+                            <td>@Model.Date</td>
+                            <td>@Model.AcceptedDate</td>
+                        </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

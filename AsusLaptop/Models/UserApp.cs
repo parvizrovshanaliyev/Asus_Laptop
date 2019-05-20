@@ -22,6 +22,9 @@ namespace AsusLaptop.Models
         [StringLength(50)]
         public string Fullname { get; set; }
 
+        [StringLength(100)]
+        public string Adress { get; set; }
+
         public string Token { get; set; }
 
         public virtual ICollection<Order> Orders { get; set; }

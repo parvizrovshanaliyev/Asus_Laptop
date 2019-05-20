@@ -80,6 +80,7 @@ namespace AsusLaptop.Controllers
             {
                 UserApp user = await UserManagerApp.FindByIdAsync(User.Identity.GetUserId());
                 user.PhoneNumber = PhoneNumber;
+                IdentityResult result = await UserManagerApp.UpdateAsync(user);
                 await _context.SaveChangesAsync();
                 Order order = new Order()
                 {
@@ -99,13 +100,27 @@ namespace AsusLaptop.Controllers
                         _context.OrderItems.Add(new OrderItem
                         {
                             OrderId = order.Id,
-                            ProductId =item.ProductId,
-                            Discount=item.Product.Discount,
-                            Price=(item.Product.Price - (item.Product.Price * item.Product.Discount / 100)),
-                            ImageS =item.Product.ImageS
+                            ProductId = item.ProductId,
+                            Discount = item.Product.Discount,
+                            Price = (item.Product.Price - (item.Product.Price * item.Product.Discount / 100)),
+                            ImageS = item.Product.ImageS
                         });
-                      
+                        var productCart = _context.Carts.FirstOrDefault(p => p.ProductId == item.ProductId && p.UserAppId == item.UserAppId);
+                        if (productCart != null)
+                        {
+                            _context.Carts.Remove(productCart);
+                            
+                        }
+                        if (Request.Cookies["carts"].Value.Contains("+" + item.ProductId.ToString() + "+"))
+                        {
+                            var cookie = Request.Cookies["carts"].Value;
+                            Request.Cookies["carts"].Value = cookie.Replace(item.ProductId + "+", "");
+
+                            Response.Cookies.Add(Request.Cookies["carts"]);
+                        }
                     }
+                    
+                    
                     await _context.SaveChangesAsync();
                     return RedirectToAction("Index");
                 }
@@ -117,5 +132,9 @@ namespace AsusLaptop.Controllers
 
             return View(PhoneNumber);
         }
+
+
+       
+
     }
 }

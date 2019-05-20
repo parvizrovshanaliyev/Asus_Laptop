@@ -222,6 +222,10 @@
     <Compile Include="Migrations\201905200857133_images.Designer.cs">
       <DependentUpon>201905200857133_images.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905200939428_useradress.cs" />
+    <Compile Include="Migrations\201905200939428_useradress.Designer.cs">
+      <DependentUpon>201905200939428_useradress.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AspNetUserRole.cs" />
     <Compile Include="Models\Banner.cs" />
@@ -789,6 +793,9 @@
     <Content Include="Areas\Admin\Views\Blogs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Account\Login.cshtml" />
     <Content Include="Areas\Admin\Views\Orders\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Orders\Orderlist.cshtml" />
+    <Content Include="Areas\Admin\Views\Orders\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Orders\Details.cshtml" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -818,6 +825,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905200857133_images.resx">
       <DependentUpon>201905200857133_images.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905200939428_useradress.resx">
+      <DependentUpon>201905200939428_useradress.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

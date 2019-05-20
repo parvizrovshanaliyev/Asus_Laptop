@@ -10,6 +10,7 @@ namespace AsusLaptop.Models
         public int Id { get; set; }
 
         [Required]
+        [Display(Name = "Order ID")]
         public int OrderId { get; set; }
 
         [Required]
