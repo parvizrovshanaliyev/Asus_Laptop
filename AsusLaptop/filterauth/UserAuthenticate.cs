@@ -19,7 +19,7 @@ namespace AsusLaptop.filterauth
             //HttpContext.Current.User.Identity.IsAuthenticated 
             if (!HttpContext.Current.User.Identity.IsAuthenticated)
             {
-                filterContext.Result = new RedirectResult("/MemberAccount/Login");
+                filterContext.Result = new RedirectResult("/MemberAccount/Login?ReturnUrl=/Checkout/Index");
             }
         }
     }
