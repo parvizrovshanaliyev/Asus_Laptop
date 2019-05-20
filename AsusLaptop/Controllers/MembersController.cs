@@ -91,6 +91,12 @@ namespace AsusLaptop.Controllers
         }
         #endregion
 
+        #region forgot password
+        public ActionResult ForgotPassword()
+        {
+            return View();
+        }
+        #endregion 
 
         #region Send Confirm Email User
         private void SendConfirm(string email, string token)
