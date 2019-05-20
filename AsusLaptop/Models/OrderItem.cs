@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AsusLaptop.Models
@@ -26,6 +27,9 @@ namespace AsusLaptop.Models
         [Required]
         public byte Discount { get; set; }
 
+        [StringLength(300)]
+        [DisplayName("Image Small")]
+        public string ImageS { get; set; }
 
         public virtual Order Order { get; set; }
         public virtual Product Product { get; set; }
