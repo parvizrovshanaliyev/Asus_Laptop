@@ -76,7 +76,7 @@ namespace AsusLaptop.Controllers
             if (result.Succeeded)
             {
 
-                return RedirectToAction("Login","Account");
+                return RedirectToAction("Login","MemberAccount");
             }
             else
             {
@@ -162,7 +162,7 @@ namespace AsusLaptop.Controllers
             if (result.Succeeded)
             {
 
-                return RedirectToAction("Login", "Account");
+                return RedirectToAction("Login", "MemberAccount");
 
             }
             else

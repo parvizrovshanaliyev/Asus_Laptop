@@ -47,5 +47,101 @@ namespace AsusLaptop.Controllers
             ViewBag.url = returnURL;
             return View();
         }
+
+
+        [AllowAnonymous, HttpPost, ValidateAntiForgeryToken]
+        public async Task<ActionResult> Login(LoginUser userI, string returnURL)
+
+        {
+            if (ModelState.IsValid)
+            {
+                UserApp user = UserManagerApp.FindByEmail(userI.Email);
+
+                if (user == null)
+                {
+                    ModelState.AddModelError("Email", "Email incorrect");
+                    return View(userI);
+                }
+
+                UserApp currentUser = await UserManagerApp.FindAsync(user.UserName, userI.Password);
+
+                if (currentUser == null)
+                {
+                    ModelState.AddModelError("Password", "Password incorrect");
+                    return View(userI);
+                }
+                else
+                {
+
+                    ClaimsIdentity identity = await UserManagerApp.CreateIdentityAsync(currentUser, DefaultAuthenticationTypes.ApplicationCookie);
+                    HttpContext.GetOwinContext().Authentication.SignOut();
+
+
+                    HttpContext.GetOwinContext().Authentication.SignIn(new AuthenticationProperties()
+                    {
+                        AllowRefresh = true,
+                        IsPersistent = true,
+                        ExpiresUtc = DateTime.UtcNow.AddHours(2)
+                    }, identity);
+                    //RemoveLogin(admin.RememberMe);
+
+
+                }
+                if (_context.Carts.Any(x => x.UserAppId == currentUser.Id))
+                {
+                    foreach (var item in _context.Carts.Where(x => x.UserAppId == currentUser.Id))
+                    {
+                        if (Request.Cookies["carts"] == null)
+                        {
+                            HttpCookie cookie = new HttpCookie("carts")
+                            {
+                                Value = "+" + item.ProductId.ToString() + "+",
+                                Expires = DateTime.Now.AddDays(10)
+                            };
+
+                            Response.Cookies.Add(cookie);
+                        }
+                        else
+                        {
+                            if (!Request.Cookies["carts"].Value.Contains("+" + item.ProductId.ToString() + "+"))
+                            {
+                                Request.Cookies["carts"].Value += item.ProductId.ToString() + "+";
+
+                                Response.Cookies.Add(Request.Cookies["carts"]);
+                            }
+                        }
+                    }
+                }
+                if (UserManagerApp.IsInRole(currentUser.Id, "member"))
+                {
+                    if (!string.IsNullOrEmpty(returnURL))
+                    {
+                        return Redirect(returnURL);
+                    }
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    return View(userI);
+                }
+
+                
+
+                //if (!string.IsNullOrEmpty(returnURL))
+                //{
+                //    return Redirect(returnURL);
+                //}
+                //return RedirectToAction("Index", "Home", new { Area = "" });
+
+
+            }
+            else
+            {
+                return View(userI);
+            }
+
+
+        }
+
     }
 }

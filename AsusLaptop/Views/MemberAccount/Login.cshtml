@@ -39,7 +39,18 @@
     <!-- preloader area end -->
     <!-- login area start -->
     <div class="login-area login-s2">
+        <div class="row">
+            <div class="submit-btn-area col-1">
+                
+                    <a style="    width: 110px;  position: fixed;left: 0;" class="btn btn-dark justify-content-around d-flex" href="@Url.Action("Index","Home")">
+                        <div><i style="font-size: 21px;" class="ti-arrow-left"></i></div>
+                        <div><i style="font-size: 21px;" class="fa fa-home"></i></div>
+                    </a>
+               
+            </div>
+        </div>
         <div class="container">
+
             <div class="login-box ptb--100">
                 @using (Html.BeginForm())
                 {
@@ -63,19 +74,20 @@
                             <i class="ti-lock"></i>
                             @Html.ValidationMessage("Password", "", new { @class = "text-danger" })
                         </div>
-                        @*<div class="row mb-4 rmber-area">
-                                <div class="col-6">
-                                    <div class="custom-control custom-checkbox mr-sm-2">
-                                        @Html.CheckBoxFor(m => m.RememberMe, new { @class = "custom-control-input" })
-                                        @Html.LabelFor(m => m.RememberMe, new { @class = "custom-control-label" })
-                                    </div>
-                                </div>
-                            </div>*@
+
+
                         <div class="submit-btn-area">
                             <button id="form_submit" type="submit">Submit <i class="ti-arrow-right"></i></button>
                         </div>
+
+                        <div class="form-footer text-center mt-5">
+                            <p class="text-muted">Don't have an account? <a href="@Url.Action("Register","Register")">Sign up</a></p>
+                        </div>
+
+
                     </div>
                 }
+
             </div>
         </div>
     </div>
