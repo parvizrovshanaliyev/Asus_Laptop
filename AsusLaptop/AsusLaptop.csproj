@@ -173,6 +173,7 @@
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CheckoutController.cs" />
+    <Compile Include="Controllers\CompareController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MemberAccountController.cs" />
@@ -744,6 +745,7 @@
     <Content Include="Views\MemberAccount\Login.cshtml" />
     <Content Include="Views\MyAccount\Index.cshtml" />
     <Content Include="Views\Members\ForgotPassword.cshtml" />
+    <Content Include="Views\Compare\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
