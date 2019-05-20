@@ -37,7 +37,7 @@ $(document).ready(function() {
                         $(".mini-cart-items").html("");
                     }
                     count++;
-                    $(".mini-cart-items").append(` <li data-price="${Number(res.price) - (Number(res.price) * Number(res.discount) / 100)}" data-id="${id}" class="minicart-item mini-product-cart">
+                    $(".mini-cart-items").append(` <li data-count="${count}" data-price="${Number(res.price) - (Number(res.price) * Number(res.discount) / 100)}" data-id="${id}" class="minicart-item mini-product-cart">
                                                         <div data-id="${id}" class="minicart-thumb">
                                                             <a href="/product/name-${res.category}-${res.name}/${id}">
                                                                 <img src="/Public/img/${res.image}" alt="product">
@@ -53,6 +53,7 @@ $(document).ready(function() {
                                                         </div>
                                                         <button data-id="${id}" class="minicart-remove mcremove"><span aria-hidden="true">×</span></button>
                                                     </li>`)
+                    
                     $('.MiniCard-notification').text(count);
                     updatetotal();
                 }
@@ -78,6 +79,8 @@ $(document).ready(function() {
         
         var productId = $(this).parent().data("id");
         var element = $(this).parent();
+        var elementCheck = $(".Checkelement").data("id");
+        var elemCheck = $(".Checkelement");
         //console.log(element);
         $.ajax({
 
@@ -87,6 +90,7 @@ $(document).ready(function() {
             datatype: "json",
             success: function (res) {
                 if (res.status == 200) {
+                    //console.log(elementCheck)
                     Swal.fire({
 
                         type: 'success',
@@ -95,12 +99,11 @@ $(document).ready(function() {
                         timer: 1500
                     })
                     $(element).remove();
-                    
+                    $(".Checkelement[id=" + elementCheck + "]").remove();
+                    //console.log(elementCheck)
                     updatetotal();
-
-                    //if ($(".mCartItems").html("")) {
-                    //    $(".modal-header .close").trigger("click");
-                    //}
+                    
+                    //updateNotificationCount();
                 } else if (res.status == 204) {
 
                     Swal.fire({
@@ -134,7 +137,22 @@ $(document).ready(function() {
             total += $(cps[i]).data("price");
         }
         $("#totalMCart").text(total);
+        $("#SubTotalCheck").text(total);
     }
+    
+    function updateNotificationCount() {
+        var MinicartItems = $('.mini-product-cart');
+        var notificationCount = parseInt($('.MiniCard-notification').html());
+        for (var i = 0; i < MinicartItems.length; i++) {
+            
+            notificationCount -= notificationCount
+        }
+        //notificationCount - 1;
+        $('.MiniCard-notification').text(notificationCount);
+        console.log($(MinicartItems))
+        console.log(notificationCount)
+    }
+   
 
 
 

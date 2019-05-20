@@ -41,7 +41,8 @@
     <div class="login-area login-s2">
         <div class="container">
             <div class="login-box ptb--100">
-                <form action="@Url.Action("Login","Account")" method="post">
+                @using (Html.BeginForm())
+                {
                     @Html.AntiForgeryToken()
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     <div class="login-form-head">
@@ -63,19 +64,19 @@
                             @Html.ValidationMessage("Password", "", new { @class = "text-danger" })
                         </div>
                         @*<div class="row mb-4 rmber-area">
-                            <div class="col-6">
-                                <div class="custom-control custom-checkbox mr-sm-2">
-                                    @Html.CheckBoxFor(m => m.RememberMe, new { @class = "custom-control-input" })
-                                    @Html.LabelFor(m => m.RememberMe, new { @class = "custom-control-label" })
-                                </div>
-                            </div>
-                        </div>*@
+                    <div class="col-6">
+                        <div class="custom-control custom-checkbox mr-sm-2">
+                            @Html.CheckBoxFor(m => m.RememberMe, new { @class = "custom-control-input" })
+                            @Html.LabelFor(m => m.RememberMe, new { @class = "custom-control-label" })
+                        </div>
+                    </div>
+                </div>*@
                         <div class="submit-btn-area">
                             <button id="form_submit" type="submit">Submit <i class="ti-arrow-right"></i></button>
                         </div>
                     </div>
-                </form>
-            </div>
+                }
+                </div>
         </div>
     </div>
     <!-- login area end -->

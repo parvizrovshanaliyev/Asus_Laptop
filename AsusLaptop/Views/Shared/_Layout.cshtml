@@ -47,6 +47,7 @@
     <link href="~/Public/template/plugin_product_slider/css/lightslider.css" rel="stylesheet" />
     <link href="~/Public/template/css/animate.css" rel="stylesheet" />
     <!-- <link type="text/css" rel="stylesheet" href="assets/plugin_product_slider/css/lightslider.min.css" /> -->
+    @RenderSection("styles", required: false)
 
     <link href="~/Public/template/css/b4productslide.css" rel="stylesheet" />
     <link href="~/Public/template/css/temp.css" rel="stylesheet" />
@@ -370,7 +371,7 @@
                                     {
                                         foreach (var item in carts)
                                         {
-                                            <li data-id="@item.Id" data-price="@((item.Price - (item.Price * item.Discount / 100)).ToString("##.###") )" class="minicart-item mini-product-cart">
+                                            <li data-id="@item.Id" data-count="@carts.Count()" data-price="@((item.Price - (item.Price * item.Discount / 100)).ToString("##.###") )" class="minicart-item mini-product-cart">
                                                 <div data-id="@item.Id" class="minicart-thumb">
                                                     <a href="product-details.html">
                                                         <img src="~/Public/img/@item.ImageS" alt="product">

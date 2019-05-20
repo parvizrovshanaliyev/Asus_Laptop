@@ -84,8 +84,7 @@ namespace AsusLaptop.Controllers
                     image = product.ImageS,
                     price = product.Price.ToString("##.##"),
                     discount = product.Discount,
-                    status = 200
-
+                    status = 200,
                 });
             }
             else
