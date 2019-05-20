@@ -1,4 +1,4 @@
-﻿
+﻿@model AsusLaptop.Models.ViewModel.BlogVM
 @{
     ViewBag.Title = "Blog";
 }
@@ -38,45 +38,22 @@
                     <div class="blog-sidebar">
                         <h3 class="title">recent post</h3>
                         <div class="recent-post">
-                            <div class="recent-post-item">
-                                <figure class="product-thumb">
-                                    <a href="blog-details.html">
-                                        <img src="~/Public/template/img/blog/blog-img1.jpg" alt="blog image">
-                                    </a>
-                                </figure>
-                                <div class="recent-post-description">
-                                    <div class="product-name">
-                                        <h4><a href="blog-details.html">ASUS ZenBook 13 UX333FA-DH51</a></h4>
-                                        <p>march 10 2019</p>
+                            @foreach (var item in Model.BlogDesc)
+                            {
+                                <div class="recent-post-item">
+                                    <figure class="product-thumb">
+                                        <a href="/BlogDetails/Index/@item.Id">
+                                            <img src="~/Public/img/@item.ImageL" alt="blog image">
+                                        </a>
+                                    </figure>
+                                    <div class="recent-post-description">
+                                        <div class="product-name">
+                                            <h4><a href="/BlogDetails/Index/@item.Id">@item.Name</a></h4>
+                                            <p>@item.CreateAt</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="recent-post-item">
-                                <figure class="product-thumb">
-                                    <a href="blog-details.html">
-                                        <img src="~/Public/template/img/blog/blog-img1.jpg" alt="blog image">
-                                    </a>
-                                </figure>
-                                <div class="recent-post-description">
-                                    <div class="product-name">
-                                        <h4><a href="blog-details.html">ASUS ZenBook 13 UX333FA-DH51</a></h4>
-                                        <p>march 18 2019</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="recent-post-item">
-                                <figure class="product-thumb">
-                                    <a href="blog-details.html">
-                                        <img src="~/Public/template/img/blog/blog-img1.jpg" alt="blog image">
-                                    </a>
-                                </figure>
-                                <div class="recent-post-description">
-                                    <div class="product-name">
-                                        <h4><a href="blog-details.html">ASUS ZenBook 13 UX333FA-DH51</a></h4>
-                                        <p>march 14 2019</p>
-                                    </div>
-                                </div>
-                            </div>
+                            }
                         </div>
                     </div>
                     <!-- single sidebar end -->
@@ -85,48 +62,28 @@
             <div class="col-lg-9 order-1 order-lg-2">
                 <div class="blog-item-wrapper">
                     <div class="row mbn-30">
-                        <!-- blog post item start -->
-                        <div class="col-md-6">
-
-                            <div class="blog-post-item mb-30">
-                                <figure class="blog-thumb">
-                                    <a href="blog-details.html">
-                                        <img src="~/Public/template/img/blog/blog-img1.jpg" alt="blog image">
-                                    </a>
-                                </figure>
-                                <div class="blog-content">
-                                    <h3 class="blog-title blog-title-large">
-                                        <a href="blog-details.html">ASUS ZenBook 13 UX333FA-DH51</a>
-                                    </h3>
-                                    <div class="blog-meta">
-                                        <p>25/03/2019 | Asus</p>
+                        @foreach (var item in Model.Blogs)
+                        {
+                            <!-- blog post item start -->
+                            <div class="col-md-6">
+                                <div class="blog-post-item mb-30">
+                                    <figure class="blog-thumb">
+                                        <a href="/BlogDetails/Index/@item.Id">
+                                            <img src="~/Public/img/@item.ImageL" alt="blog image">
+                                        </a>
+                                    </figure>
+                                    <div class="blog-content">
+                                        <h3 class="blog-title blog-title-large">
+                                            <a href="/BlogDetails/Index/@item.Id">ASUS ZenBook 13 UX333FA-DH51</a>
+                                        </h3>
+                                        <div class="blog-meta">
+                                            <p>@item.CreateAt | Asus</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- blog post item end -->
-                        <!-- blog post item start -->
-                        <div class="col-md-6">
-
-                            <div class="blog-post-item mb-30">
-                                <figure class="blog-thumb">
-                                    <a href="blog-details.html">
-                                        <img src="~/Public/template/img/blog/blog-img1.jpg" alt="blog image">
-                                    </a>
-                                </figure>
-                                <div class="blog-content">
-                                    <h3 class="blog-title blog-title-large">
-                                        <a href="blog-details.html">ASUS ZenBook 13 UX333FA-DH51</a>
-                                    </h3>
-                                    <div class="blog-meta">
-                                        <p>25/03/2019 | Asus</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- blog post item end -->
-
-
+                            <!-- blog post item end -->
+                        }
                     </div>
                     <!-- start pagination area -->
                     <div class="paginatoin-area text-center">

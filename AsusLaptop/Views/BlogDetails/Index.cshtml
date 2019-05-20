@@ -40,14 +40,14 @@
                             {
                                 <div class="recent-post-item">
                                     <figure class="product-thumb">
-                                        <a href="#">
-                                            <img src="~/Public/img/@Model.Blog.ImageL" alt="blog image">
+                                        <a href="/BlogDetails/Index/@item.Id">
+                                        <img src="~/Public/img/@item.ImageL" alt="blog image">
                                         </a>
                                     </figure>
                                     <div class="recent-post-description">
                                         <div class="product-name">
-                                            <h4><a href="#">@Model.Blog.Name</a></h4>
-                                            <p>march 10 2019</p>
+                                            <h4><a href="/BlogDetails/Index/@item.Id">@item.Name</a></h4>
+                                            <p>@item.CreateAt</p>
                                         </div>
                                     </div>
                                 </div>
@@ -63,7 +63,7 @@
                     <!-- blog post item start -->
                     <div class="blog-post-item blog-details-post">
                         <figure class="blog-thumb">
-                            <a href="blog-details.html">
+                            <a href="/BlogDetails/Index/@Model.Blog.Id">
                                 <img src="~/Public/img/@Model.Blog.ImageL" alt="blog image">
                             </a>
                         </figure>
