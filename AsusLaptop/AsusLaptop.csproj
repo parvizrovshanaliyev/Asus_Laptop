@@ -180,7 +180,7 @@
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="DAL\AsusDbContext.cs" />
     <Compile Include="Extensions\FileExtensions.cs" />
-    <Compile Include="filterauth\RedirectLoginFilter.cs" />
+    <Compile Include="filterauth\UserAuthenticate.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -220,7 +220,7 @@
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\CustomUserValidator.cs" />
-    <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\LoginUser.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\Product.cs" />

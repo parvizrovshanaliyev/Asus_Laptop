@@ -34,8 +34,8 @@ namespace AsusLaptop.filterauth
                     (new
                     {
                         area = "",
-                        controller = "Home",
-                        action = "Index"
+                        controller = "MemberAccoount",
+                        action = "Login"
                     }));
                 }
             }

@@ -1,4 +1,5 @@
 ﻿using AsusLaptop.DAL;
+using AsusLaptop.filterauth;
 using AsusLaptop.Models;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace AsusLaptop.Controllers
         {
             _context = new AsusDbContext();
         }
+        [UserAuthenticate]
         public ActionResult Index()
         {
             List<Product> carts = new List<Product>();
