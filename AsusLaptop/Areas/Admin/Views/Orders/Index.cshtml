@@ -1,0 +1,163 @@
+﻿@model IEnumerable<AsusLaptop.Models.OrderItem>
+
+@{
+    ViewBag.Title = "Orders";
+}
+
+
+<div class="col-12 mt-5">
+    <div class="card">
+        @*<div class="card-header">
+            <p>
+                <a href="@Url.Action("Create","Blogs")" class="text-danger btn btn-dark">Create New @ViewBag.Title</a>
+            </p>
+        </div>*@
+        <div class="card-body">
+            <div class=" d-flex justify-content-between">
+                <h4 class="header-title">@ViewBag.Title</h4>
+
+            </div>
+            <div class="single-table">
+                <div class="table-responsive">
+                    <table id="dataTable" class="table table-hover progress-table text-center">
+                        <thead class="text-uppercase">
+                            <tr>
+                                <th>Actions</th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Order.Status)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Order.UserApp.Fullname)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Order.UserApp.PhoneNumber)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Product.Category.Name)
+                                    <br />
+                                    @Html.DisplayNameFor(model => model.Product.Model)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Price)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Discount)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Product.ImageS)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Order.Date)
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+
+                                <td>
+                                    <ul class="d-flex justify-content-center">
+                                        <li class="mr-3">
+                                            <a href="@Url.Action("Edit","Blogs",new {id=item.Id })" class="text-secondary"><i class="fa fa-edit"></i></a>
+                                        </li>
+
+                                        <li class="mr-3">
+                                            <a href="@Url.Action("Delete","Blogs",new {id=item.Id })" class="text-danger delete"><i class="ti-trash"></i></a>
+                                        </li>
+
+                                        <li>
+                                            <a href="@Url.Action("Details","Blogs",new {id=item.Id })" class="text-danger "><i class="ti-eye"></i></a>
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    @if (item.Order.Status)
+                                    {
+                                        <span class="alert alert-success">Accepted</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="alert alert-info">Pending</span>
+                                    }
+
+                                </td>
+                                <td>@item.Order.UserApp.Fullname</td>
+                                <td>@item.Order.UserApp.PhoneNumber</td>
+                                <td>@item.Product.Model</td>
+                                <td>@item.Price</td>
+                                <td>@item.Discount</td>
+                                <td><img style="width:80px" src="~/Public/img/@item.Product.ImageS" class="img-fluid"></td>
+                                <td>@item.Order.Date</td>
+                            </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section styles{
+    <link href="~/Content/DataTables/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+
+}
+@section scripts{
+    <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/DataTables/dataTables.bootstrap4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            if ($('#dataTable').length) {
+                $('#dataTable').DataTable({
+                    responsive: true
+                });
+            }
+        });
+    </script>
+}
+
+
+
+@*<h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserApp.Fullname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserApp.Fullname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+    }
+
+    </table>*@

@@ -18,14 +18,11 @@ namespace AsusLaptop.Models
         [Required]
         public decimal Price { get; set; }
 
-        [StringLength(50)]
-        public string Color { get; set; }
+        //[StringLength(50)]
+        //public string Color { get; set; }
 
-        [Required]
-        public int Count { get; set; }
-
-       
-
+        //[Required]
+        //public int Count { get; set; }
         [Required]
         public byte Discount { get; set; }
 

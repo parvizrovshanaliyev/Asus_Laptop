@@ -31,11 +31,11 @@ namespace AsusLaptop.Migrations
                    SecurityStamp = Crypto.Hash(DateTime.Now.ToString("yyyyMMddHHmmssfff")),
                });
 
-            context.AspNetUserRoles.Add(new AspNetUserRole
-            {
-                UserId = "44b8d597-3913-4d59-bb43-a9faad0c48ed",
-                RoleId = "fdea3a88-9798-47fa-9ae6-3cd6560d1409",
-            });
+            //context.AspNetUserRoles.Add(new AspNetUserRole
+            //{
+            //    UserId = "44b8d597-3913-4d59-bb43-a9faad0c48ed",
+            //    RoleId = "fdea3a88-9798-47fa-9ae6-3cd6560d1409",
+            //});
 
             context.Products.AddOrUpdate(p => new { p.Model },
                 

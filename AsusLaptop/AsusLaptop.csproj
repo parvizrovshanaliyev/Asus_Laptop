@@ -160,6 +160,7 @@
     <Compile Include="Areas\Admin\Controllers\BlogsController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoriesController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OrdersController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
     <Compile Include="Areas\Admin\Controllers\RolesController.cs" />
     <Compile Include="Areas\Admin\Controllers\RoleToUserController.cs" />
@@ -212,6 +213,10 @@
     <Compile Include="Migrations\201905181010071_blogmodel.cs" />
     <Compile Include="Migrations\201905181010071_blogmodel.Designer.cs">
       <DependentUpon>201905181010071_blogmodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905200751111_ordersmodel.cs" />
+    <Compile Include="Migrations\201905200751111_ordersmodel.Designer.cs">
+      <DependentUpon>201905200751111_ordersmodel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AspNetUserRole.cs" />
@@ -779,6 +784,7 @@
     <Content Include="Areas\Admin\Views\Blogs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Blogs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Account\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\Orders\Index.cshtml" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -802,6 +808,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905181010071_blogmodel.resx">
       <DependentUpon>201905181010071_blogmodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905200751111_ordersmodel.resx">
+      <DependentUpon>201905200751111_ordersmodel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

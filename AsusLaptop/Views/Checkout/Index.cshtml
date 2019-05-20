@@ -134,10 +134,10 @@
                         scelerisque.
                     </p>
                 </blockquote>
-                <form method="post">
+                <form @Url.Action() method="post">
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Recipient:</label>
-                        <input type="text" class="form-control" id="recipient-name">
+                        <input type="text" name="PhoneNumber" class="form-control" id="recipient-name">
                     </div>
                     <div class="form-group text-right">
                         
