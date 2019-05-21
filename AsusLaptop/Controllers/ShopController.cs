@@ -23,7 +23,7 @@ namespace AsusLaptop.Controllers
         public ActionResult Index()
         {
             ViewBag.TotalCount = _context.Products.Count();
-            return View(_context.Products.Include("ProductImages").OrderByDescending(s => s.Id).Take(6).ToList());
+            return View(_context.Products.Include("ProductImages").Where(p=>p.Status==true).OrderByDescending(s => s.Id).Take(6).ToList());
         }
 
         #region ScrollMore
@@ -31,6 +31,7 @@ namespace AsusLaptop.Controllers
         {
             var products = _context.Products
                 .OrderByDescending(s => s.Id)
+                .Where(p => p.Status == true)
                 .Skip(skipCount)
                 .Take(6)
                 .ToList(); /* Partial view olmadan istifade edilir cunki virtual navigation problem yaradir   .Select(s => new { s.Id, FullName = s.Name + " " + s.Surname, s.Group.Name })*/
@@ -41,7 +42,7 @@ namespace AsusLaptop.Controllers
         #region Categories
         public PartialViewResult Categories()
         {
-            var categories = _context.Categories.Include("Products").ToList();
+            var categories = _context.Categories.Include("Products").Where(p => p.Status == true).ToList();
             return PartialView(categories);
         }
         #endregion
