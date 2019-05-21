@@ -81,35 +81,43 @@ namespace AsusLaptop.Controllers
                 UserApp user = await UserManagerApp.FindByIdAsync(User.Identity.GetUserId());
                 user.PhoneNumber = PhoneNumber;
                 IdentityResult result = await UserManagerApp.UpdateAsync(user);
-                //await _context.SaveChangesAsync();
-                Order order = new Order()
-                {
-                    UserAppId = user.Id,
-                    Status = false,
-                    Date = DateTime.Now,
-                    AcceptedDate = DateTime.Now
-                };
-                _context.Orders.Add(order);
+                _context.SaveChanges();
+               
                 //await _context.SaveChangesAsync();
                 if (user.Carts.Count() != 0)
                 {
-                    var products = _context.Carts.Where(p => p.UserAppId == user.Id);
-
+                    Order order = new Order()
+                    {
+                        UserAppId = user.Id,
+                        Status = false,
+                        Date = DateTime.Now,
+                        AcceptedDate = DateTime.Now
+                    };
+                    var products = _context.Carts.Include("Product").Where(p => p.UserAppId == user.Id).ToList();
+                    List<OrderItem> orderItems = new List<OrderItem>();
                     foreach (var item in products)
                     {
-                        _context.OrderItems.Add(new OrderItem
+                        OrderItem orderItem = new OrderItem
                         {
-                            OrderId = order.Id,
+                           
                             ProductId = item.ProductId,
                             Discount = item.Product.Discount,
                             Price = (item.Product.Price - (item.Product.Price * item.Product.Discount / 100)),
                             ImageS = item.Product.ImageS
-                        });
-                        var productCart = _context.Carts.FirstOrDefault(p => p.ProductId == item.ProductId && p.UserAppId == item.UserAppId);
-                        if (productCart != null)
+                        };
+                        orderItems.Add(orderItem);
+                    }
+                    order.OrderItems = orderItems;
+                    _context.Orders.Add(order);
+                    await _context.SaveChangesAsync();
+
+                    foreach (var item in products)
+                    {
+                        //var productCart = _context.Carts.FirstOrDefault(p => p.ProductId == item.ProductId && p.UserAppId == item.UserAppId);
+                        if (products != null)
                         {
-                            _context.Carts.Remove(productCart);
-                            
+                            _context.Carts.Remove(item);
+
                         }
                         if (Request.Cookies["carts"].Value.Contains("+" + item.ProductId.ToString() + "+"))
                         {
@@ -119,10 +127,12 @@ namespace AsusLaptop.Controllers
                             Response.Cookies.Add(Request.Cookies["carts"]);
                         }
                     }
-                    
-                    
                     await _context.SaveChangesAsync();
                     return RedirectToAction("Index");
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Shop");
                 }
             }
             else
@@ -130,7 +140,7 @@ namespace AsusLaptop.Controllers
                 return RedirectToAction("Login", "MemberAccount");
             }
 
-            return View(PhoneNumber);
+            //return View(PhoneNumber);
         }
 
 
