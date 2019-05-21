@@ -44,25 +44,28 @@
             </a>
             <div class="card-body">
                 <div class="product-caption card-text">
-                    <p class="product-name font-weight-bold">
-                        <a href="/product/name-@item.Category.Name.Replace(" ","")-@item.Model.Replace(" ","")/@item.Id">@item.Brand @item.Category.Name @item.Model</a>
-                    </p>
-                    <p class="product-name">
-                        @item.Processor @item.Memory @item.Storage @item.OperatingSystem @item.Display
-                    </p>
-                    <div class="price-box">
-
-                        @if (item.Discount != 0)
-                        {
-                            <span class="price-regular">$@((item.Price - (item.Price * item.Discount / 100)).ToString("##.###") )</span>
-                            <span class="price-old"><del>$@(item.Price.ToString("##.###"))</del></span>
-                        }
-                        else
-                        {
-                            <span class="price-regular">$@(item.Price.ToString("##.###"))</span>
-                        }
+                    <div class="row">
+                        <p class="product-name font-weight-bold ">
+                            <a href="/product/name-@item.Category.Name.Replace(" ","")-@item.Model.Replace(" ","")/@item.Id">@item.Brand @item.Category.Name <br />@item.Model</a>
+                        </p>
+                        <p class="product-name ">
+                            @item.Processor, @item.Memory, @item.Storage, @item.OperatingSystem, @item.Display
+                        </p>
                     </div>
+                    <div class="row">
+                        <div class="price-box">
 
+                            @if (item.Discount != 0)
+                            {
+                                <span class="price-regular">$@((item.Price - (item.Price * item.Discount / 100)).ToString("##.###") )</span>
+                                <span class="price-old"><del>$@(item.Price.ToString("##.###"))</del></span>
+                            }
+                            else
+                            {
+                                <span class="price-regular">$@(item.Price.ToString("##.###"))</span>
+                            }
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="card-footer">
