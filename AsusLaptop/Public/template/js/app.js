@@ -606,7 +606,7 @@ $(document).ready(function() {
                     $(".mini-cart-items").append(` <li data-count="${count}" data-price="${Number(res.price) - (Number(res.price) * Number(res.discount) / 100)}" data-id="${id}" class="minicart-item mini-product-cart">
                                                         <div data-id="${id}" class="minicart-thumb">
                                                             <a href="/product/name-${res.category}-${res.name}/${id}">
-                                                                <img src="/Public/img/${res.image}" alt="product">
+                                                                <img src="/Public/images/${res.image}" alt="product">
                                                             </a>
                                                         </div>
                                                         <div class="minicart-content">

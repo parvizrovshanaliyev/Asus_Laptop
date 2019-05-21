@@ -10,7 +10,7 @@
     <div class="thing" id="wrapper">
         @foreach (var item in Model.Sliders)
         {
-            <div><img src="~/Public/img/@item.Image" alt="slider image"></div>
+            <div><img src="~/Public/images/@item.Image" alt="slider image"></div>
 
         }
     </div>
@@ -27,7 +27,7 @@
                     <div class="blog-post-item mb-30">
                         <figure style="height:150px;" class="blog-thumb">
                             <a href="@Url.Action("Index","Shop")">
-                                <img src="~/Public/img/@item.Image" alt="blog image">
+                                <img src="~/Public/images/@item.Image" alt="blog image">
                             </a>
                         </figure>
                     </div>
@@ -85,8 +85,8 @@
                                                         <!-- region product single  -->
                                                         <div class="col-lg-4 col-md-6 mb-4 product-single"
                                                              data-id="@item.Id"
-                                                             data-photo="/Public/img/@item.ImageS"
-                                                             data-image="/Public/img/@item.ImageL"
+                                                             data-photo="/Public/images/@item.ImageS"
+                                                             data-image="/Public/images/@item.ImageL"
                                                              data-model="@item.Brand  @item.Category.Name @item.Model"
                                                              data-name="@item.Brand @item.Model"
                                                              data-storage="@item.Storage"
@@ -118,7 +118,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <a href="/product/name-@item.Category.Name.Replace(" ","")-@item.Model.Replace(" ","")/@item.Id">
-                                                                    <img src="~/Public/img/@item.ImageL" alt="laptop" class="card-img-top">
+                                                                    <img src="~/Public/images/@item.ImageL" alt="laptop" class="card-img-top">
                                                                 </a>
                                                                 <div class="card-body">
                                                                     <div class="product-caption card-text">
@@ -191,8 +191,8 @@
                                                         <!-- region product single  -->
                                                         <div class="col-lg-4 col-md-6 mb-4 product-single"
                                                              data-id="@item.Id"
-                                                             data-photo="/Public/img/@item.ImageS"
-                                                             data-image="/Public/img/@item.ImageL"
+                                                             data-photo="/Public/images/@item.ImageS"
+                                                             data-image="/Public/images/@item.ImageL"
                                                              data-model="@item.Brand  @item.Category.Name @item.Model"
                                                              data-name="@item.Brand @item.Model"
                                                              data-storage="@item.Storage"
@@ -224,7 +224,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <a href="/product/name-@item.Category.Name.Replace(" ","")-@item.Model.Replace(" ","")/@item.Id">
-                                                                    <img src="~/Public/img/@item.ImageL" alt="laptop" class="card-img-top">
+                                                                    <img src="~/Public/images/@item.ImageL" alt="laptop" class="card-img-top">
                                                                 </a>
                                                                 <div class="card-body">
                                                                     <div class="product-caption card-text">
@@ -321,8 +321,8 @@
                                     <!-- region product single  -->
                                     <div class="col-lg-4 col-md-6 mb-4 product-single"
                                          data-id="@item.Id"
-                                         data-photo="/Public/img/@item.ImageS"
-                                         data-image="/Public/img/@item.ImageL"
+                                         data-photo="/Public/images/@item.ImageS"
+                                         data-image="/Public/images/@item.ImageL"
                                          data-model="@item.Brand  @item.Category.Name @item.Model"
                                          data-name="@item.Brand @item.Model"
                                          data-storage="@item.Storage"
@@ -354,7 +354,7 @@
                                                 </div>
                                             </div>
                                             <a href="/product/name-@item.Category.Name.Replace(" ","")-@item.Model.Replace(" ","")/@item.Id">
-                                                <img src="~/Public/img/@item.ImageL" alt="laptop" class="card-img-top">
+                                                <img src="~/Public/images/@item.ImageL" alt="laptop" class="card-img-top">
                                             </a>
                                             <div class="card-body">
                                                 <div class="product-caption card-text">
@@ -442,8 +442,8 @@
                                     <!-- region product single  -->
                                     <div class="col-lg-4 col-md-6 mb-4 product-single"
                                          data-id="@item.Id"
-                                         data-photo="/Public/img/@item.ImageS"
-                                         data-image="/Public/img/@item.ImageL"
+                                         data-photo="/Public/images/@item.ImageS"
+                                         data-image="/Public/images/@item.ImageL"
                                          data-model="@item.Brand  @item.Category.Name @item.Model"
                                          data-name="@item.Brand @item.Model"
                                          data-storage="@item.Storage"
@@ -475,7 +475,7 @@
                                                 </div>
                                             </div>
                                             <a href="/product/name-@item.Category.Name.Replace(" ","")-@item.Model.Replace(" ","")/@item.Id">
-                                                <img src="~/Public/img/@item.ImageL" alt="laptop" class="card-img-top">
+                                                <img src="~/Public/images/@item.ImageL" alt="laptop" class="card-img-top">
                                             </a>
                                             <div class="card-body">
                                                 <div class="product-caption card-text">
@@ -558,7 +558,7 @@
                 <!-- start policy single item -->
                 <div class="service-policy-item">
                     <div class="icons">
-                        <img src="~/Public/template/img/icon/free_shipping.png" alt="">
+                        <img src="~/Public/template/images/icon/free_shipping.png" alt="">
                     </div>
                     <h5>free shipping</h5>
                     <p>Free shipping all order</p>
@@ -569,7 +569,7 @@
                 <!-- start policy single item -->
                 <div class="service-policy-item">
                     <div class="icons">
-                        <img src="~/Public/template/img/icon/money_back.png" alt="">
+                        <img src="~/Public/template/images/icon/money_back.png" alt="">
                     </div>
                     <h5>Money Return</h5>
                     <p>30 days for free return</p>
@@ -580,7 +580,7 @@
                 <!-- start policy single item -->
                 <div class="service-policy-item">
                     <div class="icons">
-                        <img src="~/Public/template/img/icon/support247.png" alt="">
+                        <img src="~/Public/template/images/icon/support247.png" alt="">
                     </div>
                     <h5>Online Support</h5>
                     <p>Support 24 hours a day</p>
@@ -591,7 +591,7 @@
                 <!-- start policy single item -->
                 <div class="service-policy-item">
                     <div class="icons">
-                        <img src="~/Public/template/img/icon/promotions.png" alt="">
+                        <img src="~/Public/template/images/icon/promotions.png" alt="">
                     </div>
                     <h5>Deals & Promotions</h5>
                     <p>Price savings, discounts</p>
@@ -623,7 +623,7 @@
                     <!-- #region blog single card -->
                     <div class="card shadow border-0">
                         <a href="/BlogDetails/Index/@item.Id">
-                            <img src="~/Public/img/@item.ImageL" alt="Card image cap">
+                            <img src="~/Public/images/@item.ImageL" alt="Card image cap">
                         </a>
                         <div class="card-body">
                             <a href="/BlogDetails/Index/@item.Id">
