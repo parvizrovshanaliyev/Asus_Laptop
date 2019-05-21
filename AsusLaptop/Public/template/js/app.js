@@ -14,51 +14,34 @@ Table of content
 // $('.container').loader('show','<img src="loader.gif">');
 $(document).ready(function() {
     console.log("ssss");
-    //  #region 9. compare product
-    $("#CompareproductBtn").on("click",function (e) {
+    //  #region 9. compare product desktop
+    $("#CompareproductBtn").on("click", function (e) {
         e.preventDefault();
-        var id=","; //toString().split(",")
+        var id = ","; //toString().split(",")
         productCompares = $("#line .compare-product");
-        
+
         for (var i = 0; i < productCompares.length; i++) {
             id += ($(productCompares[i]).data("id")) + ",";
         }
         window.location.href = `/Compare/Index?id=${id}`
-        //console.log(id);
-        //console.log(productCompares);
-        //$.ajax({
-        //    url: "/Compare/AddCompare",
-        //    data: { id: id },
-        //    type: "post",
-        //    datatype: "json",
-        //    success: function (res) {
-        //        if (res.status == 200) {
-        //            Swal.fire({
 
-        //                type: 'success',
-        //                title: 'Your Product Added to MiniCart',
-        //                showConfirmButton: false,
-        //                timer: 1500
-        //            })
-        //        } else if (res.status == 204) {
+    });
+    
+    //  #endregion 9. compare product
 
-        //            Swal.fire({
+    //  #region 10. compare product desktop
+    $(document).on("click","#CompareproductBtnM", function (e) {
+        e.preventDefault();
+        
+        var id = ","; //toString().split(",")
+        productCompares = $("#lineM .compare-product");
 
-        //                type: 'error',
-        //                title: res.message,
-        //                showConfirmButton: false,
-        //                timer: 1500
-        //            })
-        //        }
-        //    }
-        //});
-    })
+        for (var i = 0; i < productCompares.length; i++) {
+            id += ($(productCompares[i]).data("id")) + ",";
+        }
+        window.location.href = `/Compare/Index?id=${id}`
 
-
-
-
-
-
+    });
     //  #endregion 9. compare product
 
 

@@ -100,7 +100,6 @@
 
                     </div>
                     <!-- single sidebar end -->
-                    
                     <!-- single sidebar start storage -->
                     <div class="sidebar-single d-none  d-lg-block">
                         <div class="blog-sidebar">
@@ -286,6 +285,8 @@
 
 </div>
 <!-- #endregion compare -->
+@* //////////////////////////////////mobile/compare//////////////////////////////////////////////////////////////// *@
+<!-- #region compare modal mobile -->
 <!-- #region compare modal mobile-->
 <a href="#" data-target=".compareMobile" class="openBtnM compareOpenM d-md-none d-sm-block btn btn-dark mr-2">
     <i class="fas fa-chevron-up"></i>
@@ -320,11 +321,12 @@
             </div>
         </div>
         <div class="modal-footer border-0 p-0 pb-1 justify-content-center">
-            <a class="btn btn-dark" href="compare.html">Compare</a>
+            <a  id="CompareproductBtnM" class="btn btn-dark" href="#">Compare</a>
         </div>
     </div>
 </div>
 <!-- #endregion compare mobile -->
+
 <!-- #region Quick view modal start -->
 @Html.Partial("_QuickView")
 <!-- #endregion  Quick view modal end -->
