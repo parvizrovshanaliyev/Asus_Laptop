@@ -60,7 +60,6 @@ namespace AsusLaptop.Areas.Admin.Controllers
             return RedirectToAction("index");
         }
         #endregion
-
         #region edit
         public ActionResult Edit(int? id)
         {
