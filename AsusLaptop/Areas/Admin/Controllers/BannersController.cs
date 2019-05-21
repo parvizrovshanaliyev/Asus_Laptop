@@ -48,7 +48,7 @@ namespace AsusLaptop.Areas.Admin.Controllers
             }
             Banner banner = new Banner
             {
-                Image = Photo.SavePhoto("Public/img", "banner")
+                Image = Photo.SavePhoto("Public/images", "banner")
             };
             _context.Banners.Add(banner);
             _context.SaveChanges();
@@ -81,8 +81,8 @@ namespace AsusLaptop.Areas.Admin.Controllers
                     banner.Photo = bannerdb.Photo;
                     return View(banner);
                 }
-                RemoveImg("Public/img", bannerdb.Image);
-                bannerdb.Image = banner.Photo.SavePhoto("Public/img", "banner");
+                RemoveImg("Public/images", bannerdb.Image);
+                bannerdb.Image = banner.Photo.SavePhoto("Public/images", "banner");
             }
             _context.SaveChanges();
             return RedirectToAction("Index");

@@ -74,8 +74,8 @@ namespace AsusLaptop.Areas.Admin.Controllers
             }
 
 
-            blog.ImageL = blog.PhotoL.SavePhoto("Public/img", "blog");
-            blog.ImageS = blog.PhotoSmall.SavePhoto("Public/img", "blog");
+            blog.ImageL = blog.PhotoL.SavePhoto("Public/images", "blog");
+            blog.ImageS = blog.PhotoSmall.SavePhoto("Public/images", "blog");
             blog.CreateAt = blog.UpdateAt = DateTime.Now;
             _context.Blogs.Add(blog);
             _context.SaveChanges();
@@ -116,10 +116,10 @@ namespace AsusLaptop.Areas.Admin.Controllers
                     blog.PhotoSmall = blogdb.PhotoSmall;
                     return View(blog);
                 }
-                RemoveImg("Public/img", blogdb.ImageL);
-                RemoveImg("Public/img", blogdb.ImageS);
-                blogdb.ImageL = blog.PhotoL.SavePhoto("Public/img", "blog");
-                blogdb.ImageS = blog.PhotoSmall.SavePhoto("Public/img", "blog");
+                RemoveImg("Public/images", blogdb.ImageL);
+                RemoveImg("Public/images", blogdb.ImageS);
+                blogdb.ImageL = blog.PhotoL.SavePhoto("Public/images", "blog");
+                blogdb.ImageS = blog.PhotoSmall.SavePhoto("Public/images", "blog");
 
             }
            

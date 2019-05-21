@@ -51,7 +51,7 @@ namespace AsusLaptop.Areas.Admin.Controllers
                 }
                 Slider slider = new Slider
                 {
-                    Image = photo.SavePhoto("Public/img", "slider")
+                    Image = photo.SavePhoto("Public/images", "slider")
                 };
                 _context.Sliders.Add(slider);
 
@@ -85,8 +85,8 @@ namespace AsusLaptop.Areas.Admin.Controllers
                     slider.Photo = sliderdb.Photo;
                     return View(slider);
                 }
-                RemoveImg("Public/img", sliderdb.Image);
-                sliderdb.Image = slider.Photo.SavePhoto("Public/img", "slider");
+                RemoveImg("Public/images", sliderdb.Image);
+                sliderdb.Image = slider.Photo.SavePhoto("Public/images", "slider");
             }
             _context.SaveChanges();
             return RedirectToAction("Index");

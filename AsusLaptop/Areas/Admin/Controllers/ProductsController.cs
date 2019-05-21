@@ -74,7 +74,7 @@ namespace AsusLaptop.Areas.Admin.Controllers
                 }
                 ProductImage productImage = new ProductImage
                 {
-                    Image = photo.SavePhoto("Public/img", "productsMultiples")
+                    Image = photo.SavePhoto("Public/images", "productsMultiples")
                 };
                 productImages.Add(productImage);
 
@@ -120,9 +120,9 @@ namespace AsusLaptop.Areas.Admin.Controllers
 
             product.ProductImages = productImages;
             product.CategoryId = category.Id;
-            product.ImageL = product.PhotoL.SavePhoto("Public/img", "products");
-            product.ImageM = product.PhotoM.SavePhoto("Public/img", "products");
-            product.ImageS = product.PhotoSmall.SavePhoto("Public/img", "products");
+            product.ImageL = product.PhotoL.SavePhoto("Public/images", "products");
+            product.ImageM = product.PhotoM.SavePhoto("Public/images", "products");
+            product.ImageS = product.PhotoSmall.SavePhoto("Public/images", "products");
             product.CreateAt = product.UpdateAt = DateTime.Now;
             product.Brand = "Asus";
             product.OperatingSystem = "Windows 10 Pro";
@@ -181,7 +181,7 @@ namespace AsusLaptop.Areas.Admin.Controllers
                     {
                         
                         ProductId = productdb.Id,
-                        Image = photo.SavePhoto("Public/img", "productsMultiples")
+                        Image = photo.SavePhoto("Public/images", "productsMultiples")
                     };
                     _context.Entry(productImage).State = EntityState.Added;
                 }
@@ -198,12 +198,12 @@ namespace AsusLaptop.Areas.Admin.Controllers
                     product.PhotoSmall = productdb.PhotoSmall;
                     return View(product);
                 }
-                RemoveImg("Public/img", productdb.ImageL);
-                RemoveImg("Public/img", productdb.ImageM);
-                RemoveImg("Public/img", productdb.ImageS);
-                productdb.ImageL = product.PhotoL.SavePhoto("Public/img", "products");
-                productdb.ImageM = product.PhotoM.SavePhoto("Public/img", "products");
-                productdb.ImageS = product.PhotoSmall.SavePhoto("Public/img", "products");
+                RemoveImg("Public/images", productdb.ImageL);
+                RemoveImg("Public/images", productdb.ImageM);
+                RemoveImg("Public/images", productdb.ImageS);
+                productdb.ImageL = product.PhotoL.SavePhoto("Public/images", "products");
+                productdb.ImageM = product.PhotoM.SavePhoto("Public/images", "products");
+                productdb.ImageS = product.PhotoSmall.SavePhoto("Public/images", "products");
 
             }
             product.CategoryId = category.Id;
@@ -288,7 +288,7 @@ namespace AsusLaptop.Areas.Admin.Controllers
 
                 _context.SaveChanges();
 
-                RemoveImg("Public/img", productImage.Image);
+                RemoveImg("Public/images", productImage.Image);
                 return Json(new { Result = "OK" });
             }
             catch (Exception ex)
