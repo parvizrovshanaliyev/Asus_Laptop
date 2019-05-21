@@ -523,6 +523,8 @@
     <Content Include="Areas\Admin\Public\assets\fonts\themifyd41d.eot" />
     <Content Include="Areas\Admin\Public\assets\Scripts\jquery-3.4.1.min.map" />
     <Content Include="Areas\Admin\Public\assets\Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Public\laptop %281%29.png" />
+    <Content Include="Public\laptop.png" />
     <Content Include="Public\template\Animated-Tabs-anitabs\css\anitabs.css" />
     <Content Include="Public\template\Animated-Tabs-anitabs\css\page.css" />
     <Content Include="Public\template\Animated-Tabs-anitabs\index.html" />
