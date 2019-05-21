@@ -142,7 +142,7 @@ namespace AsusLaptop.Controllers
             message.To.Add(new MailAddress(email));  // replace with valid value 
             message.From = new MailAddress("resetlifewithcode@gmail.com");  // replace with valid value
             message.Subject = " Invite to Asus.com ";
-            message.Body = string.Format(body, "http://localhost:50007/Register/confirm?token=" + token);
+            message.Body = string.Format(body, "http://parvizrovshan-001-site1.etempurl.com/Register/confirm?token=" + token);
             message.IsBodyHtml = true;
 
             using (var smtp = new SmtpClient())
