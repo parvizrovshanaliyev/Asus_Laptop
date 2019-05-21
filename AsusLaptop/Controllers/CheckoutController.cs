@@ -81,7 +81,7 @@ namespace AsusLaptop.Controllers
                 UserApp user = await UserManagerApp.FindByIdAsync(User.Identity.GetUserId());
                 user.PhoneNumber = PhoneNumber;
                 IdentityResult result = await UserManagerApp.UpdateAsync(user);
-                await _context.SaveChangesAsync();
+                //await _context.SaveChangesAsync();
                 Order order = new Order()
                 {
                     UserAppId = user.Id,
@@ -90,7 +90,7 @@ namespace AsusLaptop.Controllers
                     AcceptedDate = DateTime.Now
                 };
                 _context.Orders.Add(order);
-                await _context.SaveChangesAsync();
+                //await _context.SaveChangesAsync();
                 if (user.Carts.Count() != 0)
                 {
                     var products = _context.Carts.Where(p => p.UserAppId == user.Id);
