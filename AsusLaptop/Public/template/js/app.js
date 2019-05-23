@@ -474,11 +474,10 @@ $(document).ready(function() {
   // open card modal
   openCard.on("click", function(e) {
     e.preventDefault();
-    if (modalCompare.hasClass("show")||modalCompareM.hasClass("show")) {
-      modalCompare.removeClass("show");
-      modalCompareM.removeClass("show");
-
-      // madalQuickView.removeClass("show");
+      if (modalCompare.hasClass("show") || modalCompareM.hasClass("show") || madalQuickView.hasClass("show")) {
+          modalCompare.removeClass("show");
+          modalCompareM.removeClass("show");
+          madalQuickView.modal('hide');
     }
     // else if(madalQuickView.hasClass("show")){
     //   madalQuickView.removeClass("show");
@@ -524,6 +523,9 @@ $(document).ready(function() {
       $("#ProductQV").find(".data-weight").text(product.data("weight"));
       $("#ProductQV").find(".data-discount").text(`$ ${pPrice}`);
       $("#ProductQV").find(".data-dimensions").text(product.data("dimensions"));
+      ///add to cart btn set data id 
+      $("#ProductQV").find(".minicartBtn").attr('data-id', product.data("id"));
+     
 
     if (modalCompare.hasClass("show")) {
       modalCompare.removeClass("show");
@@ -534,29 +536,29 @@ $(document).ready(function() {
   // #endregion modals: compare , quick view , mini card
 
   // #region 6.quantity change js start ---------*/
-  $(".pro-qty").prepend('<span class="dec qtybtn">-</span>');
-  $(".pro-qty").append('<span class="inc qtybtn">+</span>');
-  $(".qtybtn").on("click", function() {
-    var $button = $(this);
-    var oldValue = $button
-      .parent()
-      .find("input")
-      .val();
-    if ($button.hasClass("inc")) {
-      var newVal = parseFloat(oldValue) + 1;
-    } else {
-      // Don't allow decrementing below zero
-      if (oldValue > 0) {
-        var newVal = parseFloat(oldValue) - 1;
-      } else {
-        newVal = 0;
-      }
-    }
-    $button
-      .parent()
-      .find("input")
-      .val(newVal);
-  });
+  //$(".pro-qty").prepend('<span class="dec qtybtn">-</span>');
+  //$(".pro-qty").append('<span class="inc qtybtn">+</span>');
+  //$(".qtybtn").on("click", function() {
+  //  var $button = $(this);
+  //  var oldValue = $button
+  //    .parent()
+  //    .find("input")
+  //    .val();
+  //  if ($button.hasClass("inc")) {
+  //    var newVal = parseFloat(oldValue) + 1;
+  //  } else {
+  //    // Don't allow decrementing below zero
+  //    if (oldValue > 0) {
+  //      var newVal = parseFloat(oldValue) - 1;
+  //    } else {
+  //      newVal = 0;
+  //    }
+  //  }
+  //  $button
+  //    .parent()
+  //    .find("input")
+  //    .val(newVal);
+  //});
   //#endregion 6.quantity change js end ---------*/
 
   //#region 7. scroll top page
