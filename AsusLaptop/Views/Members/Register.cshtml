@@ -40,6 +40,16 @@
     <!-- preloader area end -->
     <!-- login area start -->
     <div class="login-area login-s2">
+        <div class="row">
+            <div class="submit-btn-area col-1">
+
+                <a style="    width: 110px;  position: fixed;left: 0;" class="btn btn-dark justify-content-around d-flex" href="@Url.Action("Index","Home")">
+                    <div><i style="font-size: 21px;" class="ti-arrow-left"></i></div>
+                    <div><i style="font-size: 21px;" class="fa fa-home"></i></div>
+                </a>
+
+            </div>
+        </div>
         <div class="container">
             <div class="login-box ptb--100">
                 <form action="@Url.Action("Register","Members")" method="post">
@@ -52,7 +62,7 @@
                     <div class="login-form-body">
                         <div class="form-gp">
                             <label for="exampleInputEmail1">Email address</label>
-                            <input type="email"name="Email" required id="exampleInputEmail1">
+                            <input type="email" name="Email" required id="exampleInputEmail1">
                             <i class="ti-email"></i>
                             @Html.ValidationMessage("Email", "", new { @class = "text-danger mb-1" })
                         </div>
