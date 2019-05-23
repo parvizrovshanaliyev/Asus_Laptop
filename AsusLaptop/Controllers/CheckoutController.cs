@@ -103,7 +103,8 @@ namespace AsusLaptop.Controllers
                             ProductId = item.ProductId,
                             Discount = item.Product.Discount,
                             Price = (item.Product.Price - (item.Product.Price * item.Product.Discount / 100)),
-                            ImageS = item.Product.ImageS
+                            ImageS = item.Product.ImageS,
+                            
                         };
                         orderItems.Add(orderItem);
                     }

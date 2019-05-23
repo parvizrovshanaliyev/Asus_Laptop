@@ -83,7 +83,7 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.Display, htmlAttributes: new { @class = "control-label col-md-2" })
                                     <div class="col-md-10">
-                                        @Html.EditorFor(model => model.Display, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                                        @Html.EditorFor(model => model.Display, new { htmlAttributes = new { @class = "form-control text-uppercase", required = "required" } })
                                         @Html.ValidationMessageFor(model => model.Display, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -97,14 +97,14 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.Memory, htmlAttributes: new { @class = "control-label col-md-2" })
                                     <div class="col-md-10">
-                                        @Html.EditorFor(model => model.Memory, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.Memory, new { htmlAttributes = new { @class = "form-control text-uppercase" } })
                                         @Html.ValidationMessageFor(model => model.Memory, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.Storage, htmlAttributes: new { @class = "control-label col-md-2" })
                                     <div class="col-md-10">
-                                        @Html.EditorFor(model => model.Storage, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.Storage, new { htmlAttributes = new { @class = "form-control text-uppercase" } })
                                         @Html.ValidationMessageFor(model => model.Storage, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -207,9 +207,9 @@
             $('input[name="Colors"]').tagit();
             $('input[name="Ports"]').tagit();
             $('input[name="Display"]').tagit();
-            $('input[name="Storage"]').tagit();
+            //$('input[name="Storage"]').tagit();
             $('input[name="Processor"]').tagit();
-            $('input[name="Memory"]').tagit();
+            //$('input[name="Memory"]').tagit();
             $('input[name="Wireless"]').tagit();
             $('input[name="Graphic"]').tagit();
         });
