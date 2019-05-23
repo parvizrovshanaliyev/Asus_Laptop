@@ -599,113 +599,113 @@ namespace AsusLaptop.Migrations
             ///// product images
             ///
 
-            context.ProductImages.AddOrUpdate(
-                new ProductImage { ProductId = 9, Image = "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
-                new ProductImage { ProductId = 9, Image = "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
-                new ProductImage { ProductId = 9, Image = "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
-                new ProductImage { ProductId = 9, Image = "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" },
+            //context.ProductImages.AddOrUpdate(
+            //    new ProductImage { ProductId = 9, Image = "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
+            //    new ProductImage { ProductId = 9, Image = "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
+            //    new ProductImage { ProductId = 9, Image = "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
+            //    new ProductImage { ProductId = 9, Image = "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" },
 
 
 
-                new ProductImage {ProductId=10, Image= "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
-                new ProductImage {ProductId= 10, Image= "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
-                new ProductImage {ProductId= 10, Image= "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
-                new ProductImage {ProductId= 10, Image= "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" },
+            //    new ProductImage {ProductId=10, Image= "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
+            //    new ProductImage {ProductId= 10, Image= "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
+            //    new ProductImage {ProductId= 10, Image= "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
+            //    new ProductImage {ProductId= 10, Image= "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" },
 
-                new ProductImage { ProductId=11, Image = "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
-                new ProductImage { ProductId=11, Image = "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
-                new ProductImage { ProductId=11, Image = "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
-                new ProductImage { ProductId=11, Image = "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" },
+            //    new ProductImage { ProductId=11, Image = "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
+            //    new ProductImage { ProductId=11, Image = "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
+            //    new ProductImage { ProductId=11, Image = "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
+            //    new ProductImage { ProductId=11, Image = "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" },
 
-                new ProductImage { ProductId=12, Image = "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
-                new ProductImage { ProductId=12, Image = "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
-                new ProductImage { ProductId=12, Image = "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
-                new ProductImage { ProductId=12, Image = "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" },
+            //    new ProductImage { ProductId=12, Image = "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
+            //    new ProductImage { ProductId=12, Image = "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
+            //    new ProductImage { ProductId=12, Image = "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
+            //    new ProductImage { ProductId=12, Image = "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" },
 
-                new ProductImage { ProductId=13, Image = "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
-                new ProductImage { ProductId=13, Image = "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
-                new ProductImage { ProductId=13, Image = "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
-                new ProductImage { ProductId=13, Image = "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" },
-
-
-                new ProductImage { ProductId=14, Image = "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
-                new ProductImage { ProductId=14, Image = "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
-                new ProductImage { ProductId=14, Image = "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
-                new ProductImage { ProductId=14, Image = "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" },
-
-                new ProductImage { ProductId=15, Image = "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
-                new ProductImage { ProductId=15, Image = "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
-                new ProductImage { ProductId=15, Image = "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
-                new ProductImage { ProductId=15, Image = "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" },
-
-                new ProductImage { ProductId=16, Image = "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
-                new ProductImage { ProductId=16, Image = "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
-                new ProductImage { ProductId=16, Image = "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
-                new ProductImage { ProductId=16, Image = "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" },
-
-                new ProductImage { ProductId=17, Image = "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
-                new ProductImage { ProductId=17, Image = "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
-                new ProductImage { ProductId=17, Image = "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
-                new ProductImage { ProductId=17, Image = "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" },
-
-                new ProductImage { ProductId=18, Image = "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
-                new ProductImage { ProductId=18, Image = "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
-                new ProductImage { ProductId=18, Image = "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
-                new ProductImage { ProductId=18, Image = "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" },
-
-                new ProductImage { ProductId=19, Image = "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
-                new ProductImage { ProductId=19, Image = "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
-                new ProductImage { ProductId=19, Image = "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
-                new ProductImage { ProductId=19, Image = "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" },
-
-                new ProductImage { ProductId=20, Image = "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
-                new ProductImage { ProductId=20, Image = "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
-                new ProductImage { ProductId=20, Image = "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
-                new ProductImage { ProductId=20, Image = "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" },
-
-                new ProductImage { ProductId=21, Image = "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
-                new ProductImage { ProductId=21, Image = "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
-                new ProductImage { ProductId=21, Image = "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
-                new ProductImage { ProductId=21, Image = "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" },
-
-                new ProductImage { ProductId=22, Image = "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
-                new ProductImage { ProductId=22, Image = "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
-                new ProductImage { ProductId=22, Image = "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
-                new ProductImage { ProductId=22, Image = "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" },
-
-                new ProductImage { ProductId=23, Image = "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
-                new ProductImage { ProductId=23, Image = "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
-                new ProductImage { ProductId=23, Image = "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
-                new ProductImage { ProductId=23, Image = "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" },
-
-                new ProductImage { ProductId=24, Image = "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
-                new ProductImage { ProductId=24, Image = "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
-                new ProductImage { ProductId=24, Image = "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
-                new ProductImage { ProductId=24, Image = "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" },
-
-                new ProductImage { ProductId=25, Image = "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
-                new ProductImage { ProductId=25, Image = "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
-                new ProductImage { ProductId=25, Image = "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
-                new ProductImage { ProductId=25, Image = "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" },
+            //    new ProductImage { ProductId=13, Image = "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
+            //    new ProductImage { ProductId=13, Image = "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
+            //    new ProductImage { ProductId=13, Image = "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
+            //    new ProductImage { ProductId=13, Image = "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" },
 
 
-                new ProductImage { ProductId=26, Image = "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
-                new ProductImage { ProductId=26, Image = "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
-                new ProductImage { ProductId=26, Image = "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
-                new ProductImage { ProductId=26, Image = "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" },
+            //    new ProductImage { ProductId=14, Image = "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
+            //    new ProductImage { ProductId=14, Image = "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
+            //    new ProductImage { ProductId=14, Image = "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
+            //    new ProductImage { ProductId=14, Image = "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" },
 
-                new ProductImage { ProductId=27, Image = "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
-                new ProductImage { ProductId=27, Image = "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
-                new ProductImage { ProductId=27, Image = "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
-                new ProductImage { ProductId=27, Image = "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" },
+            //    new ProductImage { ProductId=15, Image = "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
+            //    new ProductImage { ProductId=15, Image = "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
+            //    new ProductImage { ProductId=15, Image = "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
+            //    new ProductImage { ProductId=15, Image = "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" },
+
+            //    new ProductImage { ProductId=16, Image = "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
+            //    new ProductImage { ProductId=16, Image = "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
+            //    new ProductImage { ProductId=16, Image = "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
+            //    new ProductImage { ProductId=16, Image = "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" },
+
+            //    new ProductImage { ProductId=17, Image = "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
+            //    new ProductImage { ProductId=17, Image = "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
+            //    new ProductImage { ProductId=17, Image = "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
+            //    new ProductImage { ProductId=17, Image = "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" },
+
+            //    new ProductImage { ProductId=18, Image = "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
+            //    new ProductImage { ProductId=18, Image = "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
+            //    new ProductImage { ProductId=18, Image = "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
+            //    new ProductImage { ProductId=18, Image = "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" },
+
+            //    new ProductImage { ProductId=19, Image = "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
+            //    new ProductImage { ProductId=19, Image = "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
+            //    new ProductImage { ProductId=19, Image = "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
+            //    new ProductImage { ProductId=19, Image = "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" },
+
+            //    new ProductImage { ProductId=20, Image = "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
+            //    new ProductImage { ProductId=20, Image = "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
+            //    new ProductImage { ProductId=20, Image = "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
+            //    new ProductImage { ProductId=20, Image = "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" },
+
+            //    new ProductImage { ProductId=21, Image = "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
+            //    new ProductImage { ProductId=21, Image = "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
+            //    new ProductImage { ProductId=21, Image = "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
+            //    new ProductImage { ProductId=21, Image = "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" },
+
+            //    new ProductImage { ProductId=22, Image = "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
+            //    new ProductImage { ProductId=22, Image = "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
+            //    new ProductImage { ProductId=22, Image = "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
+            //    new ProductImage { ProductId=22, Image = "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" },
+
+            //    new ProductImage { ProductId=23, Image = "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
+            //    new ProductImage { ProductId=23, Image = "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
+            //    new ProductImage { ProductId=23, Image = "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
+            //    new ProductImage { ProductId=23, Image = "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" },
+
+            //    new ProductImage { ProductId=24, Image = "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
+            //    new ProductImage { ProductId=24, Image = "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
+            //    new ProductImage { ProductId=24, Image = "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
+            //    new ProductImage { ProductId=24, Image = "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" },
+
+            //    new ProductImage { ProductId=25, Image = "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
+            //    new ProductImage { ProductId=25, Image = "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
+            //    new ProductImage { ProductId=25, Image = "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
+            //    new ProductImage { ProductId=25, Image = "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" },
 
 
-                new ProductImage { ProductId=28, Image = "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
-                new ProductImage { ProductId=28, Image = "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
-                new ProductImage { ProductId=28, Image = "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
-                new ProductImage { ProductId=28, Image = "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" }
+            //    new ProductImage { ProductId=26, Image = "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
+            //    new ProductImage { ProductId=26, Image = "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
+            //    new ProductImage { ProductId=26, Image = "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
+            //    new ProductImage { ProductId=26, Image = "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" },
+
+            //    new ProductImage { ProductId=27, Image = "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
+            //    new ProductImage { ProductId=27, Image = "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
+            //    new ProductImage { ProductId=27, Image = "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
+            //    new ProductImage { ProductId=27, Image = "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" },
+
+
+            //    new ProductImage { ProductId=28, Image = "productsMultiples/9594a497-d167-4cc0-9e56-60dab7045aea5a2bb6dd-c980-4823-81ed-0be724a6a4f2fd84a367-6a54-4d8c-bf4b-0150d293db39ASUS_VivoBook_Flip4.jpg" },
+            //    new ProductImage { ProductId=28, Image = "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
+            //    new ProductImage { ProductId=28, Image = "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
+            //    new ProductImage { ProductId=28, Image = "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" }
                 
-                );
+            //    );
         }
     }
 }

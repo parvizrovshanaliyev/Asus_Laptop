@@ -11,6 +11,8 @@
          data-image="/Public/images/@item.ImageL" 
          data-model="@item.Brand  @item.Category.Name @item.Model" 
          data-name="@item.Brand @item.Model" 
+         data-category="@item.Category.Name.Replace(" ","-")"
+         data-href="@item.Model.Replace(" ","-")"
          data-storage="@item.Storage" 
          data-memory="@item.Memory" 
          data-display="@item.Display"

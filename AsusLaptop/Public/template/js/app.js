@@ -8,13 +8,13 @@ Table of content
 5.  modals: compare , quick view , mini card
 6.  quantity -1+
 7.  scroll top page
-8. minicart added product delete from cart
-9. compare product desktop
+8.  minicart added product delete from cart
+9.  compare product desktop
 10. compare product desktop
 -------------------------------------------------------------------*/
 // $('.container').loader('show','<img src="loader.gif">');
 $(document).ready(function() {
-    console.log("ssss");
+   // console.log("ssss");
 
 
 
@@ -490,6 +490,9 @@ $(document).ready(function() {
   // });
 
   // #region when quick view open close compare modal
+    //var str = "Visit Microsoft!";
+    //var res = str.replace(" ", "-");
+    //console.log(res);
   openQuickV.on("click", function(e) {
       e.preventDefault();
       var product = $(this)
@@ -525,8 +528,12 @@ $(document).ready(function() {
       $("#ProductQV").find(".data-dimensions").text(product.data("dimensions"));
       ///add to cart btn set data id 
       $("#ProductQV").find(".minicartBtn").attr('data-id', product.data("id"));
-     
-
+      /// add to cart product details link
+      var categoryName = product.data("category");
+      var Model = product.data("href");
+      $("#ProductQV").find(".quickViewDetails").attr('href', `/product/name-${categoryName}-${Model}/${product.data("id")}`)
+      /// product / name -@item.Category.Name.Replace(" ", "") -@item.Model.Replace(" ", "") /@item.Id"
+      console.log(product.data("href"))
     if (modalCompare.hasClass("show")) {
       modalCompare.removeClass("show");
       
@@ -535,7 +542,7 @@ $(document).ready(function() {
   // #endregion when quick view open close compare modal
   // #endregion modals: compare , quick view , mini card
 
-  // #region 6.quantity change js start ---------*/
+    // #region 6.quantity change js start ---------*/
   //$(".pro-qty").prepend('<span class="dec qtybtn">-</span>');
   //$(".pro-qty").append('<span class="inc qtybtn">+</span>');
   //$(".qtybtn").on("click", function() {
@@ -561,7 +568,7 @@ $(document).ready(function() {
   //});
   //#endregion 6.quantity change js end ---------*/
 
-  //#region 7. scroll top page
+    //#region 7. scroll top page
   $(window).scroll(function() {
     if ($(this).scrollTop() > 200) {
       $("#topBtn").fadeIn();
@@ -574,10 +581,6 @@ $(document).ready(function() {
     $("html ,body").animate({ scrollTop: 0 }, 800);
   });
   //#endregion 7. scroll top page
-
-
-
-
 
 
     //  #region 8. minicart added product delete from cart
