@@ -61,7 +61,7 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <div >
+                                                <div>
                                                     <div>
                                                         <a href="/product/name-@item.Category.Name.Replace(" ", "")-@item.Model.Replace(" ", "")/@item.Id">@item.Category.Name.Replace(" ", "")<br />@item.Model.Replace(" ", "")</a>
                                                     </div>
@@ -98,27 +98,27 @@
                     </div>
                 </div>
                 <div class="mt-5 row">
-                    <div  class="minicart-button col-lg-4">
+                    <div class="minicart-button col-lg-4">
                         <a href="/Shop/Index"><i class="fas fa-shopping-bag"></i>Continue Shopping</a>
                     </div>
-                    <div  data-toggle="modal" data-target="#MiniCard" class="minicart-button col-lg-4">
+                    <div data-toggle="modal" data-target="#MiniCard" class="minicart-button col-lg-4">
                         <a href="#"><i class="fa fa-cart-arrow-down"></i>View Cart</a>
                     </div>
-                    <div  class="minicart-button col-lg-4" data-toggle="modal" data-target="#OrderConfirm">
+                    <div class="minicart-button col-lg-4" data-toggle="modal" data-target="#OrderConfirm">
                         <a href="#"><i class="fa fa-share"></i> Confirm Orders</a>
                     </div>
                 </div>
                 @*<div class="row mt-5 mr-3 d-lg-none  d-md-block">
-                    <div  class="minicart-button col-lg-12 ">
-                        <a href="/Shop/Index"><i class="fas fa-shopping-bag"></i>Continue Shopping</a>
-                    </div>
-                    <div  data-toggle="modal" data-target="#MiniCard" class="minicart-button col-lg-12">
-                        <a href="#"><i class="fa fa-cart-arrow-down"></i>View Cart</a>
-                    </div>
-                    <div  class="minicart-button col-lg-12" data-toggle="modal" data-target="#OrderConfirm">
-                        <a href="#"><i class="fa fa-share"></i> Confirm Orders</a>
-                    </div>
-                </div>*@
+                        <div  class="minicart-button col-lg-12 ">
+                            <a href="/Shop/Index"><i class="fas fa-shopping-bag"></i>Continue Shopping</a>
+                        </div>
+                        <div  data-toggle="modal" data-target="#MiniCard" class="minicart-button col-lg-12">
+                            <a href="#"><i class="fa fa-cart-arrow-down"></i>View Cart</a>
+                        </div>
+                        <div  class="minicart-button col-lg-12" data-toggle="modal" data-target="#OrderConfirm">
+                            <a href="#"><i class="fa fa-share"></i> Confirm Orders</a>
+                        </div>
+                    </div>*@
             </div>
         </div>
     </div>
@@ -137,7 +137,7 @@
             <div class="modal-body">
                 <blockquote class="m-0">
                     <p>
-                        Please enter your phone number! 
+                        Please enter your phone number!
                         <br />Your team will contact you at the nearest time!
                     </p>
                 </blockquote>
@@ -146,7 +146,7 @@
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     <div class="form-group">
                         <label for="PhoneNumber" class="col-form-label">Phone:</label>
-                        <input type="text" name="PhoneNumber" class="form-control" id="PhoneNumber">
+                        <input type="text" name="PhoneNumber" required class="form-control" id="PhoneNumber">
                         @Html.ValidationMessage("PhoneNumber", "", new { @class = "text-danger mb-1" })
                     </div>
                     <div class="form-group text-right">
@@ -180,7 +180,10 @@
                 background-color: #cc2121;
                 color: #fff;
             }
-
-        
     </style>
+}
+
+@section scripts{
+    <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/DataTables/dataTables.bootstrap4.min.js"></script>
 }
