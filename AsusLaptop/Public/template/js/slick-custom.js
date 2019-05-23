@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    console.log("salam")
+   // console.log("salam")
  // #region 6.slider slick
 
  $(".thing").slick({

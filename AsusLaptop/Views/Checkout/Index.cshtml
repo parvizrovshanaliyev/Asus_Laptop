@@ -44,7 +44,7 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>Products</th>
+                                        <th colspan="2">Products</th>
                                         <th>Total</th>
                                         @* <th>Action</th>*@
                                     </tr>
@@ -54,13 +54,14 @@
                                     {
                                         <tr class="Checkelement" data-price="@((item.Price - (item.Price * item.Discount / 100)).ToString("##.###"))" data-id="@item.Id" id="@item.Id">
                                             <td>
-                                                <div class="d-flex justify-content-around align-items-center">
-                                                    <div>
-                                                        <a href="/product/name-@item.Category.Name.Replace(" ", "")-@item.Model.Replace(" ", "")/@item.Id">
-                                                            <img src="/Public/images/@item.ImageS" alt="product">
-                                                        </a>
-
-                                                    </div>
+                                                <div>
+                                                    <a href="/product/name-@item.Category.Name.Replace(" ", "")-@item.Model.Replace(" ", "")/@item.Id">
+                                                        <img src="/Public/images/@item.ImageS" alt="product">
+                                                    </a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div >
                                                     <div>
                                                         <a href="/product/name-@item.Category.Name.Replace(" ", "")-@item.Model.Replace(" ", "")/@item.Id">@item.Category.Name.Replace(" ", "")<br />@item.Model.Replace(" ", "")</a>
                                                     </div>
@@ -96,7 +97,7 @@
 
                     </div>
                 </div>
-                <div class="mt-5 mr-3 row">
+                <div class="mt-5 row">
                     <div  class="minicart-button col-lg-4">
                         <a href="/Shop/Index"><i class="fas fa-shopping-bag"></i>Continue Shopping</a>
                     </div>

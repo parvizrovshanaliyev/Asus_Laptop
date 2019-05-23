@@ -29,7 +29,7 @@
 <!-- #endregion banner-->
 <!-- my account wrapper start -->
 <div class="my-account-wrapper section-space">
-    <div class="container">
+    <div class="container-fluid">
         <div class="section-bg-color">
             <div class="row">
                 <div class="col-lg-12">
@@ -80,63 +80,130 @@
                                     <div class="tab-pane fade" id="orders" role="tabpanel">
                                         <div class="myaccount-content">
                                             <h3>Orders</h3>
-                                            <div class="single-table">
-                                                <div class="table-responsive">
-                                                    <table id="dataTable" class="table table-hover progress-table text-center">
-                                                        <thead class="text-uppercase">
-                                                            <tr>
-                                                                <th>
-                                                                    @Html.DisplayNameFor(model => model.Order.Status)
-                                                                </th>
-                                                                <th>
-                                                                    @Html.DisplayNameFor(model => model.Product.Category.Name)
+                                            <div class="row">
+                                                <!-- Order Summary Details -->
+                                                <div class="col-lg-12">
+                                                    <div class="order-summary-details">
 
-                                                                </th>
-                                                                <th>
-                                                                   
-                                                                    @Html.DisplayNameFor(model => model.Product.Model)
-                                                                </th>
-                                                                <th>
-                                                                    @Html.DisplayNameFor(model => model.Price)
-                                                                </th>
-                                                                <th>
-                                                                    @Html.DisplayNameFor(model => model.Discount)
-                                                                </th>
-                                                                <th>
-                                                                    @Html.DisplayNameFor(model => model.Product.ImageS)
-                                                                </th>
-                                                                <th>
-                                                                    @Html.DisplayNameFor(model => model.Order.Date)
-                                                                </th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            @foreach (var item in Model)
-                                                            {
-                                                                <tr>
-                                                                    <td>
-                                                                        @if (item.Order.Status)
-                                                                        {
-                                                                            <span class="alert alert-success">Accepted</span>
-                                                                        }
-                                                                        else
-                                                                        {
-                                                                            <span class="alert alert-info">Pending</span>
-                                                                        }
-                                                                    </td>
-                                                                    <td>@item.Product.Category.Name</td>
-                                                                    <td>@item.Product.Model</td>
-                                                                    <td>@item.Price</td>
-                                                                    <td>@item.Discount</td>
-                                                                    <td><img style="width:80px" src="~/Public/images/@item.Product.ImageS" class="img-fluid"></td>
-                                                                    <td>@item.Order.Date</td>
-                                                                </tr>
-                                                            }
+                                                        <div class="order-summary-content">
+                                                            <!-- Order Summary Table -->
+                                                            <div class="order-summary-table table-responsive text-center">
+                                                                <table class="table table-bordered">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th colspan="2">Products</th>
+                                                                            <th>Total</th>
 
-                                                        </tbody>
-                                                    </table>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        @foreach (var item in Model)
+                                                                        {
+                                                                            <tr data-price="2345" data-id="21" id="21">
+                                                                                <td>
+                                                                                    <div>
+                                                                                        <a href="/product/name-@item.Product.Category.Name.Replace(" ","-")-@item.Product.Model.Replace(" ","-")/@item.ProductId">
+                                                                                            <img src="~/Public/images/@item.Product.ImageS" alt="product">
+                                                                                        </a>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div>
+                                                                                        <div>
+                                                                                            <a href="/product/name-@item.Product.Category.Name.Replace(" ","-")-@item.Product.Model.Replace(" ","-")/@item.ProductId">@item.Product.Category.Name<br>@item.Product.Model</a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <span class="price-regular">$@item.Price.ToString("##.##")</span>
+                                                                                </td>
+                                                                            </tr>
+                                                                           
+                                                                        }
+                                                                    </tbody>
+                                                                    @*<tfoot>
+                                                                        <tr>
+                                                                            <td>Sub Total</td>
+                                                                            <td colspan="2" class="price-regular" id="SubTotalCheck">$4690</td>
+                                                                        </tr>
+
+                                                                    </tfoot>*@
+                                                                </table>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="mt-5 row">
+                                                        <div class="minicart-button col-lg-4">
+                                                            <a href="/Shop/Index"><i class="fas fa-shopping-bag"></i>Continue Shopping</a>
+                                                        </div>
+                                                        <div data-toggle="modal" data-target="#MiniCard" class="minicart-button col-lg-4">
+                                                            <a href="#"><i class="fa fa-cart-arrow-down"></i>View Cart</a>
+                                                        </div>
+                                                        <div class="minicart-button col-lg-4" data-toggle="modal" data-target="#OrderConfirm">
+                                                            <a href="#"><i class="fa fa-share"></i> Confirm Orders</a>
+                                                        </div>
+                                                    </div>
+
                                                 </div>
                                             </div>
+                                            @*<div class="single-table">
+                                                    <div class="table-responsive">
+                                                        <table id="dataTable" class="table table-hover progress-table text-center">
+                                                            <thead class="text-uppercase">
+                                                                <tr>
+                                                                    <th>
+                                                                        @Html.DisplayNameFor(model => model.Order.Status)
+                                                                    </th>
+                                                                    <th>
+                                                                        @Html.DisplayNameFor(model => model.Product.Category.Name)
+
+                                                                    </th>
+                                                                    <th>
+
+                                                                        @Html.DisplayNameFor(model => model.Product.Model)
+                                                                    </th>
+                                                                    <th>
+                                                                        @Html.DisplayNameFor(model => model.Price)
+                                                                    </th>
+                                                                    <th>
+                                                                        @Html.DisplayNameFor(model => model.Discount)
+                                                                    </th>
+                                                                    <th>
+                                                                        @Html.DisplayNameFor(model => model.Product.ImageS)
+                                                                    </th>
+                                                                    <th>
+                                                                        @Html.DisplayNameFor(model => model.Order.Date)
+                                                                    </th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                @foreach (var item in Model)
+                                                                {
+                                                                    <tr>
+                                                                        <td>
+                                                                            @if (item.Order.Status)
+                                                                            {
+                                                                                <span class="alert alert-success">Accepted</span>
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                <span class="alert alert-info">Pending</span>
+                                                                            }
+                                                                        </td>
+                                                                        <td>@item.Product.Category.Name</td>
+                                                                        <td>@item.Product.Model</td>
+                                                                        <td>@item.Price</td>
+                                                                        <td>@item.Discount</td>
+                                                                        <td><img style="width:80px" src="~/Public/images/@item.Product.ImageS" class="img-fluid"></td>
+                                                                        <td>@item.Order.Date</td>
+                                                                    </tr>
+                                                                }
+
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>*@
 
                                         </div>
                                     </div>

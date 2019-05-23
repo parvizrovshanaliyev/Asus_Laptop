@@ -123,14 +123,22 @@
             </div>
             <div class="modal-footer border mb-4">
                 <div class="price-box">
-                    <span class="price-regular">$@Model.Price.ToString("##.##")</span>
-                    <span class="price-old"><del>$90.00</del></span>
+
+                    @if (Model.Discount != 0)
+                    {
+                        <span class="price-regular">$@((Model.Price - (Model.Price * Model.Discount / 100)).ToString("##.###") )</span>
+                        <span class="price-old"><del>$@(Model.Price.ToString("##.###"))</del></span>
+                    }
+                    else
+                    {
+                        <span class="price-regular">$@(Model.Price.ToString("##.###"))</span>
+                    }
                 </div>
                 <div class="quantity-cart-box d-flex align-items-center">
                     <div class="action_link">
-                        
-                        <a href="#" data-toggle="modal" data-target="#MiniCard"
-                           class="minicart-btn open-card btn btn-cart2">
+
+                        <a href="#" data-id="@Model.Id" data-toggle="modal" data-target="#MiniCard"
+                           class="minicart-btn open-card btn btn-cart2 minicartBtn">
                             Add to cart
                         </a>
                     </div>

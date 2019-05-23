@@ -57,155 +57,6 @@ $(document).ready(function() {
   //  #endregion Sticky menu start
 
 
-    //  #region 8. minicart added product delete from cart
-    updatetotal();
-    $(document).on("click", ".minicartBtn", function (e) {
-        e.preventDefault();
-        var id = $(this).data("id");
-
-        $.ajax({
-            url: "/Cart/AddToCart",
-            data: { id: id },
-            type: "post",
-            datatype: "json",
-            success: function (res) {
-                if (res.status == 200) {
-                    Swal.fire({
-
-                        type: 'success',
-                        title: 'Your Product Added to MiniCart',
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
-                    var count = parseInt($('.MiniCard-notification').html())
-                    if (count == 0) {
-                        $(".mini-cart-items").html("");
-                    }
-                    count++;
-                    $(".mini-cart-items").append(` <li data-count="${count}" data-price="${Number(res.price) - (Number(res.price) * Number(res.discount) / 100)}" data-id="${id}" class="minicart-item mini-product-cart">
-                                                        <div data-id="${id}" class="minicart-thumb">
-                                                            <a href="/product/name-${res.category}-${res.name}/${id}">
-                                                                <img src="/Public/images/${res.image}" alt="product">
-                                                            </a>
-                                                        </div>
-                                                        <div class="minicart-content">
-                                                            <h3 class="product-name">
-                                                                <a href="/product/name-${res.category}-${res.name}/${id}">${res.category}<br />${res.name}"</a>
-                                                            </h3>
-                                                            <p>
-                                                                <span class="cart-price">$${Number(res.price) - (Number(res.price) * Number(res.discount) / 100)}</span>
-                                                                <span class="price-old"><del>$${Number(res.price)}</del></span>
-                                                            </p>
-                                                        </div>
-                                                        <button data-id="${id}" class="minicart-remove mcremove"><span aria-hidden="true">×</span></button>
-                                                    </li>`)
-
-                    $('.MiniCard-notification').text(count);
-                    updatetotal();
-                }
-                else if (res.status == 204) {
-
-                    Swal.fire({
-
-                        type: 'error',
-                        title: res.message,
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
-                }
-            }
-
-
-        });
-    })
-
-    //delete mini cart item 
-
-    $(document).on("click", ".mcremove", function () {
-
-        var productId = $(this).parent().data("id");
-        //var checkProductId = $(this).parent();
-        var element = $(this).parent();
-        var elementCheck = $(".Checkelement").data("id");
-        var elemCheck = $(".Checkelement");
-        //console.log(element);
-        $.ajax({
-
-            url: "/Cart/DeleteFromCart",
-            data: { id: productId },
-            type: "post",
-            datatype: "json",
-            success: function (res) {
-                if (res.status == 200) {
-                    //console.log(elementCheck)
-                    Swal.fire({
-
-                        type: 'success',
-                        title: 'Your Product Remove from MiniCart',
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
-                    $(element).remove();
-                    $(".Checkelement[id=" + elementCheck + "]").remove();
-                    updatetotal();
-                    var notificationCount = parseInt($('.MiniCard-notification').html());
-                    //console.log(notificationCount)
-                    notificationCount = notificationCount - 1;
-                    //console.log(notificationCount)
-                    $('.MiniCard-notification').text(notificationCount);
-
-                } else if (res.status == 204) {
-
-                    Swal.fire({
-
-                        type: 'error',
-                        title: res.message,
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
-                }
-                else if (res.status == 404) {
-
-                    Swal.fire({
-
-                        type: 'error',
-                        title: res.message,
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
-                }
-
-            }
-
-        });
-    });
-
-    function updatetotal() {
-        var cps = $('.mini-product-cart');
-        var total = 0;
-
-        for (var i = 0; i < cps.length; i++) {
-            total += $(cps[i]).data("price");
-        }
-
-        $("#totalMCart").text(`$${total}`);
-        $("#SubTotalCheck").text(`$${total}`);
-    }
-
-    //function updateNotificationCount() {
-    //    var MinicartItems = $('.mini-product-cart');
-    //    var notificationCount = parseInt($('.MiniCard-notification').html());
-    //    for (var i = 0; i < MinicartItems.length; i++) {
-
-
-    //    }
-    //    notificationCount -= notificationCount;
-    //    $('.MiniCard-notification').text(notificationCount);
-    //    console.log($(MinicartItems))
-    //    console.log(notificationCount)
-    //}
-
-    //  #endregion end. minicart added product delete from cart
 
   // #region 2.navbar active item
 
@@ -644,6 +495,11 @@ $(document).ready(function() {
     //var str = "Visit Microsoft!";
     //var res = str.replace(" ", "-");
     //console.log(res);
+
+    function numberRounder(number, precision) {
+        precision = Math.pow(10, precision)
+        return Math.ceil(number * precision) / precision
+    }
   openQuickV.on("click", function(e) {
       e.preventDefault();
       var product = $(this)
@@ -654,10 +510,7 @@ $(document).ready(function() {
           .parent();
       productImg = product.data("image");
       pPrice = product.data("price");
-      function numberRounder(number, precision) {
-          precision = Math.pow(10, precision)
-          return Math.ceil(number * precision) / precision
-      }
+      
 
       //alert(numberRounder(123.123, 2))
       pdiscount = product.data("discount"); 
@@ -733,6 +586,155 @@ $(document).ready(function() {
   });
   //#endregion 7. scroll top page
 
+    //  #region 8. minicart added product delete from cart
+    updatetotal();
+    $(document).on("click", ".minicartBtn", function (e) {
+        e.preventDefault();
+        var id = $(this).data("id");
+
+        $.ajax({
+            url: "/Cart/AddToCart",
+            data: { id: id },
+            type: "post",
+            datatype: "json",
+            success: function (res) {
+                if (res.status == 200) {
+                    Swal.fire({
+
+                        type: 'success',
+                        title: 'Your Product Added to MiniCart',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    var count = parseInt($('.MiniCard-notification').html())
+                    if (count == 0) {
+                        $(".mini-cart-items").html("");
+                    }
+                    count++;
+                    $(".mini-cart-items").append(` <li data-count="${count}" data-price="${Number(res.price) - (Number(res.price) * Number(res.discount) / 100)}" data-id="${id}" class="minicart-item mini-product-cart">
+                                                        <div data-id="${id}" class="minicart-thumb">
+                                                            <a href="/product/name-${res.category}-${res.name}/${id}">
+                                                                <img src="/Public/images/${res.image}" alt="product">
+                                                            </a>
+                                                        </div>
+                                                        <div class="minicart-content">
+                                                            <h3 class="product-name">
+                                                                <a href="/product/name-${res.category}-${res.name}/${id}">${res.category}<br />${res.name}"</a>
+                                                            </h3>
+                                                            <p>
+                                                                <span class="cart-price">$${Number(res.price) - (Number(res.price) * Number(res.discount) / 100)}</span>
+                                                                <span class="price-old"><del>$${Number(res.price)}</del></span>
+                                                            </p>
+                                                        </div>
+                                                        <button data-id="${id}" class="minicart-remove mcremove"><span aria-hidden="true">×</span></button>
+                                                    </li>`)
+
+                    $('.MiniCard-notification').text(count);
+                    updatetotal();
+                }
+                else if (res.status == 204) {
+
+                    Swal.fire({
+
+                        type: 'error',
+                        title: res.message,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            }
+
+
+        });
+    })
+
+    //delete mini cart item 
+
+    $(document).on("click", ".mcremove", function () {
+
+        var productId = $(this).parent().data("id");
+        //var checkProductId = $(this).parent();
+        var element = $(this).parent();
+        var elementCheck = $(".Checkelement").data("id");
+        var elemCheck = $(".Checkelement");
+        //console.log(element);
+        $.ajax({
+
+            url: "/Cart/DeleteFromCart",
+            data: { id: productId },
+            type: "post",
+            datatype: "json",
+            success: function (res) {
+                if (res.status == 200) {
+                    //console.log(elementCheck)
+                    Swal.fire({
+
+                        type: 'success',
+                        title: 'Your Product Remove from MiniCart',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    $(element).remove();
+                    $(".Checkelement[id=" + elementCheck + "]").remove();
+                    updatetotal();
+                    var notificationCount = parseInt($('.MiniCard-notification').html());
+                    //console.log(notificationCount)
+                    notificationCount = notificationCount - 1;
+                    //console.log(notificationCount)
+                    $('.MiniCard-notification').text(notificationCount);
+
+                } else if (res.status == 204) {
+
+                    Swal.fire({
+
+                        type: 'error',
+                        title: res.message,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+                else if (res.status == 404) {
+
+                    Swal.fire({
+
+                        type: 'error',
+                        title: res.message,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+
+            }
+
+        });
+    });
+
+    function updatetotal() {
+        var cps = $('.mini-product-cart');
+        var total = 0;
+
+        for (var i = 0; i < cps.length; i++) {
+            total += $(cps[i]).data("price");
+        }
+
+        $("#totalMCart").text(`$${total.toFixed(2)}`);
+        $("#SubTotalCheck").text(`$${total.toFixed(2)}`);
+    }
+
+    //function updateNotificationCount() {
+    //    var MinicartItems = $('.mini-product-cart');
+    //    var notificationCount = parseInt($('.MiniCard-notification').html());
+    //    for (var i = 0; i < MinicartItems.length; i++) {
+
+
+    //    }
+    //    notificationCount -= notificationCount;
+    //    $('.MiniCard-notification').text(notificationCount);
+    //    console.log($(MinicartItems))
+    //    console.log(notificationCount)
+    //}
+
+    //  #endregion end. minicart added product delete from cart
 
 
     //  #region 9. compare product desktop
