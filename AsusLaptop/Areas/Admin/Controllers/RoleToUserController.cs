@@ -30,7 +30,7 @@ namespace AsusLaptop.Areas.Admin.Controllers
         // GET: Admin/RoleToUser
         public ActionResult Index()
         {
-            return View(UserManagerApp.Users.ToList());
+            return View(UserManagerApp.Users.Include("Roles").OrderByDescending(u=>u.Id).ToList());
         }
 
         [HttpPost,ValidateAntiForgeryToken]

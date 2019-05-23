@@ -37,7 +37,7 @@ namespace AsusLaptop.Areas.Admin.Controllers
         // GET: Admin/Roles
         public ActionResult Index()
         {
-            return View(RoleManagerApp.Roles);
+            return View(RoleManagerApp.Roles.Include("Users").ToList());
         }
         #endregion
 
