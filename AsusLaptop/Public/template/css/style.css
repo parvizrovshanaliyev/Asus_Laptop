@@ -514,9 +514,9 @@ header .d-lg-block .header-top .header-top-settings ul li:last-child li::before 
 
 /* line 1, ../sass/partials/_trending.scss */
 .section-title {
-  margin-top: -8px;
-  margin-bottom: 38px;
-  padding: 0 30px;
+    margin-top: 26px;
+    margin-bottom: 38px;
+    padding: 0 30px;
 }
 @media only screen and (max-width: 479.98px) {
   /* line 1, ../sass/partials/_trending.scss */
