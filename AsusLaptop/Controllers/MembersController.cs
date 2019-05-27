@@ -139,8 +139,9 @@ namespace AsusLaptop.Controllers
 
             var body = "<h1>Invite to Asus.com</h1><h3>Message:</h3><h4 class='btn btn-primary'><a style='color:red' href='{0}'>Activate Asus.com Profile</a></h4>";
             var message = new MailMessage();
+            var DisplayEmail = "Asus.com";
             message.To.Add(new MailAddress(email));  // replace with valid value 
-            message.From = new MailAddress("resetlifewithcode@gmail.com");  // replace with valid value
+            message.From = new MailAddress("resetlifewithcode@gmail.com", DisplayEmail);  // replace with valid value
             message.Subject = " Invite to Asus.com ";
             message.Body = string.Format(body, "http://parvizrovshan-001-site1.etempurl.com/Register/confirm?token=" + token);
             message.IsBodyHtml = true;
