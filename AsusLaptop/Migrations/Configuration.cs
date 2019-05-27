@@ -2,6 +2,7 @@ namespace AsusLaptop.Migrations
 {
     using AsusLaptop.Models;
     using System;
+    using System.Configuration;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
@@ -23,13 +24,26 @@ namespace AsusLaptop.Migrations
             new Models.UserApp
             {
 
-                Email = "parviz@gmail.com",
+                Email = ConfigurationManager.AppSettings["AEmail1"],
                 UserName = "parvizra",
                 Fullname = "ParvizRA",
                 Status = true,
-                PasswordHash = Crypto.HashPassword("parviz123"),
+                PasswordHash = Crypto.HashPassword(ConfigurationManager.AppSettings["APass1"]),
                 SecurityStamp = Crypto.Hash(DateTime.Now.ToString("yyyyMMddHHmmssfff")),
-            });
+            },
+            new Models.UserApp
+            {
+
+                Email = ConfigurationManager.AppSettings["AEmail"],
+                UserName = "userName",
+                Fullname = "ParvizRA",
+                Status = true,
+                PasswordHash = Crypto.HashPassword(ConfigurationManager.AppSettings["APass"]),
+                SecurityStamp = Crypto.Hash(DateTime.Now.ToString("yyyyMMddHHmmssfff")),
+            }
+
+
+            );
 
             //context.AspNetUserRoles.Add(new AspNetUserRole
             //{

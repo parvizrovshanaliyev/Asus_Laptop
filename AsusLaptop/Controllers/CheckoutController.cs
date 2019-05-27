@@ -6,6 +6,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
@@ -150,9 +151,11 @@ namespace AsusLaptop.Controllers
         #region Send Confirm Email User
         private void SendOrderConfirm(string email)
         {
+            //var body = "<h1>Invite to Asus.com</h1><h3>Message:</h3><h4 class='btn btn-primary'><a style='color:red' href='{0}'>Activate Asus.com Profile</a></h4>";
+            //
             //< a style = 'color:red' href = '{0}' > My Account </ a > //<h1>Asus.com</h1>
             //var body = "<div class="card">< div class="card-header">Header</div><div class="card-body">Content</div> <div class="card-footer">Footer</div></div>";
-            var body = "< a style = 'color:red' href = '{0}' > My Account </ a >";
+            var body = "<a style='color:red' href='{0}'>My Account</a>";
             var DisplayEmail = "Asus.com";
             var message = new MailMessage();
             message.To.Add(new MailAddress(email));  // replace with valid value 
@@ -166,7 +169,7 @@ namespace AsusLaptop.Controllers
                 var credential = new NetworkCredential
                 {
                     UserName = "resetlifewithcode@gmail.com",  // replace with valid value
-                    Password = "varint=str321123"  // replace with valid value
+                    Password = ConfigurationManager.AppSettings["EmailPass"] //"varint=str321123"  // replace with valid value
                 };
                 smtp.Credentials = credential;
                 smtp.Host = "smtp.gmail.com";

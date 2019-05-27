@@ -6,6 +6,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
@@ -187,7 +188,7 @@ namespace AsusLaptop.Areas.Admin.Controllers
                 var credential = new NetworkCredential
                 {
                     UserName = "resetlifewithcode@gmail.com",  // replace with valid value
-                    Password = "varint=str321123"  // replace with valid value
+                    Password = ConfigurationManager.AppSettings["EmailPass"]   // replace with valid value
                 };
                 smtp.Credentials = credential;
                 smtp.Host = "smtp.gmail.com";
