@@ -7,6 +7,7 @@ using Microsoft.Owin;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
@@ -21,6 +22,7 @@ namespace AsusLaptop.Controllers
     {
         // GET: Checkout
         private readonly AsusDbContext _context;
+        private Order _order;
         public UserManagerApp UserManagerApp
         {
             get
@@ -36,6 +38,7 @@ namespace AsusLaptop.Controllers
         public CheckoutController()
         {
             _context = new AsusDbContext();
+            _order = new Order();
         }
         
         public ActionResult Index()
@@ -114,6 +117,7 @@ namespace AsusLaptop.Controllers
                     order.OrderItems = orderItems;
                     _context.Orders.Add(order);
                     await _context.SaveChangesAsync();
+                    _order = order;
                     SendOrderConfirm(user.Email);
                     foreach (var item in products)
                     {
@@ -156,8 +160,8 @@ namespace AsusLaptop.Controllers
             //< a style = 'color:red' href = '{0}' > My Account </ a > //<h1>Asus.com</h1>
             //var body = "<div class="card">< div class="card-header">Header</div><div class="card-body">Content</div> <div class="card-footer">Footer</div></div>";
 
-            
-            var body = "<table><thead><tr><th colspan='2'>Products</th><th>Total</th></tr></thead><tbody><tr></tr></tbody></table>";
+            //"<table><thead><tr><th colspan='2'>Products</th><th>Total</th></tr></thead><tbody><tr></tr></tbody></table>";
+            var body = " <div style='padding: 3%;background: #e9e8e882;'><h4>Salam :) </h4><p><b>Sifarisiniz qeyde alindi.En qisa zamanda qeyd etdiyiniz mobile nomreden sizinle elaqe saxlanilacaq.<br />Sifarisiniz tesdiqlendiyi teqdirde tesdiq haqqinda email alacaqsiniz</b> </p><br /><p><b>Tesekkurler<br />Asus</b></p><a style='color:#CC2121;border: 1px solid #CC2121;width: 100%;text-align: center;align-items: center;display: inline-flex;justify-content: center;position: relative;z-index: 0;-webkit-font-smoothing: antialiased;font-family: 'Google Sans',Roboto,RobotoDraft,Helvetica,Arial,sans-serif;font-size: .875rem;letter-spacing: .25px;background: none;border-radius: 4px;box-sizing: border-box;cursor: pointer;font-weight: 500;height: 36px;min-width: 80px;outline: none;text-decoration: none;' href='{0}'>Etrafli melumat ucun hesabiniza kecid edin</a> </div>";
             var DisplayEmail = "Asus.com";
             var message = new MailMessage();
             message.To.Add(new MailAddress(email));  // replace with valid value 
@@ -178,10 +182,27 @@ namespace AsusLaptop.Controllers
                 smtp.Port = 587;
                 smtp.EnableSsl = true;
                 smtp.Send(message);
+                Response.Write("alert('email sent..');");
             }
 
         }
         #endregion
+        //private string CreateBody()
+        //{
+        //    string body = string.Empty;
+        //    using(StreamReader reader = new StreamReader(Server.MapPath("~/Views/EmailBody/Ebody.html")))
+        //    {
+        //        body = reader.ReadToEnd();
+        //    }
+
+            
+        //    //body = body.Replace("{User}",_order.UserApp.Fullname.ToString());
+        //    body = body.Replace("{No}", _order.Id.ToString());
+        //    body = body.Replace("{0}", "http://localhost:50007/MyAccount");
+        //    body = body.Replace("{pCount}", _order.OrderItems.Count().ToString());
+            
+        //    return body;
+        //}
 
     }
 }

@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace AsusLaptop.Controllers
 {
-    [UserAuthenticate]
+    [UserAuthenticate2]
     public class MyAccountController : Controller
     {
         private readonly AsusDbContext _context;

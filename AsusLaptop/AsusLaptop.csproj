@@ -183,6 +183,7 @@
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="DAL\AsusDbContext.cs" />
     <Compile Include="Extensions\FileExtensions.cs" />
+    <Compile Include="filterauth\UserAuthenticate2.cs" />
     <Compile Include="filterauth\UserAuthenticate.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
