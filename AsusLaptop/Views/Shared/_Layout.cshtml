@@ -74,12 +74,12 @@
             <div class="header-top ">
                 <div class="container">
                     <div class="row align-items-center">
-                        <div class="col-lg-6">
-                            <div class="welcome-message">
+                        <div class="col-lg-12">
+                            <div class="welcome-message text-center">
                                 <p>Welcome to Asus online store</p>
                             </div>
                         </div>
-                        <div class="col-lg-6 text-right">
+                        @*<div class="col-lg-6 text-right">
                             <div class="header-top-settings">
                                 <ul class="nav align-items-center justify-content-end">
                                     <li class="language">
@@ -102,7 +102,7 @@
                                     </li>
                                 </ul>
                             </div>
-                        </div>
+                        </div>*@
                     </div>
                 </div>
             </div>
@@ -452,7 +452,7 @@
         <div class="footer-widget-area">
             <div class="container">
                 <div class="footer-widget-inner section-space">
-                    <div class="row mbn-30">
+                    <div class="row mbn-30 justify-content-between">
                         <!-- footer widget item start -->
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="footer-widget-item mb-30">
@@ -483,7 +483,7 @@
                         </div>
                         <!-- footer widget item end -->
                         <!-- footer widget item start -->
-                        <div class="col-lg-2 col-md-6 col-sm-6">
+                        @*<div class="col-lg-2 col-md-6 col-sm-6">
                             <div class="footer-widget-item mb-30">
                                 <div class="footer-widget-title">
                                     <h5>information</h5>
@@ -497,7 +497,7 @@
                                     <li><a href="#">Affiliate</a></li>
                                 </ul>
                             </div>
-                        </div>
+                        </div>*@
                         <!-- footer widget item end -->
                         <!-- footer widget item start -->
                         <div class="col-lg-2 col-md-6 col-sm-6">
@@ -506,12 +506,16 @@
                                     <h5>extra</h5>
                                 </div>
                                 <ul class="footer-widget-body">
-                                    <li><a href="my-account.html">my account</a></li>
-                                    <li><a href="login-register.html">login/register</a></li>
-                                    <li><a href="#">my orders</a></li>
-                                    <li><a href="#">my credit slips</a></li>
-                                    <li><a href="#">my addresses</a></li>
-                                    <li><a href="#">brands</a></li>
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+                                        <li><a href="@Url.Action("Index", "MyAccount")">my account</a></li>
+
+                                    }
+                                    else
+                                    {
+                                        <li><a href="@Url.Action("Login","MemberAccount")">login</a></li>
+                                        <li><a href="@Url.Action("Register","Register")">register</a></li>
+                                    }
                                 </ul>
                             </div>
                         </div>

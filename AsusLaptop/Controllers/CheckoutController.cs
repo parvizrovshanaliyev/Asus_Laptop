@@ -136,7 +136,7 @@ namespace AsusLaptop.Controllers
                         }
                     }
                     await _context.SaveChangesAsync();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index","MyAccount");
                 }
                 else
                 {
