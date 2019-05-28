@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div class="order-summary-table table-responsive text-center">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th colspan="2">Products</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div>
+                            <a >
+                                <img src="{Pimg}" alt="product">
+                            </a>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <div>
+                                <a>{Pcatname}<br />{Pmodel}</a>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="price-regular">{Ppricereg}</span>
+                        <span class="price-old"><del>{Ppriceold}</del></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
