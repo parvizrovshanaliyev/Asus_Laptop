@@ -99,7 +99,7 @@
                                                                     <tbody>
                                                                         @foreach (var item in Model)
                                                                         {
-                                                                            <tr data-price="2345" data-id="21" id="21">
+                                                                            <tr data-price="@item.Price" data-id="@item.Id" id="@item.Id">
                                                                                 <td>
                                                                                     <div>
                                                                                         <a href="/product/name-@item.Product.Category.Name.Replace(" ","-")-@item.Product.Model.Replace(" ","-")/@item.ProductId">

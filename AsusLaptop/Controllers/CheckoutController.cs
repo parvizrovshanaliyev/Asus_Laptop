@@ -155,7 +155,9 @@ namespace AsusLaptop.Controllers
             //
             //< a style = 'color:red' href = '{0}' > My Account </ a > //<h1>Asus.com</h1>
             //var body = "<div class="card">< div class="card-header">Header</div><div class="card-body">Content</div> <div class="card-footer">Footer</div></div>";
-            var body = "<a style='color:red' href='{0}'>My Account</a>";
+
+            
+            var body = "<table><thead><tr><th colspan='2'>Products</th><th>Total</th></tr></thead><tbody><tr></tr></tbody></table>";
             var DisplayEmail = "Asus.com";
             var message = new MailMessage();
             message.To.Add(new MailAddress(email));  // replace with valid value 
