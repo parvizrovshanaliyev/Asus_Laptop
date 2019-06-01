@@ -51,7 +51,7 @@
                                         foreach (var role in Helper.GetRoles())
                                         {
                                             <td>
-                                                <input class="btn btn-block" type="checkbox" value="@role.Name" name="RoleNames" checked="@item.Roles.Any(r=>r.RoleId==role.Id)" />
+                                                <input class="btn btn-block @(role.Name=="member"?"disabled":" ")" type="checkbox" value="@role.Name" name="RoleNames" checked="@item.Roles.Any(r=>r.RoleId==role.Id)" />
                                             </td>
                                         }
 

@@ -605,6 +605,7 @@
     <Content Include="Public\template\js\app.js" />
     <Content Include="Public\template\js\preloader.js" />
     <Content Include="Public\template\js\slick-custom.js" />
+    <Content Include="Public\template\js\sweetAlert.js" />
     <Content Include="Public\template\plugin_product_slider\css\lightslider.css" />
     <Content Include="Public\template\plugin_product_slider\css\lightslider.min.css" />
     <Content Include="Public\template\plugin_product_slider\img\controls.png" />
