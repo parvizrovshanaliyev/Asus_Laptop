@@ -137,8 +137,9 @@ namespace AsusLaptop.Controllers
         #region Send Confirm Email User
         private void SendConfirm(string email, string token)
         {
+            var body = " <div style='padding: 3%;background: #e9e8e882;'><h4>Salam :) </h4><p><b>Hesabinizi tesdiqlemek ucun asagdaki linke daxil olaraq sifrenizi daxil edin</b> </p><br /><p><b>Tesekkurler<br />Asus</b></p><a style='color:#CC2121;border: 1px solid #CC2121;width: 100%;text-align: center;align-items: center;display: inline-flex;justify-content: center;position: relative;z-index: 0;-webkit-font-smoothing: antialiased;font-family: 'Google Sans',Roboto,RobotoDraft,Helvetica,Arial,sans-serif;font-size: .875rem;letter-spacing: .25px;background: none;border-radius: 4px;box-sizing: border-box;cursor: pointer;font-weight: 500;height: 36px;min-width: 80px;outline: none;text-decoration: none;' href='{0}'>Hesabinizi tesdiqleyin</a> </div>";
 
-            var body = "<h1>Invite to Asus.com</h1><h3>Message:</h3><h4 class='btn btn-primary'><a style='color:red' href='{0}'>Activate Asus.com Profile</a></h4>";
+            //var body = "<h1>Invite to Asus.com</h1><h3>Message:</h3><h4 class='btn btn-primary'><a style='color:red' href='{0}'>Activate Asus.com Profile</a></h4>";
             var message = new MailMessage();
             var DisplayEmail = "Asus.com";
             message.To.Add(new MailAddress(email));  // replace with valid value 
