@@ -30,6 +30,13 @@ namespace AsusLaptop.Controllers
             if (id == null)
             {
                 return RedirectToAction("Index", "Home");
+                //return Json(new
+                //{
+                //    status = 500,
+                //    error = "",
+                //    data = ""
+
+                //});
             }
             Product product = _context.Products.FirstOrDefault(p => p.Id == id);
             

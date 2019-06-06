@@ -44,12 +44,14 @@
                                         @foreach (var item in Model)
                                         {
                                             <td class="product-image-title">
-                                                <a href="product-details.html" class="image">
+                                                <a href="/product/name-@item.Category.Name.Replace(" ","")-@item.Model.Replace(" ","")/@item.Id" class="image">
                                                     <img class="img-fluid" src="~/Public/images/@item.ImageS"
                                                          alt="Compare Product">
                                                 </a>
-                                                <a href="#" class="category">@item.Category.Name </a>
-                                                <a href="product-details.html" class="title">@item.Model</a>
+                                                <div>
+                                                    <a style="width:100%;" href="/product/name-@item.Category.Name.Replace(" ","")-@item.Model.Replace(" ","")/@item.Id" class="category">@item.Category.Name </a>
+                                                    <a style="width:100%;" href="/product/name-@item.Category.Name.Replace(" ","")-@item.Model.Replace(" ","")/@item.Id" class="title">@item.Model</a>
+                                                </div>
                                             </td>
                                         }
                                     </tr>
