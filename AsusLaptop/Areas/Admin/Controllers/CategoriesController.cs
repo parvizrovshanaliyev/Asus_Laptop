@@ -27,6 +27,7 @@ namespace AsusLaptop.Areas.Admin.Controllers
         #region Create categories
         public ActionResult Create()
         {
+            
             return View();
         }
 
