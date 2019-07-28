@@ -3,7 +3,7 @@ namespace AsusLaptop.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initialcreatedb : DbMigration
+    public partial class initdb : DbMigration
     {
         public override void Up()
         {
@@ -20,6 +20,31 @@ namespace AsusLaptop.Migrations
                 .ForeignKey("dbo.AspNetRoles", t => t.RoleId, cascadeDelete: true)
                 .Index(t => t.UserId)
                 .Index(t => t.RoleId);
+            
+            CreateTable(
+                "dbo.Banner",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Image = c.String(maxLength: 300),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.Blog",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Status = c.Boolean(nullable: false),
+                        Name = c.String(nullable: false, maxLength: 50),
+                        Title = c.String(nullable: false, maxLength: 200),
+                        Description = c.String(nullable: false, maxLength: 300),
+                        ImageL = c.String(maxLength: 300),
+                        ImageS = c.String(maxLength: 300),
+                        CreateAt = c.DateTime(nullable: false),
+                        UpdateAt = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.Cart",
@@ -43,6 +68,7 @@ namespace AsusLaptop.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Status = c.Boolean(nullable: false),
+                        IsNew = c.Boolean(nullable: false),
                         Brand = c.String(maxLength: 50),
                         Model = c.String(nullable: false, maxLength: 50),
                         CategoryId = c.Int(nullable: false),
@@ -87,9 +113,8 @@ namespace AsusLaptop.Migrations
                         OrderId = c.Int(nullable: false),
                         ProductId = c.Int(nullable: false),
                         Price = c.Decimal(nullable: false, storeType: "money"),
-                        Color = c.String(maxLength: 50),
-                        Count = c.Int(nullable: false),
                         Discount = c.Byte(nullable: false),
+                        ImageS = c.String(maxLength: 300),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Order", t => t.OrderId, cascadeDelete: true)
@@ -103,8 +128,9 @@ namespace AsusLaptop.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         UserAppId = c.String(nullable: false, maxLength: 128),
-                        Status = c.Int(nullable: false),
+                        Status = c.Boolean(nullable: false),
                         Date = c.DateTime(nullable: false),
+                        AcceptedDate = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.AspNetUsers", t => t.UserAppId, cascadeDelete: true)
@@ -117,6 +143,7 @@ namespace AsusLaptop.Migrations
                         Id = c.String(nullable: false, maxLength: 128),
                         Status = c.Boolean(nullable: false),
                         Fullname = c.String(maxLength: 50),
+                        Adress = c.String(maxLength: 100),
                         Token = c.String(),
                         Email = c.String(maxLength: 256),
                         EmailConfirmed = c.Boolean(nullable: false),
@@ -159,6 +186,18 @@ namespace AsusLaptop.Migrations
                 .Index(t => t.UserId);
             
             CreateTable(
+                "dbo.ProductImage",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        ProductId = c.Int(nullable: false),
+                        Image = c.String(maxLength: 300),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Product", t => t.ProductId, cascadeDelete: true)
+                .Index(t => t.ProductId);
+            
+            CreateTable(
                 "dbo.AspNetRoles",
                 c => new
                     {
@@ -184,6 +223,7 @@ namespace AsusLaptop.Migrations
         public override void Down()
         {
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.ProductImage", "ProductId", "dbo.Product");
             DropForeignKey("dbo.OrderItem", "ProductId", "dbo.Product");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.Order", "UserAppId", "dbo.AspNetUsers");
@@ -194,6 +234,7 @@ namespace AsusLaptop.Migrations
             DropForeignKey("dbo.Product", "CategoryId", "dbo.Category");
             DropForeignKey("dbo.Cart", "ProductId", "dbo.Product");
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
+            DropIndex("dbo.ProductImage", new[] { "ProductId" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
@@ -207,6 +248,7 @@ namespace AsusLaptop.Migrations
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropTable("dbo.Slider");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.ProductImage");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
@@ -215,6 +257,8 @@ namespace AsusLaptop.Migrations
             DropTable("dbo.Category");
             DropTable("dbo.Product");
             DropTable("dbo.Cart");
+            DropTable("dbo.Blog");
+            DropTable("dbo.Banner");
             DropTable("dbo.AspNetUserRoles");
         }
     }

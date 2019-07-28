@@ -1,12 +1,13 @@
+using System.Configuration;
+using System.Web.Helpers;
+using AsusLaptop.Models;
+
 namespace AsusLaptop.Migrations
 {
-    using AsusLaptop.Models;
     using System;
-    using System.Configuration;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
-    using System.Web.Helpers;
 
     internal sealed class Configuration : DbMigrationsConfiguration<AsusLaptop.DAL.AsusDbContext>
     {
@@ -19,7 +20,7 @@ namespace AsusLaptop.Migrations
         {
             context.Roles.AddOrUpdate(r => new { r.Name }, new RoleApp { Name = "admin" }, new RoleApp { Name = "member" });
 
-            context.Users.AddOrUpdate(u => new{ u.Email, u.UserName },
+            context.Users.AddOrUpdate(u => new { u.Email, u.UserName },
 
             new Models.UserApp
             {
@@ -45,11 +46,19 @@ namespace AsusLaptop.Migrations
 
             );
 
-            //context.AspNetUserRoles.Add(new AspNetUserRole
-            //{
-            //    UserId = "912832aa-5392-4f44-9e92-bfc95031ab79",
-            //    RoleId = "3c9db372-f223-40c2-bdc2-99f3f5dd22db",
-            //});
+            context.AspNetUserRoles.AddOrUpdate(
+                new AspNetUserRole()
+                {
+                    UserId = "f1d54cf1-e7a9-4211-b6f2-8d902a38f139",
+                    RoleId = "d1800f2e-901d-492d-b102-438da1e86f18"
+                },
+                
+                new AspNetUserRole()
+                {
+                    UserId = "b1257e49-dd3d-47e7-ad32-4df238c688dc",
+                    RoleId = "d1800f2e-901d-492d-b102-438da1e86f18"
+                }
+            );
             //slider
             //context.Sliders.AddOrUpdate(
             //    new Slider { Image= "slider/d8d0f04a-f306-467d-b427-6dbddfc4ee7c642404c8-0b66-471e-8e2b-a24eeebb8357slider1.jpg" },
@@ -68,9 +77,9 @@ namespace AsusLaptop.Migrations
 
             context.Blogs.AddOrUpdate(b => new { b.Name },
 
-                new Blog {Status=true, Name= "ASUSPRO Series", Title= "SPRING 2019 GAMING LAPTOP GUIDE: ROG RETURNS TO REDEFINE EXPECTATIONS", Description= "Dawn is rising over the Republic of Gamers. The availability of new components like 9th Gen Intel Core processors, NVIDIA GeForce GTX 16-series graphics, and insanely fast 240Hz displays has prompted a top-to-bottom update of our entire gaming laptop family. The ROG Spring 2019", ImageL= "blog/12f712a2-eb2a-4ad2-bcbf-e8c2d6680c940d919222-4e26-4c66-9e66-0a607c8820d4b3.jpg", ImageS= "blog/aaa4e43b-f672-45aa-bf77-205b7894301e0d919222-4e26-4c66-9e66-0a607c8820d4b3.jpg",CreateAt= new DateTime(2019, 03, 08, 09, 44, 0, 0),UpdateAt= new DateTime(2019, 03, 08, 09, 44, 0, 0) },
-                new Blog {Status=true,Name= "ASUS Laptop Series", Title= "Use Motion Graphics templates on ZenBook Pro to spice up your Premiere Pro videos", Description= "Viski is an Estonian actor and hairdresser. He debuted as an actor in 2007 film The Class directed by Ilmar Raag, where he had one of the lead roles. In 2008, Pedaja participated as", ImageL= "blog/06ab0013-4e85-4878-866a-c5d3418d7d306fd1b95a-a530-4ad7-a770-e0767372d034b2.jpg", ImageS= "blog/21e11e73-f053-4aa7-aebb-bd71e319b2eb6fd1b95a-a530-4ad7-a770-e0767372d034b2.jpg", CreateAt = new DateTime(2019, 03, 08, 09, 44, 0, 0), UpdateAt = new DateTime(2019, 03, 08, 09, 44, 0, 0) },
-                new Blog {Status=true, Name= "ASUS TUF Gaming Series", Title= " Motion Graphics templates on ZenBook Pro to spice up your Premiere Pro videos", Description= "Dawn is rising over the Republic of Gamers. The availability of new components like 9th Gen Intel Core processors, NVIDIA GeForce GTX 16-series graphics, and insanely fast 240Hz displays has prompted a top-to-bottom update of our entire gaming laptop family. The ROG Spring 2019", ImageL= "blog/e4b64e15-8e5c-4f04-894f-27b9d03776a00d919222-4e26-4c66-9e66-0a607c8820d4b3.jpg", ImageS= "blog/0d0ff4f8-3f00-4c80-8a6e-fcb9e000ea770d919222-4e26-4c66-9e66-0a607c8820d4b3.jpg", CreateAt = new DateTime(2019, 03, 08, 09, 44, 0, 0), UpdateAt = new DateTime(2019, 03, 08, 09, 44, 0, 0) }
+                new Blog { Status = true, Name = "ASUSPRO Series", Title = "SPRING 2019 GAMING LAPTOP GUIDE: ROG RETURNS TO REDEFINE EXPECTATIONS", Description = "Dawn is rising over the Republic of Gamers. The availability of new components like 9th Gen Intel Core processors, NVIDIA GeForce GTX 16-series graphics, and insanely fast 240Hz displays has prompted a top-to-bottom update of our entire gaming laptop family. The ROG Spring 2019", ImageL = "blog/12f712a2-eb2a-4ad2-bcbf-e8c2d6680c940d919222-4e26-4c66-9e66-0a607c8820d4b3.jpg", ImageS = "blog/aaa4e43b-f672-45aa-bf77-205b7894301e0d919222-4e26-4c66-9e66-0a607c8820d4b3.jpg", CreateAt = new DateTime(2019, 03, 08, 09, 44, 0, 0), UpdateAt = new DateTime(2019, 03, 08, 09, 44, 0, 0) },
+                new Blog { Status = true, Name = "ASUS Laptop Series", Title = "Use Motion Graphics templates on ZenBook Pro to spice up your Premiere Pro videos", Description = "Viski is an Estonian actor and hairdresser. He debuted as an actor in 2007 film The Class directed by Ilmar Raag, where he had one of the lead roles. In 2008, Pedaja participated as", ImageL = "blog/06ab0013-4e85-4878-866a-c5d3418d7d306fd1b95a-a530-4ad7-a770-e0767372d034b2.jpg", ImageS = "blog/21e11e73-f053-4aa7-aebb-bd71e319b2eb6fd1b95a-a530-4ad7-a770-e0767372d034b2.jpg", CreateAt = new DateTime(2019, 03, 08, 09, 44, 0, 0), UpdateAt = new DateTime(2019, 03, 08, 09, 44, 0, 0) },
+                new Blog { Status = true, Name = "ASUS TUF Gaming Series", Title = " Motion Graphics templates on ZenBook Pro to spice up your Premiere Pro videos", Description = "Dawn is rising over the Republic of Gamers. The availability of new components like 9th Gen Intel Core processors, NVIDIA GeForce GTX 16-series graphics, and insanely fast 240Hz displays has prompted a top-to-bottom update of our entire gaming laptop family. The ROG Spring 2019", ImageL = "blog/e4b64e15-8e5c-4f04-894f-27b9d03776a00d919222-4e26-4c66-9e66-0a607c8820d4b3.jpg", ImageS = "blog/0d0ff4f8-3f00-4c80-8a6e-fcb9e000ea770d919222-4e26-4c66-9e66-0a607c8820d4b3.jpg", CreateAt = new DateTime(2019, 03, 08, 09, 44, 0, 0), UpdateAt = new DateTime(2019, 03, 08, 09, 44, 0, 0) }
 
                 );
 
@@ -93,14 +102,14 @@ namespace AsusLaptop.Migrations
 
 
             ////product 20 tane
-            context.Products.AddOrUpdate(p => new {p.Model},
+            context.Products.AddOrUpdate(p => new { p.Model },
 
                 new Product
                 {
                     Status = true,
                     Brand = "Asus",
                     Model = "TP202NA-DH01T 1",
-                    CategoryId = 44,
+                    CategoryId =1,
                     IsNew = true,
                     Price = 1000,
                     Colors = "1",
@@ -126,7 +135,7 @@ namespace AsusLaptop.Migrations
                 Status = true,
                 Brand = "Asus",
                 Model = "TP202NA-DH01T 2",
-                CategoryId = 45,
+                CategoryId =2,
                 IsNew = true,
                 Price = 1000,
                 Colors = "1",
@@ -152,7 +161,7 @@ namespace AsusLaptop.Migrations
                 Status = true,
                 Brand = "Asus",
                 Model = "TP202NA-DH01T 3",
-                CategoryId = 46,
+                CategoryId =3,
                 IsNew = true,
                 Price = 1000,
                 Colors = "1",
@@ -178,7 +187,7 @@ namespace AsusLaptop.Migrations
                 Status = true,
                 Brand = "Asus",
                 Model = "TP202NA-DH01T 4",
-                CategoryId = 45,
+                CategoryId =3,
                 IsNew = true,
                 Price = 1230,
                 Colors = "1",
@@ -204,7 +213,7 @@ namespace AsusLaptop.Migrations
                 Status = true,
                 Brand = "Asus",
                 Model = "TP202NA-DH01T 5",
-                CategoryId = 45,
+               CategoryId =3,
                 IsNew = true,
                 Price = 1234,
                 Colors = "1",
@@ -230,7 +239,7 @@ namespace AsusLaptop.Migrations
                 Status = true,
                 Brand = "Asus",
                 Model = "TP202NA-DH01T 6",
-                CategoryId = 44,
+               CategoryId =3,
                 IsNew = true,
                 Price = 1234,
                 Colors = "1",
@@ -256,7 +265,7 @@ namespace AsusLaptop.Migrations
                 Status = true,
                 Brand = "Asus",
                 Model = "TP202NA-DH01T 7",
-                CategoryId = 46,
+               CategoryId =4,
                 IsNew = true,
                 Price = 1234,
                 Colors = "1",
@@ -282,7 +291,7 @@ namespace AsusLaptop.Migrations
                 Status = true,
                 Brand = "Asus",
                 Model = "TP202NA-DH01T 8",
-                CategoryId = 47,
+               CategoryId =4,
                 Price = 1234,
                 Colors = "1",
                 Discount = 5,
@@ -307,7 +316,7 @@ namespace AsusLaptop.Migrations
                 Status = true,
                 Brand = "Asus",
                 Model = "TP202NA-DH01T 9",
-                CategoryId = 47,
+               CategoryId =4,
                 Price = 1234,
                 Colors = "1",
                 Discount = 5,
@@ -332,7 +341,7 @@ namespace AsusLaptop.Migrations
                 Status = true,
                 Brand = "Asus",
                 Model = "TP202NA-DH01T 10",
-                CategoryId = 48,
+               CategoryId =5,
                 IsNew = true,
                 Price = 1234,
                 Colors = "1",
@@ -358,7 +367,7 @@ namespace AsusLaptop.Migrations
                 Status = true,
                 Brand = "Asus",
                 Model = "TP202NA-DH01T 11",
-                CategoryId = 49,
+               CategoryId =5,
                 Price = 1234,
                 Colors = "1",
                 Discount = 0,
@@ -383,7 +392,7 @@ namespace AsusLaptop.Migrations
                 Status = true,
                 Brand = "Asus",
                 Model = "TP202NA-DH01T 12",
-                CategoryId = 49,
+               CategoryId =5,
                 IsNew = true,
                 Price = 2345,
                 Colors = "1",
@@ -409,7 +418,7 @@ namespace AsusLaptop.Migrations
                 Status = true,
                 Brand = "Asus",
                 Model = "TP202NA-DH01T 13",
-                CategoryId = 50,
+               CategoryId =5,
                 IsNew = true,
                 Price = 2345,
                 Colors = "1",
@@ -435,7 +444,7 @@ namespace AsusLaptop.Migrations
                 Status = true,
                 Brand = "Asus",
                 Model = "TP202NA-DH01T 14",
-                CategoryId = 50,
+               CategoryId =5,
                 Price = 2000,
                 Colors = "1",
                 Discount = 3,
@@ -460,7 +469,7 @@ namespace AsusLaptop.Migrations
                 Status = true,
                 Brand = "Asus",
                 Model = "TP202NA-DH01T 15",
-                CategoryId = 53,
+               CategoryId =6,
                 Price = 2345,
                 Colors = "1",
                 Discount = 3,
@@ -485,7 +494,7 @@ namespace AsusLaptop.Migrations
                 Status = true,
                 Brand = "Asus",
                 Model = "TP202NA-DH01T 16",
-                CategoryId = 50,
+               CategoryId =6,
                 Price = 3003,
                 Colors = "1",
                 Discount = 3,
@@ -510,7 +519,7 @@ namespace AsusLaptop.Migrations
                 Status = true,
                 Brand = "Asus",
                 Model = "TP202NA-DH01T 17",
-                CategoryId = 51,
+               CategoryId =7,
                 Price = 1234,
                 Colors = "1",
                 Discount = 6,
@@ -535,7 +544,7 @@ namespace AsusLaptop.Migrations
                 Status = true,
                 Brand = "Asus",
                 Model = "TP202NA-DH01T 18",
-                CategoryId = 51,
+               CategoryId =8,
                 Price = 456,
                 IsNew = true,
                 Colors = "1",
@@ -561,7 +570,7 @@ namespace AsusLaptop.Migrations
                 Status = true,
                 Brand = "Asus",
                 Model = "TP202NA-DH01T 19",
-                CategoryId = 54,
+               CategoryId =9,
                 Price = 456,
                 IsNew = true,
                 Colors = "1",
@@ -587,7 +596,7 @@ namespace AsusLaptop.Migrations
                 Status = true,
                 Brand = "Asus",
                 Model = "TP202NA-DH01T 20",
-                CategoryId = 52,
+               CategoryId =10,
                 Price = 678,
                 IsNew = true,
                 Colors = "1",
@@ -718,7 +727,7 @@ namespace AsusLaptop.Migrations
             //    new ProductImage { ProductId=28, Image = "productsMultiples/825af3db-fa76-4e3e-8b4f-ebd2800f1a626b9f4374-4649-41cc-8aca-bd393b054b11d6c020bd-563f-46b3-9c9c-438b50f1772eASUS_VivoBook_Flip3.jpg" },
             //    new ProductImage { ProductId=28, Image = "productsMultiples/755b7e24-7636-49d9-b297-dc6b88c14f432586ffb7-d754-4e20-b5b4-038a76cf11dc38794e78-e310-483f-bd7a-9a36ea1f6396ASUS VivoBook Flip.jpg" },
             //    new ProductImage { ProductId=28, Image = "productsMultiples/6d396c51-0e20-48be-9b04-1f34c80d26beea15d943-4ba1-42d3-961b-e11c72371937aa112be1-67f6-4d9a-8ae7-048f253d52c8ASUS_VivoBook_Flip2.jpg" }
-                
+
             //    );
         }
     }

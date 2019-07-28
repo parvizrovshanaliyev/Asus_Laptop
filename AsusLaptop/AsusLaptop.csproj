@@ -189,45 +189,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Hepler\Helper.cs" />
-    <Compile Include="Migrations\201905122008360_initialcreatedb.cs" />
-    <Compile Include="Migrations\201905122008360_initialcreatedb.Designer.cs">
-      <DependentUpon>201905122008360_initialcreatedb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905130622030_product_isnew_cilumn.cs" />
-    <Compile Include="Migrations\201905130622030_product_isnew_cilumn.Designer.cs">
-      <DependentUpon>201905130622030_product_isnew_cilumn.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905130903428_productimage_table.cs" />
-    <Compile Include="Migrations\201905130903428_productimage_table.Designer.cs">
-      <DependentUpon>201905130903428_productimage_table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905130920341_imgtbl.cs" />
-    <Compile Include="Migrations\201905130920341_imgtbl.Designer.cs">
-      <DependentUpon>201905130920341_imgtbl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905131336182_productimage_table_alter1.cs" />
-    <Compile Include="Migrations\201905131336182_productimage_table_alter1.Designer.cs">
-      <DependentUpon>201905131336182_productimage_table_alter1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905141000037_banner_table.cs" />
-    <Compile Include="Migrations\201905141000037_banner_table.Designer.cs">
-      <DependentUpon>201905141000037_banner_table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905181010071_blogmodel.cs" />
-    <Compile Include="Migrations\201905181010071_blogmodel.Designer.cs">
-      <DependentUpon>201905181010071_blogmodel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905200751111_ordersmodel.cs" />
-    <Compile Include="Migrations\201905200751111_ordersmodel.Designer.cs">
-      <DependentUpon>201905200751111_ordersmodel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905200857133_images.cs" />
-    <Compile Include="Migrations\201905200857133_images.Designer.cs">
-      <DependentUpon>201905200857133_images.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905200939428_useradress.cs" />
-    <Compile Include="Migrations\201905200939428_useradress.Designer.cs">
-      <DependentUpon>201905200939428_useradress.cs</DependentUpon>
+    <Compile Include="Migrations\201907281502562_initdb.cs" />
+    <Compile Include="Migrations\201907281502562_initdb.Designer.cs">
+      <DependentUpon>201907281502562_initdb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AspNetUserRole.cs" />
@@ -833,39 +797,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201905122008360_initialcreatedb.resx">
-      <DependentUpon>201905122008360_initialcreatedb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905130622030_product_isnew_cilumn.resx">
-      <DependentUpon>201905130622030_product_isnew_cilumn.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905130903428_productimage_table.resx">
-      <DependentUpon>201905130903428_productimage_table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905130920341_imgtbl.resx">
-      <DependentUpon>201905130920341_imgtbl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905131336182_productimage_table_alter1.resx">
-      <DependentUpon>201905131336182_productimage_table_alter1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905141000037_banner_table.resx">
-      <DependentUpon>201905141000037_banner_table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905181010071_blogmodel.resx">
-      <DependentUpon>201905181010071_blogmodel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905200751111_ordersmodel.resx">
-      <DependentUpon>201905200751111_ordersmodel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905200857133_images.resx">
-      <DependentUpon>201905200857133_images.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905200939428_useradress.resx">
-      <DependentUpon>201905200939428_useradress.cs</DependentUpon>
-    </EmbeddedResource>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <EmbeddedResource Include="Migrations\201907281502562_initdb.resx">
+      <DependentUpon>201907281502562_initdb.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

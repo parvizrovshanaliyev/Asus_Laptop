@@ -7,13 +7,13 @@ namespace AsusLaptop.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class product_isnew_cilumn : IMigrationMetadata
+    public sealed partial class initdb : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(product_isnew_cilumn));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initdb));
         
         string IMigrationMetadata.Id
         {
-            get { return "201905130622030_product_isnew_cilumn"; }
+            get { return "201907281502562_initdb"; }
         }
         
         string IMigrationMetadata.Source
